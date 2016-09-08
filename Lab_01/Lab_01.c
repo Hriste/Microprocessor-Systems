@@ -11,15 +11,6 @@
 #define EXTCLK      22118400            // External oscillator frequency in Hz
 #define SYSCLK      49766400            // Output of PLL derived from (EXTCLK * 9/4)
 #define BAUDRATE    115200              // UART baud rate in bps
-//__sbit __at 0xA0 IN1;
-//__sbit __at 0xA1 IN2;
-//__sbit __at 0xA2 IN3;
-//__sbit __at 0xA3 IN4;
-//__sbit __at 0xB2 O1;
-//__sbit __at 0xB5 O2;
-//__sbit __at 0xB7 O3;
-//__sbit __at 0xB0 O4;
-char i;
 //------------------------------------------------------------------------------------
 // Function Prototypes
 //------------------------------------------------------------------------------------
@@ -56,7 +47,7 @@ void main(void)
 	{
 		Hardware();	
 		printf("\033[0;33;44m"); //foregground to yellow, background to blue
-		choice = getchar(); // Set choice to user input
+		choice = getchar(); // Set choice to user input //comment out for LED functionality
 
 		if (choice == 0x1B) { // if choice is the <ESC> key...
 			printf("[2J"); //clear screen
@@ -98,7 +89,7 @@ void main(void)
 ////
  void STARTUP(void)
  {
-	i = 0;
+//	i = 0;
 	
 	printf("\033[1B"); //moves the curser to the second row
 	printf("\033[12C"); // centers text (terminal window 40col wide, text 42col long)
@@ -166,7 +157,6 @@ void PORT_INIT(void)
 
 	P2MDOUT |= 0xFF; // Set port 2 to output (all bits?)
 	P2 &= 0x00; // set to high impedence
-
 	P1MDOUT &= 0x00;
 	P1MDIN |= 0xFF;
 	//P1 = 0xFF;
@@ -206,10 +196,5 @@ void UART0_INIT(void)
 
 
 void Hardware(void){
-//	P2 = 0x00;
-	//IN1 = O1;
-	//IN2 = O2;
-	//IN3 = O3;
-	//IN4 = O4;
-	P2 = 0x03;
+	P2 = P1;
 }
