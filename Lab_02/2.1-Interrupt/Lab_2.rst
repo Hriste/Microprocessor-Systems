@@ -1,7 +1,7 @@
                                       1 ;--------------------------------------------------------
                                       2 ; File Created by SDCC : free open source ANSI-C Compiler
                                       3 ; Version 3.4.0 #8981 (Apr  5 2014) (MINGW32)
-                                      4 ; This file was generated Sun Sep 11 13:26:47 2016
+                                      4 ; This file was generated Mon Sep 12 19:26:24 2016
                                       5 ;--------------------------------------------------------
                                       6 	.module Lab_2
                                       7 	.optsdcc -mmcs51 --model-small
@@ -1249,7 +1249,7 @@
                                    1249 	.area HOME    (CODE)
       000000                       1250 __interrupt_vect:
       000000 02 00 09         [24] 1251 	ljmp	__sdcc_gsinit_startup
-      000003 02 00 D4         [24] 1252 	ljmp	_SW2_ISR
+      000003 02 01 08         [24] 1252 	ljmp	_SW2_ISR
                                    1253 ;--------------------------------------------------------
                                    1254 ; global & static initialisations
                                    1255 ;--------------------------------------------------------
@@ -1263,8 +1263,8 @@
                                    1263 	.globl __mcs51_genXINIT
                                    1264 	.globl __mcs51_genXRAMCLEAR
                                    1265 	.globl __mcs51_genRAMCLEAR
-                           000000  1266 	C$Lab_2.c$22$1$34 ==.
-                                   1267 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\Lab_2.c:22: __bit SW2press = 0;
+                           000000  1266 	C$Lab_2.c$22$1$35 ==.
+                                   1267 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:22: __bit SW2press = 0;
       000062 C2 00            [12] 1268 	clr	_SW2press
                                    1269 	.area GSFINAL (CODE)
       000064 02 00 06         [24] 1270 	ljmp	__sdcc_program_startup
@@ -1287,7 +1287,7 @@
                                    1287 ;------------------------------------------------------------
                            000000  1288 	G$putchar$0$0 ==.
                            000000  1289 	C$putget.h$18$0$0 ==.
-                                   1290 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\/putget.h:18: void putchar(char c)
+                                   1290 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\/putget.h:18: void putchar(char c)
                                    1291 ;	-----------------------------------------
                                    1292 ;	 function putchar
                                    1293 ;	-----------------------------------------
@@ -1302,15 +1302,15 @@
                            000000  1302 	ar0 = 0x00
       000067 AF 82            [24] 1303 	mov	r7,dpl
                            000002  1304 	C$putget.h$20$1$16 ==.
-                                   1305 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\/putget.h:20: while(!TI0); 
+                                   1305 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\/putget.h:20: while(!TI0); 
       000069                       1306 00101$:
                            000002  1307 	C$putget.h$21$1$16 ==.
-                                   1308 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\/putget.h:21: TI0=0;
+                                   1308 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\/putget.h:21: TI0=0;
       000069 10 99 02         [24] 1309 	jbc	_TI0,00112$
       00006C 80 FB            [24] 1310 	sjmp	00101$
       00006E                       1311 00112$:
                            000007  1312 	C$putget.h$22$1$16 ==.
-                                   1313 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\/putget.h:22: SBUF0 = c;
+                                   1313 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\/putget.h:22: SBUF0 = c;
       00006E 8F 99            [24] 1314 	mov	_SBUF0,r7
                            000009  1315 	C$putget.h$23$1$16 ==.
                            000009  1316 	XG$putchar$0$0 ==.
@@ -1322,24 +1322,24 @@
                                    1322 ;------------------------------------------------------------
                            00000A  1323 	G$getchar$0$0 ==.
                            00000A  1324 	C$putget.h$28$1$16 ==.
-                                   1325 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\/putget.h:28: char getchar(void)
+                                   1325 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\/putget.h:28: char getchar(void)
                                    1326 ;	-----------------------------------------
                                    1327 ;	 function getchar
                                    1328 ;	-----------------------------------------
       000071                       1329 _getchar:
                            00000A  1330 	C$putget.h$31$1$18 ==.
-                                   1331 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\/putget.h:31: while(!RI0);
+                                   1331 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\/putget.h:31: while(!RI0);
       000071                       1332 00101$:
                            00000A  1333 	C$putget.h$32$1$18 ==.
-                                   1334 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\/putget.h:32: RI0 =0;
+                                   1334 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\/putget.h:32: RI0 =0;
       000071 10 98 02         [24] 1335 	jbc	_RI0,00112$
       000074 80 FB            [24] 1336 	sjmp	00101$
       000076                       1337 00112$:
                            00000F  1338 	C$putget.h$33$1$18 ==.
-                                   1339 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\/putget.h:33: c = SBUF0;
+                                   1339 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\/putget.h:33: c = SBUF0;
       000076 E5 99            [12] 1340 	mov	a,_SBUF0
                            000011  1341 	C$putget.h$36$1$18 ==.
-                                   1342 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\/putget.h:36: return SBUF0;
+                                   1342 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\/putget.h:36: return SBUF0;
       000078 85 99 82         [24] 1343 	mov	dpl,_SBUF0
                            000014  1344 	C$putget.h$37$1$18 ==.
                            000014  1345 	XG$getchar$0$0 ==.
@@ -1349,335 +1349,386 @@
                                    1349 ;------------------------------------------------------------
                            000015  1350 	G$main$0$0 ==.
                            000015  1351 	C$Lab_2.c$35$1$18 ==.
-                                   1352 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\Lab_2.c:35: void main (void)
+                                   1352 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:35: void main (void)
                                    1353 ;	-----------------------------------------
                                    1354 ;	 function main
                                    1355 ;	-----------------------------------------
       00007C                       1356 _main:
                            000015  1357 	C$Lab_2.c$43$1$25 ==.
-                                   1358 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\Lab_2.c:43: SFRPAGE = CONFIG_PAGE;
+                                   1358 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:43: SFRPAGE = CONFIG_PAGE;
       00007C 75 84 0F         [24] 1359 	mov	_SFRPAGE,#0x0F
                            000018  1360 	C$Lab_2.c$45$1$25 ==.
-                                   1361 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\Lab_2.c:45: PORT_INIT();                // Configure the Crossbar and GPIO.
-      00007F 12 00 D7         [24] 1362 	lcall	_PORT_INIT
+                                   1361 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:45: PORT_INIT();                // Configure the Crossbar and GPIO.
+      00007F 12 01 0B         [24] 1362 	lcall	_PORT_INIT
                            00001B  1363 	C$Lab_2.c$46$1$25 ==.
-                                   1364 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\Lab_2.c:46: SYSCLK_INIT();              // Initialize the oscillator.
-      000082 12 00 F6         [24] 1365 	lcall	_SYSCLK_INIT
+                                   1364 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:46: SYSCLK_INIT();              // Initialize the oscillator.
+      000082 12 01 2A         [24] 1365 	lcall	_SYSCLK_INIT
                            00001E  1366 	C$Lab_2.c$47$1$25 ==.
-                                   1367 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\Lab_2.c:47: UART0_INIT();               // Initialize UART0.
-      000085 12 01 4C         [24] 1368 	lcall	_UART0_INIT
+                                   1367 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:47: UART0_INIT();               // Initialize UART0.
+      000085 12 01 80         [24] 1368 	lcall	_UART0_INIT
                            000021  1369 	C$Lab_2.c$49$1$25 ==.
-                                   1370 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\Lab_2.c:49: SFRPAGE = LEGACY_PAGE;
+                                   1370 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:49: SFRPAGE = LEGACY_PAGE;
       000088 75 84 00         [24] 1371 	mov	_SFRPAGE,#0x00
                            000024  1372 	C$Lab_2.c$50$1$25 ==.
-                                   1373 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\Lab_2.c:50: IT0     = 1;                // /INT0 is edge triggered, falling-edge.
+                                   1373 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:50: IT0     = 1;                // /INT0 is edge triggered, falling-edge.
       00008B D2 88            [12] 1374 	setb	_IT0
-                           000026  1375 	C$Lab_2.c$54$1$25 ==.
-                                   1376 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\Lab_2.c:54: printf("\033[2J");          // Erase screen and move cursor to the home position.
-      00008D 74 AC            [12] 1377 	mov	a,#___str_0
-      00008F C0 E0            [24] 1378 	push	acc
-      000091 74 07            [12] 1379 	mov	a,#(___str_0 >> 8)
-      000093 C0 E0            [24] 1380 	push	acc
-      000095 74 80            [12] 1381 	mov	a,#0x80
-      000097 C0 E0            [24] 1382 	push	acc
-      000099 12 01 98         [24] 1383 	lcall	_printf
-      00009C 15 81            [12] 1384 	dec	sp
-      00009E 15 81            [12] 1385 	dec	sp
-      0000A0 15 81            [12] 1386 	dec	sp
-                           00003B  1387 	C$Lab_2.c$55$1$25 ==.
-                                   1388 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\Lab_2.c:55: printf("MPS Interrupt Switch Test\n\n\r");
-      0000A2 74 B1            [12] 1389 	mov	a,#___str_1
-      0000A4 C0 E0            [24] 1390 	push	acc
-      0000A6 74 07            [12] 1391 	mov	a,#(___str_1 >> 8)
-      0000A8 C0 E0            [24] 1392 	push	acc
-      0000AA 74 80            [12] 1393 	mov	a,#0x80
-      0000AC C0 E0            [24] 1394 	push	acc
-      0000AE 12 01 98         [24] 1395 	lcall	_printf
-      0000B1 15 81            [12] 1396 	dec	sp
-      0000B3 15 81            [12] 1397 	dec	sp
-      0000B5 15 81            [12] 1398 	dec	sp
-                           000050  1399 	C$Lab_2.c$56$1$25 ==.
-                                   1400 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\Lab_2.c:56: printf("Ground /INT0 on P0.2 to generate an interrupt.\n\n\r");
-      0000B7 74 CE            [12] 1401 	mov	a,#___str_2
-      0000B9 C0 E0            [24] 1402 	push	acc
-      0000BB 74 07            [12] 1403 	mov	a,#(___str_2 >> 8)
-      0000BD C0 E0            [24] 1404 	push	acc
-      0000BF 74 80            [12] 1405 	mov	a,#0x80
-      0000C1 C0 E0            [24] 1406 	push	acc
-      0000C3 12 01 98         [24] 1407 	lcall	_printf
-      0000C6 15 81            [12] 1408 	dec	sp
-      0000C8 15 81            [12] 1409 	dec	sp
-      0000CA 15 81            [12] 1410 	dec	sp
-                           000065  1411 	C$Lab_2.c$58$1$25 ==.
-                                   1412 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\Lab_2.c:58: SFRPAGE = CONFIG_PAGE;
-      0000CC 75 84 0F         [24] 1413 	mov	_SFRPAGE,#0x0F
-                           000068  1414 	C$Lab_2.c$59$1$25 ==.
-                                   1415 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\Lab_2.c:59: EX0     = 1;                // Enable Ext Int 0 only after everything is settled.
-      0000CF D2 A8            [12] 1416 	setb	_EX0
-                           00006A  1417 	C$Lab_2.c$61$1$25 ==.
-                                   1418 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\Lab_2.c:61: while (1)                   // No need to set UART0_PAGE
-      0000D1                       1419 00102$:
-      0000D1 80 FE            [24] 1420 	sjmp	00102$
-                           00006C  1421 	C$Lab_2.c$64$1$25 ==.
-                           00006C  1422 	XG$main$0$0 ==.
-      0000D3 22               [24] 1423 	ret
-                                   1424 ;------------------------------------------------------------
-                                   1425 ;Allocation info for local variables in function 'SW2_ISR'
-                                   1426 ;------------------------------------------------------------
-                           00006D  1427 	G$SW2_ISR$0$0 ==.
-                           00006D  1428 	C$Lab_2.c$71$1$25 ==.
-                                   1429 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\Lab_2.c:71: void SW2_ISR (void) __interrupt 0   // Interrupt 0 corresponds to vector address 0003h.
-                                   1430 ;	-----------------------------------------
-                                   1431 ;	 function SW2_ISR
-                                   1432 ;	-----------------------------------------
-      0000D4                       1433 _SW2_ISR:
-                           00006D  1434 	C$Lab_2.c$75$1$28 ==.
-                                   1435 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\Lab_2.c:75: SW2press=1;
-      0000D4 D2 00            [12] 1436 	setb	_SW2press
-                           00006F  1437 	C$Lab_2.c$76$1$28 ==.
-                           00006F  1438 	XG$SW2_ISR$0$0 ==.
-      0000D6 32               [24] 1439 	reti
-                                   1440 ;	eliminated unneeded mov psw,# (no regs used in bank)
-                                   1441 ;	eliminated unneeded push/pop psw
-                                   1442 ;	eliminated unneeded push/pop dpl
-                                   1443 ;	eliminated unneeded push/pop dph
-                                   1444 ;	eliminated unneeded push/pop b
-                                   1445 ;	eliminated unneeded push/pop acc
-                                   1446 ;------------------------------------------------------------
-                                   1447 ;Allocation info for local variables in function 'PORT_INIT'
-                                   1448 ;------------------------------------------------------------
-                                   1449 ;SFRPAGE_SAVE              Allocated to registers r7 
-                                   1450 ;------------------------------------------------------------
-                           000070  1451 	G$PORT_INIT$0$0 ==.
-                           000070  1452 	C$Lab_2.c$84$1$28 ==.
-                                   1453 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\Lab_2.c:84: void PORT_INIT(void)
-                                   1454 ;	-----------------------------------------
-                                   1455 ;	 function PORT_INIT
-                                   1456 ;	-----------------------------------------
-      0000D7                       1457 _PORT_INIT:
-                           000070  1458 	C$Lab_2.c$88$1$30 ==.
-                                   1459 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\Lab_2.c:88: SFRPAGE_SAVE = SFRPAGE;     // Save Current SFR page.
-      0000D7 AF 84            [24] 1460 	mov	r7,_SFRPAGE
-                           000072  1461 	C$Lab_2.c$90$1$30 ==.
-                                   1462 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\Lab_2.c:90: SFRPAGE = CONFIG_PAGE;
-      0000D9 75 84 0F         [24] 1463 	mov	_SFRPAGE,#0x0F
-                           000075  1464 	C$Lab_2.c$91$1$30 ==.
-                                   1465 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\Lab_2.c:91: WDTCN   = 0xDE;             // Disable watchdog timer.
-      0000DC 75 FF DE         [24] 1466 	mov	_WDTCN,#0xDE
-                           000078  1467 	C$Lab_2.c$92$1$30 ==.
-                                   1468 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\Lab_2.c:92: WDTCN   = 0xAD;
-      0000DF 75 FF AD         [24] 1469 	mov	_WDTCN,#0xAD
-                           00007B  1470 	C$Lab_2.c$93$1$30 ==.
-                                   1471 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\Lab_2.c:93: EA      = 1;                // Enable interrupts as selected.
-      0000E2 D2 AF            [12] 1472 	setb	_EA
-                           00007D  1473 	C$Lab_2.c$95$1$30 ==.
-                                   1474 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\Lab_2.c:95: XBR0    = 0x04;             // Enable UART0.
-      0000E4 75 E1 04         [24] 1475 	mov	_XBR0,#0x04
-                           000080  1476 	C$Lab_2.c$96$1$30 ==.
-                                   1477 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\Lab_2.c:96: XBR1    = 0x04;             // /INT0 routed to port pin.
-      0000E7 75 E2 04         [24] 1478 	mov	_XBR1,#0x04
-                           000083  1479 	C$Lab_2.c$97$1$30 ==.
-                                   1480 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\Lab_2.c:97: XBR2    = 0x40;             // Enable Crossbar and weak pull-ups.
-      0000EA 75 E3 40         [24] 1481 	mov	_XBR2,#0x40
-                           000086  1482 	C$Lab_2.c$99$1$30 ==.
-                                   1483 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\Lab_2.c:99: P0MDOUT = 0x01;             // P0.0 (TX0) is configured as Push-Pull for output.
-      0000ED 75 A4 01         [24] 1484 	mov	_P0MDOUT,#0x01
-                           000089  1485 	C$Lab_2.c$102$1$30 ==.
-                                   1486 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\Lab_2.c:102: P0      = 0x06;             // Additionally, set P0.0=0, P0.1=1, and P0.2=1.
-      0000F0 75 80 06         [24] 1487 	mov	_P0,#0x06
-                           00008C  1488 	C$Lab_2.c$104$1$30 ==.
-                                   1489 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\Lab_2.c:104: SFRPAGE = SFRPAGE_SAVE;     // Restore SFR page.
-      0000F3 8F 84            [24] 1490 	mov	_SFRPAGE,r7
-                           00008E  1491 	C$Lab_2.c$105$1$30 ==.
-                           00008E  1492 	XG$PORT_INIT$0$0 ==.
-      0000F5 22               [24] 1493 	ret
-                                   1494 ;------------------------------------------------------------
-                                   1495 ;Allocation info for local variables in function 'SYSCLK_INIT'
-                                   1496 ;------------------------------------------------------------
-                                   1497 ;i                         Allocated to registers r5 r6 
-                                   1498 ;SFRPAGE_SAVE              Allocated to registers r7 
-                                   1499 ;------------------------------------------------------------
-                           00008F  1500 	G$SYSCLK_INIT$0$0 ==.
-                           00008F  1501 	C$Lab_2.c$113$1$30 ==.
-                                   1502 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\Lab_2.c:113: void SYSCLK_INIT(void)
-                                   1503 ;	-----------------------------------------
-                                   1504 ;	 function SYSCLK_INIT
-                                   1505 ;	-----------------------------------------
-      0000F6                       1506 _SYSCLK_INIT:
-                           00008F  1507 	C$Lab_2.c$119$1$32 ==.
-                                   1508 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\Lab_2.c:119: SFRPAGE_SAVE = SFRPAGE;     // Save Current SFR page.
-      0000F6 AF 84            [24] 1509 	mov	r7,_SFRPAGE
-                           000091  1510 	C$Lab_2.c$121$1$32 ==.
-                                   1511 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\Lab_2.c:121: SFRPAGE = CONFIG_PAGE;
-      0000F8 75 84 0F         [24] 1512 	mov	_SFRPAGE,#0x0F
-                           000094  1513 	C$Lab_2.c$122$1$32 ==.
-                                   1514 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\Lab_2.c:122: OSCXCN  = 0x67;             // Start external oscillator
-      0000FB 75 8C 67         [24] 1515 	mov	_OSCXCN,#0x67
-                           000097  1516 	C$Lab_2.c$123$1$32 ==.
-                                   1517 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\Lab_2.c:123: for(i=0; i < 256; i++);     // Wait for the oscillator to start up.
-      0000FE 7D 00            [12] 1518 	mov	r5,#0x00
-      000100 7E 01            [12] 1519 	mov	r6,#0x01
-      000102                       1520 00111$:
-      000102 1D               [12] 1521 	dec	r5
-      000103 BD FF 01         [24] 1522 	cjne	r5,#0xFF,00141$
-      000106 1E               [12] 1523 	dec	r6
-      000107                       1524 00141$:
-      000107 ED               [12] 1525 	mov	a,r5
-      000108 4E               [12] 1526 	orl	a,r6
-      000109 70 F7            [24] 1527 	jnz	00111$
-                           0000A4  1528 	C$Lab_2.c$124$1$32 ==.
-                                   1529 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\Lab_2.c:124: while(!(OSCXCN & 0x80));    // Check to see if the Crystal Oscillator Valid Flag is set.
-      00010B                       1530 00102$:
-      00010B E5 8C            [12] 1531 	mov	a,_OSCXCN
-      00010D 30 E7 FB         [24] 1532 	jnb	acc.7,00102$
-                           0000A9  1533 	C$Lab_2.c$125$1$32 ==.
-                                   1534 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\Lab_2.c:125: CLKSEL  = 0x01;             // SYSCLK derived from the External Oscillator circuit.
-      000110 75 97 01         [24] 1535 	mov	_CLKSEL,#0x01
-                           0000AC  1536 	C$Lab_2.c$126$1$32 ==.
-                                   1537 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\Lab_2.c:126: OSCICN  = 0x00;             // Disable the internal oscillator.
-      000113 75 8A 00         [24] 1538 	mov	_OSCICN,#0x00
-                           0000AF  1539 	C$Lab_2.c$128$1$32 ==.
-                                   1540 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\Lab_2.c:128: SFRPAGE = CONFIG_PAGE;
-      000116 75 84 0F         [24] 1541 	mov	_SFRPAGE,#0x0F
-                           0000B2  1542 	C$Lab_2.c$129$1$32 ==.
-                                   1543 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\Lab_2.c:129: PLL0CN  = 0x04;
-      000119 75 89 04         [24] 1544 	mov	_PLL0CN,#0x04
-                           0000B5  1545 	C$Lab_2.c$130$1$32 ==.
-                                   1546 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\Lab_2.c:130: SFRPAGE = LEGACY_PAGE;
-      00011C 75 84 00         [24] 1547 	mov	_SFRPAGE,#0x00
-                           0000B8  1548 	C$Lab_2.c$131$1$32 ==.
-                                   1549 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\Lab_2.c:131: FLSCL   = 0x10;
-      00011F 75 B7 10         [24] 1550 	mov	_FLSCL,#0x10
-                           0000BB  1551 	C$Lab_2.c$132$1$32 ==.
-                                   1552 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\Lab_2.c:132: SFRPAGE = CONFIG_PAGE;
-      000122 75 84 0F         [24] 1553 	mov	_SFRPAGE,#0x0F
-                           0000BE  1554 	C$Lab_2.c$133$1$32 ==.
-                                   1555 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\Lab_2.c:133: PLL0CN |= 0x01;
-      000125 43 89 01         [24] 1556 	orl	_PLL0CN,#0x01
-                           0000C1  1557 	C$Lab_2.c$134$1$32 ==.
-                                   1558 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\Lab_2.c:134: PLL0DIV = 0x04;
-      000128 75 8D 04         [24] 1559 	mov	_PLL0DIV,#0x04
-                           0000C4  1560 	C$Lab_2.c$135$1$32 ==.
-                                   1561 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\Lab_2.c:135: PLL0FLT = 0x01;
-      00012B 75 8F 01         [24] 1562 	mov	_PLL0FLT,#0x01
-                           0000C7  1563 	C$Lab_2.c$136$1$32 ==.
-                                   1564 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\Lab_2.c:136: PLL0MUL = 0x09;
-      00012E 75 8E 09         [24] 1565 	mov	_PLL0MUL,#0x09
-                           0000CA  1566 	C$Lab_2.c$137$1$32 ==.
-                                   1567 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\Lab_2.c:137: for(i=0; i < 256; i++);
-      000131 7D 00            [12] 1568 	mov	r5,#0x00
-      000133 7E 01            [12] 1569 	mov	r6,#0x01
-      000135                       1570 00114$:
-      000135 1D               [12] 1571 	dec	r5
-      000136 BD FF 01         [24] 1572 	cjne	r5,#0xFF,00144$
-      000139 1E               [12] 1573 	dec	r6
-      00013A                       1574 00144$:
-      00013A ED               [12] 1575 	mov	a,r5
-      00013B 4E               [12] 1576 	orl	a,r6
-      00013C 70 F7            [24] 1577 	jnz	00114$
-                           0000D7  1578 	C$Lab_2.c$138$1$32 ==.
-                                   1579 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\Lab_2.c:138: PLL0CN |= 0x02;
-      00013E 43 89 02         [24] 1580 	orl	_PLL0CN,#0x02
-                           0000DA  1581 	C$Lab_2.c$139$1$32 ==.
-                                   1582 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\Lab_2.c:139: while(!(PLL0CN & 0x10));
-      000141                       1583 00106$:
-      000141 E5 89            [12] 1584 	mov	a,_PLL0CN
-      000143 30 E4 FB         [24] 1585 	jnb	acc.4,00106$
-                           0000DF  1586 	C$Lab_2.c$140$1$32 ==.
-                                   1587 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\Lab_2.c:140: CLKSEL  = 0x02;             // SYSCLK derived from the PLL.
-      000146 75 97 02         [24] 1588 	mov	_CLKSEL,#0x02
-                           0000E2  1589 	C$Lab_2.c$142$1$32 ==.
-                                   1590 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\Lab_2.c:142: SFRPAGE = SFRPAGE_SAVE;     // Restore SFR page.
-      000149 8F 84            [24] 1591 	mov	_SFRPAGE,r7
-                           0000E4  1592 	C$Lab_2.c$143$1$32 ==.
-                           0000E4  1593 	XG$SYSCLK_INIT$0$0 ==.
-      00014B 22               [24] 1594 	ret
-                                   1595 ;------------------------------------------------------------
-                                   1596 ;Allocation info for local variables in function 'UART0_INIT'
-                                   1597 ;------------------------------------------------------------
-                                   1598 ;SFRPAGE_SAVE              Allocated to registers r7 
-                                   1599 ;------------------------------------------------------------
-                           0000E5  1600 	G$UART0_INIT$0$0 ==.
-                           0000E5  1601 	C$Lab_2.c$151$1$32 ==.
-                                   1602 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\Lab_2.c:151: void UART0_INIT(void)
-                                   1603 ;	-----------------------------------------
-                                   1604 ;	 function UART0_INIT
-                                   1605 ;	-----------------------------------------
-      00014C                       1606 _UART0_INIT:
-                           0000E5  1607 	C$Lab_2.c$155$1$34 ==.
-                                   1608 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\Lab_2.c:155: SFRPAGE_SAVE = SFRPAGE;     // Save Current SFR page.
-      00014C AF 84            [24] 1609 	mov	r7,_SFRPAGE
-                           0000E7  1610 	C$Lab_2.c$157$1$34 ==.
-                                   1611 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\Lab_2.c:157: SFRPAGE = TIMER01_PAGE;
-      00014E 75 84 00         [24] 1612 	mov	_SFRPAGE,#0x00
-                           0000EA  1613 	C$Lab_2.c$158$1$34 ==.
-                                   1614 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\Lab_2.c:158: TMOD   &= ~0xF0;
-      000151 AE 89            [24] 1615 	mov	r6,_TMOD
-      000153 74 0F            [12] 1616 	mov	a,#0x0F
-      000155 5E               [12] 1617 	anl	a,r6
-      000156 F5 89            [12] 1618 	mov	_TMOD,a
-                           0000F1  1619 	C$Lab_2.c$159$1$34 ==.
-                                   1620 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\Lab_2.c:159: TMOD   |=  0x20;            // Timer1, Mode 2: 8-bit counter/timer with auto-reload.
-      000158 43 89 20         [24] 1621 	orl	_TMOD,#0x20
-                           0000F4  1622 	C$Lab_2.c$160$1$34 ==.
-                                   1623 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\Lab_2.c:160: TH1     = (unsigned char)-(SYSCLK/BAUDRATE/16); // Set Timer1 reload value for baudrate
-      00015B 75 8D E5         [24] 1624 	mov	_TH1,#0xE5
-                           0000F7  1625 	C$Lab_2.c$161$1$34 ==.
-                                   1626 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\Lab_2.c:161: CKCON  |= 0x10;             // Timer1 uses SYSCLK as time base.
-      00015E 43 8E 10         [24] 1627 	orl	_CKCON,#0x10
-                           0000FA  1628 	C$Lab_2.c$162$1$34 ==.
-                                   1629 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\Lab_2.c:162: TL1     = TH1;
-      000161 85 8D 8B         [24] 1630 	mov	_TL1,_TH1
-                           0000FD  1631 	C$Lab_2.c$163$1$34 ==.
-                                   1632 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\Lab_2.c:163: TR1     = 1;                // Start Timer1.
-      000164 D2 8E            [12] 1633 	setb	_TR1
-                           0000FF  1634 	C$Lab_2.c$165$1$34 ==.
-                                   1635 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\Lab_2.c:165: SFRPAGE = UART0_PAGE;
-      000166 75 84 00         [24] 1636 	mov	_SFRPAGE,#0x00
-                           000102  1637 	C$Lab_2.c$166$1$34 ==.
-                                   1638 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\Lab_2.c:166: SCON0   = 0x50;             // Set Mode 1: 8-Bit UART
-      000169 75 98 50         [24] 1639 	mov	_SCON0,#0x50
-                           000105  1640 	C$Lab_2.c$167$1$34 ==.
-                                   1641 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\Lab_2.c:167: SSTA0   = 0x10;             // UART0 baud rate divide-by-two disabled (SMOD0 = 1).
-      00016C 75 91 10         [24] 1642 	mov	_SSTA0,#0x10
-                           000108  1643 	C$Lab_2.c$168$1$34 ==.
-                                   1644 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\Lab_2.c:168: TI0     = 1;                // Indicate TX0 ready.
-      00016F D2 99            [12] 1645 	setb	_TI0
-                           00010A  1646 	C$Lab_2.c$170$1$34 ==.
-                                   1647 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\Lab_2.c:170: SFRPAGE = SFRPAGE_SAVE;     // Restore SFR page.
-      000171 8F 84            [24] 1648 	mov	_SFRPAGE,r7
-                           00010C  1649 	C$Lab_2.c$171$1$34 ==.
-                           00010C  1650 	XG$UART0_INIT$0$0 ==.
-      000173 22               [24] 1651 	ret
-                                   1652 	.area CSEG    (CODE)
-                                   1653 	.area CONST   (CODE)
-                           000000  1654 FLab_2$__str_0$0$0 == .
-      0007AC                       1655 ___str_0:
-      0007AC 1B                    1656 	.db 0x1B
-      0007AD 5B 32 4A              1657 	.ascii "[2J"
-      0007B0 00                    1658 	.db 0x00
-                           000005  1659 FLab_2$__str_1$0$0 == .
-      0007B1                       1660 ___str_1:
-      0007B1 4D 50 53 20 49 6E 74  1661 	.ascii "MPS Interrupt Switch Test"
+                           000026  1375 	C$Lab_2.c$51$1$25 ==.
+                                   1376 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:51: TR0 = 0;
+      00008D C2 8C            [12] 1377 	clr	_TR0
+                           000028  1378 	C$Lab_2.c$54$1$25 ==.
+                                   1379 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:54: printf("\033[2J");          // Erase screen and move cursor to the home position.
+      00008F 74 E2            [12] 1380 	mov	a,#___str_0
+      000091 C0 E0            [24] 1381 	push	acc
+      000093 74 07            [12] 1382 	mov	a,#(___str_0 >> 8)
+      000095 C0 E0            [24] 1383 	push	acc
+      000097 74 80            [12] 1384 	mov	a,#0x80
+      000099 C0 E0            [24] 1385 	push	acc
+      00009B 12 01 CE         [24] 1386 	lcall	_printf
+      00009E 15 81            [12] 1387 	dec	sp
+      0000A0 15 81            [12] 1388 	dec	sp
+      0000A2 15 81            [12] 1389 	dec	sp
+                           00003D  1390 	C$Lab_2.c$55$1$25 ==.
+                                   1391 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:55: printf("\033[0m");
+      0000A4 74 E7            [12] 1392 	mov	a,#___str_1
+      0000A6 C0 E0            [24] 1393 	push	acc
+      0000A8 74 07            [12] 1394 	mov	a,#(___str_1 >> 8)
+      0000AA C0 E0            [24] 1395 	push	acc
+      0000AC 74 80            [12] 1396 	mov	a,#0x80
+      0000AE C0 E0            [24] 1397 	push	acc
+      0000B0 12 01 CE         [24] 1398 	lcall	_printf
+      0000B3 15 81            [12] 1399 	dec	sp
+      0000B5 15 81            [12] 1400 	dec	sp
+      0000B7 15 81            [12] 1401 	dec	sp
+                           000052  1402 	C$Lab_2.c$56$1$25 ==.
+                                   1403 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:56: printf("MPS Interrupt Switch Test\n\n\r");
+      0000B9 74 EC            [12] 1404 	mov	a,#___str_2
+      0000BB C0 E0            [24] 1405 	push	acc
+      0000BD 74 07            [12] 1406 	mov	a,#(___str_2 >> 8)
+      0000BF C0 E0            [24] 1407 	push	acc
+      0000C1 74 80            [12] 1408 	mov	a,#0x80
+      0000C3 C0 E0            [24] 1409 	push	acc
+      0000C5 12 01 CE         [24] 1410 	lcall	_printf
+      0000C8 15 81            [12] 1411 	dec	sp
+      0000CA 15 81            [12] 1412 	dec	sp
+      0000CC 15 81            [12] 1413 	dec	sp
+                           000067  1414 	C$Lab_2.c$57$1$25 ==.
+                                   1415 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:57: printf("Ground /INT0 on P0.2 to generate an interrupt.\n\n\r");
+      0000CE 74 09            [12] 1416 	mov	a,#___str_3
+      0000D0 C0 E0            [24] 1417 	push	acc
+      0000D2 74 08            [12] 1418 	mov	a,#(___str_3 >> 8)
+      0000D4 C0 E0            [24] 1419 	push	acc
+      0000D6 74 80            [12] 1420 	mov	a,#0x80
+      0000D8 C0 E0            [24] 1421 	push	acc
+      0000DA 12 01 CE         [24] 1422 	lcall	_printf
+      0000DD 15 81            [12] 1423 	dec	sp
+      0000DF 15 81            [12] 1424 	dec	sp
+      0000E1 15 81            [12] 1425 	dec	sp
+                           00007C  1426 	C$Lab_2.c$59$1$25 ==.
+                                   1427 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:59: SFRPAGE = CONFIG_PAGE;
+      0000E3 75 84 0F         [24] 1428 	mov	_SFRPAGE,#0x0F
+                           00007F  1429 	C$Lab_2.c$60$1$25 ==.
+                                   1430 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:60: EX0     = 1;                // Enable Ext Int 0 only after everything is settled.
+      0000E6 D2 A8            [12] 1431 	setb	_EX0
+                           000081  1432 	C$Lab_2.c$61$1$25 ==.
+                                   1433 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:61: SFRPAGE = LEGACY_PAGE;
+      0000E8 75 84 00         [24] 1434 	mov	_SFRPAGE,#0x00
+                           000084  1435 	C$Lab_2.c$62$1$25 ==.
+                                   1436 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:62: while (1)                   // No need to set UART0_PAGE
+      0000EB                       1437 00104$:
+                           000084  1438 	C$Lab_2.c$65$2$26 ==.
+                                   1439 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:65: if(SW2press ==1){printf("The Pushbutton Has Been Pressed !!!!\n\r");SW2press=0;}
+      0000EB 30 00 FD         [24] 1440 	jnb	_SW2press,00104$
+      0000EE 74 3B            [12] 1441 	mov	a,#___str_4
+      0000F0 C0 E0            [24] 1442 	push	acc
+      0000F2 74 08            [12] 1443 	mov	a,#(___str_4 >> 8)
+      0000F4 C0 E0            [24] 1444 	push	acc
+      0000F6 74 80            [12] 1445 	mov	a,#0x80
+      0000F8 C0 E0            [24] 1446 	push	acc
+      0000FA 12 01 CE         [24] 1447 	lcall	_printf
+      0000FD 15 81            [12] 1448 	dec	sp
+      0000FF 15 81            [12] 1449 	dec	sp
+      000101 15 81            [12] 1450 	dec	sp
+      000103 C2 00            [12] 1451 	clr	_SW2press
+      000105 80 E4            [24] 1452 	sjmp	00104$
+                           0000A0  1453 	C$Lab_2.c$67$1$25 ==.
+                           0000A0  1454 	XG$main$0$0 ==.
+      000107 22               [24] 1455 	ret
+                                   1456 ;------------------------------------------------------------
+                                   1457 ;Allocation info for local variables in function 'SW2_ISR'
+                                   1458 ;------------------------------------------------------------
+                           0000A1  1459 	G$SW2_ISR$0$0 ==.
+                           0000A1  1460 	C$Lab_2.c$74$1$25 ==.
+                                   1461 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:74: void SW2_ISR (void) __interrupt 0   // Interrupt 0 corresponds to vector address 0003h.
+                                   1462 ;	-----------------------------------------
+                                   1463 ;	 function SW2_ISR
+                                   1464 ;	-----------------------------------------
+      000108                       1465 _SW2_ISR:
+                           0000A1  1466 	C$Lab_2.c$79$1$29 ==.
+                                   1467 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:79: SW2press=1;
+      000108 D2 00            [12] 1468 	setb	_SW2press
+                           0000A3  1469 	C$Lab_2.c$80$1$29 ==.
+                           0000A3  1470 	XG$SW2_ISR$0$0 ==.
+      00010A 32               [24] 1471 	reti
+                                   1472 ;	eliminated unneeded mov psw,# (no regs used in bank)
+                                   1473 ;	eliminated unneeded push/pop psw
+                                   1474 ;	eliminated unneeded push/pop dpl
+                                   1475 ;	eliminated unneeded push/pop dph
+                                   1476 ;	eliminated unneeded push/pop b
+                                   1477 ;	eliminated unneeded push/pop acc
+                                   1478 ;------------------------------------------------------------
+                                   1479 ;Allocation info for local variables in function 'PORT_INIT'
+                                   1480 ;------------------------------------------------------------
+                                   1481 ;SFRPAGE_SAVE              Allocated to registers r7 
+                                   1482 ;------------------------------------------------------------
+                           0000A4  1483 	G$PORT_INIT$0$0 ==.
+                           0000A4  1484 	C$Lab_2.c$88$1$29 ==.
+                                   1485 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:88: void PORT_INIT(void)
+                                   1486 ;	-----------------------------------------
+                                   1487 ;	 function PORT_INIT
+                                   1488 ;	-----------------------------------------
+      00010B                       1489 _PORT_INIT:
+                           0000A4  1490 	C$Lab_2.c$92$1$31 ==.
+                                   1491 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:92: SFRPAGE_SAVE = SFRPAGE;     // Save Current SFR page.
+      00010B AF 84            [24] 1492 	mov	r7,_SFRPAGE
+                           0000A6  1493 	C$Lab_2.c$94$1$31 ==.
+                                   1494 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:94: SFRPAGE = CONFIG_PAGE;
+      00010D 75 84 0F         [24] 1495 	mov	_SFRPAGE,#0x0F
+                           0000A9  1496 	C$Lab_2.c$95$1$31 ==.
+                                   1497 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:95: WDTCN   = 0xDE;             // Disable watchdog timer.
+      000110 75 FF DE         [24] 1498 	mov	_WDTCN,#0xDE
+                           0000AC  1499 	C$Lab_2.c$96$1$31 ==.
+                                   1500 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:96: WDTCN   = 0xAD;
+      000113 75 FF AD         [24] 1501 	mov	_WDTCN,#0xAD
+                           0000AF  1502 	C$Lab_2.c$97$1$31 ==.
+                                   1503 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:97: EA      = 1;                // Enable interrupts as selected.
+      000116 D2 AF            [12] 1504 	setb	_EA
+                           0000B1  1505 	C$Lab_2.c$99$1$31 ==.
+                                   1506 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:99: XBR0    = 0x04;             // Enable UART0.
+      000118 75 E1 04         [24] 1507 	mov	_XBR0,#0x04
+                           0000B4  1508 	C$Lab_2.c$100$1$31 ==.
+                                   1509 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:100: XBR1    = 0x04;             // /INT0 routed to port pin.
+      00011B 75 E2 04         [24] 1510 	mov	_XBR1,#0x04
+                           0000B7  1511 	C$Lab_2.c$101$1$31 ==.
+                                   1512 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:101: XBR2    = 0x40;             // Enable Crossbar and weak pull-ups.
+      00011E 75 E3 40         [24] 1513 	mov	_XBR2,#0x40
+                           0000BA  1514 	C$Lab_2.c$103$1$31 ==.
+                                   1515 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:103: P0MDOUT = 0x01;             // P0.0 (TX0) is configured as Push-Pull for output.
+      000121 75 A4 01         [24] 1516 	mov	_P0MDOUT,#0x01
+                           0000BD  1517 	C$Lab_2.c$106$1$31 ==.
+                                   1518 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:106: P0      = 0x06;             // Additionally, set P0.0=0, P0.1=1, and P0.2=1.
+      000124 75 80 06         [24] 1519 	mov	_P0,#0x06
+                           0000C0  1520 	C$Lab_2.c$108$1$31 ==.
+                                   1521 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:108: SFRPAGE = SFRPAGE_SAVE;     // Restore SFR page.
+      000127 8F 84            [24] 1522 	mov	_SFRPAGE,r7
+                           0000C2  1523 	C$Lab_2.c$109$1$31 ==.
+                           0000C2  1524 	XG$PORT_INIT$0$0 ==.
+      000129 22               [24] 1525 	ret
+                                   1526 ;------------------------------------------------------------
+                                   1527 ;Allocation info for local variables in function 'SYSCLK_INIT'
+                                   1528 ;------------------------------------------------------------
+                                   1529 ;i                         Allocated to registers r5 r6 
+                                   1530 ;SFRPAGE_SAVE              Allocated to registers r7 
+                                   1531 ;------------------------------------------------------------
+                           0000C3  1532 	G$SYSCLK_INIT$0$0 ==.
+                           0000C3  1533 	C$Lab_2.c$117$1$31 ==.
+                                   1534 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:117: void SYSCLK_INIT(void)
+                                   1535 ;	-----------------------------------------
+                                   1536 ;	 function SYSCLK_INIT
+                                   1537 ;	-----------------------------------------
+      00012A                       1538 _SYSCLK_INIT:
+                           0000C3  1539 	C$Lab_2.c$123$1$33 ==.
+                                   1540 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:123: SFRPAGE_SAVE = SFRPAGE;     // Save Current SFR page.
+      00012A AF 84            [24] 1541 	mov	r7,_SFRPAGE
+                           0000C5  1542 	C$Lab_2.c$125$1$33 ==.
+                                   1543 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:125: SFRPAGE = CONFIG_PAGE;
+      00012C 75 84 0F         [24] 1544 	mov	_SFRPAGE,#0x0F
+                           0000C8  1545 	C$Lab_2.c$126$1$33 ==.
+                                   1546 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:126: OSCXCN  = 0x67;             // Start external oscillator
+      00012F 75 8C 67         [24] 1547 	mov	_OSCXCN,#0x67
+                           0000CB  1548 	C$Lab_2.c$127$1$33 ==.
+                                   1549 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:127: for(i=0; i < 256; i++);     // Wait for the oscillator to start up.
+      000132 7D 00            [12] 1550 	mov	r5,#0x00
+      000134 7E 01            [12] 1551 	mov	r6,#0x01
+      000136                       1552 00111$:
+      000136 1D               [12] 1553 	dec	r5
+      000137 BD FF 01         [24] 1554 	cjne	r5,#0xFF,00141$
+      00013A 1E               [12] 1555 	dec	r6
+      00013B                       1556 00141$:
+      00013B ED               [12] 1557 	mov	a,r5
+      00013C 4E               [12] 1558 	orl	a,r6
+      00013D 70 F7            [24] 1559 	jnz	00111$
+                           0000D8  1560 	C$Lab_2.c$128$1$33 ==.
+                                   1561 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:128: while(!(OSCXCN & 0x80));    // Check to see if the Crystal Oscillator Valid Flag is set.
+      00013F                       1562 00102$:
+      00013F E5 8C            [12] 1563 	mov	a,_OSCXCN
+      000141 30 E7 FB         [24] 1564 	jnb	acc.7,00102$
+                           0000DD  1565 	C$Lab_2.c$129$1$33 ==.
+                                   1566 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:129: CLKSEL  = 0x01;             // SYSCLK derived from the External Oscillator circuit.
+      000144 75 97 01         [24] 1567 	mov	_CLKSEL,#0x01
+                           0000E0  1568 	C$Lab_2.c$130$1$33 ==.
+                                   1569 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:130: OSCICN  = 0x00;             // Disable the internal oscillator.
+      000147 75 8A 00         [24] 1570 	mov	_OSCICN,#0x00
+                           0000E3  1571 	C$Lab_2.c$132$1$33 ==.
+                                   1572 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:132: SFRPAGE = CONFIG_PAGE;
+      00014A 75 84 0F         [24] 1573 	mov	_SFRPAGE,#0x0F
+                           0000E6  1574 	C$Lab_2.c$133$1$33 ==.
+                                   1575 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:133: PLL0CN  = 0x04;
+      00014D 75 89 04         [24] 1576 	mov	_PLL0CN,#0x04
+                           0000E9  1577 	C$Lab_2.c$134$1$33 ==.
+                                   1578 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:134: SFRPAGE = LEGACY_PAGE;
+      000150 75 84 00         [24] 1579 	mov	_SFRPAGE,#0x00
+                           0000EC  1580 	C$Lab_2.c$135$1$33 ==.
+                                   1581 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:135: FLSCL   = 0x10;
+      000153 75 B7 10         [24] 1582 	mov	_FLSCL,#0x10
+                           0000EF  1583 	C$Lab_2.c$136$1$33 ==.
+                                   1584 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:136: SFRPAGE = CONFIG_PAGE;
+      000156 75 84 0F         [24] 1585 	mov	_SFRPAGE,#0x0F
+                           0000F2  1586 	C$Lab_2.c$137$1$33 ==.
+                                   1587 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:137: PLL0CN |= 0x01;
+      000159 43 89 01         [24] 1588 	orl	_PLL0CN,#0x01
+                           0000F5  1589 	C$Lab_2.c$138$1$33 ==.
+                                   1590 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:138: PLL0DIV = 0x04;
+      00015C 75 8D 04         [24] 1591 	mov	_PLL0DIV,#0x04
+                           0000F8  1592 	C$Lab_2.c$139$1$33 ==.
+                                   1593 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:139: PLL0FLT = 0x01;
+      00015F 75 8F 01         [24] 1594 	mov	_PLL0FLT,#0x01
+                           0000FB  1595 	C$Lab_2.c$140$1$33 ==.
+                                   1596 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:140: PLL0MUL = 0x09;
+      000162 75 8E 09         [24] 1597 	mov	_PLL0MUL,#0x09
+                           0000FE  1598 	C$Lab_2.c$141$1$33 ==.
+                                   1599 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:141: for(i=0; i < 256; i++);
+      000165 7D 00            [12] 1600 	mov	r5,#0x00
+      000167 7E 01            [12] 1601 	mov	r6,#0x01
+      000169                       1602 00114$:
+      000169 1D               [12] 1603 	dec	r5
+      00016A BD FF 01         [24] 1604 	cjne	r5,#0xFF,00144$
+      00016D 1E               [12] 1605 	dec	r6
+      00016E                       1606 00144$:
+      00016E ED               [12] 1607 	mov	a,r5
+      00016F 4E               [12] 1608 	orl	a,r6
+      000170 70 F7            [24] 1609 	jnz	00114$
+                           00010B  1610 	C$Lab_2.c$142$1$33 ==.
+                                   1611 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:142: PLL0CN |= 0x02;
+      000172 43 89 02         [24] 1612 	orl	_PLL0CN,#0x02
+                           00010E  1613 	C$Lab_2.c$143$1$33 ==.
+                                   1614 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:143: while(!(PLL0CN & 0x10));
+      000175                       1615 00106$:
+      000175 E5 89            [12] 1616 	mov	a,_PLL0CN
+      000177 30 E4 FB         [24] 1617 	jnb	acc.4,00106$
+                           000113  1618 	C$Lab_2.c$144$1$33 ==.
+                                   1619 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:144: CLKSEL  = 0x02;             // SYSCLK derived from the PLL.
+      00017A 75 97 02         [24] 1620 	mov	_CLKSEL,#0x02
+                           000116  1621 	C$Lab_2.c$146$1$33 ==.
+                                   1622 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:146: SFRPAGE = SFRPAGE_SAVE;     // Restore SFR page.
+      00017D 8F 84            [24] 1623 	mov	_SFRPAGE,r7
+                           000118  1624 	C$Lab_2.c$147$1$33 ==.
+                           000118  1625 	XG$SYSCLK_INIT$0$0 ==.
+      00017F 22               [24] 1626 	ret
+                                   1627 ;------------------------------------------------------------
+                                   1628 ;Allocation info for local variables in function 'UART0_INIT'
+                                   1629 ;------------------------------------------------------------
+                                   1630 ;SFRPAGE_SAVE              Allocated to registers r7 
+                                   1631 ;------------------------------------------------------------
+                           000119  1632 	G$UART0_INIT$0$0 ==.
+                           000119  1633 	C$Lab_2.c$155$1$33 ==.
+                                   1634 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:155: void UART0_INIT(void)
+                                   1635 ;	-----------------------------------------
+                                   1636 ;	 function UART0_INIT
+                                   1637 ;	-----------------------------------------
+      000180                       1638 _UART0_INIT:
+                           000119  1639 	C$Lab_2.c$159$1$35 ==.
+                                   1640 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:159: SFRPAGE_SAVE = SFRPAGE;     // Save Current SFR page.
+      000180 AF 84            [24] 1641 	mov	r7,_SFRPAGE
+                           00011B  1642 	C$Lab_2.c$161$1$35 ==.
+                                   1643 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:161: SFRPAGE = TIMER01_PAGE;
+      000182 75 84 00         [24] 1644 	mov	_SFRPAGE,#0x00
+                           00011E  1645 	C$Lab_2.c$162$1$35 ==.
+                                   1646 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:162: TMOD   &= ~0xF0;
+      000185 AE 89            [24] 1647 	mov	r6,_TMOD
+      000187 74 0F            [12] 1648 	mov	a,#0x0F
+      000189 5E               [12] 1649 	anl	a,r6
+      00018A F5 89            [12] 1650 	mov	_TMOD,a
+                           000125  1651 	C$Lab_2.c$163$1$35 ==.
+                                   1652 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:163: TMOD   |=  0x20;            // Timer1, Mode 2: 8-bit counter/timer with auto-reload.
+      00018C 43 89 20         [24] 1653 	orl	_TMOD,#0x20
+                           000128  1654 	C$Lab_2.c$164$1$35 ==.
+                                   1655 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:164: TH1     = (unsigned char)-(SYSCLK/BAUDRATE/16); // Set Timer1 reload value for baudrate
+      00018F 75 8D E5         [24] 1656 	mov	_TH1,#0xE5
+                           00012B  1657 	C$Lab_2.c$165$1$35 ==.
+                                   1658 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:165: CKCON  |= 0x10;             // Timer1 uses SYSCLK as time base.
+      000192 43 8E 10         [24] 1659 	orl	_CKCON,#0x10
+                           00012E  1660 	C$Lab_2.c$166$1$35 ==.
+                                   1661 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:166: TL1     = TH1;
+      000195 85 8D 8B         [24] 1662 	mov	_TL1,_TH1
+                           000131  1663 	C$Lab_2.c$167$1$35 ==.
+                                   1664 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:167: TR1     = 1;                // Start Timer1.
+      000198 D2 8E            [12] 1665 	setb	_TR1
+                           000133  1666 	C$Lab_2.c$169$1$35 ==.
+                                   1667 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:169: SFRPAGE = UART0_PAGE;
+      00019A 75 84 00         [24] 1668 	mov	_SFRPAGE,#0x00
+                           000136  1669 	C$Lab_2.c$170$1$35 ==.
+                                   1670 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:170: SCON0   = 0x50;             // Set Mode 1: 8-Bit UART
+      00019D 75 98 50         [24] 1671 	mov	_SCON0,#0x50
+                           000139  1672 	C$Lab_2.c$171$1$35 ==.
+                                   1673 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:171: SSTA0   = 0x10;             // UART0 baud rate divide-by-two disabled (SMOD0 = 1).
+      0001A0 75 91 10         [24] 1674 	mov	_SSTA0,#0x10
+                           00013C  1675 	C$Lab_2.c$172$1$35 ==.
+                                   1676 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:172: TI0     = 1;                // Indicate TX0 ready.
+      0001A3 D2 99            [12] 1677 	setb	_TI0
+                           00013E  1678 	C$Lab_2.c$175$1$35 ==.
+                                   1679 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:175: TR0 = 0; // Turn timer 0 off to enable external inpu	
+      0001A5 C2 8C            [12] 1680 	clr	_TR0
+                           000140  1681 	C$Lab_2.c$176$1$35 ==.
+                                   1682 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:176: SFRPAGE = SFRPAGE_SAVE;     // Restore SFR page.
+      0001A7 8F 84            [24] 1683 	mov	_SFRPAGE,r7
+                           000142  1684 	C$Lab_2.c$178$1$35 ==.
+                           000142  1685 	XG$UART0_INIT$0$0 ==.
+      0001A9 22               [24] 1686 	ret
+                                   1687 	.area CSEG    (CODE)
+                                   1688 	.area CONST   (CODE)
+                           000000  1689 FLab_2$__str_0$0$0 == .
+      0007E2                       1690 ___str_0:
+      0007E2 1B                    1691 	.db 0x1B
+      0007E3 5B 32 4A              1692 	.ascii "[2J"
+      0007E6 00                    1693 	.db 0x00
+                           000005  1694 FLab_2$__str_1$0$0 == .
+      0007E7                       1695 ___str_1:
+      0007E7 1B                    1696 	.db 0x1B
+      0007E8 5B 30 6D              1697 	.ascii "[0m"
+      0007EB 00                    1698 	.db 0x00
+                           00000A  1699 FLab_2$__str_2$0$0 == .
+      0007EC                       1700 ___str_2:
+      0007EC 4D 50 53 20 49 6E 74  1701 	.ascii "MPS Interrupt Switch Test"
              65 72 72 75 70 74 20
              53 77 69 74 63 68 20
              54 65 73 74
-      0007CA 0A                    1662 	.db 0x0A
-      0007CB 0A                    1663 	.db 0x0A
-      0007CC 0D                    1664 	.db 0x0D
-      0007CD 00                    1665 	.db 0x00
-                           000022  1666 FLab_2$__str_2$0$0 == .
-      0007CE                       1667 ___str_2:
-      0007CE 47 72 6F 75 6E 64 20  1668 	.ascii "Ground /INT0 on P0.2 to generate an interrupt."
+      000805 0A                    1702 	.db 0x0A
+      000806 0A                    1703 	.db 0x0A
+      000807 0D                    1704 	.db 0x0D
+      000808 00                    1705 	.db 0x00
+                           000027  1706 FLab_2$__str_3$0$0 == .
+      000809                       1707 ___str_3:
+      000809 47 72 6F 75 6E 64 20  1708 	.ascii "Ground /INT0 on P0.2 to generate an interrupt."
              2F 49 4E 54 30 20 6F
              6E 20 50 30 2E 32 20
              74 6F 20 67 65 6E 65
              72 61 74 65 20 61 6E
              20 69 6E 74 65 72 72
              75 70 74 2E
-      0007FC 0A                    1669 	.db 0x0A
-      0007FD 0A                    1670 	.db 0x0A
-      0007FE 0D                    1671 	.db 0x0D
-      0007FF 00                    1672 	.db 0x00
-                                   1673 	.area XINIT   (CODE)
-                                   1674 	.area CABS    (ABS,CODE)
+      000837 0A                    1709 	.db 0x0A
+      000838 0A                    1710 	.db 0x0A
+      000839 0D                    1711 	.db 0x0D
+      00083A 00                    1712 	.db 0x00
+                           000059  1713 FLab_2$__str_4$0$0 == .
+      00083B                       1714 ___str_4:
+      00083B 54 68 65 20 50 75 73  1715 	.ascii "The Pushbutton Has Been Pressed !!!!"
+             68 62 75 74 74 6F 6E
+             20 48 61 73 20 42 65
+             65 6E 20 50 72 65 73
+             73 65 64 20 21 21 21
+             21
+      00085F 0A                    1716 	.db 0x0A
+      000860 0D                    1717 	.db 0x0D
+      000861 00                    1718 	.db 0x00
+                                   1719 	.area XINIT   (CODE)
+                                   1720 	.area CABS    (ABS,CODE)

@@ -21,8 +21,8 @@
 #define BAUDRATE    115200      // UART baud rate in bps
 
 __bit SW2press = 0;
-int time = 0; // increments every tenth of a second to keep track of elasped time
-char quarter = 0; // increments at overflow (set to be every 1/4 of a tenth of a second)
+//LEGACY//int time = 0; // increments every tenth of a second to keep track of elasped time
+//LEGACY//char quarter = 0; // increments at overflow (set to be every 1/4 of a tenth of a second)
 //-------------------------------------------------------------------------------------------
 // Function PROTOTYPES
 //-------------------------------------------------------------------------------------------
@@ -30,7 +30,7 @@ void main(void);
 void PORT_INIT(void);
 void SYSCLK_INIT(void);
 void UART0_INIT(void);
-void Timer0_ISR(void) __interrupt 1;
+//LEGACY//void Timer0_ISR(void) __interrupt 1;
 void SW2_ISR (void) __interrupt 0;
 //-------------------------------------------------------------------------------------------
 // MAIN Routine
@@ -55,21 +55,21 @@ void main (void)
 //  SFRPAGE = UART0_PAGE;       // Direct the output to UART0
                                 // printf() must set its own SFRPAGE to UART0_PAGE
     printf("\033[2J");          // Erase screen and move cursor to the home position.
-    printf("MPS Interrupt Switch Test\n\n\r");
-    printf("Ground /INT0 on P0.2 to see the time elasped.\n\n\r");
+    printf("MPS Interrupt Timer Test\n\n\r");
+    //LEGACY//printf("Ground /INT0 on P0.2 to see the time elasped.\n\n\r");
 
     SFRPAGE = CONFIG_PAGE;
     EX0     = 1;                // Enable Ext Int 0 only after everything is settled.
 
     while (1)                   // No need to set UART0_PAGE
     {
-		if(SW2press ==1){
+		/*LEGACY//if(SW2press ==1){
 			printf("The Pushbutton Has Been Pressed !!!!\n\r");
-			printf(time);
+		//LEGACY//	printf(time);
 			printf(" tenths of a second have passed since the program started/ or you last pused the button.");
-			quarter = 0;
-			time = 0;
-			}
+		//LEGACY//	quarter = 0;
+			//LEGACY//time = 0;
+			}*/
     }
 }
 //-------------------------------------------------------------------------------------------
@@ -78,21 +78,21 @@ void main (void)
 //
 // This routine stops Timer0 when the user presses SW2.
 //
-void SW2_ISR (void) __interrupt 0   // Interrupt 0 corresponds to vector address 0003h.
+/*LEGCAYvoid SW2_ISR (void) __interrupt 0   // Interrupt 0 corresponds to vector address 0003h.
 // the keyword "interrupt" defines this as an ISR and the number is determined by the 
 // Priority Order number in Table 11.4 in the 8051 reference manual.
 {
     SW2press=1;
-}
+}*/
 
-void Timer0_ISR(void) __interrupt 1
+/*void Timer0_ISR(void) __interrupt 1
 {
 	TF0  = 0; //reset the flag
 	if(quarter<3){quarter++;}
 	else if (quarter == 3){time++; quarter=0;}
 	TL0=0xFFFF-46080;
 	TH0=(0xFFFF-46080)>>8;// Sets Timer 0 to start such that it will overflow at .025 seconds
-}
+}*/
 
 //-------------------------------------------------------------------------------------------
 // PORT_Init
@@ -181,9 +181,9 @@ void UART0_INIT(void)
     CKCON  |= 0x10;             // Timer1 uses SYSCLK as time base.// Timer0 uses SYSCLK/12
     TL1     = TH1;
     TR1     = 1;                // Start Timer1.
-	TL0=0xFFFF-46080;
-	TH0=(0xFFFF-46080)>>8;// Sets Timer 0 to start such that it will overflow at .025 seconds
-	TR0 = 1; //Start Timer0
+	//TL0=0xFFFF-46080;
+	//TH0=(0xFFFF-46080)>>8;// Sets Timer 0 to start such that it will overflow at .025 seconds
+	//TR0 = 1; //Start Timer0
     SFRPAGE = UART0_PAGE;
     SCON0   = 0x50;             // Set Mode 1: 8-Bit UART
     SSTA0   = 0x10;             // UART0 baud rate divide-by-two disabled (SMOD0 = 1).

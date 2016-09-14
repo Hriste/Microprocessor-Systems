@@ -1,9 +1,9 @@
 ;--------------------------------------------------------
 ; File Created by SDCC : free open source ANSI-C Compiler
 ; Version 3.4.0 #8981 (Apr  5 2014) (MINGW32)
-; This file was generated Mon Sep 12 19:26:24 2016
+; This file was generated Mon Sep 12 19:19:35 2016
 ;--------------------------------------------------------
-	.module Lab_2
+	.module given
 	.optsdcc -mmcs51 --model-small
 	
 ;--------------------------------------------------------
@@ -1183,6 +1183,20 @@ _P7_7	=	0x00ff
 	.area REG_BANK_0	(REL,OVR,DATA)
 	.ds 8
 ;--------------------------------------------------------
+; overlayable bit register bank
+;--------------------------------------------------------
+	.area BIT_BANK	(REL,OVR,DATA)
+bits:
+	.ds 1
+	b0 = bits[0]
+	b1 = bits[1]
+	b2 = bits[2]
+	b3 = bits[3]
+	b4 = bits[4]
+	b5 = bits[5]
+	b6 = bits[6]
+	b7 = bits[7]
+;--------------------------------------------------------
 ; internal ram data
 ;--------------------------------------------------------
 	.area DSEG    (DATA)
@@ -1263,8 +1277,8 @@ __interrupt_vect:
 	.globl __mcs51_genXINIT
 	.globl __mcs51_genXRAMCLEAR
 	.globl __mcs51_genRAMCLEAR
-	C$Lab_2.c$22$1$35 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:22: __bit SW2press = 0;
+	C$given.c$34$1$34 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\given.c:34: __bit SW2press = 0;
 	clr	_SW2press
 	.area GSFINAL (CODE)
 	ljmp	__sdcc_program_startup
@@ -1348,35 +1362,32 @@ _getchar:
 ;Allocation info for local variables in function 'main'
 ;------------------------------------------------------------
 	G$main$0$0 ==.
-	C$Lab_2.c$35$1$18 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:35: void main (void)
+	C$given.c$47$1$18 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\given.c:47: void main (void)
 ;	-----------------------------------------
 ;	 function main
 ;	-----------------------------------------
 _main:
-	C$Lab_2.c$43$1$25 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:43: SFRPAGE = CONFIG_PAGE;
+	C$given.c$55$1$25 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\given.c:55: SFRPAGE = CONFIG_PAGE;
 	mov	_SFRPAGE,#0x0F
-	C$Lab_2.c$45$1$25 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:45: PORT_INIT();                // Configure the Crossbar and GPIO.
+	C$given.c$57$1$25 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\given.c:57: PORT_INIT();                // Configure the Crossbar and GPIO.
 	lcall	_PORT_INIT
-	C$Lab_2.c$46$1$25 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:46: SYSCLK_INIT();              // Initialize the oscillator.
+	C$given.c$58$1$25 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\given.c:58: SYSCLK_INIT();              // Initialize the oscillator.
 	lcall	_SYSCLK_INIT
-	C$Lab_2.c$47$1$25 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:47: UART0_INIT();               // Initialize UART0.
+	C$given.c$59$1$25 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\given.c:59: UART0_INIT();               // Initialize UART0.
 	lcall	_UART0_INIT
-	C$Lab_2.c$49$1$25 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:49: SFRPAGE = LEGACY_PAGE;
+	C$given.c$61$1$25 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\given.c:61: SFRPAGE = LEGACY_PAGE;
 	mov	_SFRPAGE,#0x00
-	C$Lab_2.c$50$1$25 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:50: IT0     = 1;                // /INT0 is edge triggered, falling-edge.
+	C$given.c$62$1$25 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\given.c:62: IT0     = 1;                // /INT0 is edge triggered, falling-edge.
 	setb	_IT0
-	C$Lab_2.c$51$1$25 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:51: TR0 = 0;
-	clr	_TR0
-	C$Lab_2.c$54$1$25 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:54: printf("\033[2J");          // Erase screen and move cursor to the home position.
+	C$given.c$66$1$25 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\given.c:66: printf("\033[2J");          // Erase screen and move cursor to the home position.
 	mov	a,#___str_0
 	push	acc
 	mov	a,#(___str_0 >> 8)
@@ -1387,8 +1398,8 @@ _main:
 	dec	sp
 	dec	sp
 	dec	sp
-	C$Lab_2.c$55$1$25 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:55: printf("\033[0m");
+	C$given.c$67$1$25 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\given.c:67: printf("MPS Interrupt Switch Test\n\n\r");
 	mov	a,#___str_1
 	push	acc
 	mov	a,#(___str_1 >> 8)
@@ -1399,8 +1410,8 @@ _main:
 	dec	sp
 	dec	sp
 	dec	sp
-	C$Lab_2.c$56$1$25 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:56: printf("MPS Interrupt Switch Test\n\n\r");
+	C$given.c$68$1$25 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\given.c:68: printf("Ground /INT0 on P0.2 to generate an interrupt.\n\n\r");
 	mov	a,#___str_2
 	push	acc
 	mov	a,#(___str_2 >> 8)
@@ -1411,8 +1422,17 @@ _main:
 	dec	sp
 	dec	sp
 	dec	sp
-	C$Lab_2.c$57$1$25 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:57: printf("Ground /INT0 on P0.2 to generate an interrupt.\n\n\r");
+	C$given.c$70$1$25 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\given.c:70: SFRPAGE = CONFIG_PAGE;
+	mov	_SFRPAGE,#0x0F
+	C$given.c$71$1$25 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\given.c:71: EX0     = 1;                // Enable Ext Int 0 only after everything is settled.
+	setb	_EX0
+	C$given.c$74$1$25 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\given.c:74: while (1)                   // No need to set UART0_PAGE
+00102$:
+	C$given.c$76$2$26 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\given.c:76: printf("INT0\r");
 	mov	a,#___str_3
 	push	acc
 	mov	a,#(___str_3 >> 8)
@@ -1423,21 +1443,37 @@ _main:
 	dec	sp
 	dec	sp
 	dec	sp
-	C$Lab_2.c$59$1$25 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:59: SFRPAGE = CONFIG_PAGE;
-	mov	_SFRPAGE,#0x0F
-	C$Lab_2.c$60$1$25 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:60: EX0     = 1;                // Enable Ext Int 0 only after everything is settled.
-	setb	_EX0
-	C$Lab_2.c$61$1$25 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:61: SFRPAGE = LEGACY_PAGE;
-	mov	_SFRPAGE,#0x00
-	C$Lab_2.c$62$1$25 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:62: while (1)                   // No need to set UART0_PAGE
-00104$:
-	C$Lab_2.c$65$2$26 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:65: if(SW2press ==1){printf("The Pushbutton Has Been Pressed !!!!\n\r");SW2press=0;}
-	jnb	_SW2press,00104$
+	sjmp	00102$
+	C$given.c$78$1$25 ==.
+	XG$main$0$0 ==.
+	ret
+;------------------------------------------------------------
+;Allocation info for local variables in function 'SW2_ISR'
+;------------------------------------------------------------
+	G$SW2_ISR$0$0 ==.
+	C$given.c$87$1$25 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\given.c:87: void SW2_ISR (void) __interrupt 0   // Interrupt 0 corresponds to vector address 0003h.
+;	-----------------------------------------
+;	 function SW2_ISR
+;	-----------------------------------------
+_SW2_ISR:
+	push	bits
+	push	acc
+	push	b
+	push	dpl
+	push	dph
+	push	(0+7)
+	push	(0+6)
+	push	(0+5)
+	push	(0+4)
+	push	(0+3)
+	push	(0+2)
+	push	(0+1)
+	push	(0+0)
+	push	psw
+	mov	psw,#0x00
+	C$given.c$91$1$28 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\given.c:91: printf("/INT0 has been grounded!\n\n\r");
 	mov	a,#___str_4
 	push	acc
 	mov	a,#(___str_4 >> 8)
@@ -1448,79 +1484,69 @@ _main:
 	dec	sp
 	dec	sp
 	dec	sp
-	clr	_SW2press
-	sjmp	00104$
-	C$Lab_2.c$67$1$25 ==.
-	XG$main$0$0 ==.
-	ret
-;------------------------------------------------------------
-;Allocation info for local variables in function 'SW2_ISR'
-;------------------------------------------------------------
-	G$SW2_ISR$0$0 ==.
-	C$Lab_2.c$74$1$25 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:74: void SW2_ISR (void) __interrupt 0   // Interrupt 0 corresponds to vector address 0003h.
-;	-----------------------------------------
-;	 function SW2_ISR
-;	-----------------------------------------
-_SW2_ISR:
-	C$Lab_2.c$79$1$29 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:79: SW2press=1;
-	setb	_SW2press
-	C$Lab_2.c$80$1$29 ==.
+	pop	psw
+	pop	(0+0)
+	pop	(0+1)
+	pop	(0+2)
+	pop	(0+3)
+	pop	(0+4)
+	pop	(0+5)
+	pop	(0+6)
+	pop	(0+7)
+	pop	dph
+	pop	dpl
+	pop	b
+	pop	acc
+	pop	bits
+	C$given.c$92$1$28 ==.
 	XG$SW2_ISR$0$0 ==.
 	reti
-;	eliminated unneeded mov psw,# (no regs used in bank)
-;	eliminated unneeded push/pop psw
-;	eliminated unneeded push/pop dpl
-;	eliminated unneeded push/pop dph
-;	eliminated unneeded push/pop b
-;	eliminated unneeded push/pop acc
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'PORT_INIT'
 ;------------------------------------------------------------
 ;SFRPAGE_SAVE              Allocated to registers r7 
 ;------------------------------------------------------------
 	G$PORT_INIT$0$0 ==.
-	C$Lab_2.c$88$1$29 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:88: void PORT_INIT(void)
+	C$given.c$100$1$28 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\given.c:100: void PORT_INIT(void)
 ;	-----------------------------------------
 ;	 function PORT_INIT
 ;	-----------------------------------------
 _PORT_INIT:
-	C$Lab_2.c$92$1$31 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:92: SFRPAGE_SAVE = SFRPAGE;     // Save Current SFR page.
+	C$given.c$104$1$30 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\given.c:104: SFRPAGE_SAVE = SFRPAGE;     // Save Current SFR page.
 	mov	r7,_SFRPAGE
-	C$Lab_2.c$94$1$31 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:94: SFRPAGE = CONFIG_PAGE;
+	C$given.c$106$1$30 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\given.c:106: SFRPAGE = CONFIG_PAGE;
 	mov	_SFRPAGE,#0x0F
-	C$Lab_2.c$95$1$31 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:95: WDTCN   = 0xDE;             // Disable watchdog timer.
+	C$given.c$107$1$30 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\given.c:107: WDTCN   = 0xDE;             // Disable watchdog timer.
 	mov	_WDTCN,#0xDE
-	C$Lab_2.c$96$1$31 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:96: WDTCN   = 0xAD;
+	C$given.c$108$1$30 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\given.c:108: WDTCN   = 0xAD;
 	mov	_WDTCN,#0xAD
-	C$Lab_2.c$97$1$31 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:97: EA      = 1;                // Enable interrupts as selected.
+	C$given.c$109$1$30 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\given.c:109: EA      = 1;                // Enable interrupts as selected.
 	setb	_EA
-	C$Lab_2.c$99$1$31 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:99: XBR0    = 0x04;             // Enable UART0.
+	C$given.c$111$1$30 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\given.c:111: XBR0    = 0x04;             // Enable UART0.
 	mov	_XBR0,#0x04
-	C$Lab_2.c$100$1$31 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:100: XBR1    = 0x04;             // /INT0 routed to port pin.
+	C$given.c$112$1$30 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\given.c:112: XBR1    = 0x04;             // /INT0 routed to port pin.
 	mov	_XBR1,#0x04
-	C$Lab_2.c$101$1$31 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:101: XBR2    = 0x40;             // Enable Crossbar and weak pull-ups.
+	C$given.c$113$1$30 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\given.c:113: XBR2    = 0x40;             // Enable Crossbar and weak pull-ups.
 	mov	_XBR2,#0x40
-	C$Lab_2.c$103$1$31 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:103: P0MDOUT = 0x01;             // P0.0 (TX0) is configured as Push-Pull for output.
+	C$given.c$115$1$30 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\given.c:115: P0MDOUT = 0x01;             // P0.0 (TX0) is configured as Push-Pull for output.
 	mov	_P0MDOUT,#0x01
-	C$Lab_2.c$106$1$31 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:106: P0      = 0x06;             // Additionally, set P0.0=0, P0.1=1, and P0.2=1.
+	C$given.c$118$1$30 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\given.c:118: P0      = 0x06;             // Additionally, set P0.0=0, P0.1=1, and P0.2=1.
 	mov	_P0,#0x06
-	C$Lab_2.c$108$1$31 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:108: SFRPAGE = SFRPAGE_SAVE;     // Restore SFR page.
+	C$given.c$120$1$30 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\given.c:120: SFRPAGE = SFRPAGE_SAVE;     // Restore SFR page.
 	mov	_SFRPAGE,r7
-	C$Lab_2.c$109$1$31 ==.
+	C$given.c$121$1$30 ==.
 	XG$PORT_INIT$0$0 ==.
 	ret
 ;------------------------------------------------------------
@@ -1530,23 +1556,23 @@ _PORT_INIT:
 ;SFRPAGE_SAVE              Allocated to registers r7 
 ;------------------------------------------------------------
 	G$SYSCLK_INIT$0$0 ==.
-	C$Lab_2.c$117$1$31 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:117: void SYSCLK_INIT(void)
+	C$given.c$129$1$30 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\given.c:129: void SYSCLK_INIT(void)
 ;	-----------------------------------------
 ;	 function SYSCLK_INIT
 ;	-----------------------------------------
 _SYSCLK_INIT:
-	C$Lab_2.c$123$1$33 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:123: SFRPAGE_SAVE = SFRPAGE;     // Save Current SFR page.
+	C$given.c$135$1$32 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\given.c:135: SFRPAGE_SAVE = SFRPAGE;     // Save Current SFR page.
 	mov	r7,_SFRPAGE
-	C$Lab_2.c$125$1$33 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:125: SFRPAGE = CONFIG_PAGE;
+	C$given.c$137$1$32 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\given.c:137: SFRPAGE = CONFIG_PAGE;
 	mov	_SFRPAGE,#0x0F
-	C$Lab_2.c$126$1$33 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:126: OSCXCN  = 0x67;             // Start external oscillator
+	C$given.c$138$1$32 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\given.c:138: OSCXCN  = 0x67;             // Start external oscillator
 	mov	_OSCXCN,#0x67
-	C$Lab_2.c$127$1$33 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:127: for(i=0; i < 256; i++);     // Wait for the oscillator to start up.
+	C$given.c$139$1$32 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\given.c:139: for(i=0; i < 256; i++);     // Wait for the oscillator to start up.
 	mov	r5,#0x00
 	mov	r6,#0x01
 00111$:
@@ -1557,46 +1583,46 @@ _SYSCLK_INIT:
 	mov	a,r5
 	orl	a,r6
 	jnz	00111$
-	C$Lab_2.c$128$1$33 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:128: while(!(OSCXCN & 0x80));    // Check to see if the Crystal Oscillator Valid Flag is set.
+	C$given.c$140$1$32 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\given.c:140: while(!(OSCXCN & 0x80));    // Check to see if the Crystal Oscillator Valid Flag is set.
 00102$:
 	mov	a,_OSCXCN
 	jnb	acc.7,00102$
-	C$Lab_2.c$129$1$33 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:129: CLKSEL  = 0x01;             // SYSCLK derived from the External Oscillator circuit.
+	C$given.c$141$1$32 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\given.c:141: CLKSEL  = 0x01;             // SYSCLK derived from the External Oscillator circuit.
 	mov	_CLKSEL,#0x01
-	C$Lab_2.c$130$1$33 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:130: OSCICN  = 0x00;             // Disable the internal oscillator.
+	C$given.c$142$1$32 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\given.c:142: OSCICN  = 0x00;             // Disable the internal oscillator.
 	mov	_OSCICN,#0x00
-	C$Lab_2.c$132$1$33 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:132: SFRPAGE = CONFIG_PAGE;
+	C$given.c$144$1$32 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\given.c:144: SFRPAGE = CONFIG_PAGE;
 	mov	_SFRPAGE,#0x0F
-	C$Lab_2.c$133$1$33 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:133: PLL0CN  = 0x04;
+	C$given.c$145$1$32 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\given.c:145: PLL0CN  = 0x04;
 	mov	_PLL0CN,#0x04
-	C$Lab_2.c$134$1$33 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:134: SFRPAGE = LEGACY_PAGE;
+	C$given.c$146$1$32 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\given.c:146: SFRPAGE = LEGACY_PAGE;
 	mov	_SFRPAGE,#0x00
-	C$Lab_2.c$135$1$33 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:135: FLSCL   = 0x10;
+	C$given.c$147$1$32 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\given.c:147: FLSCL   = 0x10;
 	mov	_FLSCL,#0x10
-	C$Lab_2.c$136$1$33 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:136: SFRPAGE = CONFIG_PAGE;
+	C$given.c$148$1$32 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\given.c:148: SFRPAGE = CONFIG_PAGE;
 	mov	_SFRPAGE,#0x0F
-	C$Lab_2.c$137$1$33 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:137: PLL0CN |= 0x01;
+	C$given.c$149$1$32 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\given.c:149: PLL0CN |= 0x01;
 	orl	_PLL0CN,#0x01
-	C$Lab_2.c$138$1$33 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:138: PLL0DIV = 0x04;
+	C$given.c$150$1$32 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\given.c:150: PLL0DIV = 0x04;
 	mov	_PLL0DIV,#0x04
-	C$Lab_2.c$139$1$33 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:139: PLL0FLT = 0x01;
+	C$given.c$151$1$32 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\given.c:151: PLL0FLT = 0x01;
 	mov	_PLL0FLT,#0x01
-	C$Lab_2.c$140$1$33 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:140: PLL0MUL = 0x09;
+	C$given.c$152$1$32 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\given.c:152: PLL0MUL = 0x09;
 	mov	_PLL0MUL,#0x09
-	C$Lab_2.c$141$1$33 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:141: for(i=0; i < 256; i++);
+	C$given.c$153$1$32 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\given.c:153: for(i=0; i < 256; i++);
 	mov	r5,#0x00
 	mov	r6,#0x01
 00114$:
@@ -1607,21 +1633,21 @@ _SYSCLK_INIT:
 	mov	a,r5
 	orl	a,r6
 	jnz	00114$
-	C$Lab_2.c$142$1$33 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:142: PLL0CN |= 0x02;
+	C$given.c$154$1$32 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\given.c:154: PLL0CN |= 0x02;
 	orl	_PLL0CN,#0x02
-	C$Lab_2.c$143$1$33 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:143: while(!(PLL0CN & 0x10));
+	C$given.c$155$1$32 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\given.c:155: while(!(PLL0CN & 0x10));
 00106$:
 	mov	a,_PLL0CN
 	jnb	acc.4,00106$
-	C$Lab_2.c$144$1$33 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:144: CLKSEL  = 0x02;             // SYSCLK derived from the PLL.
+	C$given.c$156$1$32 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\given.c:156: CLKSEL  = 0x02;             // SYSCLK derived from the PLL.
 	mov	_CLKSEL,#0x02
-	C$Lab_2.c$146$1$33 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:146: SFRPAGE = SFRPAGE_SAVE;     // Restore SFR page.
+	C$given.c$158$1$32 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\given.c:158: SFRPAGE = SFRPAGE_SAVE;     // Restore SFR page.
 	mov	_SFRPAGE,r7
-	C$Lab_2.c$147$1$33 ==.
+	C$given.c$159$1$32 ==.
 	XG$SYSCLK_INIT$0$0 ==.
 	ret
 ;------------------------------------------------------------
@@ -1630,89 +1656,87 @@ _SYSCLK_INIT:
 ;SFRPAGE_SAVE              Allocated to registers r7 
 ;------------------------------------------------------------
 	G$UART0_INIT$0$0 ==.
-	C$Lab_2.c$155$1$33 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:155: void UART0_INIT(void)
+	C$given.c$167$1$32 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\given.c:167: void UART0_INIT(void)
 ;	-----------------------------------------
 ;	 function UART0_INIT
 ;	-----------------------------------------
 _UART0_INIT:
-	C$Lab_2.c$159$1$35 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:159: SFRPAGE_SAVE = SFRPAGE;     // Save Current SFR page.
+	C$given.c$171$1$34 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\given.c:171: SFRPAGE_SAVE = SFRPAGE;     // Save Current SFR page.
 	mov	r7,_SFRPAGE
-	C$Lab_2.c$161$1$35 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:161: SFRPAGE = TIMER01_PAGE;
+	C$given.c$173$1$34 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\given.c:173: SFRPAGE = TIMER01_PAGE;
 	mov	_SFRPAGE,#0x00
-	C$Lab_2.c$162$1$35 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:162: TMOD   &= ~0xF0;
+	C$given.c$174$1$34 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\given.c:174: TMOD   &= ~0xF0;
 	mov	r6,_TMOD
 	mov	a,#0x0F
 	anl	a,r6
 	mov	_TMOD,a
-	C$Lab_2.c$163$1$35 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:163: TMOD   |=  0x20;            // Timer1, Mode 2: 8-bit counter/timer with auto-reload.
+	C$given.c$175$1$34 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\given.c:175: TMOD   |=  0x20;            // Timer1, Mode 2: 8-bit counter/timer with auto-reload.
 	orl	_TMOD,#0x20
-	C$Lab_2.c$164$1$35 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:164: TH1     = (unsigned char)-(SYSCLK/BAUDRATE/16); // Set Timer1 reload value for baudrate
+	C$given.c$176$1$34 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\given.c:176: TH1     = (unsigned char)-(SYSCLK/BAUDRATE/16); // Set Timer1 reload value for baudrate
 	mov	_TH1,#0xE5
-	C$Lab_2.c$165$1$35 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:165: CKCON  |= 0x10;             // Timer1 uses SYSCLK as time base.
+	C$given.c$177$1$34 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\given.c:177: CKCON  |= 0x10;             // Timer1 uses SYSCLK as time base.
 	orl	_CKCON,#0x10
-	C$Lab_2.c$166$1$35 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:166: TL1     = TH1;
+	C$given.c$178$1$34 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\given.c:178: TL1     = TH1;
 	mov	_TL1,_TH1
-	C$Lab_2.c$167$1$35 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:167: TR1     = 1;                // Start Timer1.
+	C$given.c$179$1$34 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\given.c:179: TR1     = 1;                // Start Timer1.
 	setb	_TR1
-	C$Lab_2.c$169$1$35 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:169: SFRPAGE = UART0_PAGE;
+	C$given.c$181$1$34 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\given.c:181: SFRPAGE = UART0_PAGE;
 	mov	_SFRPAGE,#0x00
-	C$Lab_2.c$170$1$35 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:170: SCON0   = 0x50;             // Set Mode 1: 8-Bit UART
+	C$given.c$182$1$34 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\given.c:182: SCON0   = 0x50;             // Set Mode 1: 8-Bit UART
 	mov	_SCON0,#0x50
-	C$Lab_2.c$171$1$35 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:171: SSTA0   = 0x10;             // UART0 baud rate divide-by-two disabled (SMOD0 = 1).
+	C$given.c$183$1$34 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\given.c:183: SSTA0   = 0x10;             // UART0 baud rate divide-by-two disabled (SMOD0 = 1).
 	mov	_SSTA0,#0x10
-	C$Lab_2.c$172$1$35 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:172: TI0     = 1;                // Indicate TX0 ready.
+	C$given.c$184$1$34 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\given.c:184: TI0     = 1;                // Indicate TX0 ready.
 	setb	_TI0
-	C$Lab_2.c$175$1$35 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:175: TR0 = 0; // Turn timer 0 off to enable external inpu	
-	clr	_TR0
-	C$Lab_2.c$176$1$35 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\Lab_2.c:176: SFRPAGE = SFRPAGE_SAVE;     // Restore SFR page.
+	C$given.c$186$1$34 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.1-Interrupt\given.c:186: SFRPAGE = SFRPAGE_SAVE;     // Restore SFR page.
 	mov	_SFRPAGE,r7
-	C$Lab_2.c$178$1$35 ==.
+	C$given.c$187$1$34 ==.
 	XG$UART0_INIT$0$0 ==.
 	ret
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-FLab_2$__str_0$0$0 == .
+Fgiven$__str_0$0$0 == .
 ___str_0:
 	.db 0x1B
 	.ascii "[2J"
 	.db 0x00
-FLab_2$__str_1$0$0 == .
+Fgiven$__str_1$0$0 == .
 ___str_1:
-	.db 0x1B
-	.ascii "[0m"
-	.db 0x00
-FLab_2$__str_2$0$0 == .
-___str_2:
 	.ascii "MPS Interrupt Switch Test"
 	.db 0x0A
 	.db 0x0A
 	.db 0x0D
 	.db 0x00
-FLab_2$__str_3$0$0 == .
-___str_3:
+Fgiven$__str_2$0$0 == .
+___str_2:
 	.ascii "Ground /INT0 on P0.2 to generate an interrupt."
 	.db 0x0A
 	.db 0x0A
 	.db 0x0D
 	.db 0x00
-FLab_2$__str_4$0$0 == .
+Fgiven$__str_3$0$0 == .
+___str_3:
+	.ascii "INT0"
+	.db 0x0D
+	.db 0x00
+Fgiven$__str_4$0$0 == .
 ___str_4:
-	.ascii "The Pushbutton Has Been Pressed !!!!"
+	.ascii "/INT0 has been grounded!"
+	.db 0x0A
 	.db 0x0A
 	.db 0x0D
 	.db 0x00

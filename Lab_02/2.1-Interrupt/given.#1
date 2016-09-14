@@ -1,10 +1,21 @@
-//MPS Lab 2.1 Code
-// Christina Paolicelli + Alexander Chase
+// IntrptEx.c
+//
+// 8051 Interrupt Example Program
+// Alexey Gutin
+// March 2, 2007
+//
+// This program uses an interrupt to call the ISR handler
+// function, SWR_ISR(), when the /INT0 line is grounded.
+// Each time the signal makes a low transition, an interrupt will be
+// generated.  If the line is held down, the SWR_ISR()
+// function will only be executed once, and not be called
+// again unless the line is released, and grounded again.
+//
 // /INT0 is configured to be on P0.2
 // UART0 is used to communicate to the user through ProCOMM or SecureCRT
 //
 // This code was written and tested using the SiLabs IDE V4.90
-// and SDCC.
+// and SDCC V3.5.0.
 //
 //-------------------------------------------------------------------------------------------
 // Includes
@@ -18,6 +29,7 @@
 #define EXTCLK      22118400    // External oscillator frequency in Hz
 #define SYSCLK      49766400    // Output of PLL derived from (EXTCLK * 9/4)
 #define BAUDRATE    115200      // UART baud rate in bps
+//#define BAUDRATE  19200       // UART baud rate in bps
 
 __bit SW2press = 0;
 //-------------------------------------------------------------------------------------------
@@ -48,26 +60,29 @@ void main (void)
 
     SFRPAGE = LEGACY_PAGE;
     IT0     = 1;                // /INT0 is edge triggered, falling-edge.
-	TR0 = 0;
-	//SFRPAGE = UART0_PAGE;       // Direct the output to UART0
+
+//  SFRPAGE = UART0_PAGE;       // Direct the output to UART0
                                 // printf() must set its own SFRPAGE to UART0_PAGE
     printf("\033[2J");          // Erase screen and move cursor to the home position.
-	printf("\033[0m");
     printf("MPS Interrupt Switch Test\n\n\r");
     printf("Ground /INT0 on P0.2 to generate an interrupt.\n\n\r");
 
     SFRPAGE = CONFIG_PAGE;
     EX0     = 1;                // Enable Ext Int 0 only after everything is settled.
-	SFRPAGE = LEGACY_PAGE;
+
+
+
+SFRPAGE = LEGACY_PAGE;//added by  me
     while (1)                   // No need to set UART0_PAGE
     {
-
-		if(SW2press ==1){printf("The Pushbutton Has Been Pressed !!!!\n\r");SW2press=0;}
+		printf("INT0\r");
     }
 }
 //-------------------------------------------------------------------------------------------
 // Interrupt Service Routines
 //-------------------------------------------------------------------------------------------
+// NOTE: this is an example of what NOT to do in an interrupt handler. No I/O should be done
+// in ISRs since I/O is very slow and the handler must execute very quickly.
 //
 // This routine stops Timer0 when the user presses SW2.
 //
@@ -75,8 +90,7 @@ void SW2_ISR (void) __interrupt 0   // Interrupt 0 corresponds to vector address
 // the keyword "interrupt" defines this as an ISR and the number is determined by the 
 // Priority Order number in Table 11.4 in the 8051 reference manual.
 {
-    //printf("hi");
-	SW2press=1;
+    printf("/INT0 has been grounded!\n\n\r");
 }
 
 //-------------------------------------------------------------------------------------------
@@ -165,14 +179,11 @@ void UART0_INIT(void)
     CKCON  |= 0x10;             // Timer1 uses SYSCLK as time base.
     TL1     = TH1;
     TR1     = 1;                // Start Timer1.
-	
+
     SFRPAGE = UART0_PAGE;
     SCON0   = 0x50;             // Set Mode 1: 8-Bit UART
     SSTA0   = 0x10;             // UART0 baud rate divide-by-two disabled (SMOD0 = 1).
     TI0     = 1;                // Indicate TX0 ready.
 
-
-	TR0 = 0; // Turn timer 0 off to enable external inpu	
     SFRPAGE = SFRPAGE_SAVE;     // Restore SFR page.
-	
 }

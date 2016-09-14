@@ -403,7 +403,7 @@ S:G$printf_fast$0$0({2}DF,SV:S),C,0,0
 S:G$printf_fast_f$0$0({2}DF,SV:S),C,0,0
 S:G$printf_tiny$0$0({2}DF,SV:S),C,0,0
 S:FLab_2$__str_0$0$0({5}DA5d,SC:S),D,0,0
-S:FLab_2$__str_1$0$0({5}DA5d,SC:S),D,0,0
-S:FLab_2$__str_2$0$0({29}DA29d,SC:S),D,0,0
-S:FLab_2$__str_3$0$0({50}DA50d,SC:S),D,0,0
-S:FLab_2$__str_4$0$0({39}DA39d,SC:S),D,0,0
+S:FLab_2$__str_1$0$0({29}DA29d,SC:S),D,0,0
+S:FLab_2$__str_2$0$0({49}DA49d,SC:S),D,0,0
+S:FLab_2$__str_3$0$0({39}DA39d,SC:S),D,0,0
+S:FLab_2$__str_4$0$0({89}DA89d,SC:S),D,0,0

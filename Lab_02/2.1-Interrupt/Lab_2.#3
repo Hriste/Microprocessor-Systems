@@ -58,7 +58,7 @@ void main (void)
 
     SFRPAGE = CONFIG_PAGE;
     EX0     = 1;                // Enable Ext Int 0 only after everything is settled.
-	SFRPAGE = LEGACY_PAGE;
+	//SFRPAGE = LEGACY_PAGE;
     while (1)                   // No need to set UART0_PAGE
     {
 

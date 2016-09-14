@@ -48,19 +48,21 @@ void main (void)
 
     SFRPAGE = LEGACY_PAGE;
     IT0     = 1;                // /INT0 is edge triggered, falling-edge.
-
-//  SFRPAGE = UART0_PAGE;       // Direct the output to UART0
+	TR0 = 0;
+	//SFRPAGE = UART0_PAGE;       // Direct the output to UART0
                                 // printf() must set its own SFRPAGE to UART0_PAGE
     printf("\033[2J");          // Erase screen and move cursor to the home position.
+	printf("\033[0m");
     printf("MPS Interrupt Switch Test\n\n\r");
     printf("Ground /INT0 on P0.2 to generate an interrupt.\n\n\r");
 
     SFRPAGE = CONFIG_PAGE;
     EX0     = 1;                // Enable Ext Int 0 only after everything is settled.
-
+	SFRPAGE = LEGACY_PAGE;
     while (1)                   // No need to set UART0_PAGE
     {
-		if(SW2press ==1){printf("The Pushbutton Has Been Pressed !!!!");}
+
+		if(SW2press ==1){printf("The Pushbutton Has Been Pressed !!!!\n\r");SW2press=0;}
     }
 }
 //-------------------------------------------------------------------------------------------
@@ -73,7 +75,8 @@ void SW2_ISR (void) __interrupt 0   // Interrupt 0 corresponds to vector address
 // the keyword "interrupt" defines this as an ISR and the number is determined by the 
 // Priority Order number in Table 11.4 in the 8051 reference manual.
 {
-    SW2press=1;
+    //printf("hi");
+	SW2press=1;
 }
 
 //-------------------------------------------------------------------------------------------
@@ -162,11 +165,14 @@ void UART0_INIT(void)
     CKCON  |= 0x10;             // Timer1 uses SYSCLK as time base.
     TL1     = TH1;
     TR1     = 1;                // Start Timer1.
-
+	
     SFRPAGE = UART0_PAGE;
     SCON0   = 0x50;             // Set Mode 1: 8-Bit UART
     SSTA0   = 0x10;             // UART0 baud rate divide-by-two disabled (SMOD0 = 1).
     TI0     = 1;                // Indicate TX0 ready.
 
+
+	TR0 = 0; // Turn timer 0 off to enable external inpu	
     SFRPAGE = SFRPAGE_SAVE;     // Restore SFR page.
+	
 }
