@@ -2,11 +2,13 @@ M:Lab_2
 F:G$putchar$0$0({2}DF,SV:S),Z,0,0,0,0,0
 F:G$getchar$0$0({2}DF,SC:S),Z,0,0,0,0,0
 F:G$main$0$0({2}DF,SV:S),Z,0,0,0,0,0
-F:G$SW2_ISR$0$0({2}DF,SV:S),Z,0,0,1,0,0
+F:G$Timer0_ISR$0$0({2}DF,SV:S),Z,0,0,1,1,0
 F:G$PORT_INIT$0$0({2}DF,SV:S),Z,0,0,0,0,0
 F:G$SYSCLK_INIT$0$0({2}DF,SV:S),Z,0,0,0,0,0
 F:G$UART0_INIT$0$0({2}DF,SV:S),Z,0,0,0,0,0
-S:G$SW2press$0$0({1}SB0$1:U),H,0,0
+S:G$time$0$0({2}SI:S),E,0,0
+S:G$tenth$0$0({2}SI:S),E,0,0
+S:G$PRINTED$0$0({1}SB0$1:U),H,0,0
 S:LLab_2.main$restart$1$25({1}SB0$1:U),R,0,0,[]
 S:G$P0$0$0({1}SC:U),I,0,0
 S:G$SP$0$0({1}SC:U),I,0,0
@@ -403,7 +405,5 @@ S:G$printf_fast$0$0({2}DF,SV:S),C,0,0
 S:G$printf_fast_f$0$0({2}DF,SV:S),C,0,0
 S:G$printf_tiny$0$0({2}DF,SV:S),C,0,0
 S:FLab_2$__str_0$0$0({5}DA5d,SC:S),D,0,0
-S:FLab_2$__str_1$0$0({29}DA29d,SC:S),D,0,0
-S:FLab_2$__str_2$0$0({49}DA49d,SC:S),D,0,0
-S:FLab_2$__str_3$0$0({39}DA39d,SC:S),D,0,0
-S:FLab_2$__str_4$0$0({89}DA89d,SC:S),D,0,0
+S:FLab_2$__str_1$0$0({28}DA28d,SC:S),D,0,0
+S:FLab_2$__str_2$0$0({37}DA37d,SC:S),D,0,0

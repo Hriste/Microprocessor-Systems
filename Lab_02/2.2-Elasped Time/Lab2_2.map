@@ -38,25 +38,25 @@ C:   00000001  s_PSEG
 C:   00000001  s_XISEG                         
 C:   00000001  s_XSEG                          
 C:   00000002  l_BSEG_BYTES                    
-C:   00000002  l_GSINIT                        
 C:   00000003  l_GSFINAL                       
 C:   00000003  l_GSINIT0                       
 C:   00000006  l_ISEG                          
 C:   00000006  l_OSEG                          
 C:   00000008  l_REG_BANK_0                    
 C:   00000008  s_REG_BANK_1                    
-C:   00000009  l_HOME                          
-C:   00000009  s_GSINIT0                       
 C:   0000000A  l_GSINIT2                       
-C:   0000000A  s_OSEG                          
 C:   0000000B  l_BSEG                          
-C:   0000000C  s_GSINIT1                       
-C:   0000000C  s_GSINIT2                       
-C:   00000010  s_ISEG                          
+C:   0000000B  l_GSINIT                        
+C:   0000000E  s_OSEG                          
 C:   00000010  s_REG_BANK_2                    
-C:   00000016  s_GSINIT3                       
+C:   00000011  l_HOME                          
+C:   00000011  s_GSINIT0                       
+C:   00000014  s_GSINIT1                       
+C:   00000014  s_GSINIT2                       
+C:   00000014  s_ISEG                          
 C:   00000018  s_BIT_BANK                      
 C:   00000018  s_REG_BANK_3                    
+C:   0000001E  s_GSINIT3                       
 ASxxxx Linker V03.00 + NoICE + sdld,  page 2.
 Hexadecimal  [32-Bits]
 
@@ -70,19 +70,19 @@ C:   00000020  s_BSEG_BYTES
 C:   00000020  s__CODE                         
 C:   00000022  l_GSINIT3                       
 C:   0000002A  l_GSINIT4                       
-C:   00000038  s_GSINIT4                       
 C:   0000003C  s_SSEG                          
-C:   00000062  s_GSINIT                        
-C:   00000062  s_GSINIT5                       
-C:   00000064  s_GSFINAL                       
-C:   00000067  s_CSEG                          
-C:   00000076  l_DSEG                          
+C:   00000040  s_GSINIT4                       
+C:   00000051  l_CONST                         
+C:   0000006A  s_GSINIT                        
+C:   0000006A  s_GSINIT5                       
+C:   00000075  s_GSFINAL                       
+C:   00000078  s_CSEG                          
+C:   0000007A  l_DSEG                          
 C:   000000C4  l_SSEG                          
-C:   000000DE  l_CONST                         
 C:   00000100  l_IRAM                          
-C:   00000775  l_CSEG                          
-C:   000007DC  s_CONST                         
-C:   000008BA  s_XINIT                         
+C:   00000828  l_CSEG                          
+C:   000008A0  s_CONST                         
+C:   000008F1  s_XINIT                         
 
 ASxxxx Linker V03.00 + NoICE + sdld,  page 3.
 Hexadecimal  [32-Bits]
@@ -1022,31 +1022,37 @@ Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-DSEG                                00000000    00000076 =         118. bytes (REL,CON)
+DSEG                                00000000    0000007A =         122. bytes (REL,CON)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-     00000008  _vprintf_PARM_2                    vprintf
-     00000009  _bp                                _bp
+     00000008  G$time$0$0                         Lab_2
+     00000008  _time                              Lab_2
+     0000000A  G$tenth$0$0                        Lab_2
+     0000000A  _tenth                             Lab_2
+     0000000C  _vprintf_PARM_2                    vprintf
+     0000000D  _bp                                _bp
      0000002E  __print_format_PARM_2              printf_large
      00000031  __print_format_PARM_3              printf_large
      00000034  __print_format_PARM_4              printf_large
-
 ASxxxx Linker V03.00 + NoICE + sdld,  page 22.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-OSEG                                0000000A    00000006 =           6. bytes (REL,OVR)
+OSEG                                0000000E    00000006 =           6. bytes (REL,OVR)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
+     0000000E  __modsint_PARM_2                   _moduint
+     0000000E  __moduint_PARM_2                   _moduint
+
 ASxxxx Linker V03.00 + NoICE + sdld,  page 23.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-ISEG                                00000010    00000006 =           6. bytes (REL,CON)
+ISEG                                00000014    00000006 =           6. bytes (REL,CON)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
@@ -1066,32 +1072,33 @@ Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-HOME                                00000000    00000009 =           9. bytes (REL,CON,CODE)
+HOME                                00000000    00000011 =          17. bytes (REL,CON,CODE)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-C:   00000000  A$Lab_2$1251                       Lab_2
-C:   00000003  A$Lab_2$1252                       Lab_2
-C:   00000006  A$Lab_2$1277                       Lab_2
-C:   00000006  __sdcc_program_startup             Lab_2
+C:   00000000  A$Lab_2$1259                       Lab_2
+C:   00000003  A$Lab_2$1260                       Lab_2
+C:   0000000B  A$Lab_2$1262                       Lab_2
+C:   0000000E  A$Lab_2$1296                       Lab_2
+C:   0000000E  __sdcc_program_startup             Lab_2
 
 ASxxxx Linker V03.00 + NoICE + sdld,  page 26.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-GSINIT0                             00000009    00000003 =           3. bytes (REL,CON,CODE)
+GSINIT0                             00000011    00000003 =           3. bytes (REL,CON,CODE)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-C:   00000009  __sdcc_gsinit_startup              
+C:   00000011  __sdcc_gsinit_startup              
 
 ASxxxx Linker V03.00 + NoICE + sdld,  page 27.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-GSINIT2                             0000000C    0000000A =          10. bytes (REL,CON,CODE)
+GSINIT2                             00000014    0000000A =          10. bytes (REL,CON,CODE)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
@@ -1100,360 +1107,402 @@ Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-GSINIT3                             00000016    00000022 =          34. bytes (REL,CON,CODE)
+GSINIT3                             0000001E    00000022 =          34. bytes (REL,CON,CODE)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-C:   00000016  __mcs51_genXINIT                   
+C:   0000001E  __mcs51_genXINIT                   
 
 ASxxxx Linker V03.00 + NoICE + sdld,  page 29.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-GSINIT4                             00000038    0000002A =          42. bytes (REL,CON,CODE)
+GSINIT4                             00000040    0000002A =          42. bytes (REL,CON,CODE)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-C:   00000038  __mcs51_genRAMCLEAR                
-C:   0000003E  __mcs51_genXRAMCLEAR               
+C:   00000040  __mcs51_genRAMCLEAR                
+C:   00000046  __mcs51_genXRAMCLEAR               
 
 ASxxxx Linker V03.00 + NoICE + sdld,  page 30.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-GSINIT                              00000062    00000002 =           2. bytes (REL,CON,CODE)
+GSINIT                              0000006A    0000000B =          11. bytes (REL,CON,CODE)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-C:   00000062  A$Lab_2$1268                       Lab_2
-C:   00000062  C$Lab_2.c$23$1$35                  Lab_2
-
+C:   0000006A  A$Lab_2$1278                       Lab_2
+C:   0000006A  C$Lab_2.c$23$1$36                  Lab_2
+C:   0000006B  A$Lab_2$1279                       Lab_2
+C:   0000006D  A$Lab_2$1280                       Lab_2
+C:   0000006F  A$Lab_2$1283                       Lab_2
+C:   0000006F  C$Lab_2.c$24$1$36                  Lab_2
+C:   00000071  A$Lab_2$1284                       Lab_2
+C:   00000073  A$Lab_2$1287                       Lab_2
+C:   00000073  C$Lab_2.c$25$1$36                  Lab_2
 ASxxxx Linker V03.00 + NoICE + sdld,  page 31.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-GSFINAL                             00000064    00000003 =           3. bytes (REL,CON,CODE)
+GSFINAL                             00000075    00000003 =           3. bytes (REL,CON,CODE)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-C:   00000064  A$Lab_2$1270                       Lab_2
+C:   00000075  A$Lab_2$1289                       Lab_2
 
 ASxxxx Linker V03.00 + NoICE + sdld,  page 32.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-CSEG                                00000067    00000775 =        1909. bytes (REL,CON,CODE)
+CSEG                                00000078    00000828 =        2088. bytes (REL,CON,CODE)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-C:   00000067  A$Lab_2$1303                       Lab_2
-C:   00000067  C$putget.h$18$0$0                  Lab_2
-C:   00000067  G$putchar$0$0                      Lab_2
-C:   00000067  _putchar                           Lab_2
-C:   00000069  A$Lab_2$1309                       Lab_2
-C:   00000069  C$putget.h$20$1$16                 Lab_2
-C:   00000069  C$putget.h$21$1$16                 Lab_2
-C:   0000006C  A$Lab_2$1310                       Lab_2
-C:   0000006E  A$Lab_2$1314                       Lab_2
-C:   0000006E  C$putget.h$22$1$16                 Lab_2
-C:   00000070  A$Lab_2$1317                       Lab_2
-C:   00000070  C$putget.h$23$1$16                 Lab_2
-C:   00000070  XG$putchar$0$0                     Lab_2
-C:   00000071  A$Lab_2$1335                       Lab_2
-C:   00000071  C$putget.h$28$1$16                 Lab_2
-C:   00000071  C$putget.h$31$1$18                 Lab_2
-C:   00000071  C$putget.h$32$1$18                 Lab_2
-C:   00000071  G$getchar$0$0                      Lab_2
-C:   00000071  _getchar                           Lab_2
-C:   00000074  A$Lab_2$1336                       Lab_2
-C:   00000076  A$Lab_2$1340                       Lab_2
-C:   00000076  C$putget.h$33$1$18                 Lab_2
-C:   00000078  A$Lab_2$1343                       Lab_2
-C:   00000078  C$putget.h$36$1$18                 Lab_2
-C:   0000007B  A$Lab_2$1346                       Lab_2
-C:   0000007B  C$putget.h$37$1$18                 Lab_2
-C:   0000007B  XG$getchar$0$0                     Lab_2
-C:   0000007C  A$Lab_2$1359                       Lab_2
-C:   0000007C  C$Lab_2.c$38$1$18                  Lab_2
-C:   0000007C  C$Lab_2.c$46$1$25                  Lab_2
-C:   0000007C  G$main$0$0                         Lab_2
-C:   0000007C  _main                              Lab_2
-C:   0000007F  A$Lab_2$1362                       Lab_2
-C:   0000007F  C$Lab_2.c$47$1$25                  Lab_2
-C:   00000082  A$Lab_2$1365                       Lab_2
-C:   00000082  C$Lab_2.c$48$1$25                  Lab_2
-C:   00000085  A$Lab_2$1368                       Lab_2
-C:   00000085  C$Lab_2.c$49$1$25                  Lab_2
-C:   00000088  A$Lab_2$1371                       Lab_2
-C:   00000088  C$Lab_2.c$50$1$25                  Lab_2
-C:   0000008B  A$Lab_2$1374                       Lab_2
-C:   0000008B  C$Lab_2.c$52$1$25                  Lab_2
-C:   0000008E  A$Lab_2$1377                       Lab_2
-C:   0000008E  C$Lab_2.c$53$1$25                  Lab_2
-C:   00000090  A$Lab_2$1380                       Lab_2
-C:   00000090  C$Lab_2.c$57$1$25                  Lab_2
-C:   00000092  A$Lab_2$1381                       Lab_2
-C:   00000094  A$Lab_2$1382                       Lab_2
-C:   00000096  A$Lab_2$1383                       Lab_2
-C:   00000098  A$Lab_2$1384                       Lab_2
+C:   00000078  A$Lab_2$1322                       Lab_2
+C:   00000078  C$putget.h$18$0$0                  Lab_2
+C:   00000078  G$putchar$0$0                      Lab_2
+C:   00000078  _putchar                           Lab_2
+C:   0000007A  A$Lab_2$1328                       Lab_2
+C:   0000007A  C$putget.h$20$1$16                 Lab_2
+C:   0000007A  C$putget.h$21$1$16                 Lab_2
+C:   0000007D  A$Lab_2$1329                       Lab_2
+C:   0000007F  A$Lab_2$1333                       Lab_2
+C:   0000007F  C$putget.h$22$1$16                 Lab_2
+C:   00000081  A$Lab_2$1336                       Lab_2
+C:   00000081  C$putget.h$23$1$16                 Lab_2
+C:   00000081  XG$putchar$0$0                     Lab_2
+C:   00000082  A$Lab_2$1354                       Lab_2
+C:   00000082  C$putget.h$28$1$16                 Lab_2
+C:   00000082  C$putget.h$31$1$18                 Lab_2
+C:   00000082  C$putget.h$32$1$18                 Lab_2
+C:   00000082  G$getchar$0$0                      Lab_2
+C:   00000082  _getchar                           Lab_2
+C:   00000085  A$Lab_2$1355                       Lab_2
+C:   00000087  A$Lab_2$1359                       Lab_2
+C:   00000087  C$putget.h$33$1$18                 Lab_2
+C:   00000089  A$Lab_2$1362                       Lab_2
+C:   00000089  C$putget.h$36$1$18                 Lab_2
+C:   0000008C  A$Lab_2$1365                       Lab_2
+C:   0000008C  C$putget.h$37$1$18                 Lab_2
+C:   0000008C  XG$getchar$0$0                     Lab_2
+C:   0000008D  A$Lab_2$1378                       Lab_2
+C:   0000008D  C$Lab_2.c$37$1$18                  Lab_2
+C:   0000008D  C$Lab_2.c$41$1$25                  Lab_2
+C:   0000008D  G$main$0$0                         Lab_2
+C:   0000008D  _main                              Lab_2
+C:   00000090  A$Lab_2$1381                       Lab_2
+C:   00000090  C$Lab_2.c$42$1$25                  Lab_2
+C:   00000093  A$Lab_2$1384                       Lab_2
+C:   00000093  C$Lab_2.c$43$1$25                  Lab_2
+C:   00000096  A$Lab_2$1387                       Lab_2
+C:   00000096  C$Lab_2.c$44$1$25                  Lab_2
+C:   00000099  A$Lab_2$1390                       Lab_2
+C:   00000099  C$Lab_2.c$45$1$25                  Lab_2
+C:   0000009C  A$Lab_2$1393                       Lab_2
+C:   0000009C  C$Lab_2.c$47$1$25                  Lab_2
+C:   0000009F  A$Lab_2$1396                       Lab_2
+C:   0000009F  C$Lab_2.c$48$1$25                  Lab_2
+C:   000000A1  A$Lab_2$1399                       Lab_2
+C:   000000A1  C$Lab_2.c$49$1$25                  Lab_2
+C:   000000A4  A$Lab_2$1402                       Lab_2
+C:   000000A4  C$Lab_2.c$51$1$25                  Lab_2
+C:   000000A6  A$Lab_2$1403                       Lab_2
+C:   000000A8  A$Lab_2$1404                       Lab_2
 ASxxxx Linker V03.00 + NoICE + sdld,  page 33.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-CSEG                                00000067    00000775 =        1909. bytes (REL,CON,CODE)
+CSEG                                00000078    00000828 =        2088. bytes (REL,CON,CODE)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-C:   0000009A  A$Lab_2$1385                       Lab_2
-C:   0000009C  A$Lab_2$1386                       Lab_2
-C:   0000009F  A$Lab_2$1387                       Lab_2
-C:   000000A1  A$Lab_2$1388                       Lab_2
-C:   000000A3  A$Lab_2$1389                       Lab_2
-C:   000000A5  A$Lab_2$1392                       Lab_2
-C:   000000A5  C$Lab_2.c$58$1$25                  Lab_2
-C:   000000A7  A$Lab_2$1393                       Lab_2
-C:   000000A9  A$Lab_2$1394                       Lab_2
-C:   000000AB  A$Lab_2$1395                       Lab_2
-C:   000000AD  A$Lab_2$1396                       Lab_2
-C:   000000AF  A$Lab_2$1397                       Lab_2
-C:   000000B1  A$Lab_2$1398                       Lab_2
-C:   000000B4  A$Lab_2$1399                       Lab_2
-C:   000000B6  A$Lab_2$1400                       Lab_2
-C:   000000B8  A$Lab_2$1401                       Lab_2
-C:   000000BA  A$Lab_2$1404                       Lab_2
-C:   000000BA  C$Lab_2.c$59$1$25                  Lab_2
-C:   000000BC  A$Lab_2$1405                       Lab_2
-C:   000000BE  A$Lab_2$1406                       Lab_2
-C:   000000C0  A$Lab_2$1407                       Lab_2
-C:   000000C2  A$Lab_2$1408                       Lab_2
-C:   000000C4  A$Lab_2$1409                       Lab_2
-C:   000000C6  A$Lab_2$1410                       Lab_2
-C:   000000C9  A$Lab_2$1411                       Lab_2
-C:   000000CB  A$Lab_2$1412                       Lab_2
-C:   000000CD  A$Lab_2$1413                       Lab_2
-C:   000000CF  A$Lab_2$1416                       Lab_2
-C:   000000CF  C$Lab_2.c$61$1$25                  Lab_2
-C:   000000D2  A$Lab_2$1419                       Lab_2
-C:   000000D2  C$Lab_2.c$62$1$25                  Lab_2
-C:   000000D4  A$Lab_2$1425                       Lab_2
-C:   000000D4  C$Lab_2.c$64$1$25                  Lab_2
-C:   000000D4  C$Lab_2.c$66$2$26                  Lab_2
-C:   000000D7  A$Lab_2$1428                       Lab_2
-C:   000000D7  C$Lab_2.c$67$3$27                  Lab_2
-C:   000000D9  A$Lab_2$1429                       Lab_2
-C:   000000DB  A$Lab_2$1430                       Lab_2
-C:   000000DD  A$Lab_2$1431                       Lab_2
-C:   000000DF  A$Lab_2$1432                       Lab_2
-C:   000000E1  A$Lab_2$1433                       Lab_2
-C:   000000E3  A$Lab_2$1434                       Lab_2
-C:   000000E6  A$Lab_2$1435                       Lab_2
-C:   000000E8  A$Lab_2$1436                       Lab_2
-C:   000000EA  A$Lab_2$1437                       Lab_2
-C:   000000EC  A$Lab_2$1440                       Lab_2
-C:   000000EC  C$Lab_2.c$69$3$27                  Lab_2
-C:   000000EE  A$Lab_2$1441                       Lab_2
-C:   000000F0  A$Lab_2$1442                       Lab_2
-C:   000000F2  A$Lab_2$1443                       Lab_2
-C:   000000F4  A$Lab_2$1444                       Lab_2
+C:   000000AA  A$Lab_2$1405                       Lab_2
+C:   000000AC  A$Lab_2$1406                       Lab_2
+C:   000000AE  A$Lab_2$1407                       Lab_2
+C:   000000B0  A$Lab_2$1408                       Lab_2
+C:   000000B3  A$Lab_2$1409                       Lab_2
+C:   000000B5  A$Lab_2$1410                       Lab_2
+C:   000000B7  A$Lab_2$1411                       Lab_2
+C:   000000B9  A$Lab_2$1414                       Lab_2
+C:   000000B9  C$Lab_2.c$52$1$25                  Lab_2
+C:   000000BB  A$Lab_2$1415                       Lab_2
+C:   000000BD  A$Lab_2$1416                       Lab_2
+C:   000000BF  A$Lab_2$1417                       Lab_2
+C:   000000C1  A$Lab_2$1418                       Lab_2
+C:   000000C3  A$Lab_2$1419                       Lab_2
+C:   000000C5  A$Lab_2$1420                       Lab_2
+C:   000000C8  A$Lab_2$1421                       Lab_2
+C:   000000CA  A$Lab_2$1422                       Lab_2
+C:   000000CC  A$Lab_2$1423                       Lab_2
+C:   000000CE  A$Lab_2$1426                       Lab_2
+C:   000000CE  C$Lab_2.c$55$1$25                  Lab_2
+C:   000000D1  A$Lab_2$1429                       Lab_2
+C:   000000D1  C$Lab_2.c$56$1$25                  Lab_2
+C:   000000D3  A$Lab_2$1432                       Lab_2
+C:   000000D3  C$Lab_2.c$57$1$25                  Lab_2
+C:   000000D6  A$Lab_2$1438                       Lab_2
+C:   000000D6  C$Lab_2.c$58$1$25                  Lab_2
+C:   000000D6  C$Lab_2.c$60$2$26                  Lab_2
+C:   000000D8  A$Lab_2$1439                       Lab_2
+C:   000000DB  A$Lab_2$1440                       Lab_2
+C:   000000DC  A$Lab_2$1441                       Lab_2
+C:   000000DF  A$Lab_2$1442                       Lab_2
+C:   000000E1  A$Lab_2$1444                       Lab_2
+C:   000000E3  A$Lab_2$1448                       Lab_2
+C:   000000E3  C$Lab_2.c$62$3$27                  Lab_2
+C:   000000E4  A$Lab_2$1449                       Lab_2
+C:   000000E6  A$Lab_2$1450                       Lab_2
+C:   000000E8  A$Lab_2$1453                       Lab_2
+C:   000000E8  C$Lab_2.c$63$3$27                  Lab_2
+C:   000000EA  A$Lab_2$1455                       Lab_2
+C:   000000ED  A$Lab_2$1456                       Lab_2
+C:   000000EF  A$Lab_2$1460                       Lab_2
+C:   000000EF  C$Lab_2.c$64$3$27                  Lab_2
+C:   000000F1  A$Lab_2$1464                       Lab_2
+C:   000000F1  C$Lab_2.c$66$1$25                  Lab_2
+C:   000000F4  A$Lab_2$1465                       Lab_2
+C:   000000F7  A$Lab_2$1466                       Lab_2
+C:   000000FA  A$Lab_2$1467                       Lab_2
+C:   000000FD  A$Lab_2$1468                       Lab_2
+C:   00000100  A$Lab_2$1469                       Lab_2
+C:   00000102  A$Lab_2$1470                       Lab_2
+C:   00000105  A$Lab_2$1471                       Lab_2
 ASxxxx Linker V03.00 + NoICE + sdld,  page 34.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-CSEG                                00000067    00000775 =        1909. bytes (REL,CON,CODE)
+CSEG                                00000078    00000828 =        2088. bytes (REL,CON,CODE)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-C:   000000F6  A$Lab_2$1445                       Lab_2
-C:   000000F8  A$Lab_2$1446                       Lab_2
-C:   000000FB  A$Lab_2$1447                       Lab_2
-C:   000000FD  A$Lab_2$1448                       Lab_2
-C:   000000FF  A$Lab_2$1449                       Lab_2
-C:   00000101  A$Lab_2$1450                       Lab_2
-C:   00000103  A$Lab_2$1453                       Lab_2
-C:   00000103  C$Lab_2.c$74$1$25                  Lab_2
-C:   00000103  XG$main$0$0                        Lab_2
-C:   00000104  A$Lab_2$1466                       Lab_2
-C:   00000104  C$Lab_2.c$81$1$25                  Lab_2
-C:   00000104  C$Lab_2.c$85$1$29                  Lab_2
-C:   00000104  G$SW2_ISR$0$0                      Lab_2
-C:   00000104  _SW2_ISR                           Lab_2
-C:   00000106  A$Lab_2$1469                       Lab_2
-C:   00000106  C$Lab_2.c$86$1$29                  Lab_2
-C:   00000106  XG$SW2_ISR$0$0                     Lab_2
-C:   00000107  A$Lab_2$1490                       Lab_2
-C:   00000107  C$Lab_2.c$103$1$29                 Lab_2
-C:   00000107  C$Lab_2.c$107$1$31                 Lab_2
-C:   00000107  G$PORT_INIT$0$0                    Lab_2
-C:   00000107  _PORT_INIT                         Lab_2
-C:   00000109  A$Lab_2$1493                       Lab_2
-C:   00000109  C$Lab_2.c$109$1$31                 Lab_2
-C:   0000010C  A$Lab_2$1496                       Lab_2
-C:   0000010C  C$Lab_2.c$110$1$31                 Lab_2
-C:   0000010F  A$Lab_2$1499                       Lab_2
-C:   0000010F  C$Lab_2.c$111$1$31                 Lab_2
-C:   00000112  A$Lab_2$1502                       Lab_2
-C:   00000112  C$Lab_2.c$112$1$31                 Lab_2
-C:   00000114  A$Lab_2$1505                       Lab_2
-C:   00000114  C$Lab_2.c$114$1$31                 Lab_2
-C:   00000117  A$Lab_2$1508                       Lab_2
-C:   00000117  C$Lab_2.c$115$1$31                 Lab_2
-C:   0000011A  A$Lab_2$1511                       Lab_2
-C:   0000011A  C$Lab_2.c$116$1$31                 Lab_2
-C:   0000011D  A$Lab_2$1514                       Lab_2
-C:   0000011D  C$Lab_2.c$118$1$31                 Lab_2
-C:   00000120  A$Lab_2$1517                       Lab_2
-C:   00000120  C$Lab_2.c$121$1$31                 Lab_2
-C:   00000123  A$Lab_2$1520                       Lab_2
-C:   00000123  C$Lab_2.c$123$1$31                 Lab_2
-C:   00000125  A$Lab_2$1523                       Lab_2
-C:   00000125  C$Lab_2.c$124$1$31                 Lab_2
-C:   00000125  XG$PORT_INIT$0$0                   Lab_2
-C:   00000126  A$Lab_2$1539                       Lab_2
-C:   00000126  C$Lab_2.c$132$1$31                 Lab_2
-C:   00000126  C$Lab_2.c$138$1$33                 Lab_2
-C:   00000126  G$SYSCLK_INIT$0$0                  Lab_2
-C:   00000126  _SYSCLK_INIT                       Lab_2
-C:   00000128  A$Lab_2$1542                       Lab_2
+C:   00000107  A$Lab_2$1472                       Lab_2
+C:   00000109  A$Lab_2$1473                       Lab_2
+C:   0000010C  A$Lab_2$1476                       Lab_2
+C:   0000010C  C$Lab_2.c$68$3$28                  Lab_2
+C:   0000010E  A$Lab_2$1479                       Lab_2
+C:   0000010E  C$Lab_2.c$69$3$28                  Lab_2
+C:   00000110  A$Lab_2$1480                       Lab_2
+C:   00000112  A$Lab_2$1481                       Lab_2
+C:   00000114  A$Lab_2$1482                       Lab_2
+C:   00000116  A$Lab_2$1483                       Lab_2
+C:   00000118  A$Lab_2$1484                       Lab_2
+C:   0000011A  A$Lab_2$1485                       Lab_2
+C:   0000011C  A$Lab_2$1486                       Lab_2
+C:   0000011E  A$Lab_2$1487                       Lab_2
+C:   00000121  A$Lab_2$1488                       Lab_2
+C:   00000123  A$Lab_2$1489                       Lab_2
+C:   00000125  A$Lab_2$1490                       Lab_2
+C:   00000127  A$Lab_2$1491                       Lab_2
+C:   00000129  A$Lab_2$1494                       Lab_2
+C:   00000129  C$Lab_2.c$72$1$25                  Lab_2
+C:   00000129  XG$main$0$0                        Lab_2
+C:   0000012A  A$Lab_2$1505                       Lab_2
+C:   0000012A  C$Lab_2.c$77$1$25                  Lab_2
+C:   0000012A  G$Timer0_ISR$0$0                   Lab_2
+C:   0000012A  _Timer0_ISR                        Lab_2
+C:   0000012C  A$Lab_2$1506                       Lab_2
+C:   0000012E  A$Lab_2$1509                       Lab_2
+C:   0000012E  C$Lab_2.c$79$1$30                  Lab_2
+C:   00000130  A$Lab_2$1512                       Lab_2
+C:   00000130  C$Lab_2.c$80$1$30                  Lab_2
+C:   00000132  A$Lab_2$1513                       Lab_2
+C:   00000133  A$Lab_2$1514                       Lab_2
+C:   00000136  A$Lab_2$1515                       Lab_2
+C:   00000138  A$Lab_2$1519                       Lab_2
+C:   00000138  C$Lab_2.c$81$1$30                  Lab_2
+C:   0000013B  A$Lab_2$1522                       Lab_2
+C:   0000013B  C$Lab_2.c$82$1$30                  Lab_2
+C:   0000013E  A$Lab_2$1523                       Lab_2
+C:   00000140  A$Lab_2$1524                       Lab_2
+C:   00000142  A$Lab_2$1527                       Lab_2
+C:   00000142  C$Lab_2.c$83$1$30                  Lab_2
+C:   00000142  XG$Timer0_ISR$0$0                  Lab_2
+C:   00000143  A$Lab_2$1546                       Lab_2
+C:   00000143  C$Lab_2.c$91$1$30                  Lab_2
+C:   00000143  C$Lab_2.c$95$1$32                  Lab_2
+C:   00000143  G$PORT_INIT$0$0                    Lab_2
+C:   00000143  _PORT_INIT                         Lab_2
+C:   00000145  A$Lab_2$1549                       Lab_2
+C:   00000145  C$Lab_2.c$97$1$32                  Lab_2
+C:   00000148  A$Lab_2$1552                       Lab_2
+C:   00000148  C$Lab_2.c$98$1$32                  Lab_2
 ASxxxx Linker V03.00 + NoICE + sdld,  page 35.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-CSEG                                00000067    00000775 =        1909. bytes (REL,CON,CODE)
+CSEG                                00000078    00000828 =        2088. bytes (REL,CON,CODE)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-C:   00000128  C$Lab_2.c$140$1$33                 Lab_2
-C:   0000012B  A$Lab_2$1545                       Lab_2
-C:   0000012B  C$Lab_2.c$141$1$33                 Lab_2
-C:   0000012E  A$Lab_2$1548                       Lab_2
-C:   0000012E  C$Lab_2.c$142$1$33                 Lab_2
-C:   00000130  A$Lab_2$1549                       Lab_2
-C:   00000132  A$Lab_2$1551                       Lab_2
-C:   00000133  A$Lab_2$1552                       Lab_2
-C:   00000136  A$Lab_2$1553                       Lab_2
-C:   00000137  A$Lab_2$1555                       Lab_2
-C:   00000138  A$Lab_2$1556                       Lab_2
-C:   00000139  A$Lab_2$1557                       Lab_2
-C:   0000013B  A$Lab_2$1561                       Lab_2
-C:   0000013B  C$Lab_2.c$143$1$33                 Lab_2
-C:   0000013D  A$Lab_2$1562                       Lab_2
-C:   00000140  A$Lab_2$1565                       Lab_2
-C:   00000140  C$Lab_2.c$144$1$33                 Lab_2
-C:   00000143  A$Lab_2$1568                       Lab_2
-C:   00000143  C$Lab_2.c$145$1$33                 Lab_2
-C:   00000146  A$Lab_2$1571                       Lab_2
-C:   00000146  C$Lab_2.c$147$1$33                 Lab_2
-C:   00000149  A$Lab_2$1574                       Lab_2
-C:   00000149  C$Lab_2.c$148$1$33                 Lab_2
-C:   0000014C  A$Lab_2$1577                       Lab_2
-C:   0000014C  C$Lab_2.c$149$1$33                 Lab_2
-C:   0000014F  A$Lab_2$1580                       Lab_2
-C:   0000014F  C$Lab_2.c$150$1$33                 Lab_2
-C:   00000152  A$Lab_2$1583                       Lab_2
-C:   00000152  C$Lab_2.c$151$1$33                 Lab_2
-C:   00000155  A$Lab_2$1586                       Lab_2
-C:   00000155  C$Lab_2.c$152$1$33                 Lab_2
-C:   00000158  A$Lab_2$1589                       Lab_2
-C:   00000158  C$Lab_2.c$153$1$33                 Lab_2
-C:   0000015B  A$Lab_2$1592                       Lab_2
-C:   0000015B  C$Lab_2.c$154$1$33                 Lab_2
-C:   0000015E  A$Lab_2$1595                       Lab_2
-C:   0000015E  C$Lab_2.c$155$1$33                 Lab_2
-C:   00000161  A$Lab_2$1598                       Lab_2
-C:   00000161  C$Lab_2.c$156$1$33                 Lab_2
-C:   00000163  A$Lab_2$1599                       Lab_2
-C:   00000165  A$Lab_2$1601                       Lab_2
-C:   00000166  A$Lab_2$1602                       Lab_2
-C:   00000169  A$Lab_2$1603                       Lab_2
-C:   0000016A  A$Lab_2$1605                       Lab_2
-C:   0000016B  A$Lab_2$1606                       Lab_2
-C:   0000016C  A$Lab_2$1607                       Lab_2
-C:   0000016E  A$Lab_2$1610                       Lab_2
-C:   0000016E  C$Lab_2.c$157$1$33                 Lab_2
-C:   00000171  A$Lab_2$1614                       Lab_2
-C:   00000171  C$Lab_2.c$158$1$33                 Lab_2
-C:   00000173  A$Lab_2$1615                       Lab_2
+C:   0000014B  A$Lab_2$1555                       Lab_2
+C:   0000014B  C$Lab_2.c$99$1$32                  Lab_2
+C:   0000014E  A$Lab_2$1558                       Lab_2
+C:   0000014E  C$Lab_2.c$100$1$32                 Lab_2
+C:   00000150  A$Lab_2$1561                       Lab_2
+C:   00000150  C$Lab_2.c$102$1$32                 Lab_2
+C:   00000153  A$Lab_2$1564                       Lab_2
+C:   00000153  C$Lab_2.c$103$1$32                 Lab_2
+C:   00000156  A$Lab_2$1567                       Lab_2
+C:   00000156  C$Lab_2.c$104$1$32                 Lab_2
+C:   00000159  A$Lab_2$1570                       Lab_2
+C:   00000159  C$Lab_2.c$106$1$32                 Lab_2
+C:   0000015C  A$Lab_2$1573                       Lab_2
+C:   0000015C  C$Lab_2.c$109$1$32                 Lab_2
+C:   0000015F  A$Lab_2$1576                       Lab_2
+C:   0000015F  C$Lab_2.c$111$1$32                 Lab_2
+C:   00000161  A$Lab_2$1579                       Lab_2
+C:   00000161  C$Lab_2.c$112$1$32                 Lab_2
+C:   00000161  XG$PORT_INIT$0$0                   Lab_2
+C:   00000162  A$Lab_2$1595                       Lab_2
+C:   00000162  C$Lab_2.c$120$1$32                 Lab_2
+C:   00000162  C$Lab_2.c$126$1$34                 Lab_2
+C:   00000162  G$SYSCLK_INIT$0$0                  Lab_2
+C:   00000162  _SYSCLK_INIT                       Lab_2
+C:   00000164  A$Lab_2$1598                       Lab_2
+C:   00000164  C$Lab_2.c$128$1$34                 Lab_2
+C:   00000167  A$Lab_2$1601                       Lab_2
+C:   00000167  C$Lab_2.c$129$1$34                 Lab_2
+C:   0000016A  A$Lab_2$1604                       Lab_2
+C:   0000016A  C$Lab_2.c$130$1$34                 Lab_2
+C:   0000016C  A$Lab_2$1605                       Lab_2
+C:   0000016E  A$Lab_2$1607                       Lab_2
+C:   0000016F  A$Lab_2$1608                       Lab_2
+C:   00000172  A$Lab_2$1609                       Lab_2
+C:   00000173  A$Lab_2$1611                       Lab_2
+C:   00000174  A$Lab_2$1612                       Lab_2
+C:   00000175  A$Lab_2$1613                       Lab_2
+C:   00000177  A$Lab_2$1617                       Lab_2
+C:   00000177  C$Lab_2.c$131$1$34                 Lab_2
+C:   00000179  A$Lab_2$1618                       Lab_2
+C:   0000017C  A$Lab_2$1621                       Lab_2
+C:   0000017C  C$Lab_2.c$132$1$34                 Lab_2
+C:   0000017F  A$Lab_2$1624                       Lab_2
+C:   0000017F  C$Lab_2.c$133$1$34                 Lab_2
+C:   00000182  A$Lab_2$1627                       Lab_2
+C:   00000182  C$Lab_2.c$135$1$34                 Lab_2
+C:   00000185  A$Lab_2$1630                       Lab_2
+C:   00000185  C$Lab_2.c$136$1$34                 Lab_2
+C:   00000188  A$Lab_2$1633                       Lab_2
+C:   00000188  C$Lab_2.c$137$1$34                 Lab_2
+C:   0000018B  A$Lab_2$1636                       Lab_2
 ASxxxx Linker V03.00 + NoICE + sdld,  page 36.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-CSEG                                00000067    00000775 =        1909. bytes (REL,CON,CODE)
+CSEG                                00000078    00000828 =        2088. bytes (REL,CON,CODE)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-C:   00000176  A$Lab_2$1618                       Lab_2
-C:   00000176  C$Lab_2.c$159$1$33                 Lab_2
-C:   00000179  A$Lab_2$1621                       Lab_2
-C:   00000179  C$Lab_2.c$161$1$33                 Lab_2
-C:   0000017B  A$Lab_2$1624                       Lab_2
-C:   0000017B  C$Lab_2.c$162$1$33                 Lab_2
-C:   0000017B  XG$SYSCLK_INIT$0$0                 Lab_2
-C:   0000017C  A$Lab_2$1639                       Lab_2
-C:   0000017C  C$Lab_2.c$171$1$33                 Lab_2
-C:   0000017C  C$Lab_2.c$175$1$35                 Lab_2
-C:   0000017C  G$UART0_INIT$0$0                   Lab_2
-C:   0000017C  _UART0_INIT                        Lab_2
-C:   0000017E  A$Lab_2$1642                       Lab_2
-C:   0000017E  C$Lab_2.c$177$1$35                 Lab_2
-C:   00000181  A$Lab_2$1645                       Lab_2
-C:   00000181  C$Lab_2.c$178$1$35                 Lab_2
-C:   00000183  A$Lab_2$1646                       Lab_2
-C:   00000185  A$Lab_2$1647                       Lab_2
-C:   00000186  A$Lab_2$1648                       Lab_2
-C:   00000188  A$Lab_2$1651                       Lab_2
-C:   00000188  C$Lab_2.c$179$1$35                 Lab_2
-C:   0000018B  A$Lab_2$1654                       Lab_2
-C:   0000018B  C$Lab_2.c$180$1$35                 Lab_2
-C:   0000018E  A$Lab_2$1657                       Lab_2
-C:   0000018E  C$Lab_2.c$181$1$35                 Lab_2
-C:   00000191  A$Lab_2$1660                       Lab_2
-C:   00000191  C$Lab_2.c$182$1$35                 Lab_2
-C:   00000194  A$Lab_2$1663                       Lab_2
-C:   00000194  C$Lab_2.c$183$1$35                 Lab_2
-C:   00000196  A$Lab_2$1666                       Lab_2
-C:   00000196  C$Lab_2.c$187$1$35                 Lab_2
-C:   00000199  A$Lab_2$1669                       Lab_2
-C:   00000199  C$Lab_2.c$188$1$35                 Lab_2
-C:   0000019C  A$Lab_2$1672                       Lab_2
-C:   0000019C  C$Lab_2.c$189$1$35                 Lab_2
-C:   0000019F  A$Lab_2$1675                       Lab_2
-C:   0000019F  C$Lab_2.c$190$1$35                 Lab_2
-C:   000001A1  A$Lab_2$1678                       Lab_2
-C:   000001A1  C$Lab_2.c$192$1$35                 Lab_2
-C:   000001A3  A$Lab_2$1681                       Lab_2
-C:   000001A3  C$Lab_2.c$193$1$35                 Lab_2
-C:   000001A3  XG$UART0_INIT$0$0                  Lab_2
-C:   000001AF  _vprintf                           vprintf
-C:   000001C8  _printf                            vprintf
-C:   0000029A  __print_format                     printf_large
-C:   000007A4  _strlen                            _strlen
-C:   000007BC  __gptrget                          _gptrget
-C:   000007D8  __sdcc_external_startup            _startup
-
+C:   0000018B  C$Lab_2.c$138$1$34                 Lab_2
+C:   0000018E  A$Lab_2$1639                       Lab_2
+C:   0000018E  C$Lab_2.c$139$1$34                 Lab_2
+C:   00000191  A$Lab_2$1642                       Lab_2
+C:   00000191  C$Lab_2.c$140$1$34                 Lab_2
+C:   00000194  A$Lab_2$1645                       Lab_2
+C:   00000194  C$Lab_2.c$141$1$34                 Lab_2
+C:   00000197  A$Lab_2$1648                       Lab_2
+C:   00000197  C$Lab_2.c$142$1$34                 Lab_2
+C:   0000019A  A$Lab_2$1651                       Lab_2
+C:   0000019A  C$Lab_2.c$143$1$34                 Lab_2
+C:   0000019D  A$Lab_2$1654                       Lab_2
+C:   0000019D  C$Lab_2.c$144$1$34                 Lab_2
+C:   0000019F  A$Lab_2$1655                       Lab_2
+C:   000001A1  A$Lab_2$1657                       Lab_2
+C:   000001A2  A$Lab_2$1658                       Lab_2
+C:   000001A5  A$Lab_2$1659                       Lab_2
+C:   000001A6  A$Lab_2$1661                       Lab_2
+C:   000001A7  A$Lab_2$1662                       Lab_2
+C:   000001A8  A$Lab_2$1663                       Lab_2
+C:   000001AA  A$Lab_2$1666                       Lab_2
+C:   000001AA  C$Lab_2.c$145$1$34                 Lab_2
+C:   000001AD  A$Lab_2$1670                       Lab_2
+C:   000001AD  C$Lab_2.c$146$1$34                 Lab_2
+C:   000001AF  A$Lab_2$1671                       Lab_2
+C:   000001B2  A$Lab_2$1674                       Lab_2
+C:   000001B2  C$Lab_2.c$147$1$34                 Lab_2
+C:   000001B5  A$Lab_2$1677                       Lab_2
+C:   000001B5  C$Lab_2.c$149$1$34                 Lab_2
+C:   000001B7  A$Lab_2$1680                       Lab_2
+C:   000001B7  C$Lab_2.c$150$1$34                 Lab_2
+C:   000001B7  XG$SYSCLK_INIT$0$0                 Lab_2
+C:   000001B8  A$Lab_2$1695                       Lab_2
+C:   000001B8  C$Lab_2.c$159$1$34                 Lab_2
+C:   000001B8  C$Lab_2.c$163$1$36                 Lab_2
+C:   000001B8  G$UART0_INIT$0$0                   Lab_2
+C:   000001B8  _UART0_INIT                        Lab_2
+C:   000001BA  A$Lab_2$1698                       Lab_2
+C:   000001BA  C$Lab_2.c$165$1$36                 Lab_2
+C:   000001BD  A$Lab_2$1701                       Lab_2
+C:   000001BD  C$Lab_2.c$166$1$36                 Lab_2
+C:   000001BF  A$Lab_2$1702                       Lab_2
+C:   000001C1  A$Lab_2$1703                       Lab_2
+C:   000001C2  A$Lab_2$1704                       Lab_2
+C:   000001C4  A$Lab_2$1707                       Lab_2
+C:   000001C4  C$Lab_2.c$167$1$36                 Lab_2
+C:   000001C7  A$Lab_2$1710                       Lab_2
+C:   000001C7  C$Lab_2.c$168$1$36                 Lab_2
+C:   000001CA  A$Lab_2$1713                       Lab_2
+C:   000001CA  C$Lab_2.c$169$1$36                 Lab_2
+C:   000001CD  A$Lab_2$1716                       Lab_2
 ASxxxx Linker V03.00 + NoICE + sdld,  page 37.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-CONST                               000007DC    000000DE =         222. bytes (REL,CON,CODE)
+CSEG                                00000078    00000828 =        2088. bytes (REL,CON,CODE)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-C:   000007DC  FLab_2$__str_0$0$0                 Lab_2
-C:   000007E1  FLab_2$__str_1$0$0                 Lab_2
-C:   000007FE  FLab_2$__str_2$0$0                 Lab_2
-C:   0000082F  FLab_2$__str_3$0$0                 Lab_2
-C:   00000856  FLab_2$__str_4$0$0                 Lab_2
-
+C:   000001CD  C$Lab_2.c$170$1$36                 Lab_2
+C:   000001D0  A$Lab_2$1719                       Lab_2
+C:   000001D0  C$Lab_2.c$171$1$36                 Lab_2
+C:   000001D2  A$Lab_2$1722                       Lab_2
+C:   000001D2  C$Lab_2.c$172$1$36                 Lab_2
+C:   000001D5  A$Lab_2$1725                       Lab_2
+C:   000001D5  C$Lab_2.c$173$1$36                 Lab_2
+C:   000001D7  A$Lab_2$1728                       Lab_2
+C:   000001D7  C$Lab_2.c$174$1$36                 Lab_2
+C:   000001DA  A$Lab_2$1731                       Lab_2
+C:   000001DA  C$Lab_2.c$175$1$36                 Lab_2
+C:   000001DD  A$Lab_2$1734                       Lab_2
+C:   000001DD  C$Lab_2.c$176$1$36                 Lab_2
+C:   000001E0  A$Lab_2$1737                       Lab_2
+C:   000001E0  C$Lab_2.c$177$1$36                 Lab_2
+C:   000001E2  A$Lab_2$1740                       Lab_2
+C:   000001E2  C$Lab_2.c$179$1$36                 Lab_2
+C:   000001E4  A$Lab_2$1743                       Lab_2
+C:   000001E4  C$Lab_2.c$180$1$36                 Lab_2
+C:   000001E4  XG$UART0_INIT$0$0                  Lab_2
+C:   000001E5  __moduint                          _moduint
+C:   0000023D  _vprintf                           vprintf
+C:   00000256  _printf                            vprintf
+C:   00000328  __print_format                     printf_large
+C:   00000832  _strlen                            _strlen
+C:   0000084A  __gptrget                          _gptrget
+C:   00000866  __modsint                          _modsint
+C:   0000089C  __sdcc_external_startup            _startup
 ASxxxx Linker V03.00 + NoICE + sdld,  page 38.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+CONST                               000008A0    00000051 =          81. bytes (REL,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+C:   000008A0  FLab_2$__str_0$0$0                 Lab_2
+C:   000008A5  FLab_2$__str_1$0$0                 Lab_2
+C:   000008C1  FLab_2$__str_2$0$0                 Lab_2
+ASxxxx Linker V03.00 + NoICE + sdld,  page 39.
 
 Files Linked                              [ module(s) ]
 
@@ -1467,6 +1516,8 @@ C:\Program Files (x86)\SDCC\bin\..\lib\small/mcs51.lib
                                           [ crtclear.rel ]
 C:\Program Files (x86)\SDCC\bin\..\lib\small/mcs51.lib
                                           [ crtxinit.rel ]
+C:\Program Files (x86)\SDCC\bin\..\lib\small/libint.lib
+                                          [ _moduint.rel ]
 C:\Program Files (x86)\SDCC\bin\..\lib\small/mcs51.lib
                                           [ crtxclear.rel ]
 C:\Program Files (x86)\SDCC\bin\..\lib\small/libsdcc.lib
@@ -1479,12 +1530,14 @@ C:\Program Files (x86)\SDCC\bin\..\lib\small/mcs51.lib
                                           [ crtstart.rel ]
 C:\Program Files (x86)\SDCC\bin\..\lib\small/libsdcc.lib
                                           [ _gptrget.rel ]
+C:\Program Files (x86)\SDCC\bin\..\lib\small/libint.lib
+                                          [ _modsint.rel ]
 C:\Program Files (x86)\SDCC\bin\..\lib\small/libsdcc.lib
                                           [ _startup.rel ]
 C:\Program Files (x86)\SDCC\bin\..\lib\small/libsdcc.lib
                                           [ _bp.rel ]
 
-ASxxxx Linker V03.00 + NoICE + sdld,  page 39.
+ASxxxx Linker V03.00 + NoICE + sdld,  page 40.
 
 User Base Address Definitions
 

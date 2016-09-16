@@ -57,16 +57,10 @@ void main (void)
 	SFRPAGE=LEGACY_PAGE;
     while (1)                   // No need to set UART0_PAGE
     {
-		if (tenth == 100)
-		{
-			tenth =0;
-			time = time+1;
-			PRINTED =0;
-		}
 		if (time % 10 ==0 && PRINTED==0)
 		{
 			PRINTED=1;
-			printf("%d tenths of a second have passed \n\r",time);
+			printf("%d tenths of a second have passes \n\r",time);
 		}
     }
 }
@@ -77,7 +71,17 @@ void main (void)
 void Timer0_ISR(void) __interrupt 1
 {
 	TF0 = 0; //reset the flag
-	tenth = tenth+1;
+	if (tenth < 99)
+	{
+		tenth = tenth+1;
+	}
+	else
+	{
+		tenth =0;
+		time = time+1;
+		PRINTED =0;
+	}
+
 	TL0=0;
 	TH0=0;
 }

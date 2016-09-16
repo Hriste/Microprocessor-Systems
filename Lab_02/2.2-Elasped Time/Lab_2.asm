@@ -1,7 +1,7 @@
 ;--------------------------------------------------------
 ; File Created by SDCC : free open source ANSI-C Compiler
 ; Version 3.4.0 #8981 (Apr  5 2014) (MINGW32)
-; This file was generated Mon Sep 12 19:38:38 2016
+; This file was generated Thu Sep 15 20:03:08 2016
 ;--------------------------------------------------------
 	.module Lab_2
 	.optsdcc -mmcs51 --model-small
@@ -393,11 +393,13 @@
 	.globl _DPL
 	.globl _SP
 	.globl _P0
-	.globl _SW2press
+	.globl _PRINTED
+	.globl _tenth
+	.globl _time
 	.globl _putchar
 	.globl _getchar
 	.globl _main
-	.globl _SW2_ISR
+	.globl _Timer0_ISR
 	.globl _PORT_INIT
 	.globl _SYSCLK_INIT
 	.globl _UART0_INIT
@@ -1186,6 +1188,12 @@ _P7_7	=	0x00ff
 ; internal ram data
 ;--------------------------------------------------------
 	.area DSEG    (DATA)
+G$time$0$0==.
+_time::
+	.ds 2
+G$tenth$0$0==.
+_tenth::
+	.ds 2
 ;--------------------------------------------------------
 ; overlayable items in internal ram 
 ;--------------------------------------------------------
@@ -1214,8 +1222,8 @@ __start__stack:
 ; bit data
 ;--------------------------------------------------------
 	.area BSEG    (BIT)
-G$SW2press$0$0==.
-_SW2press::
+G$PRINTED$0$0==.
+_PRINTED::
 	.ds 1
 ;--------------------------------------------------------
 ; paged external ram data
@@ -1249,7 +1257,9 @@ _SW2press::
 	.area HOME    (CODE)
 __interrupt_vect:
 	ljmp	__sdcc_gsinit_startup
-	ljmp	_SW2_ISR
+	reti
+	.ds	7
+	ljmp	_Timer0_ISR
 ;--------------------------------------------------------
 ; global & static initialisations
 ;--------------------------------------------------------
@@ -1263,9 +1273,18 @@ __interrupt_vect:
 	.globl __mcs51_genXINIT
 	.globl __mcs51_genXRAMCLEAR
 	.globl __mcs51_genRAMCLEAR
-	C$Lab_2.c$23$1$35 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:23: __bit SW2press = 0;
-	clr	_SW2press
+	C$Lab_2.c$23$1$36 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:23: int time = 0; // increments every tenth of a second to keep track of elasped time
+	clr	a
+	mov	_time,a
+	mov	(_time + 1),a
+	C$Lab_2.c$24$1$36 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:24: int tenth = 0; // increments at overflow (.001 seconds)
+	mov	_tenth,a
+	mov	(_tenth + 1),a
+	C$Lab_2.c$25$1$36 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:25: __bit PRINTED = 0;
+	clr	_PRINTED
 	.area GSFINAL (CODE)
 	ljmp	__sdcc_program_startup
 ;--------------------------------------------------------
@@ -1348,35 +1367,38 @@ _getchar:
 ;Allocation info for local variables in function 'main'
 ;------------------------------------------------------------
 	G$main$0$0 ==.
-	C$Lab_2.c$38$1$18 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:38: void main (void)
+	C$Lab_2.c$37$1$18 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:37: void main (void)
 ;	-----------------------------------------
 ;	 function main
 ;	-----------------------------------------
 _main:
-	C$Lab_2.c$46$1$25 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:46: SFRPAGE = CONFIG_PAGE;
+	C$Lab_2.c$41$1$25 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:41: SFRPAGE = CONFIG_PAGE;
 	mov	_SFRPAGE,#0x0F
-	C$Lab_2.c$47$1$25 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:47: IE |=0x03; //Enable interrupts 0 and 1 (SW2_ISR and timer 0 interrupt)
-	orl	_IE,#0x03
-	C$Lab_2.c$48$1$25 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:48: PORT_INIT();                // Configure the Crossbar and GPIO.
+	C$Lab_2.c$42$1$25 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:42: IE |=0x02; //Enable interrupts 0 
+	orl	_IE,#0x02
+	C$Lab_2.c$43$1$25 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:43: PORT_INIT();                // Configure the Crossbar and GPIO.
 	lcall	_PORT_INIT
-	C$Lab_2.c$49$1$25 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:49: SYSCLK_INIT();              // Initialize the oscillator.
+	C$Lab_2.c$44$1$25 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:44: SYSCLK_INIT();              // Initialize the oscillator.
 	lcall	_SYSCLK_INIT
-	C$Lab_2.c$50$1$25 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:50: UART0_INIT();               // Initialize UART0.
+	C$Lab_2.c$45$1$25 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:45: UART0_INIT();               // Initialize UART0.
 	lcall	_UART0_INIT
-	C$Lab_2.c$52$1$25 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:52: SFRPAGE = LEGACY_PAGE;
+	C$Lab_2.c$47$1$25 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:47: SFRPAGE = LEGACY_PAGE;
 	mov	_SFRPAGE,#0x00
-	C$Lab_2.c$53$1$25 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:53: IT0     = 1;                // /INT0 is edge triggered, falling-edge.
+	C$Lab_2.c$48$1$25 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:48: IT0     = 1;                // /INT0 is edge triggered, falling-edge.
 	setb	_IT0
-	C$Lab_2.c$57$1$25 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:57: printf("\033[2J");          // Erase screen and move cursor to the home position.
+	C$Lab_2.c$49$1$25 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:49: SFRPAGE = UART0_PAGE;       // Direct the output to UART0
+	mov	_SFRPAGE,#0x00
+	C$Lab_2.c$51$1$25 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:51: printf("\033[2J");          // Erase screen and move cursor to the home position.
 	mov	a,#___str_0
 	push	acc
 	mov	a,#(___str_0 >> 8)
@@ -1387,8 +1409,8 @@ _main:
 	dec	sp
 	dec	sp
 	dec	sp
-	C$Lab_2.c$58$1$25 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:58: printf("MPS Interrupt Switch Test\n\n\r");
+	C$Lab_2.c$52$1$25 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:52: printf("MPS Interrupt Timer Test\n\n\r");
 	mov	a,#___str_1
 	push	acc
 	mov	a,#(___str_1 >> 8)
@@ -1399,8 +1421,63 @@ _main:
 	dec	sp
 	dec	sp
 	dec	sp
-	C$Lab_2.c$59$1$25 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:59: printf("Ground /INT0 on P0.2 to see the time elasped.\n\n\r");
+	C$Lab_2.c$55$1$25 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:55: SFRPAGE = CONFIG_PAGE;
+	mov	_SFRPAGE,#0x0F
+	C$Lab_2.c$56$1$25 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:56: EX0     = 1;                // Enable Ext Int 0 only after everything is settled.
+	setb	_EX0
+	C$Lab_2.c$57$1$25 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:57: SFRPAGE=LEGACY_PAGE;
+	mov	_SFRPAGE,#0x00
+	C$Lab_2.c$58$1$25 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:58: while (1)                   // No need to set UART0_PAGE
+00107$:
+	C$Lab_2.c$60$2$26 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:60: if (tenth == 100)
+	mov	a,#0x64
+	cjne	a,_tenth,00123$
+	clr	a
+	cjne	a,(_tenth + 1),00123$
+	sjmp	00124$
+00123$:
+	sjmp	00102$
+00124$:
+	C$Lab_2.c$62$3$27 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:62: tenth =0;
+	clr	a
+	mov	_tenth,a
+	mov	(_tenth + 1),a
+	C$Lab_2.c$63$3$27 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:63: time = time+1;
+	inc	_time
+;	genFromRTrack removed	clr	a
+	cjne	a,_time,00125$
+	inc	(_time + 1)
+00125$:
+	C$Lab_2.c$64$3$27 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:64: PRINTED =0;
+	clr	_PRINTED
+00102$:
+	C$Lab_2.c$66$1$25 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:66: if (time % 10 ==0 && PRINTED==0)
+	mov	__modsint_PARM_2,#0x0A
+	mov	(__modsint_PARM_2 + 1),#0x00
+	mov	dpl,_time
+	mov	dph,(_time + 1)
+	lcall	__modsint
+	mov	a,dpl
+	mov	b,dph
+	orl	a,b
+	jnz	00107$
+	jb	_PRINTED,00107$
+	C$Lab_2.c$68$3$28 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:68: PRINTED=1;
+	setb	_PRINTED
+	C$Lab_2.c$69$3$28 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:69: printf("%d tenths of a second have passed \n\r",time);
+	push	_time
+	push	(_time + 1)
 	mov	a,#___str_2
 	push	acc
 	mov	a,#(___str_2 >> 8)
@@ -1408,117 +1485,96 @@ _main:
 	mov	a,#0x80
 	push	acc
 	lcall	_printf
-	dec	sp
-	dec	sp
-	dec	sp
-	C$Lab_2.c$61$1$25 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:61: SFRPAGE = CONFIG_PAGE;
-	mov	_SFRPAGE,#0x0F
-	C$Lab_2.c$62$1$25 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:62: EX0     = 1;                // Enable Ext Int 0 only after everything is settled.
-	setb	_EX0
-	C$Lab_2.c$64$1$25 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:64: while (1)                   // No need to set UART0_PAGE
-00104$:
-	C$Lab_2.c$66$2$26 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:66: if(SW2press ==1){
-	jnb	_SW2press,00104$
-	C$Lab_2.c$67$3$27 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:67: printf("The Pushbutton Has Been Pressed !!!!\n\r");
-	mov	a,#___str_3
-	push	acc
-	mov	a,#(___str_3 >> 8)
-	push	acc
-	mov	a,#0x80
-	push	acc
-	lcall	_printf
-	dec	sp
-	dec	sp
-	dec	sp
-	C$Lab_2.c$69$3$27 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:69: printf(" tenths of a second have passed since the program started/ or you last pused the button.");
-	mov	a,#___str_4
-	push	acc
-	mov	a,#(___str_4 >> 8)
-	push	acc
-	mov	a,#0x80
-	push	acc
-	lcall	_printf
-	dec	sp
-	dec	sp
-	dec	sp
-	sjmp	00104$
-	C$Lab_2.c$74$1$25 ==.
+	mov	a,sp
+	add	a,#0xfb
+	mov	sp,a
+	sjmp	00107$
+	C$Lab_2.c$72$1$25 ==.
 	XG$main$0$0 ==.
 	ret
 ;------------------------------------------------------------
-;Allocation info for local variables in function 'SW2_ISR'
+;Allocation info for local variables in function 'Timer0_ISR'
 ;------------------------------------------------------------
-	G$SW2_ISR$0$0 ==.
-	C$Lab_2.c$81$1$25 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:81: void SW2_ISR (void) __interrupt 0   // Interrupt 0 corresponds to vector address 0003h.
+	G$Timer0_ISR$0$0 ==.
+	C$Lab_2.c$77$1$25 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:77: void Timer0_ISR(void) __interrupt 1
 ;	-----------------------------------------
-;	 function SW2_ISR
+;	 function Timer0_ISR
 ;	-----------------------------------------
-_SW2_ISR:
-	C$Lab_2.c$85$1$29 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:85: SW2press=1;
-	setb	_SW2press
-	C$Lab_2.c$86$1$29 ==.
-	XG$SW2_ISR$0$0 ==.
+_Timer0_ISR:
+	push	acc
+	push	psw
+	C$Lab_2.c$79$1$30 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:79: TF0 = 0; //reset the flag
+	clr	_TF0
+	C$Lab_2.c$80$1$30 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:80: tenth = tenth+1;
+	inc	_tenth
+	clr	a
+	cjne	a,_tenth,00103$
+	inc	(_tenth + 1)
+00103$:
+	C$Lab_2.c$81$1$30 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:81: TL0=0;
+	mov	_TL0,#0x00
+	C$Lab_2.c$82$1$30 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:82: TH0=0;
+	mov	_TH0,#0x00
+	pop	psw
+	pop	acc
+	C$Lab_2.c$83$1$30 ==.
+	XG$Timer0_ISR$0$0 ==.
 	reti
 ;	eliminated unneeded mov psw,# (no regs used in bank)
-;	eliminated unneeded push/pop psw
 ;	eliminated unneeded push/pop dpl
 ;	eliminated unneeded push/pop dph
 ;	eliminated unneeded push/pop b
-;	eliminated unneeded push/pop acc
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'PORT_INIT'
 ;------------------------------------------------------------
 ;SFRPAGE_SAVE              Allocated to registers r7 
 ;------------------------------------------------------------
 	G$PORT_INIT$0$0 ==.
-	C$Lab_2.c$103$1$29 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:103: void PORT_INIT(void)
+	C$Lab_2.c$91$1$30 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:91: void PORT_INIT(void)
 ;	-----------------------------------------
 ;	 function PORT_INIT
 ;	-----------------------------------------
 _PORT_INIT:
-	C$Lab_2.c$107$1$31 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:107: SFRPAGE_SAVE = SFRPAGE;     // Save Current SFR page.
+	C$Lab_2.c$95$1$32 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:95: SFRPAGE_SAVE = SFRPAGE;     // Save Current SFR page.
 	mov	r7,_SFRPAGE
-	C$Lab_2.c$109$1$31 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:109: SFRPAGE = CONFIG_PAGE;
+	C$Lab_2.c$97$1$32 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:97: SFRPAGE = CONFIG_PAGE;
 	mov	_SFRPAGE,#0x0F
-	C$Lab_2.c$110$1$31 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:110: WDTCN   = 0xDE;             // Disable watchdog timer.
+	C$Lab_2.c$98$1$32 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:98: WDTCN   = 0xDE;             // Disable watchdog timer.
 	mov	_WDTCN,#0xDE
-	C$Lab_2.c$111$1$31 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:111: WDTCN   = 0xAD;
+	C$Lab_2.c$99$1$32 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:99: WDTCN   = 0xAD;
 	mov	_WDTCN,#0xAD
-	C$Lab_2.c$112$1$31 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:112: EA      = 1;                // Enable interrupts as selected.
+	C$Lab_2.c$100$1$32 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:100: EA      = 1;                // Enable interrupts as selected.
 	setb	_EA
-	C$Lab_2.c$114$1$31 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:114: XBR0    = 0x04;             // Enable UART0.
+	C$Lab_2.c$102$1$32 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:102: XBR0    = 0x04;             // Enable UART0.
 	mov	_XBR0,#0x04
-	C$Lab_2.c$115$1$31 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:115: XBR1    = 0x04;             // /INT0 routed to port pin.
-	mov	_XBR1,#0x04
-	C$Lab_2.c$116$1$31 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:116: XBR2    = 0x40;             // Enable Crossbar and weak pull-ups.
+	C$Lab_2.c$103$1$32 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:103: XBR1    = 0x00;             // 
+	mov	_XBR1,#0x00
+	C$Lab_2.c$104$1$32 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:104: XBR2    = 0x40;             // Enable Crossbar and weak pull-ups.
 	mov	_XBR2,#0x40
-	C$Lab_2.c$118$1$31 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:118: P0MDOUT = 0x01;             // P0.0 (TX0) is configured as Push-Pull for output.
+	C$Lab_2.c$106$1$32 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:106: P0MDOUT = 0x01;             // P0.0 (TX0) is configured as Push-Pull for output.
 	mov	_P0MDOUT,#0x01
-	C$Lab_2.c$121$1$31 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:121: P0      = 0x06;             // Additionally, set P0.0=0, P0.1=1, and P0.2=1.
+	C$Lab_2.c$109$1$32 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:109: P0      = 0x06;             // Additionally, set P0.0=0, P0.1=1, and P0.2=1.
 	mov	_P0,#0x06
-	C$Lab_2.c$123$1$31 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:123: SFRPAGE = SFRPAGE_SAVE;     // Restore SFR page.
+	C$Lab_2.c$111$1$32 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:111: SFRPAGE = SFRPAGE_SAVE;     // Restore SFR page.
 	mov	_SFRPAGE,r7
-	C$Lab_2.c$124$1$31 ==.
+	C$Lab_2.c$112$1$32 ==.
 	XG$PORT_INIT$0$0 ==.
 	ret
 ;------------------------------------------------------------
@@ -1528,23 +1584,23 @@ _PORT_INIT:
 ;SFRPAGE_SAVE              Allocated to registers r7 
 ;------------------------------------------------------------
 	G$SYSCLK_INIT$0$0 ==.
-	C$Lab_2.c$132$1$31 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:132: void SYSCLK_INIT(void)
+	C$Lab_2.c$120$1$32 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:120: void SYSCLK_INIT(void)
 ;	-----------------------------------------
 ;	 function SYSCLK_INIT
 ;	-----------------------------------------
 _SYSCLK_INIT:
-	C$Lab_2.c$138$1$33 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:138: SFRPAGE_SAVE = SFRPAGE;     // Save Current SFR page.
+	C$Lab_2.c$126$1$34 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:126: SFRPAGE_SAVE = SFRPAGE;     // Save Current SFR page.
 	mov	r7,_SFRPAGE
-	C$Lab_2.c$140$1$33 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:140: SFRPAGE = CONFIG_PAGE;
+	C$Lab_2.c$128$1$34 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:128: SFRPAGE = CONFIG_PAGE;
 	mov	_SFRPAGE,#0x0F
-	C$Lab_2.c$141$1$33 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:141: OSCXCN  = 0x67;             // Start external oscillator
+	C$Lab_2.c$129$1$34 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:129: OSCXCN  = 0x67;             // Start external oscillator
 	mov	_OSCXCN,#0x67
-	C$Lab_2.c$142$1$33 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:142: for(i=0; i < 256; i++);     // Wait for the oscillator to start up.
+	C$Lab_2.c$130$1$34 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:130: for(i=0; i < 256; i++);     // Wait for the oscillator to start up.
 	mov	r5,#0x00
 	mov	r6,#0x01
 00111$:
@@ -1555,46 +1611,46 @@ _SYSCLK_INIT:
 	mov	a,r5
 	orl	a,r6
 	jnz	00111$
-	C$Lab_2.c$143$1$33 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:143: while(!(OSCXCN & 0x80));    // Check to see if the Crystal Oscillator Valid Flag is set.
+	C$Lab_2.c$131$1$34 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:131: while(!(OSCXCN & 0x80));    // Check to see if the Crystal Oscillator Valid Flag is set.
 00102$:
 	mov	a,_OSCXCN
 	jnb	acc.7,00102$
-	C$Lab_2.c$144$1$33 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:144: CLKSEL  = 0x01;             // SYSCLK derived from the External Oscillator circuit.
+	C$Lab_2.c$132$1$34 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:132: CLKSEL  = 0x01;             // SYSCLK derived from the External Oscillator circuit.
 	mov	_CLKSEL,#0x01
-	C$Lab_2.c$145$1$33 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:145: OSCICN  = 0x00;             // Disable the internal oscillator.
+	C$Lab_2.c$133$1$34 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:133: OSCICN  = 0x00;             // Disable the internal oscillator.
 	mov	_OSCICN,#0x00
-	C$Lab_2.c$147$1$33 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:147: SFRPAGE = CONFIG_PAGE;
+	C$Lab_2.c$135$1$34 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:135: SFRPAGE = CONFIG_PAGE;
 	mov	_SFRPAGE,#0x0F
-	C$Lab_2.c$148$1$33 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:148: PLL0CN  = 0x04;
+	C$Lab_2.c$136$1$34 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:136: PLL0CN  = 0x04;
 	mov	_PLL0CN,#0x04
-	C$Lab_2.c$149$1$33 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:149: SFRPAGE = LEGACY_PAGE;
+	C$Lab_2.c$137$1$34 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:137: SFRPAGE = LEGACY_PAGE;
 	mov	_SFRPAGE,#0x00
-	C$Lab_2.c$150$1$33 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:150: FLSCL   = 0x10;
+	C$Lab_2.c$138$1$34 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:138: FLSCL   = 0x10;
 	mov	_FLSCL,#0x10
-	C$Lab_2.c$151$1$33 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:151: SFRPAGE = CONFIG_PAGE;
+	C$Lab_2.c$139$1$34 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:139: SFRPAGE = CONFIG_PAGE;
 	mov	_SFRPAGE,#0x0F
-	C$Lab_2.c$152$1$33 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:152: PLL0CN |= 0x01;
+	C$Lab_2.c$140$1$34 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:140: PLL0CN |= 0x01;
 	orl	_PLL0CN,#0x01
-	C$Lab_2.c$153$1$33 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:153: PLL0DIV = 0x04;
-	mov	_PLL0DIV,#0x04
-	C$Lab_2.c$154$1$33 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:154: PLL0FLT = 0x01;
+	C$Lab_2.c$141$1$34 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:141: PLL0DIV = 0x1B;//27
+	mov	_PLL0DIV,#0x1B
+	C$Lab_2.c$142$1$34 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:142: PLL0FLT = 0x01;//refrence clock is 22MHz
 	mov	_PLL0FLT,#0x01
-	C$Lab_2.c$155$1$33 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:155: PLL0MUL = 0x09;
-	mov	_PLL0MUL,#0x09
-	C$Lab_2.c$156$1$33 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:156: for(i=0; i < 256; i++);
+	C$Lab_2.c$143$1$34 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:143: PLL0MUL = 0x50;//80
+	mov	_PLL0MUL,#0x50
+	C$Lab_2.c$144$1$34 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:144: for(i=0; i < 256; i++);
 	mov	r5,#0x00
 	mov	r6,#0x01
 00114$:
@@ -1605,21 +1661,21 @@ _SYSCLK_INIT:
 	mov	a,r5
 	orl	a,r6
 	jnz	00114$
-	C$Lab_2.c$157$1$33 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:157: PLL0CN |= 0x02;
+	C$Lab_2.c$145$1$34 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:145: PLL0CN |= 0x02;
 	orl	_PLL0CN,#0x02
-	C$Lab_2.c$158$1$33 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:158: while(!(PLL0CN & 0x10));
+	C$Lab_2.c$146$1$34 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:146: while(!(PLL0CN & 0x10));
 00106$:
 	mov	a,_PLL0CN
 	jnb	acc.4,00106$
-	C$Lab_2.c$159$1$33 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:159: CLKSEL  = 0x02;             // SYSCLK derived from the PLL.
+	C$Lab_2.c$147$1$34 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:147: CLKSEL  = 0x02;             // SYSCLK derived from the PLL.
 	mov	_CLKSEL,#0x02
-	C$Lab_2.c$161$1$33 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:161: SFRPAGE = SFRPAGE_SAVE;     // Restore SFR page.
+	C$Lab_2.c$149$1$34 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:149: SFRPAGE = SFRPAGE_SAVE;     // Restore SFR page.
 	mov	_SFRPAGE,r7
-	C$Lab_2.c$162$1$33 ==.
+	C$Lab_2.c$150$1$34 ==.
 	XG$SYSCLK_INIT$0$0 ==.
 	ret
 ;------------------------------------------------------------
@@ -1628,55 +1684,61 @@ _SYSCLK_INIT:
 ;SFRPAGE_SAVE              Allocated to registers r7 
 ;------------------------------------------------------------
 	G$UART0_INIT$0$0 ==.
-	C$Lab_2.c$171$1$33 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:171: void UART0_INIT(void)
+	C$Lab_2.c$159$1$34 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:159: void UART0_INIT(void)
 ;	-----------------------------------------
 ;	 function UART0_INIT
 ;	-----------------------------------------
 _UART0_INIT:
-	C$Lab_2.c$175$1$35 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:175: SFRPAGE_SAVE = SFRPAGE;     // Save Current SFR page.
+	C$Lab_2.c$163$1$36 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:163: SFRPAGE_SAVE = SFRPAGE;     // Save Current SFR page.
 	mov	r7,_SFRPAGE
-	C$Lab_2.c$177$1$35 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:177: SFRPAGE = TIMER01_PAGE;
+	C$Lab_2.c$165$1$36 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:165: SFRPAGE = TIMER01_PAGE;
 	mov	_SFRPAGE,#0x00
-	C$Lab_2.c$178$1$35 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:178: TMOD   &= ~0xF0;
+	C$Lab_2.c$166$1$36 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:166: TMOD   &= ~0xF0;
 	mov	r6,_TMOD
 	mov	a,#0x0F
 	anl	a,r6
 	mov	_TMOD,a
-	C$Lab_2.c$179$1$35 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:179: TMOD   |=  0x21;            // Timer1, Mode 2: 8-bit counter/timer with auto-reload.//Timer0, Mode 1: 16 bit counter/timer
+	C$Lab_2.c$167$1$36 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:167: TMOD   |=  0x21;            // Timer1, Mode 2: 8-bit counter/timer with auto-reload.//Timer0, Mode 1: 16 bit counter/timer
 	orl	_TMOD,#0x21
-	C$Lab_2.c$180$1$35 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:180: TH1     = (unsigned char)-(SYSCLK/BAUDRATE/16); // Set Timer1 reload value for baudrate
-	mov	_TH1,#0xE5
-	C$Lab_2.c$181$1$35 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:181: CKCON  |= 0x10;             // Timer1 uses SYSCLK as time base.// Timer0 uses SYSCLK/12
-	orl	_CKCON,#0x10
-	C$Lab_2.c$182$1$35 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:182: TL1     = TH1;
+	C$Lab_2.c$168$1$36 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:168: TH1     = (unsigned char)-(SYSCLK/BAUDRATE/16); // Set Timer1 reload value for baudrate
+	mov	_TH1,#0xDD
+	C$Lab_2.c$169$1$36 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:169: CKCON  |= 0x18;             // Timer1&0 uses SYSCLK as time base
+	orl	_CKCON,#0x18
+	C$Lab_2.c$170$1$36 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:170: TL1     = TH1;
 	mov	_TL1,_TH1
-	C$Lab_2.c$183$1$35 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:183: TR1     = 1;                // Start Timer1.
+	C$Lab_2.c$171$1$36 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:171: TR1     = 1;                // Start Timer1.
 	setb	_TR1
-	C$Lab_2.c$187$1$35 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:187: SFRPAGE = UART0_PAGE;
+	C$Lab_2.c$172$1$36 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:172: TL0= TH0;
+	mov	_TL0,_TH0
+	C$Lab_2.c$173$1$36 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:173: TR0 = 1; //Start Timer0
+	setb	_TR0
+	C$Lab_2.c$174$1$36 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:174: SFRPAGE = UART0_PAGE;
 	mov	_SFRPAGE,#0x00
-	C$Lab_2.c$188$1$35 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:188: SCON0   = 0x50;             // Set Mode 1: 8-Bit UART
+	C$Lab_2.c$175$1$36 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:175: SCON0   = 0x50;             // Set Mode 1: 8-Bit UART
 	mov	_SCON0,#0x50
-	C$Lab_2.c$189$1$35 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:189: SSTA0   = 0x10;             // UART0 baud rate divide-by-two disabled (SMOD0 = 1).
+	C$Lab_2.c$176$1$36 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:176: SSTA0   = 0x10;             // UART0 baud rate divide-by-two disabled (SMOD0 = 1).
 	mov	_SSTA0,#0x10
-	C$Lab_2.c$190$1$35 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:190: TI0     = 1;                // Indicate TX0 ready.
+	C$Lab_2.c$177$1$36 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:177: TI0     = 1;                // Indicate TX0 ready.
 	setb	_TI0
-	C$Lab_2.c$192$1$35 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:192: SFRPAGE = SFRPAGE_SAVE;     // Restore SFR page.
+	C$Lab_2.c$179$1$36 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.2-Elasped Time\Lab_2.c:179: SFRPAGE = SFRPAGE_SAVE;     // Restore SFR page.
 	mov	_SFRPAGE,r7
-	C$Lab_2.c$193$1$35 ==.
+	C$Lab_2.c$180$1$36 ==.
 	XG$UART0_INIT$0$0 ==.
 	ret
 	.area CSEG    (CODE)
@@ -1688,28 +1750,16 @@ ___str_0:
 	.db 0x00
 FLab_2$__str_1$0$0 == .
 ___str_1:
-	.ascii "MPS Interrupt Switch Test"
+	.ascii "MPS Interrupt Timer Test"
 	.db 0x0A
 	.db 0x0A
 	.db 0x0D
 	.db 0x00
 FLab_2$__str_2$0$0 == .
 ___str_2:
-	.ascii "Ground /INT0 on P0.2 to see the time elasped."
-	.db 0x0A
-	.db 0x0A
-	.db 0x0D
-	.db 0x00
-FLab_2$__str_3$0$0 == .
-___str_3:
-	.ascii "The Pushbutton Has Been Pressed !!!!"
+	.ascii "%d tenths of a second have passed "
 	.db 0x0A
 	.db 0x0D
-	.db 0x00
-FLab_2$__str_4$0$0 == .
-___str_4:
-	.ascii " tenths of a second have passed since the program started/ o"
-	.ascii "r you last pused the button."
 	.db 0x00
 	.area XINIT   (CODE)
 	.area CABS    (ABS,CODE)
