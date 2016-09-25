@@ -1,7 +1,7 @@
                                       1 ;--------------------------------------------------------
                                       2 ; File Created by SDCC : free open source ANSI-C Compiler
                                       3 ; Version 3.4.0 #8981 (Apr  5 2014) (MINGW32)
-                                      4 ; This file was generated Mon Sep 12 19:26:24 2016
+                                      4 ; This file was generated Thu Sep 22 18:04:28 2016
                                       5 ;--------------------------------------------------------
                                       6 	.module Lab_2
                                       7 	.optsdcc -mmcs51 --model-small

@@ -1,0 +1,169 @@
+//------------------------------------------------------------------------------------
+// Includes
+//------------------------------------------------------------------------------------
+#include <c8051f120.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include "putget.h"
+//-------------------------------------------------------------------------------------------
+// Global CONSTANTS
+//-------------------------------------------------------------------------------------------
+#define EXTCLK 22118400 // External oscillator frequency in Hz
+#define SYSCLK 58982400 // Output of PLL derived from (EXTCLK * 8/3)
+#define BAUDRATE 115200 // UART baud rate in bps
+//#define BAUDRATE 19200 // UART baud rate in bps
+
+__bit SW2press = 0;
+
+//-------------------------------------------------------------------------------------------
+// Function PROTOTYPES
+//-------------------------------------------------------------------------------------------
+void main(void);
+void PORT_INIT(void);
+void SYSCLK_INIT(void);
+void UART0_INIT(void);
+void SW2_ISR (void) __interrupt 1;
+
+//-------------------------------------------------------------------------------------------
+// Global Variable
+//-------------------------------------------------------------------------------------------
+int i=0;
+unsigned int j=0;
+
+//-------------------------------------------------------------------------------------------
+// MAIN
+//-------------------------------------------------------------------------------------------
+void main(void)
+{
+	PORT_INIT();
+	SYSCLK_INIT();
+	UART0_INIT();
+	
+	printf("\033[2J"); //Clears the Screen
+	printf("Timer test \n\r");
+
+	while(1)
+	{
+
+		if (i == 90)
+		{
+			i=0;
+			j+=10;
+			printf(j);
+			printf("Tenths of a second has elapsed\n\r");
+	
+		}
+
+	}
+}
+//-------------------------------------------------------------------------------------------
+// ISR
+//-------------------------------------------------------------------------------------------
+
+void SW2_ISR(void) __interrupt 1
+{
+
+	char SFRPAGE_SAVE;
+ 	SFRPAGE_SAVE = SFRPAGE; // Save Current SFR page.
+	printf("interrupt");
+	SFRPAGE = TMR2_PAGE;
+	TF2 = 0;
+	EXF2 = 0;
+	i++;	
+
+	SFRPAGE = SFRPAGE_SAVE; // Restore SFR page.
+
+}
+
+//-------------------------------------------------------------------------------------------
+// PORT_Init
+//-------------------------------------------------------------------------------------------
+//
+// Configure the Crossbar and GPIO ports
+//
+void PORT_INIT(void)
+{
+ char SFRPAGE_SAVE;
+ SFRPAGE_SAVE = SFRPAGE; // Save Current SFR page.
+ SFRPAGE = CONFIG_PAGE;
+ WDTCN = 0xDE; // Disable watchdog timer.
+ WDTCN = 0xAD;
+ EA = 1; // Enable interrupts as selected.
+ IE |= 0x30;  //Enables the Timer 2 and UART0 interrupts
+ XBR0 = 0x04; // Enable UART0.
+ //XBR1 = 0x40; //T2EX routed to port pin P0.2
+ XBR1 = 0x04; // /INT0 routed to port pin.
+ XBR2 = 0x40; // Enable Crossbar and weak pull-ups.
+ 
+ P0MDOUT = 0x01; // P0.0 (TX0) is configured as Push-Pull for output.
+ // P0.1 (RX0) is configure as Open-Drain input.
+ // P0.2 (SW2 through jumper wire) is configured as Open_Drain for input.
+ P0 = 0x02; // Additionally, set P0.0=0, P0.1=1, and P0.2=0 so that T2EX is 0, allowing for count-down
+ SFRPAGE = SFRPAGE_SAVE; // Restore SFR page.
+}
+
+//-------------------------------------------------------------------------------------------
+// SYSCLK_Init
+//-------------------------------------------------------------------------------------------
+//
+// Initialize the system clock
+//
+void SYSCLK_INIT(void)
+{
+ int i;
+ char SFRPAGE_SAVE;
+ SFRPAGE_SAVE = SFRPAGE; // Save Current SFR page.
+ SFRPAGE = CONFIG_PAGE;
+ OSCXCN = 0x67; // Start external oscillator XTAL = 22.1184 MHz
+ for(i=0; i < 256; i++); // Wait for the oscillator to start up.
+ while(!(OSCXCN & 0x80)); // Check to see if the Crystal Oscillator Valid Flag is set.
+//Page 9 (Step 1 PLL)
+ CLKSEL = 0x01; // SYSCLK derived from the External Oscillator circuit.
+ OSCICN = 0x00; // Disable the internal oscillator.
+//--------------------
+ SFRPAGE = CONFIG_PAGE;
+ PLL0CN = 0x04; //Sets reference clock source to External Oscillator (Step 2 PLL)
+ SFRPAGE = LEGACY_PAGE;
+ FLSCL = 0x10;  //This SFR depends on the clock speed, the lowest possible value should be choosen (Step 3 PLL)
+ SFRPAGE = CONFIG_PAGE;
+ PLL0CN |= 0x01; //PLL Power Enable (Step 4 PLL)
+ PLL0DIV = 0x03; //Divide the reference clock by 3 (Step 5 PLL)
+ PLL0FLT = 0x1F; //This SFR is based on the PLL clock after DIV and MUL (Step 6 PLL) and (Step 7 PLL)
+ PLL0MUL = 0x08; //Multiply the reference clock by 8 (Step 8 PLL)
+ for(i=0; i < 256; i++); //Waits 5 us (Step 9 PLL)
+ PLL0CN |= 0x02; //Enables PLL (Step 10 PLL)
+ while(!(PLL0CN & 0x10)); //(Step 11 PLL) PLLCK (PLL0CN.4) will yield 1 once the frequency is locked and stable
+ CLKSEL = 0x02; // SYSCLK derived from the PLL. Switches SYSCLK to PLL
+ SFRPAGE = SFRPAGE_SAVE; // Restore SFR page.
+}
+
+//-------------------------------------------------------------------------------------------
+// UART0_Init
+//-------------------------------------------------------------------------------------------
+//
+// Configure the UART0 using Timer1, for <baudrate> and 8-N-1.
+//
+void UART0_INIT(void)
+{
+ char SFRPAGE_SAVE;
+ SFRPAGE_SAVE = SFRPAGE; // Save Current SFR page.
+ 
+ //SFRPAGE = TMR2_PAGE;
+ SFRPAGE = TIMER01_PAGE;
+ 
+ //TMR2CN |= 0x0C; //Enables Timer 2, allows T2EX to control the direction of the counter, Timer Function, and Auto-Reload Mode
+ //TMR2CF |= 0x09; //Follows SYSCLK and sets DCEN2 to 1, meeting the first condition for count down
+ TMOD &= ~0xE0;
+ TMOD |= 0x20; // Timer1, Mode 2: 8-bit counter/timer with auto-reload.
+
+
+ TH1 = (unsigned char)-(SYSCLK/BAUDRATE/16); // Set Timer1 reload value for baudrate
+ CKCON |= 0x10; // Timer1 uses SYSCLK as time base.
+ TL1 = TH1;
+ TR1 = 1; // Start Timer1.
+ SFRPAGE = UART0_PAGE;
+ SCON0 = 0x50; // Set Mode 1: 8-Bit UART
+ SSTA0 = 0x10; // UART0 baud rate divide-by-two disabled (SMOD0 = 1).
+ TI0 = 1; // Indicate TX0 ready.
+ SFRPAGE = SFRPAGE_SAVE; // Restore SFR page.
+}
