@@ -2,10 +2,12 @@ M:UART
 F:G$putchar$0$0({2}DF,SV:S),Z,0,0,0,0,0
 F:G$getchar$0$0({2}DF,SC:S),Z,0,0,0,0,0
 F:G$main$0$0({2}DF,SV:S),Z,0,0,0,0,0
+F:G$echo$0$0({2}DF,SV:S),Z,0,0,0,0,0
 F:G$SYSCLK_INIT$0$0({2}DF,SV:S),Z,0,0,0,0,0
 F:G$Timer_Init$0$0({2}DF,SV:S),Z,0,0,0,0,0
 F:G$UART_Init$0$0({2}DF,SV:S),Z,0,0,0,0,0
 F:G$Port_IO_Init$0$0({2}DF,SV:S),Z,0,0,0,0,0
+S:LUART.main$c$1$26({1}SC:S),R,0,0,[r7]
 S:G$P0$0$0({1}SC:U),I,0,0
 S:G$SP$0$0({1}SC:U),I,0,0
 S:G$DPL$0$0({1}SC:U),I,0,0
@@ -400,4 +402,4 @@ S:G$gets$0$0({2}DF,DG,SC:S),C,0,0
 S:G$printf_fast$0$0({2}DF,SV:S),C,0,0
 S:G$printf_fast_f$0$0({2}DF,SV:S),C,0,0
 S:G$printf_tiny$0$0({2}DF,SV:S),C,0,0
-S:FUART$__str_0$0$0({6}DA6d,SC:S),D,0,0
+S:FUART$__str_0$0$0({10}DA10d,SC:S),D,0,0

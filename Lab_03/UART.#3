@@ -9,8 +9,6 @@
 #include <c8051f120.h>          // SFR declarations.
 #include <stdio.h>              // Necessary for printf.
 #include <putget.h>
-//#include "compiler_defs.h"
-//#include "C8051F120_defs.h"
 //-------------------------------------------------------------------------------------------
 // Global CONSTANTS
 //-------------------------------------------------------------------------------------------
@@ -25,9 +23,13 @@ void Port_IO_Init(void);
 void Timer_Init(void);
 void UART_Init(void);
 void SYSCLK_INIT(void);
+void echo(char);
 
 void main (void)
 {
+	//Local Variables
+	char c;	
+
 	SFRPAGE = CONFIG_PAGE;
 	SYSCLK_INIT();
 	Port_IO_Init();
@@ -35,11 +37,43 @@ void main (void)
 	UART_Init();
 	
 	SFRPAGE = LEGACY_PAGE;//same ass UART0_PAGE
+	
 	while(1)
 	{
-		printf("HELLO");
+		SFRPAGE   = UART0_PAGE;
+		if(RI0)
+		{
+			RI0 = 0;
+			c = SBUF0;
+			echo(c);
+			printf("GOT ONE\n\r");
+
+		}
+		SFRPAGE   = UART1_PAGE;
+		if (RI1)
+		{
+			RI1 = 0;
+			c = SBUF1;
+			echo(c);
+		}
 	}
 }
+///echo
+void echo(char c)
+{
+	SFRPAGE   = UART1_PAGE;
+	while(!TI1);
+	TI1 = 0;
+	SBUF1=c;
+	SFRPAGE   = UART0_PAGE;
+	while(!TI0);
+	TI0 =0; 
+	SBUF0 =c;
+
+}
+
+
+/// INITILIZATIONS
 void SYSCLK_INIT()
 {
 	int j = 0;
@@ -58,32 +92,34 @@ void Timer_Init()
     TCON      = 0x40;
     TMOD      = 0x20;
     CKCON     = 0x10;
-    TH1       = 0xF3;
+    TH1       = 0xA0;
+	TL1 = TH1;
     SFRPAGE   = TMR2_PAGE;
     TMR2CN    = 0x04;
     TMR2CF    = 0x08;
-	TMR2H	  = (unsigned char) -(EXTCLK/BAUDRATE0/16);
-	TMR2L = TMR2H;
-   // RCAP2L    = 0xEC;
-    //RCAP2H    = 0xFF;
+	TMR2H	  = 0xFF;//(unsigned char) -(EXTCLK/BAUDRATE0/16);
+	TMR2L = 0x70;//TMR2H;
+    RCAP2L    = 0x70;
+    RCAP2H    = 0xFF;
 }
 void UART_Init()
 {
     SFRPAGE   = UART0_PAGE;//Same as Timer 2 and Timer 1 SFR PAGES
 	TR2		  = 1;//Start Timer 2
     SCON0     = 0x50;
-	SSTA0   = 0x05;
+	SSTA0   = 0x15;
 	TI0		  = 1; // Indicate TX0 is ready
 	TR1		  = 1; //Start Timer 1
     SFRPAGE   = UART1_PAGE;
     SCON1     = 0x50;
-
 	TI1		  = 1; //Indicatie TX1 is ready
 }
 void Port_IO_Init()
 {
     // P0.0  -  TX0 (UART0), Open-Drain, Digital
     // P0.1  -  RX0 (UART0), Open-Drain, Digital
+	P0MDOUT = 0x05;
+	P0 = 0x0A;
     // P0.2  -  TX1 (UART1), Open-Drain, Digital
     // P0.3  -  RX1 (UART1), Open-Drain, Digital
     SFRPAGE   = CONFIG_PAGE;
@@ -93,3 +129,4 @@ void Port_IO_Init()
     XBR0      = 0x04;
     XBR2      = 0x44;
 }
+ 
