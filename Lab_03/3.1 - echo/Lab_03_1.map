@@ -8,11 +8,16 @@ CABS                                00000000    00000000 =           0. bytes (A
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
 C:   00000000  l_BIT_BANK                      
+C:   00000000  l_BSEG                          
+C:   00000000  l_BSEG_BYTES                    
 C:   00000000  l_CABS                          
+C:   00000000  l_CONST                         
 C:   00000000  l_GSINIT                        
 C:   00000000  l_GSINIT1                       
 C:   00000000  l_GSINIT5                       
 C:   00000000  l_IABS                          
+C:   00000000  l_ISEG                          
+C:   00000000  l_OSEG                          
 C:   00000000  l_PSEG                          
 C:   00000000  l_REG_BANK_1                    
 C:   00000000  l_REG_BANK_2                    
@@ -30,6 +35,7 @@ C:   00000000  s_CABS
 C:   00000000  s_DSEG                          
 C:   00000000  s_HOME                          
 C:   00000000  s_IABS                          
+C:   00000000  s_ISEG                          
 C:   00000000  s_REG_BANK_0                    
 C:   00000000  s_RSEG                          
 C:   00000000  s_RSEG0                         
@@ -38,24 +44,18 @@ C:   00000000  s_XABS
 C:   00000001  s_PSEG                          
 C:   00000001  s_XISEG                         
 C:   00000001  s_XSEG                          
-C:   00000002  l_BSEG_BYTES                    
 C:   00000003  l_GSFINAL                       
 C:   00000003  l_GSINIT0                       
 C:   00000006  l_HOME                          
-C:   00000006  l_ISEG                          
-C:   00000006  l_OSEG                          
 C:   00000006  s_GSINIT0                       
 C:   00000008  l_REG_BANK_0                    
 C:   00000008  s_REG_BANK_1                    
+C:   00000008  s_SSEG                          
 C:   00000009  s_GSINIT1                       
 C:   00000009  s_GSINIT2                       
-C:   0000000A  l_BSEG                          
 C:   0000000A  l_GSINIT2                       
-C:   0000000A  s_OSEG                          
-C:   00000010  s_ISEG                          
 C:   00000010  s_REG_BANK_2                    
 C:   00000013  s_GSINIT3                       
-C:   00000015  l_CONST                         
 C:   00000018  s_BIT_BANK                      
 ASxxxx Linker V03.00 + NoICE + sdld,  page 2.
 Hexadecimal  [32-Bits]
@@ -66,23 +66,23 @@ CABS                                00000000    00000000 =           0. bytes (A
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
+C:   00000018  s_OSEG                          
 C:   00000018  s_REG_BANK_3                    
 C:   00000020  s_BSEG_BYTES                    
 C:   00000020  s__CODE                         
 C:   00000022  l_GSINIT3                       
 C:   0000002A  l_GSINIT4                       
 C:   00000035  s_GSINIT4                       
-C:   0000003C  s_SSEG                          
 C:   0000005F  s_GSFINAL                       
 C:   0000005F  s_GSINIT                        
 C:   0000005F  s_GSINIT5                       
 C:   00000062  s_CSEG                          
-C:   00000076  l_DSEG                          
-C:   000000C4  l_SSEG                          
+C:   00000080  l_DSEG                          
+C:   000000DA  l_CSEG                          
+C:   000000F8  l_SSEG                          
 C:   00000100  l_IRAM                          
-C:   00000723  l_CSEG                          
-C:   00000785  s_CONST                         
-C:   0000079A  s_XINIT                         
+C:   0000013C  s_CONST                         
+C:   0000013C  s_XINIT                         
 
 ASxxxx Linker V03.00 + NoICE + sdld,  page 3.
 Hexadecimal  [32-Bits]
@@ -93,7 +93,7 @@ Area                                    Addr        Size        Decimal Bytes (A
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-     00000000  .__.ABS.                           _bp
+     00000000  .__.ABS.                           _startup
      00000080  G$P0$0$0                           UART
      00000080  G$P0_0$0$0                         UART
      00000080  _P0                                UART
@@ -877,12 +877,9 @@ Area                                    Addr        Size        Decimal Bytes (A
      000000EF  _RSTSRC                            UART
      000000F0  G$B$0$0                            UART
      000000F0  _B                                 UART
-     000000F5  _B_5                               _gptrget
      000000F6  G$EIP1$0$0                         UART
-     000000F6  _B_6                               _gptrget
      000000F6  _EIP1                              UART
      000000F7  G$EIP2$0$0                         UART
-     000000F7  _B_7                               _gptrget
      000000F7  _EIP2                              UART
      000000F8  G$P7$0$0                           UART
      000000F8  G$P7_0$0$0                         UART
@@ -923,6 +920,9 @@ Area                                    Addr        Size        Decimal Bytes (A
      000000FD  _P7_5                              UART
      000000FD  _PCA0CPL1                          UART
      000000FE  G$P7_6$0$0                         UART
+     000000FE  G$PCA0CPH1$0$0                     UART
+     000000FE  G$WCOL$0$0                         UART
+     000000FE  _P7_6                              UART
 ASxxxx Linker V03.00 + NoICE + sdld,  page 17.
 Hexadecimal  [32-Bits]
 
@@ -932,9 +932,6 @@ Area                                    Addr        Size        Decimal Bytes (A
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-     000000FE  G$PCA0CPH1$0$0                     UART
-     000000FE  G$WCOL$0$0                         UART
-     000000FE  _P7_6                              UART
      000000FE  _PCA0CPH1                          UART
      000000FE  _WCOL                              UART
      000000FF  G$P7_7$0$0                         UART
@@ -983,6 +980,9 @@ Area                                    Addr        Size        Decimal Bytes (A
      0000EEED  _PCA0CP4                           UART
      0000FAF9  G$PCA0$0$0                         UART
      0000FAF9  _PCA0                              UART
+     0000FCFB  G$PCA0CP0$0$0                      UART
+     0000FCFB  _PCA0CP0                           UART
+     0000FEFD  G$PCA0CP1$0$0                      UART
 ASxxxx Linker V03.00 + NoICE + sdld,  page 18.
 Hexadecimal  [32-Bits]
 
@@ -992,9 +992,6 @@ Area                                    Addr        Size        Decimal Bytes (A
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-     0000FCFB  G$PCA0CP0$0$0                      UART
-     0000FCFB  _PCA0CP0                           UART
-     0000FEFD  G$PCA0CP1$0$0                      UART
      0000FEFD  _PCA0CP1                           UART
      00959493  G$MAC0ACC$0$0                      UART
      00959493  _MAC0ACC                           UART
@@ -1004,7 +1001,7 @@ Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-BSEG_BYTES                          00000020    00000002 =           2. bytes (REL,CON)
+REG_BANK_0                          00000000    00000008 =           8. bytes (REL,OVR)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
@@ -1013,7 +1010,7 @@ Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-REG_BANK_0                          00000000    00000008 =           8. bytes (REL,OVR)
+DSEG                                00000000    00000080 =         128. bytes (REL,CON)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
@@ -1022,46 +1019,13 @@ Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-DSEG                                00000000    00000076 =         118. bytes (REL,CON)
+SSEG                                00000008    000000F8 =         248. bytes (REL,OVR)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-     00000008  _vprintf_PARM_2                    vprintf
-     00000009  _bp                                _bp
-     0000002E  __print_format_PARM_2              printf_large
-     00000031  __print_format_PARM_3              printf_large
-     00000034  __print_format_PARM_4              printf_large
+     00000008  __start__stack                     UART
 
 ASxxxx Linker V03.00 + NoICE + sdld,  page 22.
-Hexadecimal  [32-Bits]
-
-Area                                    Addr        Size        Decimal Bytes (Attributes)
---------------------------------        ----        ----        ------- ----- ------------
-OSEG                                0000000A    00000006 =           6. bytes (REL,OVR)
-
-      Value  Global                              Global Defined In Module
-      -----  --------------------------------   ------------------------
-ASxxxx Linker V03.00 + NoICE + sdld,  page 23.
-Hexadecimal  [32-Bits]
-
-Area                                    Addr        Size        Decimal Bytes (Attributes)
---------------------------------        ----        ----        ------- ----- ------------
-ISEG                                00000010    00000006 =           6. bytes (REL,CON)
-
-      Value  Global                              Global Defined In Module
-      -----  --------------------------------   ------------------------
-ASxxxx Linker V03.00 + NoICE + sdld,  page 24.
-Hexadecimal  [32-Bits]
-
-Area                                    Addr        Size        Decimal Bytes (Attributes)
---------------------------------        ----        ----        ------- ----- ------------
-SSEG                                0000003C    000000C4 =         196. bytes (REL,OVR)
-
-      Value  Global                              Global Defined In Module
-      -----  --------------------------------   ------------------------
-     0000003C  __start__stack                     UART
-
-ASxxxx Linker V03.00 + NoICE + sdld,  page 25.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
@@ -1070,10 +1034,10 @@ HOME                                00000000    00000006 =           6. bytes (R
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-C:   00000000  A$UART$1247                        UART
-C:   00000003  A$UART$1269                        UART
+C:   00000000  A$UART$1246                        UART
+C:   00000003  A$UART$1268                        UART
 C:   00000003  __sdcc_program_startup             UART
-ASxxxx Linker V03.00 + NoICE + sdld,  page 26.
+ASxxxx Linker V03.00 + NoICE + sdld,  page 23.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
@@ -1084,7 +1048,7 @@ GSINIT0                             00000006    00000003 =           3. bytes (R
       -----  --------------------------------   ------------------------
 C:   00000006  __sdcc_gsinit_startup              
 
-ASxxxx Linker V03.00 + NoICE + sdld,  page 27.
+ASxxxx Linker V03.00 + NoICE + sdld,  page 24.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
@@ -1093,7 +1057,7 @@ GSINIT2                             00000009    0000000A =          10. bytes (R
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-ASxxxx Linker V03.00 + NoICE + sdld,  page 28.
+ASxxxx Linker V03.00 + NoICE + sdld,  page 25.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
@@ -1104,7 +1068,7 @@ GSINIT3                             00000013    00000022 =          34. bytes (R
       -----  --------------------------------   ------------------------
 C:   00000013  __mcs51_genXINIT                   
 
-ASxxxx Linker V03.00 + NoICE + sdld,  page 29.
+ASxxxx Linker V03.00 + NoICE + sdld,  page 26.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
@@ -1116,7 +1080,7 @@ GSINIT4                             00000035    0000002A =          42. bytes (R
 C:   00000035  __mcs51_genRAMCLEAR                
 C:   0000003B  __mcs51_genXRAMCLEAR               
 
-ASxxxx Linker V03.00 + NoICE + sdld,  page 30.
+ASxxxx Linker V03.00 + NoICE + sdld,  page 27.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
@@ -1125,282 +1089,247 @@ GSFINAL                             0000005F    00000003 =           3. bytes (R
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-C:   0000005F  A$UART$1262                        UART
+C:   0000005F  A$UART$1261                        UART
 
-ASxxxx Linker V03.00 + NoICE + sdld,  page 31.
+ASxxxx Linker V03.00 + NoICE + sdld,  page 28.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-CSEG                                00000062    00000723 =        1827. bytes (REL,CON,CODE)
+CSEG                                00000062    000000DA =         218. bytes (REL,CON,CODE)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-C:   00000062  A$UART$1295                        UART
+C:   00000062  A$UART$1294                        UART
 C:   00000062  C$putget.h$18$0$0                  UART
 C:   00000062  G$putchar$0$0                      UART
 C:   00000062  _putchar                           UART
-C:   00000064  A$UART$1301                        UART
+C:   00000064  A$UART$1300                        UART
 C:   00000064  C$putget.h$20$1$16                 UART
 C:   00000064  C$putget.h$21$1$16                 UART
-C:   00000067  A$UART$1302                        UART
-C:   00000069  A$UART$1306                        UART
+C:   00000067  A$UART$1301                        UART
+C:   00000069  A$UART$1305                        UART
 C:   00000069  C$putget.h$22$1$16                 UART
-C:   0000006B  A$UART$1309                        UART
+C:   0000006B  A$UART$1308                        UART
 C:   0000006B  C$putget.h$23$1$16                 UART
 C:   0000006B  XG$putchar$0$0                     UART
-C:   0000006C  A$UART$1327                        UART
+C:   0000006C  A$UART$1326                        UART
 C:   0000006C  C$putget.h$28$1$16                 UART
 C:   0000006C  C$putget.h$31$1$18                 UART
 C:   0000006C  C$putget.h$32$1$18                 UART
 C:   0000006C  G$getchar$0$0                      UART
 C:   0000006C  _getchar                           UART
-C:   0000006F  A$UART$1328                        UART
-C:   00000071  A$UART$1332                        UART
+C:   0000006F  A$UART$1327                        UART
+C:   00000071  A$UART$1331                        UART
 C:   00000071  C$putget.h$33$1$18                 UART
-C:   00000073  A$UART$1335                        UART
+C:   00000073  A$UART$1334                        UART
 C:   00000073  C$putget.h$36$1$18                 UART
-C:   00000076  A$UART$1338                        UART
+C:   00000076  A$UART$1337                        UART
 C:   00000076  C$putget.h$37$1$18                 UART
 C:   00000076  XG$getchar$0$0                     UART
-C:   00000077  A$UART$1353                        UART
+C:   00000077  A$UART$1352                        UART
 C:   00000077  C$UART.c$28$1$18                   UART
 C:   00000077  C$UART.c$33$1$26                   UART
 C:   00000077  G$main$0$0                         UART
 C:   00000077  _main                              UART
-C:   0000007A  A$UART$1356                        UART
+C:   0000007A  A$UART$1355                        UART
 C:   0000007A  C$UART.c$34$1$26                   UART
-C:   0000007D  A$UART$1359                        UART
+C:   0000007D  A$UART$1358                        UART
 C:   0000007D  C$UART.c$35$1$26                   UART
-C:   00000080  A$UART$1362                        UART
+C:   00000080  A$UART$1361                        UART
 C:   00000080  C$UART.c$36$1$26                   UART
-C:   00000083  A$UART$1365                        UART
+C:   00000083  A$UART$1364                        UART
 C:   00000083  C$UART.c$37$1$26                   UART
-C:   00000086  A$UART$1368                        UART
+C:   00000086  A$UART$1367                        UART
 C:   00000086  C$UART.c$39$1$26                   UART
-C:   00000089  A$UART$1374                        UART
+C:   00000089  A$UART$1373                        UART
 C:   00000089  C$UART.c$41$1$26                   UART
 C:   00000089  C$UART.c$43$2$27                   UART
-C:   0000008C  A$UART$1379                        UART
+C:   0000008C  A$UART$1378                        UART
 C:   0000008C  C$UART.c$44$2$27                   UART
 C:   0000008C  C$UART.c$46$3$28                   UART
-C:   0000008F  A$UART$1380                        UART
-C:   00000091  A$UART$1384                        UART
-ASxxxx Linker V03.00 + NoICE + sdld,  page 32.
+C:   0000008F  A$UART$1379                        UART
+C:   00000091  A$UART$1383                        UART
+ASxxxx Linker V03.00 + NoICE + sdld,  page 29.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-CSEG                                00000062    00000723 =        1827. bytes (REL,CON,CODE)
+CSEG                                00000062    000000DA =         218. bytes (REL,CON,CODE)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
 C:   00000091  C$UART.c$47$3$28                   UART
-C:   00000093  A$UART$1387                        UART
+C:   00000093  A$UART$1386                        UART
 C:   00000093  C$UART.c$48$3$28                   UART
-C:   00000095  A$UART$1388                        UART
-C:   00000098  A$UART$1392                        UART
+C:   00000095  A$UART$1387                        UART
+C:   00000098  A$UART$1391                        UART
 C:   00000098  C$UART.c$51$2$27                   UART
-C:   0000009B  A$UART$1397                        UART
+C:   0000009B  A$UART$1396                        UART
 C:   0000009B  C$UART.c$52$2$27                   UART
 C:   0000009B  C$UART.c$54$3$29                   UART
-C:   0000009E  A$UART$1398                        UART
-C:   000000A0  A$UART$1402                        UART
+C:   0000009E  A$UART$1397                        UART
+C:   000000A0  A$UART$1401                        UART
 C:   000000A0  C$UART.c$55$3$29                   UART
-C:   000000A2  A$UART$1405                        UART
+C:   000000A2  A$UART$1404                        UART
 C:   000000A2  C$UART.c$56$3$29                   UART
-C:   000000A4  A$UART$1406                        UART
-C:   000000A7  A$UART$1409                        UART
-C:   000000A7  C$UART.c$57$3$29                   UART
-C:   000000A9  A$UART$1410                        UART
-C:   000000AB  A$UART$1411                        UART
-C:   000000AD  A$UART$1412                        UART
-C:   000000AF  A$UART$1413                        UART
-C:   000000B1  A$UART$1414                        UART
-C:   000000B3  A$UART$1415                        UART
-C:   000000B6  A$UART$1416                        UART
-C:   000000B8  A$UART$1417                        UART
-C:   000000BA  A$UART$1418                        UART
-C:   000000BC  A$UART$1419                        UART
-C:   000000BE  A$UART$1422                        UART
-C:   000000BE  C$UART.c$62$1$26                   UART
-C:   000000BE  XG$main$0$0                        UART
-C:   000000BF  A$UART$1435                        UART
-C:   000000BF  C$UART.c$64$1$26                   UART
-C:   000000BF  G$echo$0$0                         UART
-C:   000000BF  _echo                              UART
-C:   000000C1  A$UART$1438                        UART
-C:   000000C1  C$UART.c$66$1$31                   UART
-C:   000000C4  A$UART$1444                        UART
-C:   000000C4  C$UART.c$67$1$31                   UART
-C:   000000C4  C$UART.c$68$1$31                   UART
-C:   000000C7  A$UART$1445                        UART
-C:   000000C9  A$UART$1449                        UART
-C:   000000C9  C$UART.c$69$1$31                   UART
-C:   000000CB  A$UART$1452                        UART
-C:   000000CB  C$UART.c$70$1$31                   UART
-C:   000000CE  A$UART$1458                        UART
-C:   000000CE  C$UART.c$71$1$31                   UART
-C:   000000CE  C$UART.c$72$1$31                   UART
-C:   000000D1  A$UART$1459                        UART
-C:   000000D3  A$UART$1463                        UART
-C:   000000D3  C$UART.c$73$1$31                   UART
-C:   000000D5  A$UART$1466                        UART
-ASxxxx Linker V03.00 + NoICE + sdld,  page 33.
+C:   000000A4  A$UART$1405                        UART
+C:   000000A7  A$UART$1406                        UART
+C:   000000A9  A$UART$1409                        UART
+C:   000000A9  C$UART.c$62$1$26                   UART
+C:   000000A9  XG$main$0$0                        UART
+C:   000000AA  A$UART$1422                        UART
+C:   000000AA  C$UART.c$64$1$26                   UART
+C:   000000AA  G$echo$0$0                         UART
+C:   000000AA  _echo                              UART
+C:   000000AC  A$UART$1425                        UART
+C:   000000AC  C$UART.c$66$1$31                   UART
+C:   000000AF  A$UART$1431                        UART
+C:   000000AF  C$UART.c$67$1$31                   UART
+C:   000000AF  C$UART.c$68$1$31                   UART
+C:   000000B2  A$UART$1432                        UART
+C:   000000B4  A$UART$1436                        UART
+C:   000000B4  C$UART.c$69$1$31                   UART
+C:   000000B6  A$UART$1439                        UART
+C:   000000B6  C$UART.c$70$1$31                   UART
+C:   000000B9  A$UART$1445                        UART
+C:   000000B9  C$UART.c$71$1$31                   UART
+C:   000000B9  C$UART.c$72$1$31                   UART
+C:   000000BC  A$UART$1446                        UART
+C:   000000BE  A$UART$1450                        UART
+C:   000000BE  C$UART.c$73$1$31                   UART
+C:   000000C0  A$UART$1453                        UART
+C:   000000C0  C$UART.c$75$1$31                   UART
+C:   000000C0  XG$echo$0$0                        UART
+C:   000000C1  A$UART$1468                        UART
+C:   000000C1  C$UART.c$79$1$31                   UART
+C:   000000C1  C$UART.c$83$1$32                   UART
+C:   000000C1  G$SYSCLK_INIT$0$0                  UART
+C:   000000C1  _SYSCLK_INIT                       UART
+C:   000000C4  A$UART$1471                        UART
+C:   000000C4  C$UART.c$84$1$32                   UART
+C:   000000C7  A$UART$1474                        UART
+C:   000000C7  C$UART.c$85$1$32                   UART
+ASxxxx Linker V03.00 + NoICE + sdld,  page 30.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-CSEG                                00000062    00000723 =        1827. bytes (REL,CON,CODE)
+CSEG                                00000062    000000DA =         218. bytes (REL,CON,CODE)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-C:   000000D5  C$UART.c$75$1$31                   UART
-C:   000000D5  XG$echo$0$0                        UART
-C:   000000D6  A$UART$1481                        UART
-C:   000000D6  C$UART.c$79$1$31                   UART
-C:   000000D6  C$UART.c$83$1$32                   UART
-C:   000000D6  G$SYSCLK_INIT$0$0                  UART
-C:   000000D6  _SYSCLK_INIT                       UART
-C:   000000D9  A$UART$1484                        UART
-C:   000000D9  C$UART.c$84$1$32                   UART
-C:   000000DC  A$UART$1487                        UART
-C:   000000DC  C$UART.c$85$1$32                   UART
-C:   000000DE  A$UART$1488                        UART
-C:   000000E0  A$UART$1490                        UART
-C:   000000E1  A$UART$1491                        UART
-C:   000000E4  A$UART$1492                        UART
-C:   000000E5  A$UART$1494                        UART
-C:   000000E6  A$UART$1495                        UART
-C:   000000E7  A$UART$1496                        UART
-C:   000000E9  A$UART$1500                        UART
-C:   000000E9  C$UART.c$86$1$32                   UART
-C:   000000EB  A$UART$1501                        UART
-C:   000000EE  A$UART$1504                        UART
-C:   000000EE  C$UART.c$87$1$32                   UART
-C:   000000F1  A$UART$1507                        UART
-C:   000000F1  C$UART.c$88$1$32                   UART
-C:   000000F4  A$UART$1510                        UART
-C:   000000F4  C$UART.c$89$1$32                   UART
-C:   000000F4  XG$SYSCLK_INIT$0$0                 UART
-C:   000000F5  A$UART$1523                        UART
-C:   000000F5  C$UART.c$91$1$32                   UART
-C:   000000F5  C$UART.c$93$1$33                   UART
-C:   000000F5  G$Timer_Init$0$0                   UART
-C:   000000F5  _Timer_Init                        UART
-C:   000000F8  A$UART$1526                        UART
-C:   000000F8  C$UART.c$94$1$33                   UART
-C:   000000FB  A$UART$1529                        UART
-C:   000000FB  C$UART.c$95$1$33                   UART
-C:   000000FE  A$UART$1532                        UART
-C:   000000FE  C$UART.c$96$1$33                   UART
-C:   00000101  A$UART$1535                        UART
-C:   00000101  C$UART.c$97$1$33                   UART
-C:   00000104  A$UART$1538                        UART
-C:   00000104  C$UART.c$98$1$33                   UART
-C:   00000107  A$UART$1541                        UART
-C:   00000107  C$UART.c$99$1$33                   UART
-C:   0000010A  A$UART$1544                        UART
-C:   0000010A  C$UART.c$100$1$33                  UART
-C:   0000010D  A$UART$1547                        UART
-C:   0000010D  C$UART.c$101$1$33                  UART
-C:   00000110  A$UART$1550                        UART
-C:   00000110  C$UART.c$102$1$33                  UART
-ASxxxx Linker V03.00 + NoICE + sdld,  page 34.
+C:   000000C9  A$UART$1475                        UART
+C:   000000CB  A$UART$1477                        UART
+C:   000000CC  A$UART$1478                        UART
+C:   000000CF  A$UART$1479                        UART
+C:   000000D0  A$UART$1481                        UART
+C:   000000D1  A$UART$1482                        UART
+C:   000000D2  A$UART$1483                        UART
+C:   000000D4  A$UART$1487                        UART
+C:   000000D4  C$UART.c$86$1$32                   UART
+C:   000000D6  A$UART$1488                        UART
+C:   000000D9  A$UART$1491                        UART
+C:   000000D9  C$UART.c$87$1$32                   UART
+C:   000000DC  A$UART$1494                        UART
+C:   000000DC  C$UART.c$88$1$32                   UART
+C:   000000DF  A$UART$1497                        UART
+C:   000000DF  C$UART.c$89$1$32                   UART
+C:   000000DF  XG$SYSCLK_INIT$0$0                 UART
+C:   000000E0  A$UART$1510                        UART
+C:   000000E0  C$UART.c$91$1$32                   UART
+C:   000000E0  C$UART.c$93$1$33                   UART
+C:   000000E0  G$Timer_Init$0$0                   UART
+C:   000000E0  _Timer_Init                        UART
+C:   000000E3  A$UART$1513                        UART
+C:   000000E3  C$UART.c$94$1$33                   UART
+C:   000000E6  A$UART$1516                        UART
+C:   000000E6  C$UART.c$95$1$33                   UART
+C:   000000E9  A$UART$1519                        UART
+C:   000000E9  C$UART.c$96$1$33                   UART
+C:   000000EC  A$UART$1522                        UART
+C:   000000EC  C$UART.c$97$1$33                   UART
+C:   000000EF  A$UART$1525                        UART
+C:   000000EF  C$UART.c$98$1$33                   UART
+C:   000000F2  A$UART$1528                        UART
+C:   000000F2  C$UART.c$99$1$33                   UART
+C:   000000F5  A$UART$1531                        UART
+C:   000000F5  C$UART.c$100$1$33                  UART
+C:   000000F8  A$UART$1534                        UART
+C:   000000F8  C$UART.c$101$1$33                  UART
+C:   000000FB  A$UART$1537                        UART
+C:   000000FB  C$UART.c$102$1$33                  UART
+C:   000000FE  A$UART$1540                        UART
+C:   000000FE  C$UART.c$103$1$33                  UART
+C:   00000101  A$UART$1543                        UART
+C:   00000101  C$UART.c$104$1$33                  UART
+C:   00000104  A$UART$1546                        UART
+C:   00000104  C$UART.c$105$1$33                  UART
+C:   00000107  A$UART$1549                        UART
+C:   00000107  C$UART.c$106$1$33                  UART
+C:   00000107  XG$Timer_Init$0$0                  UART
+C:   00000108  A$UART$1562                        UART
+C:   00000108  C$UART.c$107$1$33                  UART
+ASxxxx Linker V03.00 + NoICE + sdld,  page 31.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-CSEG                                00000062    00000723 =        1827. bytes (REL,CON,CODE)
+CSEG                                00000062    000000DA =         218. bytes (REL,CON,CODE)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-C:   00000113  A$UART$1553                        UART
-C:   00000113  C$UART.c$103$1$33                  UART
-C:   00000116  A$UART$1556                        UART
-C:   00000116  C$UART.c$104$1$33                  UART
-C:   00000119  A$UART$1559                        UART
-C:   00000119  C$UART.c$105$1$33                  UART
-C:   0000011C  A$UART$1562                        UART
-C:   0000011C  C$UART.c$106$1$33                  UART
-C:   0000011C  XG$Timer_Init$0$0                  UART
-C:   0000011D  A$UART$1575                        UART
-C:   0000011D  C$UART.c$107$1$33                  UART
-C:   0000011D  C$UART.c$109$1$34                  UART
-C:   0000011D  G$UART_Init$0$0                    UART
-C:   0000011D  _UART_Init                         UART
-C:   00000120  A$UART$1578                        UART
-C:   00000120  C$UART.c$110$1$34                  UART
-C:   00000122  A$UART$1581                        UART
-C:   00000122  C$UART.c$111$1$34                  UART
-C:   00000125  A$UART$1584                        UART
-C:   00000125  C$UART.c$112$1$34                  UART
-C:   00000128  A$UART$1587                        UART
-C:   00000128  C$UART.c$113$1$34                  UART
-C:   0000012A  A$UART$1590                        UART
-C:   0000012A  C$UART.c$114$1$34                  UART
-C:   0000012C  A$UART$1593                        UART
-C:   0000012C  C$UART.c$115$1$34                  UART
-C:   0000012F  A$UART$1596                        UART
-C:   0000012F  C$UART.c$116$1$34                  UART
-C:   00000132  A$UART$1599                        UART
-C:   00000132  C$UART.c$117$1$34                  UART
-C:   00000134  A$UART$1602                        UART
-C:   00000134  C$UART.c$118$1$34                  UART
-C:   00000134  XG$UART_Init$0$0                   UART
-C:   00000135  A$UART$1615                        UART
-C:   00000135  C$UART.c$119$1$34                  UART
-C:   00000135  C$UART.c$121$1$35                  UART
-C:   00000135  G$Port_IO_Init$0$0                 UART
-C:   00000135  _Port_IO_Init                      UART
-C:   00000138  A$UART$1618                        UART
-C:   00000138  C$UART.c$124$1$35                  UART
-C:   0000013B  A$UART$1621                        UART
-C:   0000013B  C$UART.c$125$1$35                  UART
-C:   0000013E  A$UART$1624                        UART
-C:   0000013E  C$UART.c$129$1$35                  UART
-C:   00000141  A$UART$1627                        UART
-C:   00000141  C$UART.c$130$1$35                  UART
-C:   00000144  A$UART$1630                        UART
-C:   00000144  C$UART.c$131$1$35                  UART
-C:   00000146  A$UART$1633                        UART
-C:   00000146  C$UART.c$132$1$35                  UART
-C:   00000149  A$UART$1636                        UART
-ASxxxx Linker V03.00 + NoICE + sdld,  page 35.
-Hexadecimal  [32-Bits]
+C:   00000108  C$UART.c$109$1$34                  UART
+C:   00000108  G$UART_Init$0$0                    UART
+C:   00000108  _UART_Init                         UART
+C:   0000010B  A$UART$1565                        UART
+C:   0000010B  C$UART.c$110$1$34                  UART
+C:   0000010D  A$UART$1568                        UART
+C:   0000010D  C$UART.c$111$1$34                  UART
+C:   00000110  A$UART$1571                        UART
+C:   00000110  C$UART.c$112$1$34                  UART
+C:   00000113  A$UART$1574                        UART
+C:   00000113  C$UART.c$113$1$34                  UART
+C:   00000115  A$UART$1577                        UART
+C:   00000115  C$UART.c$114$1$34                  UART
+C:   00000117  A$UART$1580                        UART
+C:   00000117  C$UART.c$115$1$34                  UART
+C:   0000011A  A$UART$1583                        UART
+C:   0000011A  C$UART.c$116$1$34                  UART
+C:   0000011D  A$UART$1586                        UART
+C:   0000011D  C$UART.c$117$1$34                  UART
+C:   0000011F  A$UART$1589                        UART
+C:   0000011F  C$UART.c$118$1$34                  UART
+C:   0000011F  XG$UART_Init$0$0                   UART
+C:   00000120  A$UART$1602                        UART
+C:   00000120  C$UART.c$119$1$34                  UART
+C:   00000120  C$UART.c$121$1$35                  UART
+C:   00000120  G$Port_IO_Init$0$0                 UART
+C:   00000120  _Port_IO_Init                      UART
+C:   00000123  A$UART$1605                        UART
+C:   00000123  C$UART.c$124$1$35                  UART
+C:   00000126  A$UART$1608                        UART
+C:   00000126  C$UART.c$125$1$35                  UART
+C:   00000129  A$UART$1611                        UART
+C:   00000129  C$UART.c$129$1$35                  UART
+C:   0000012C  A$UART$1614                        UART
+C:   0000012C  C$UART.c$130$1$35                  UART
+C:   0000012F  A$UART$1617                        UART
+C:   0000012F  C$UART.c$131$1$35                  UART
+C:   00000131  A$UART$1620                        UART
+C:   00000131  C$UART.c$132$1$35                  UART
+C:   00000134  A$UART$1623                        UART
+C:   00000134  C$UART.c$133$1$35                  UART
+C:   00000137  A$UART$1626                        UART
+C:   00000137  C$UART.c$134$1$35                  UART
+C:   00000137  XG$Port_IO_Init$0$0                UART
+C:   00000138  __sdcc_external_startup            _startup
 
-Area                                    Addr        Size        Decimal Bytes (Attributes)
---------------------------------        ----        ----        ------- ----- ------------
-CSEG                                00000062    00000723 =        1827. bytes (REL,CON,CODE)
-
-      Value  Global                              Global Defined In Module
-      -----  --------------------------------   ------------------------
-C:   00000149  C$UART.c$133$1$35                  UART
-C:   0000014C  A$UART$1639                        UART
-C:   0000014C  C$UART.c$134$1$35                  UART
-C:   0000014C  XG$Port_IO_Init$0$0                UART
-C:   00000158  _vprintf                           vprintf
-C:   00000171  _printf                            vprintf
-C:   00000243  __print_format                     printf_large
-C:   0000074D  _strlen                            _strlen
-C:   00000765  __gptrget                          _gptrget
-C:   00000781  __sdcc_external_startup            _startup
-ASxxxx Linker V03.00 + NoICE + sdld,  page 36.
-Hexadecimal  [32-Bits]
-
-Area                                    Addr        Size        Decimal Bytes (Attributes)
---------------------------------        ----        ----        ------- ----- ------------
-CONST                               00000785    00000015 =          21. bytes (REL,CON,CODE)
-
-      Value  Global                              Global Defined In Module
-      -----  --------------------------------   ------------------------
-C:   00000785  FUART$__str_0$0$0                  UART
-
-ASxxxx Linker V03.00 + NoICE + sdld,  page 37.
+ASxxxx Linker V03.00 + NoICE + sdld,  page 32.
 
 Files Linked                              [ module(s) ]
 
-C:\Users\Christina\Documents\MPS\Versions\Lab_03\UART.rel
+C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.1 - echo\UART.rel
                                           [  ]
 
 
@@ -1412,22 +1341,12 @@ C:\Program Files (x86)\SDCC\bin\..\lib\small/mcs51.lib
                                           [ crtxinit.rel ]
 C:\Program Files (x86)\SDCC\bin\..\lib\small/mcs51.lib
                                           [ crtxclear.rel ]
-C:\Program Files (x86)\SDCC\bin\..\lib\small/libsdcc.lib
-                                          [ vprintf.rel ]
-C:\Program Files (x86)\SDCC\bin\..\lib\small/libsdcc.lib
-                                          [ printf_large.rel ]
-C:\Program Files (x86)\SDCC\bin\..\lib\small/libsdcc.lib
-                                          [ _strlen.rel ]
 C:\Program Files (x86)\SDCC\bin\..\lib\small/mcs51.lib
                                           [ crtstart.rel ]
 C:\Program Files (x86)\SDCC\bin\..\lib\small/libsdcc.lib
-                                          [ _gptrget.rel ]
-C:\Program Files (x86)\SDCC\bin\..\lib\small/libsdcc.lib
                                           [ _startup.rel ]
-C:\Program Files (x86)\SDCC\bin\..\lib\small/libsdcc.lib
-                                          [ _bp.rel ]
 
-ASxxxx Linker V03.00 + NoICE + sdld,  page 38.
+ASxxxx Linker V03.00 + NoICE + sdld,  page 33.
 
 User Base Address Definitions
 

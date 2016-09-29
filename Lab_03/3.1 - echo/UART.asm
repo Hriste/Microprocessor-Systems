@@ -1,7 +1,7 @@
 ;--------------------------------------------------------
 ; File Created by SDCC : free open source ANSI-C Compiler
 ; Version 3.4.0 #8981 (Apr  5 2014) (MINGW32)
-; This file was generated Mon Sep 26 19:20:49 2016
+; This file was generated Thu Sep 29 17:43:37 2016
 ;--------------------------------------------------------
 	.module UART
 	.optsdcc -mmcs51 --model-small
@@ -9,7 +9,6 @@
 ;--------------------------------------------------------
 ; Public variables in this module
 ;--------------------------------------------------------
-	.globl _printf
 	.globl _P7_7
 	.globl _P7_6
 	.globl _P7_5
@@ -1279,7 +1278,7 @@ __sdcc_program_startup:
 ;------------------------------------------------------------
 	G$putchar$0$0 ==.
 	C$putget.h$18$0$0 ==.
-;	C:/Users/Christina/Documents/MPS/Versions/Lab_03/putget.h:18: void putchar(char c)
+;	C:/Users/Christina/Documents/MPS/Versions/Lab_03/3.1 - echo/putget.h:18: void putchar(char c)
 ;	-----------------------------------------
 ;	 function putchar
 ;	-----------------------------------------
@@ -1294,15 +1293,15 @@ _putchar:
 	ar0 = 0x00
 	mov	r7,dpl
 	C$putget.h$20$1$16 ==.
-;	C:/Users/Christina/Documents/MPS/Versions/Lab_03/putget.h:20: while(!TI0); 
+;	C:/Users/Christina/Documents/MPS/Versions/Lab_03/3.1 - echo/putget.h:20: while(!TI0); 
 00101$:
 	C$putget.h$21$1$16 ==.
-;	C:/Users/Christina/Documents/MPS/Versions/Lab_03/putget.h:21: TI0=0;
+;	C:/Users/Christina/Documents/MPS/Versions/Lab_03/3.1 - echo/putget.h:21: TI0=0;
 	jbc	_TI0,00112$
 	sjmp	00101$
 00112$:
 	C$putget.h$22$1$16 ==.
-;	C:/Users/Christina/Documents/MPS/Versions/Lab_03/putget.h:22: SBUF0 = c;
+;	C:/Users/Christina/Documents/MPS/Versions/Lab_03/3.1 - echo/putget.h:22: SBUF0 = c;
 	mov	_SBUF0,r7
 	C$putget.h$23$1$16 ==.
 	XG$putchar$0$0 ==.
@@ -1314,24 +1313,24 @@ _putchar:
 ;------------------------------------------------------------
 	G$getchar$0$0 ==.
 	C$putget.h$28$1$16 ==.
-;	C:/Users/Christina/Documents/MPS/Versions/Lab_03/putget.h:28: char getchar(void)
+;	C:/Users/Christina/Documents/MPS/Versions/Lab_03/3.1 - echo/putget.h:28: char getchar(void)
 ;	-----------------------------------------
 ;	 function getchar
 ;	-----------------------------------------
 _getchar:
 	C$putget.h$31$1$18 ==.
-;	C:/Users/Christina/Documents/MPS/Versions/Lab_03/putget.h:31: while(!RI0);
+;	C:/Users/Christina/Documents/MPS/Versions/Lab_03/3.1 - echo/putget.h:31: while(!RI0);
 00101$:
 	C$putget.h$32$1$18 ==.
-;	C:/Users/Christina/Documents/MPS/Versions/Lab_03/putget.h:32: RI0 =0;
+;	C:/Users/Christina/Documents/MPS/Versions/Lab_03/3.1 - echo/putget.h:32: RI0 =0;
 	jbc	_RI0,00112$
 	sjmp	00101$
 00112$:
 	C$putget.h$33$1$18 ==.
-;	C:/Users/Christina/Documents/MPS/Versions/Lab_03/putget.h:33: c = SBUF0;
+;	C:/Users/Christina/Documents/MPS/Versions/Lab_03/3.1 - echo/putget.h:33: c = SBUF0;
 	mov	a,_SBUF0
 	C$putget.h$36$1$18 ==.
-;	C:/Users/Christina/Documents/MPS/Versions/Lab_03/putget.h:36: return SBUF0;
+;	C:/Users/Christina/Documents/MPS/Versions/Lab_03/3.1 - echo/putget.h:36: return SBUF0;
 	mov	dpl,_SBUF0
 	C$putget.h$37$1$18 ==.
 	XG$getchar$0$0 ==.
@@ -1343,79 +1342,67 @@ _getchar:
 ;------------------------------------------------------------
 	G$main$0$0 ==.
 	C$UART.c$28$1$18 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\UART.c:28: void main (void)
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.1 - echo\UART.c:28: void main (void)
 ;	-----------------------------------------
 ;	 function main
 ;	-----------------------------------------
 _main:
 	C$UART.c$33$1$26 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\UART.c:33: SFRPAGE = CONFIG_PAGE;
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.1 - echo\UART.c:33: SFRPAGE = CONFIG_PAGE;
 	mov	_SFRPAGE,#0x0F
 	C$UART.c$34$1$26 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\UART.c:34: SYSCLK_INIT();
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.1 - echo\UART.c:34: SYSCLK_INIT();
 	lcall	_SYSCLK_INIT
 	C$UART.c$35$1$26 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\UART.c:35: Port_IO_Init();
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.1 - echo\UART.c:35: Port_IO_Init();
 	lcall	_Port_IO_Init
 	C$UART.c$36$1$26 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\UART.c:36: Timer_Init();
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.1 - echo\UART.c:36: Timer_Init();
 	lcall	_Timer_Init
 	C$UART.c$37$1$26 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\UART.c:37: UART_Init();
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.1 - echo\UART.c:37: UART_Init();
 	lcall	_UART_Init
 	C$UART.c$39$1$26 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\UART.c:39: SFRPAGE = LEGACY_PAGE;//same ass UART0_PAGE
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.1 - echo\UART.c:39: SFRPAGE = LEGACY_PAGE;//same ass UART0_PAGE
 	mov	_SFRPAGE,#0x00
 	C$UART.c$41$1$26 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\UART.c:41: while(1)
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.1 - echo\UART.c:41: while(1)
 00106$:
 	C$UART.c$43$2$27 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\UART.c:43: SFRPAGE   = UART1_PAGE;
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.1 - echo\UART.c:43: SFRPAGE   = UART1_PAGE;
 	mov	_SFRPAGE,#0x01
 	C$UART.c$44$2$27 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\UART.c:44: if (RI1)
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.1 - echo\UART.c:44: if (RI1)
 	C$UART.c$46$3$28 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\UART.c:46: RI1 = 0;
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.1 - echo\UART.c:46: RI1 = 0;
 	jbc	_RI1,00119$
 	sjmp	00102$
 00119$:
 	C$UART.c$47$3$28 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\UART.c:47: c = SBUF1;
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.1 - echo\UART.c:47: c = SBUF1;
 	mov	r7,_SBUF1
 	C$UART.c$48$3$28 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\UART.c:48: echo(c);
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.1 - echo\UART.c:48: echo(c);
 	mov	dpl,r7
 	lcall	_echo
 00102$:
 	C$UART.c$51$2$27 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\UART.c:51: SFRPAGE   = UART0_PAGE;
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.1 - echo\UART.c:51: SFRPAGE   = UART0_PAGE;
 	mov	_SFRPAGE,#0x00
 	C$UART.c$52$2$27 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\UART.c:52: if(RI0)
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.1 - echo\UART.c:52: if(RI0)
 	C$UART.c$54$3$29 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\UART.c:54: RI0 = 0;
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.1 - echo\UART.c:54: RI0 = 0;
 	jbc	_RI0,00120$
 	sjmp	00106$
 00120$:
 	C$UART.c$55$3$29 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\UART.c:55: c = SBUF0;
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.1 - echo\UART.c:55: c = SBUF0;
 	mov	r7,_SBUF0
 	C$UART.c$56$3$29 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\UART.c:56: echo(c);
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.1 - echo\UART.c:56: echo(c);
 	mov	dpl,r7
 	lcall	_echo
-	C$UART.c$57$3$29 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\UART.c:57: printf("GOT ONE\n\r");
-	mov	a,#___str_0
-	push	acc
-	mov	a,#(___str_0 >> 8)
-	push	acc
-	mov	a,#0x80
-	push	acc
-	lcall	_printf
-	dec	sp
-	dec	sp
-	dec	sp
 	sjmp	00106$
 	C$UART.c$62$1$26 ==.
 	XG$main$0$0 ==.
@@ -1427,39 +1414,39 @@ _main:
 ;------------------------------------------------------------
 	G$echo$0$0 ==.
 	C$UART.c$64$1$26 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\UART.c:64: void echo(char c)
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.1 - echo\UART.c:64: void echo(char c)
 ;	-----------------------------------------
 ;	 function echo
 ;	-----------------------------------------
 _echo:
 	mov	r7,dpl
 	C$UART.c$66$1$31 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\UART.c:66: SFRPAGE   = UART1_PAGE;
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.1 - echo\UART.c:66: SFRPAGE   = UART1_PAGE;
 	mov	_SFRPAGE,#0x01
 	C$UART.c$67$1$31 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\UART.c:67: while(!TI1);
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.1 - echo\UART.c:67: while(!TI1);
 00101$:
 	C$UART.c$68$1$31 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\UART.c:68: TI1 = 0;
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.1 - echo\UART.c:68: TI1 = 0;
 	jbc	_TI1,00121$
 	sjmp	00101$
 00121$:
 	C$UART.c$69$1$31 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\UART.c:69: SBUF1=c;
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.1 - echo\UART.c:69: SBUF1=c;
 	mov	_SBUF1,r7
 	C$UART.c$70$1$31 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\UART.c:70: SFRPAGE   = UART0_PAGE;
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.1 - echo\UART.c:70: SFRPAGE   = UART0_PAGE;
 	mov	_SFRPAGE,#0x00
 	C$UART.c$71$1$31 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\UART.c:71: while(!TI0);
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.1 - echo\UART.c:71: while(!TI0);
 00104$:
 	C$UART.c$72$1$31 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\UART.c:72: TI0 =0; 
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.1 - echo\UART.c:72: TI0 =0; 
 	jbc	_TI0,00122$
 	sjmp	00104$
 00122$:
 	C$UART.c$73$1$31 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\UART.c:73: SBUF0 =c;
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.1 - echo\UART.c:73: SBUF0 =c;
 	mov	_SBUF0,r7
 	C$UART.c$75$1$31 ==.
 	XG$echo$0$0 ==.
@@ -1471,19 +1458,19 @@ _echo:
 ;------------------------------------------------------------
 	G$SYSCLK_INIT$0$0 ==.
 	C$UART.c$79$1$31 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\UART.c:79: void SYSCLK_INIT()
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.1 - echo\UART.c:79: void SYSCLK_INIT()
 ;	-----------------------------------------
 ;	 function SYSCLK_INIT
 ;	-----------------------------------------
 _SYSCLK_INIT:
 	C$UART.c$83$1$32 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\UART.c:83: SFRPAGE = CONFIG_PAGE;
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.1 - echo\UART.c:83: SFRPAGE = CONFIG_PAGE;
 	mov	_SFRPAGE,#0x0F
 	C$UART.c$84$1$32 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\UART.c:84: OSCXCN  = 0x67;             // Start external oscillator
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.1 - echo\UART.c:84: OSCXCN  = 0x67;             // Start external oscillator
 	mov	_OSCXCN,#0x67
 	C$UART.c$85$1$32 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\UART.c:85: for(j=0; j < 256; j++);     // Wait for the oscillator to start up.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.1 - echo\UART.c:85: for(j=0; j < 256; j++);     // Wait for the oscillator to start up.
 	mov	r6,#0x00
 	mov	r7,#0x01
 00107$:
@@ -1495,15 +1482,15 @@ _SYSCLK_INIT:
 	orl	a,r7
 	jnz	00107$
 	C$UART.c$86$1$32 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\UART.c:86: while(!(OSCXCN & 0x80));    // Check to see if the Crystal Oscillator Valid Flag is set.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.1 - echo\UART.c:86: while(!(OSCXCN & 0x80));    // Check to see if the Crystal Oscillator Valid Flag is set.
 00102$:
 	mov	a,_OSCXCN
 	jnb	acc.7,00102$
 	C$UART.c$87$1$32 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\UART.c:87: CLKSEL  = 0x01;             // SYSCLK derived from the External Oscillator circuit.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.1 - echo\UART.c:87: CLKSEL  = 0x01;             // SYSCLK derived from the External Oscillator circuit.
 	mov	_CLKSEL,#0x01
 	C$UART.c$88$1$32 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\UART.c:88: OSCICN  = 0x00;             // Disable the internal oscillator.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.1 - echo\UART.c:88: OSCICN  = 0x00;             // Disable the internal oscillator.
 	mov	_OSCICN,#0x00
 	C$UART.c$89$1$32 ==.
 	XG$SYSCLK_INIT$0$0 ==.
@@ -1513,49 +1500,49 @@ _SYSCLK_INIT:
 ;------------------------------------------------------------
 	G$Timer_Init$0$0 ==.
 	C$UART.c$91$1$32 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\UART.c:91: void Timer_Init()
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.1 - echo\UART.c:91: void Timer_Init()
 ;	-----------------------------------------
 ;	 function Timer_Init
 ;	-----------------------------------------
 _Timer_Init:
 	C$UART.c$93$1$33 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\UART.c:93: SFRPAGE   = TIMER01_PAGE;
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.1 - echo\UART.c:93: SFRPAGE   = TIMER01_PAGE;
 	mov	_SFRPAGE,#0x00
 	C$UART.c$94$1$33 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\UART.c:94: TCON      = 0x40;
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.1 - echo\UART.c:94: TCON      = 0x40;
 	mov	_TCON,#0x40
 	C$UART.c$95$1$33 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\UART.c:95: TMOD      = 0x20;
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.1 - echo\UART.c:95: TMOD      = 0x20;
 	mov	_TMOD,#0x20
 	C$UART.c$96$1$33 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\UART.c:96: CKCON     = 0x10;
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.1 - echo\UART.c:96: CKCON     = 0x10;
 	mov	_CKCON,#0x10
 	C$UART.c$97$1$33 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\UART.c:97: TH1       = 0xA0;
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.1 - echo\UART.c:97: TH1       = 0xA0;
 	mov	_TH1,#0xA0
 	C$UART.c$98$1$33 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\UART.c:98: TL1 = TH1;
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.1 - echo\UART.c:98: TL1 = TH1;
 	mov	_TL1,_TH1
 	C$UART.c$99$1$33 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\UART.c:99: SFRPAGE   = TMR2_PAGE;
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.1 - echo\UART.c:99: SFRPAGE   = TMR2_PAGE;
 	mov	_SFRPAGE,#0x00
 	C$UART.c$100$1$33 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\UART.c:100: TMR2CN    = 0x04;
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.1 - echo\UART.c:100: TMR2CN    = 0x04;
 	mov	_TMR2CN,#0x04
 	C$UART.c$101$1$33 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\UART.c:101: TMR2CF    = 0x08;
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.1 - echo\UART.c:101: TMR2CF    = 0x08;
 	mov	_TMR2CF,#0x08
 	C$UART.c$102$1$33 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\UART.c:102: TMR2H	  = 0xFF;//(unsigned char) -(EXTCLK/BAUDRATE0/16);
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.1 - echo\UART.c:102: TMR2H	  = 0xFF;//(unsigned char) -(EXTCLK/BAUDRATE0/16);
 	mov	_TMR2H,#0xFF
 	C$UART.c$103$1$33 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\UART.c:103: TMR2L = 0x70;//TMR2H;
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.1 - echo\UART.c:103: TMR2L = 0x70;//TMR2H;
 	mov	_TMR2L,#0x70
 	C$UART.c$104$1$33 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\UART.c:104: RCAP2L    = 0x70;
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.1 - echo\UART.c:104: RCAP2L    = 0x70;
 	mov	_RCAP2L,#0x70
 	C$UART.c$105$1$33 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\UART.c:105: RCAP2H    = 0xFF;
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.1 - echo\UART.c:105: RCAP2H    = 0xFF;
 	mov	_RCAP2H,#0xFF
 	C$UART.c$106$1$33 ==.
 	XG$Timer_Init$0$0 ==.
@@ -1565,37 +1552,37 @@ _Timer_Init:
 ;------------------------------------------------------------
 	G$UART_Init$0$0 ==.
 	C$UART.c$107$1$33 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\UART.c:107: void UART_Init()
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.1 - echo\UART.c:107: void UART_Init()
 ;	-----------------------------------------
 ;	 function UART_Init
 ;	-----------------------------------------
 _UART_Init:
 	C$UART.c$109$1$34 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\UART.c:109: SFRPAGE   = UART0_PAGE;//Same as Timer 2 and Timer 1 SFR PAGES
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.1 - echo\UART.c:109: SFRPAGE   = UART0_PAGE;//Same as Timer 2 and Timer 1 SFR PAGES
 	mov	_SFRPAGE,#0x00
 	C$UART.c$110$1$34 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\UART.c:110: TR2		  = 1;//Start Timer 2
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.1 - echo\UART.c:110: TR2		  = 1;//Start Timer 2
 	setb	_TR2
 	C$UART.c$111$1$34 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\UART.c:111: SCON0     = 0x50;
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.1 - echo\UART.c:111: SCON0     = 0x50;
 	mov	_SCON0,#0x50
 	C$UART.c$112$1$34 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\UART.c:112: SSTA0   = 0x15;
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.1 - echo\UART.c:112: SSTA0   = 0x15;
 	mov	_SSTA0,#0x15
 	C$UART.c$113$1$34 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\UART.c:113: TI0		  = 1; // Indicate TX0 is ready
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.1 - echo\UART.c:113: TI0		  = 1; // Indicate TX0 is ready
 	setb	_TI0
 	C$UART.c$114$1$34 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\UART.c:114: TR1		  = 1; //Start Timer 1
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.1 - echo\UART.c:114: TR1		  = 1; //Start Timer 1
 	setb	_TR1
 	C$UART.c$115$1$34 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\UART.c:115: SFRPAGE   = UART1_PAGE;
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.1 - echo\UART.c:115: SFRPAGE   = UART1_PAGE;
 	mov	_SFRPAGE,#0x01
 	C$UART.c$116$1$34 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\UART.c:116: SCON1     = 0x50;
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.1 - echo\UART.c:116: SCON1     = 0x50;
 	mov	_SCON1,#0x50
 	C$UART.c$117$1$34 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\UART.c:117: TI1		  = 1; //Indicatie TX1 is ready
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.1 - echo\UART.c:117: TI1		  = 1; //Indicatie TX1 is ready
 	setb	_TI1
 	C$UART.c$118$1$34 ==.
 	XG$UART_Init$0$0 ==.
@@ -1605,45 +1592,39 @@ _UART_Init:
 ;------------------------------------------------------------
 	G$Port_IO_Init$0$0 ==.
 	C$UART.c$119$1$34 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\UART.c:119: void Port_IO_Init()
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.1 - echo\UART.c:119: void Port_IO_Init()
 ;	-----------------------------------------
 ;	 function Port_IO_Init
 ;	-----------------------------------------
 _Port_IO_Init:
 	C$UART.c$121$1$35 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\UART.c:121: SFRPAGE   = CONFIG_PAGE;
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.1 - echo\UART.c:121: SFRPAGE   = CONFIG_PAGE;
 	mov	_SFRPAGE,#0x0F
 	C$UART.c$124$1$35 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\UART.c:124: P0MDOUT = 0x05;
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.1 - echo\UART.c:124: P0MDOUT = 0x05;
 	mov	_P0MDOUT,#0x05
 	C$UART.c$125$1$35 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\UART.c:125: P0 = 0x0A;
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.1 - echo\UART.c:125: P0 = 0x0A;
 	mov	_P0,#0x0A
 	C$UART.c$129$1$35 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\UART.c:129: WDTCN   = 0xDE;             // Disable watchdog timer.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.1 - echo\UART.c:129: WDTCN   = 0xDE;             // Disable watchdog timer.
 	mov	_WDTCN,#0xDE
 	C$UART.c$130$1$35 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\UART.c:130: WDTCN   = 0xAD;
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.1 - echo\UART.c:130: WDTCN   = 0xAD;
 	mov	_WDTCN,#0xAD
 	C$UART.c$131$1$35 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\UART.c:131: EA 		  = 1; // enable global interrupts
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.1 - echo\UART.c:131: EA 		  = 1; // enable global interrupts
 	setb	_EA
 	C$UART.c$132$1$35 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\UART.c:132: XBR0      = 0x04;
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.1 - echo\UART.c:132: XBR0      = 0x04;
 	mov	_XBR0,#0x04
 	C$UART.c$133$1$35 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\UART.c:133: XBR2      = 0x44;
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.1 - echo\UART.c:133: XBR2      = 0x44;
 	mov	_XBR2,#0x44
 	C$UART.c$134$1$35 ==.
 	XG$Port_IO_Init$0$0 ==.
 	ret
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-FUART$__str_0$0$0 == .
-___str_0:
-	.ascii "GOT ONE"
-	.db 0x0A
-	.db 0x0D
-	.db 0x00
 	.area XINIT   (CODE)
 	.area CABS    (ABS,CODE)

@@ -1,5 +1,5 @@
 -muwx
--i C:\Users\Christina\Documents\MPS\Versions\Lab_03\Lab_03_1.hex
+-i C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\Dual_UART.hex
 -M
 -Y
 -y
@@ -14,6 +14,6 @@
 -l libint
 -l liblong
 -l libfloat
-C:\Users\Christina\Documents\MPS\Versions\Lab_03\UART.rel
+C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.rel
 
 -e
