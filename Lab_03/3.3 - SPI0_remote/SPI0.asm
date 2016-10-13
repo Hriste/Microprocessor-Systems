@@ -1,15 +1,14 @@
 ;--------------------------------------------------------
 ; File Created by SDCC : free open source ANSI-C Compiler
 ; Version 3.4.0 #8981 (Apr  5 2014) (MINGW32)
-; This file was generated Wed Oct 12 17:04:53 2016
+; This file was generated Wed Oct 12 17:26:30 2016
 ;--------------------------------------------------------
-	.module Lab_2
+	.module SPI0
 	.optsdcc -mmcs51 --model-small
 	
 ;--------------------------------------------------------
 ; Public variables in this module
 ;--------------------------------------------------------
-	.globl _rand
 	.globl _printf
 	.globl _P7_7
 	.globl _P7_6
@@ -394,18 +393,24 @@
 	.globl _DPL
 	.globl _SP
 	.globl _P0
-	.globl _SW2press
-	.globl _tenth
-	.globl _time
+	.globl _counts
+	.globl _alien_ct
+	.globl _local_ct
 	.globl _putchar
 	.globl _getchar
 	.globl _main
-	.globl _Timer0_ISR
-	.globl _SW2_ISR
-	.globl _Flash
-	.globl _PORT_INIT
+	.globl _local
+	.globl _foreign
+	.globl _read
+	.globl _dread
+	.globl _write
+	.globl _dummy
+	.globl _Timer1_ISR
 	.globl _SYSCLK_INIT
-	.globl _UART0_INIT
+	.globl _Timer_Init
+	.globl _UART_Init
+	.globl _Port_IO_Init
+	.globl _SPI0_INIT
 ;--------------------------------------------------------
 ; special function registers
 ;--------------------------------------------------------
@@ -1191,12 +1196,15 @@ _P7_7	=	0x00ff
 ; internal ram data
 ;--------------------------------------------------------
 	.area DSEG    (DATA)
-G$time$0$0==.
-_time::
+G$local_ct$0$0==.
+_local_ct::
 	.ds 2
-G$tenth$0$0==.
-_tenth::
-	.ds 4
+G$alien_ct$0$0==.
+_alien_ct::
+	.ds 2
+G$counts$0$0==.
+_counts::
+	.ds 2
 ;--------------------------------------------------------
 ; overlayable items in internal ram 
 ;--------------------------------------------------------
@@ -1225,9 +1233,6 @@ __start__stack:
 ; bit data
 ;--------------------------------------------------------
 	.area BSEG    (BIT)
-G$SW2press$0$0==.
-_SW2press::
-	.ds 1
 ;--------------------------------------------------------
 ; paged external ram data
 ;--------------------------------------------------------
@@ -1260,9 +1265,9 @@ _SW2press::
 	.area HOME    (CODE)
 __interrupt_vect:
 	ljmp	__sdcc_gsinit_startup
-	ljmp	_SW2_ISR
-	.ds	5
-	ljmp	_Timer0_ISR
+	reti
+	.ds	7
+	ljmp	_Timer1_ISR
 ;--------------------------------------------------------
 ; global & static initialisations
 ;--------------------------------------------------------
@@ -1276,20 +1281,19 @@ __interrupt_vect:
 	.globl __mcs51_genXINIT
 	.globl __mcs51_genXRAMCLEAR
 	.globl __mcs51_genRAMCLEAR
-	C$Lab_2.c$24$1$61 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:24: int time = 0; // increments every tenth of a second to keep track of elasped time
+	C$SPI0.c$37$1$59 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:37: int local_ct = 1;
+	mov	_local_ct,#0x01
+	mov	(_local_ct + 1),#0x00
+	C$SPI0.c$38$1$59 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:38: int alien_ct = 14;
+	mov	_alien_ct,#0x0E
+	mov	(_alien_ct + 1),#0x00
+	C$SPI0.c$39$1$59 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:39: int counts = 0;
 	clr	a
-	mov	_time,a
-	mov	(_time + 1),a
-	C$Lab_2.c$25$1$61 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:25: long tenth = 0; // increments at overflow (.001 seconds)
-	mov	_tenth,a
-	mov	(_tenth + 1),a
-	mov	(_tenth + 2),a
-	mov	(_tenth + 3),a
-	C$Lab_2.c$26$1$61 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:26: __bit SW2press = 0;
-	clr	_SW2press
+	mov	_counts,a
+	mov	(_counts + 1),a
 	.area GSFINAL (CODE)
 	ljmp	__sdcc_program_startup
 ;--------------------------------------------------------
@@ -1311,7 +1315,7 @@ __sdcc_program_startup:
 ;------------------------------------------------------------
 	G$putchar$0$0 ==.
 	C$putget.h$18$0$0 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\/putget.h:18: void putchar(char c)
+;	C:/Users/Christina/Documents/MPS/Versions/Lab_03/3.3 - SPI0_remote/putget.h:18: void putchar(char c)
 ;	-----------------------------------------
 ;	 function putchar
 ;	-----------------------------------------
@@ -1326,15 +1330,15 @@ _putchar:
 	ar0 = 0x00
 	mov	r7,dpl
 	C$putget.h$20$1$16 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\/putget.h:20: while(!TI0); 
+;	C:/Users/Christina/Documents/MPS/Versions/Lab_03/3.3 - SPI0_remote/putget.h:20: while(!TI0); 
 00101$:
 	C$putget.h$21$1$16 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\/putget.h:21: TI0=0;
+;	C:/Users/Christina/Documents/MPS/Versions/Lab_03/3.3 - SPI0_remote/putget.h:21: TI0=0;
 	jbc	_TI0,00112$
 	sjmp	00101$
 00112$:
 	C$putget.h$22$1$16 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\/putget.h:22: SBUF0 = c;
+;	C:/Users/Christina/Documents/MPS/Versions/Lab_03/3.3 - SPI0_remote/putget.h:22: SBUF0 = c;
 	mov	_SBUF0,r7
 	C$putget.h$23$1$16 ==.
 	XG$putchar$0$0 ==.
@@ -1346,24 +1350,24 @@ _putchar:
 ;------------------------------------------------------------
 	G$getchar$0$0 ==.
 	C$putget.h$28$1$16 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\/putget.h:28: char getchar(void)
+;	C:/Users/Christina/Documents/MPS/Versions/Lab_03/3.3 - SPI0_remote/putget.h:28: char getchar(void)
 ;	-----------------------------------------
 ;	 function getchar
 ;	-----------------------------------------
 _getchar:
 	C$putget.h$31$1$18 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\/putget.h:31: while(!RI0);
+;	C:/Users/Christina/Documents/MPS/Versions/Lab_03/3.3 - SPI0_remote/putget.h:31: while(!RI0);
 00101$:
 	C$putget.h$32$1$18 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\/putget.h:32: RI0 =0;
+;	C:/Users/Christina/Documents/MPS/Versions/Lab_03/3.3 - SPI0_remote/putget.h:32: RI0 =0;
 	jbc	_RI0,00112$
 	sjmp	00101$
 00112$:
 	C$putget.h$33$1$18 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\/putget.h:33: c = SBUF0;
+;	C:/Users/Christina/Documents/MPS/Versions/Lab_03/3.3 - SPI0_remote/putget.h:33: c = SBUF0;
 	mov	a,_SBUF0
 	C$putget.h$36$1$18 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\/putget.h:36: return SBUF0;
+;	C:/Users/Christina/Documents/MPS/Versions/Lab_03/3.3 - SPI0_remote/putget.h:36: return SBUF0;
 	mov	dpl,_SBUF0
 	C$putget.h$37$1$18 ==.
 	XG$getchar$0$0 ==.
@@ -1371,55 +1375,40 @@ _getchar:
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'main'
 ;------------------------------------------------------------
-;delay                     Allocated to registers 
-;turns                     Allocated to registers r6 r7 
-;slowness                  Allocated to registers r4 r5 
+;c                         Allocated to registers r7 
+;i                         Allocated to registers 
+;d                         Allocated to registers r7 
 ;------------------------------------------------------------
 	G$main$0$0 ==.
-	C$Lab_2.c$41$1$18 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:41: void main (void)
+	C$SPI0.c$41$1$18 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:41: void main (void)
 ;	-----------------------------------------
 ;	 function main
 ;	-----------------------------------------
 _main:
-	C$Lab_2.c$45$1$18 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:45: unsigned int turns = 0;
-	mov	r6,#0x00
-	mov	r7,#0x00
-	C$Lab_2.c$46$1$18 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:46: unsigned int slowness = 0;
-	mov	r4,#0x00
-	mov	r5,#0x00
-	C$Lab_2.c$49$1$43 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:49: SFRPAGE = CONFIG_PAGE;
+	C$SPI0.c$47$1$33 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:47: SFRPAGE = CONFIG_PAGE;
 	mov	_SFRPAGE,#0x0F
-	C$Lab_2.c$50$1$43 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:50: IE |=0x03; //Enable interrupts 0 
-	orl	_IE,#0x03
-	C$Lab_2.c$51$1$43 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:51: PORT_INIT();                // Configure the Crossbar and GPIO.
-	push	ar7
-	push	ar6
-	push	ar5
-	push	ar4
-	lcall	_PORT_INIT
-	C$Lab_2.c$52$1$43 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:52: SYSCLK_INIT();              // Initialize the oscillator.
+	C$SPI0.c$48$1$33 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:48: SYSCLK_INIT();
 	lcall	_SYSCLK_INIT
-	C$Lab_2.c$53$1$43 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:53: UART0_INIT();               // Initialize UART0.
-	lcall	_UART0_INIT
-	C$Lab_2.c$55$1$43 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:55: SFRPAGE = LEGACY_PAGE;
+	C$SPI0.c$49$1$33 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:49: Port_IO_Init();
+	lcall	_Port_IO_Init
+	C$SPI0.c$50$1$33 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:50: Timer_Init();
+	lcall	_Timer_Init
+	C$SPI0.c$51$1$33 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:51: UART_Init();
+	lcall	_UART_Init
+	C$SPI0.c$52$1$33 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:52: SPI0_INIT();
+	lcall	_SPI0_INIT
+	C$SPI0.c$53$1$33 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:53: SFRPAGE = LEGACY_PAGE;
 	mov	_SFRPAGE,#0x00
-	C$Lab_2.c$56$1$43 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:56: IT0     = 1;                // /INT0 is edge triggered, falling-edge.
-	setb	_IT0
-	C$Lab_2.c$57$1$43 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:57: SFRPAGE = UART0_PAGE;       // Direct the output to UART0
-	mov	_SFRPAGE,#0x00
-	C$Lab_2.c$59$1$43 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:59: printf("\033[2J");          // Erase screen and move cursor to the home position.
+	C$SPI0.c$54$1$33 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:54: printf("at least i'm here");
 	mov	a,#___str_0
 	push	acc
 	mov	a,#(___str_0 >> 8)
@@ -1430,8 +1419,14 @@ _main:
 	dec	sp
 	dec	sp
 	dec	sp
-	C$Lab_2.c$60$1$43 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:60: printf("MPS Interrupt Timer Test\n\n\r");
+	C$SPI0.c$55$1$33 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:55: ES0 = 1;
+	setb	_ES0
+	C$SPI0.c$59$1$33 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:59: SFRPAGE = LEGACY_PAGE;//same as UART0_PAGE
+	mov	_SFRPAGE,#0x00
+	C$SPI0.c$60$1$33 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:60: printf("\033[2J");
 	mov	a,#___str_1
 	push	acc
 	mov	a,#(___str_1 >> 8)
@@ -1442,8 +1437,8 @@ _main:
 	dec	sp
 	dec	sp
 	dec	sp
-	C$Lab_2.c$61$1$43 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:61: printf("When indicated press the button\n\r");
+	C$SPI0.c$61$1$33 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:61: printf("I'm alive");
 	mov	a,#___str_2
 	push	acc
 	mov	a,#(___str_2 >> 8)
@@ -1454,17 +1449,90 @@ _main:
 	dec	sp
 	dec	sp
 	dec	sp
-	C$Lab_2.c$64$1$43 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:64: SFRPAGE = CONFIG_PAGE;
-	mov	_SFRPAGE,#0x0F
-	C$Lab_2.c$65$1$43 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:65: EX0     = 1;                // Enable Ext Int 0 only after everything is settled.
-	setb	_EX0
-	C$Lab_2.c$66$1$43 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:66: SFRPAGE=LEGACY_PAGE;
+	C$SPI0.c$62$1$33 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:62: while(1)
+00107$:
+	C$SPI0.c$65$2$34 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:65: if(RI0)
+	C$SPI0.c$67$3$35 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:67: RI0 = 0;
+	jbc	_RI0,00130$
+	sjmp	00107$
+00130$:
+	C$SPI0.c$68$3$35 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:68: c = SBUF0;
+	mov	r7,_SBUF0
+	C$SPI0.c$69$3$35 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:69: local(c);
+	mov	dpl,r7
+	push	ar7
+	lcall	_local
+	pop	ar7
+	C$SPI0.c$70$3$35 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:70: write(c);
+	mov	dpl,r7
+	lcall	_write
+	C$SPI0.c$71$3$35 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:71: SFRPAGE = UART0_PAGE;
 	mov	_SFRPAGE,#0x00
-	C$Lab_2.c$68$1$43 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:68: printf("\033[0m");
+	C$SPI0.c$72$3$35 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:72: for (i=0;i<101;i++);
+	mov	r6,#0x65
+	mov	r7,#0x00
+00111$:
+	dec	r6
+	cjne	r6,#0xFF,00131$
+	dec	r7
+00131$:
+	mov	a,r6
+	orl	a,r7
+	jnz	00111$
+	C$SPI0.c$73$3$35 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:73: d = read();
+	lcall	_read
+	mov	r7,dpl
+	C$SPI0.c$74$3$35 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:74: SPIF =0;
+	clr	_SPIF
+	C$SPI0.c$75$3$35 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:75: SFRPAGE = UART0_PAGE;
+	mov	_SFRPAGE,#0x00
+	C$SPI0.c$76$3$35 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:76: foreign(d);
+	mov	dpl,r7
+	push	ar7
+	lcall	_foreign
+	pop	ar7
+	C$SPI0.c$77$3$35 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:77: if(d == 0x7F){dummy();}
+	cjne	r7,#0x7F,00103$
+	lcall	_dummy
+00103$:
+	C$SPI0.c$79$3$35 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:79: SPIF =0;
+	clr	_SPIF
+	sjmp	00107$
+	C$SPI0.c$83$1$33 ==.
+	XG$main$0$0 ==.
+	ret
+;------------------------------------------------------------
+;Allocation info for local variables in function 'local'
+;------------------------------------------------------------
+;c                         Allocated to registers r7 
+;------------------------------------------------------------
+	G$local$0$0 ==.
+	C$SPI0.c$84$1$33 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:84: void local(char c)
+;	-----------------------------------------
+;	 function local
+;	-----------------------------------------
+_local:
+	mov	r7,dpl
+	C$SPI0.c$87$1$38 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:87: printf("\033[%d;1H",local_ct);
+	push	ar7
+	push	_local_ct
+	push	(_local_ct + 1)
 	mov	a,#___str_3
 	push	acc
 	mov	a,#(___str_3 >> 8)
@@ -1472,100 +1540,28 @@ _main:
 	mov	a,#0x80
 	push	acc
 	lcall	_printf
-	dec	sp
-	dec	sp
-	dec	sp
-	pop	ar4
-	pop	ar5
-	pop	ar6
+	mov	a,sp
+	add	a,#0xfb
+	mov	sp,a
 	pop	ar7
-	C$Lab_2.c$69$1$43 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:69: while (1)                   // No need to set UART0_PAGE
-00106$:
-	C$Lab_2.c$71$2$44 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:71: if (time ==rand())
-	push	ar7
-	push	ar6
-	push	ar5
-	push	ar4
-	lcall	_rand
-	mov	r2,dpl
-	mov	r3,dph
-	pop	ar4
-	pop	ar5
-	pop	ar6
-	pop	ar7
-	mov	a,r2
-	cjne	a,_time,00102$
-	mov	a,r3
-	cjne	a,(_time + 1),00102$
-	C$Lab_2.c$73$3$45 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:73: tenth =0;
+	C$SPI0.c$88$1$38 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:88: if(local_ct < 13){local_ct++;}
+	clr	c
+	mov	a,_local_ct
+	subb	a,#0x0D
+	mov	a,(_local_ct + 1)
+	xrl	a,#0x80
+	subb	a,#0x80
+	jnc	00102$
+	inc	_local_ct
 	clr	a
-	mov	_tenth,a
-	mov	(_tenth + 1),a
-	mov	(_tenth + 2),a
-	mov	(_tenth + 3),a
-	C$Lab_2.c$74$3$45 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:74: time = time+1;
-	inc	_time
-;	genFromRTrack removed	clr	a
-	cjne	a,_time,00121$
-	inc	(_time + 1)
-00121$:
+	cjne	a,_local_ct,00104$
+	inc	(_local_ct + 1)
+	sjmp	00104$
 00102$:
-	C$Lab_2.c$77$2$44 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:77: if(time==rand()*100){
+	C$SPI0.c$89$2$40 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:89: else{printf("\033[1J");local_ct=2;printf("\033[1;1H");}
 	push	ar7
-	push	ar6
-	push	ar5
-	push	ar4
-	lcall	_rand
-	mov	__mulint_PARM_2,dpl
-	mov	(__mulint_PARM_2 + 1),dph
-	mov	dptr,#0x0064
-	lcall	__mulint
-	mov	r2,dpl
-	mov	r3,dph
-	pop	ar4
-	pop	ar5
-	pop	ar6
-	pop	ar7
-	mov	a,r2
-	cjne	a,_time,00106$
-	mov	a,r3
-	cjne	a,(_time + 1),00106$
-	C$Lab_2.c$78$3$46 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:78: slowness = slowness + Flash(); 
-	push	ar7
-	push	ar6
-	push	ar5
-	push	ar4
-	lcall	_Flash
-	mov	r2,dpl
-	mov	r3,dph
-	pop	ar4
-	pop	ar5
-	pop	ar6
-	pop	ar7
-	mov	a,r2
-	add	a,r4
-	mov	r4,a
-	mov	a,r3
-	addc	a,r5
-	mov	r5,a
-	C$Lab_2.c$79$3$46 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:79: turns = turns +1;
-	inc	r6
-	cjne	r6,#0x00,00124$
-	inc	r7
-00124$:
-	C$Lab_2.c$80$3$46 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:80: printf("\033[6;1H");
-	push	ar7
-	push	ar6
-	push	ar5
-	push	ar4
 	mov	a,#___str_4
 	push	acc
 	mov	a,#(___str_4 >> 8)
@@ -1576,25 +1572,8 @@ _main:
 	dec	sp
 	dec	sp
 	dec	sp
-	pop	ar4
-	pop	ar5
-	pop	ar6
-	pop	ar7
-	C$Lab_2.c$81$1$43 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:81: printf("Your average response time is %d thousands of a second",slowness/turns);
-	mov	__divuint_PARM_2,r6
-	mov	(__divuint_PARM_2 + 1),r7
-	mov	dpl,r4
-	mov	dph,r5
-	push	ar7
-	push	ar6
-	push	ar5
-	push	ar4
-	lcall	__divuint
-	mov	r2,dpl
-	mov	r3,dph
-	push	ar2
-	push	ar3
+	mov	_local_ct,#0x02
+	mov	(_local_ct + 1),#0x00
 	mov	a,#___str_5
 	push	acc
 	mov	a,#(___str_5 >> 8)
@@ -1602,117 +1581,71 @@ _main:
 	mov	a,#0x80
 	push	acc
 	lcall	_printf
+	dec	sp
+	dec	sp
+	dec	sp
+	pop	ar7
+	C$SPI0.c$90$1$38 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:90: while(!TI0);
+00104$:
+	C$SPI0.c$91$1$38 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:91: TI0 = 0;
+	jbc	_TI0,00120$
+	sjmp	00104$
+00120$:
+	C$SPI0.c$92$1$38 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:92: SBUF0 = c;
+	mov	_SBUF0,r7
+	C$SPI0.c$93$1$38 ==.
+	XG$local$0$0 ==.
+	ret
+;------------------------------------------------------------
+;Allocation info for local variables in function 'foreign'
+;------------------------------------------------------------
+;c                         Allocated to registers r7 
+;------------------------------------------------------------
+	G$foreign$0$0 ==.
+	C$SPI0.c$95$1$38 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:95: void foreign(char c)
+;	-----------------------------------------
+;	 function foreign
+;	-----------------------------------------
+_foreign:
+	mov	r7,dpl
+	C$SPI0.c$98$1$42 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:98: printf("\033[%d;1H",alien_ct);
+	push	ar7
+	push	_alien_ct
+	push	(_alien_ct + 1)
+	mov	a,#___str_3
+	push	acc
+	mov	a,#(___str_3 >> 8)
+	push	acc
+	mov	a,#0x80
+	push	acc
+	lcall	_printf
 	mov	a,sp
 	add	a,#0xfb
 	mov	sp,a
-	pop	ar4
-	pop	ar5
-	pop	ar6
 	pop	ar7
-	ljmp	00106$
-	C$Lab_2.c$84$1$43 ==.
-	XG$main$0$0 ==.
-	ret
-;------------------------------------------------------------
-;Allocation info for local variables in function 'Timer0_ISR'
-;------------------------------------------------------------
-	G$Timer0_ISR$0$0 ==.
-	C$Lab_2.c$89$1$43 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:89: void Timer0_ISR(void) __interrupt 1
-;	-----------------------------------------
-;	 function Timer0_ISR
-;	-----------------------------------------
-_Timer0_ISR:
-	push	acc
-	push	psw
-	C$Lab_2.c$91$1$48 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:91: TF0 = 0; //reset the flag
-	clr	_TF0
-	C$Lab_2.c$92$1$48 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:92: tenth = tenth+1;
-	inc	_tenth
+	C$SPI0.c$99$1$42 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:99: if(alien_ct < 25){alien_ct++;}
+	clr	c
+	mov	a,_alien_ct
+	subb	a,#0x19
+	mov	a,(_alien_ct + 1)
+	xrl	a,#0x80
+	subb	a,#0x80
+	jnc	00102$
+	inc	_alien_ct
 	clr	a
-	cjne	a,_tenth,00103$
-	inc	(_tenth + 1)
-	cjne	a,(_tenth + 1),00103$
-	inc	(_tenth + 2)
-	cjne	a,(_tenth + 2),00103$
-	inc	(_tenth + 3)
-00103$:
-	C$Lab_2.c$93$1$48 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:93: TL0=0;
-	mov	_TL0,#0x00
-	C$Lab_2.c$94$1$48 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:94: TH0=0;
-	mov	_TH0,#0x00
-	pop	psw
-	pop	acc
-	C$Lab_2.c$95$1$48 ==.
-	XG$Timer0_ISR$0$0 ==.
-	reti
-;	eliminated unneeded mov psw,# (no regs used in bank)
-;	eliminated unneeded push/pop dpl
-;	eliminated unneeded push/pop dph
-;	eliminated unneeded push/pop b
-;------------------------------------------------------------
-;Allocation info for local variables in function 'SW2_ISR'
-;------------------------------------------------------------
-	G$SW2_ISR$0$0 ==.
-	C$Lab_2.c$97$1$48 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:97: void SW2_ISR (void) __interrupt 0
-;	-----------------------------------------
-;	 function SW2_ISR
-;	-----------------------------------------
-_SW2_ISR:
-	C$Lab_2.c$99$1$50 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:99: SW2press=1;
-	setb	_SW2press
-	C$Lab_2.c$100$1$50 ==.
-	XG$SW2_ISR$0$0 ==.
-	reti
-;	eliminated unneeded mov psw,# (no regs used in bank)
-;	eliminated unneeded push/pop psw
-;	eliminated unneeded push/pop dpl
-;	eliminated unneeded push/pop dph
-;	eliminated unneeded push/pop b
-;	eliminated unneeded push/pop acc
-;------------------------------------------------------------
-;Allocation info for local variables in function 'Flash'
-;------------------------------------------------------------
-;reaction                  Allocated to registers r6 r7 
-;------------------------------------------------------------
-	G$Flash$0$0 ==.
-	C$Lab_2.c$104$1$50 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:104: int Flash(void)
-;	-----------------------------------------
-;	 function Flash
-;	-----------------------------------------
-_Flash:
-	C$Lab_2.c$106$1$50 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:106: int reaction = 0;
-	C$Lab_2.c$108$1$52 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:108: tenth = 0;
-	clr	a
-	mov	r6,a
-	mov	r7,a
-	mov	_tenth,a
-	mov	(_tenth + 1),a
-	mov	(_tenth + 2),a
-	mov	(_tenth + 3),a
-	C$Lab_2.c$109$1$52 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:109: time = 0;
-	mov	_time,a
-	mov	(_time + 1),a
-	C$Lab_2.c$110$1$52 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:110: TL0 = TH0 = 0; // reset timer
-;	1-genFromRTrack replaced	mov	_TH0,#0x00
-	mov	_TH0,a
-;	1-genFromRTrack replaced	mov	_TL0,#0x00
-	mov	_TL0,a
-	C$Lab_2.c$112$1$52 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:112: printf("\033[12;12H");	
+	cjne	a,_alien_ct,00104$
+	inc	(_alien_ct + 1)
+	sjmp	00104$
+00102$:
+	C$SPI0.c$100$2$44 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:100: else{printf("\033[12;1H");printf("\033[J");alien_ct = 12;printf("\033[12;1H");}
 	push	ar7
-	push	ar6
 	mov	a,#___str_6
 	push	acc
 	mov	a,#(___str_6 >> 8)
@@ -1723,8 +1656,6 @@ _Flash:
 	dec	sp
 	dec	sp
 	dec	sp
-	C$Lab_2.c$113$1$52 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:113: printf("PRESS THE BUTTON           ");
 	mov	a,#___str_7
 	push	acc
 	mov	a,#(___str_7 >> 8)
@@ -1735,83 +1666,8 @@ _Flash:
 	dec	sp
 	dec	sp
 	dec	sp
-	pop	ar6
-	pop	ar7
-	C$Lab_2.c$117$1$52 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:117: while(SW2press==0){
-00103$:
-	jnb	_SW2press,00122$
-	ljmp	00105$
-00122$:
-	C$Lab_2.c$118$2$53 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:118: if(tenth > 5000)
-	clr	c
-	mov	a,#0x88
-	subb	a,_tenth
-	mov	a,#0x13
-	subb	a,(_tenth + 1)
-	clr	a
-	subb	a,(_tenth + 2)
-	mov	a,#(0x00 ^ 0x80)
-	mov	b,(_tenth + 3)
-	xrl	b,#0x80
-	subb	a,b
-	jnc	00103$
-	C$Lab_2.c$120$3$54 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:120: printf("\033[2J");          // Erase screen and move cursor to the home position.
-	mov	a,#___str_0
-	push	acc
-	mov	a,#(___str_0 >> 8)
-	push	acc
-	mov	a,#0x80
-	push	acc
-	lcall	_printf
-	dec	sp
-	dec	sp
-	dec	sp
-	C$Lab_2.c$122$3$54 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:122: tenth = 0;
-	clr	a
-	mov	_tenth,a
-	mov	(_tenth + 1),a
-	mov	(_tenth + 2),a
-	mov	(_tenth + 3),a
-	C$Lab_2.c$123$3$54 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:123: time = 0;
-	mov	_time,a
-	mov	(_time + 1),a
-	C$Lab_2.c$124$3$54 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:124: TL0 = TH0 = 0; 
-;	1-genFromRTrack replaced	mov	_TH0,#0x00
-	mov	_TH0,a
-;	1-genFromRTrack replaced	mov	_TL0,#0x00
-	mov	_TL0,a
-	C$Lab_2.c$125$3$54 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:125: printf("MPS Interrupt Timer Test\n\n\r");
-	mov	a,#___str_1
-	push	acc
-	mov	a,#(___str_1 >> 8)
-	push	acc
-	mov	a,#0x80
-	push	acc
-	lcall	_printf
-	dec	sp
-	dec	sp
-	dec	sp
-	C$Lab_2.c$126$3$54 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:126: printf("When indicated press the button\n\r");
-	mov	a,#___str_2
-	push	acc
-	mov	a,#(___str_2 >> 8)
-	push	acc
-	mov	a,#0x80
-	push	acc
-	lcall	_printf
-	dec	sp
-	dec	sp
-	dec	sp
-	C$Lab_2.c$127$3$54 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:127: printf("\033[12;12H");
+	mov	_alien_ct,#0x0C
+	mov	(_alien_ct + 1),#0x00
 	mov	a,#___str_6
 	push	acc
 	mov	a,#(___str_6 >> 8)
@@ -1822,8 +1678,138 @@ _Flash:
 	dec	sp
 	dec	sp
 	dec	sp
-	C$Lab_2.c$128$3$54 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:128: printf("THE SYSTEM HAS BEEN RESET");
+	pop	ar7
+	C$SPI0.c$101$1$42 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:101: while(!TI0);
+00104$:
+	C$SPI0.c$102$1$42 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:102: TI0 = 0;
+	jbc	_TI0,00120$
+	sjmp	00104$
+00120$:
+	C$SPI0.c$103$1$42 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:103: SBUF0 = c;
+	mov	_SBUF0,r7
+	C$SPI0.c$104$1$42 ==.
+	XG$foreign$0$0 ==.
+	ret
+;------------------------------------------------------------
+;Allocation info for local variables in function 'read'
+;------------------------------------------------------------
+;i                         Allocated to registers 
+;------------------------------------------------------------
+	G$read$0$0 ==.
+	C$SPI0.c$105$1$42 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:105: char read ()
+;	-----------------------------------------
+;	 function read
+;	-----------------------------------------
+_read:
+	C$SPI0.c$108$1$45 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:108: SFRPAGE = SPI0_PAGE;
+	mov	_SFRPAGE,#0x00
+	C$SPI0.c$109$1$45 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:109: NSSMD0 = 0;
+	clr	_NSSMD0
+	C$SPI0.c$110$1$45 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:110: for (i=0;i<101;i++);
+	mov	r6,#0x65
+	mov	r7,#0x00
+00107$:
+	dec	r6
+	cjne	r6,#0xFF,00121$
+	dec	r7
+00121$:
+	mov	a,r6
+	orl	a,r7
+	jnz	00107$
+	C$SPI0.c$111$1$45 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:111: while(!SPIF);
+00102$:
+	jnb	_SPIF,00102$
+	C$SPI0.c$112$1$45 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:112: return SPI0DAT;
+	mov	dpl,_SPI0DAT
+	C$SPI0.c$113$1$45 ==.
+	XG$read$0$0 ==.
+	ret
+;------------------------------------------------------------
+;Allocation info for local variables in function 'dread'
+;------------------------------------------------------------
+;i                         Allocated to registers r5 r6 
+;dumb                      Allocated to registers r7 
+;------------------------------------------------------------
+	G$dread$0$0 ==.
+	C$SPI0.c$114$1$45 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:114: unsigned char dread ()
+;	-----------------------------------------
+;	 function dread
+;	-----------------------------------------
+_dread:
+	C$SPI0.c$117$1$45 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:117: char dumb = 0x66;
+	mov	r7,#0x66
+	C$SPI0.c$118$1$46 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:118: SFRPAGE = SPI0_PAGE;
+	mov	_SFRPAGE,#0x00
+	C$SPI0.c$119$1$46 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:119: NSSMD0 = 0;
+	clr	_NSSMD0
+	C$SPI0.c$120$1$46 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:120: for (i=0;i<101;i++);
+	mov	r5,#0x65
+	mov	r6,#0x00
+00114$:
+	dec	r5
+	cjne	r5,#0xFF,00150$
+	dec	r6
+00150$:
+	mov	a,r5
+	orl	a,r6
+	jnz	00114$
+	C$SPI0.c$121$1$46 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:121: while(SPIF){SPIF=0;}//make sure SPIF is not busy
+00102$:
+	jbc	_SPIF,00152$
+	sjmp	00104$
+00152$:
+	sjmp	00102$
+00104$:
+	C$SPI0.c$122$1$46 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:122: SPI0DAT = dumb;
+	mov	_SPI0DAT,r7
+	C$SPI0.c$123$1$46 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:123: while(!SPIF);
+00105$:
+	jnb	_SPIF,00105$
+	C$SPI0.c$124$1$46 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:124: for (i=0;i<101;i++);
+	mov	r6,#0x65
+	mov	r7,#0x00
+00117$:
+	dec	r6
+	cjne	r6,#0xFF,00154$
+	dec	r7
+00154$:
+	mov	a,r6
+	orl	a,r7
+	C$SPI0.c$125$1$46 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:125: counts =0 ;
+	jnz	00117$
+	mov	_counts,a
+	mov	(_counts + 1),a
+	C$SPI0.c$126$1$46 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:126: while(counts < 1);
+00109$:
+	clr	c
+	mov	a,_counts
+	subb	a,#0x01
+	mov	a,(_counts + 1)
+	xrl	a,#0x80
+	subb	a,#0x80
+	jc	00109$
+	C$SPI0.c$127$1$46 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:127: printf("I made it \n\r");
 	mov	a,#___str_8
 	push	acc
 	mov	a,#(___str_8 >> 8)
@@ -1834,26 +1820,89 @@ _Flash:
 	dec	sp
 	dec	sp
 	dec	sp
-	C$Lab_2.c$129$3$54 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:129: reaction = 0;
-	mov	r6,#0x00
+	C$SPI0.c$128$1$46 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:128: return SPI0DAT;
+	mov	dpl,_SPI0DAT
+	C$SPI0.c$129$1$46 ==.
+	XG$dread$0$0 ==.
+	ret
+;------------------------------------------------------------
+;Allocation info for local variables in function 'write'
+;------------------------------------------------------------
+;c                         Allocated to registers r7 
+;i                         Allocated to registers 
+;------------------------------------------------------------
+	G$write$0$0 ==.
+	C$SPI0.c$131$1$46 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:131: void write(char c)
+;	-----------------------------------------
+;	 function write
+;	-----------------------------------------
+_write:
+	mov	r7,dpl
+	C$SPI0.c$134$1$49 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:134: SFRPAGE = SPI0_PAGE;
+	mov	_SFRPAGE,#0x00
+	C$SPI0.c$135$1$49 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:135: SPIF = 0;
+	clr	_SPIF
+	C$SPI0.c$136$1$49 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:136: NSSMD0 = 1;
+	setb	_NSSMD0
+	C$SPI0.c$137$1$49 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:137: while(SPIF){SPIF=0;}//make sure SPIF is not busy
+00101$:
+	jbc	_SPIF,00132$
+	sjmp	00103$
+00132$:
+	sjmp	00101$
+00103$:
+	C$SPI0.c$138$1$49 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:138: SPI0DAT = c;
+	mov	_SPI0DAT,r7
+	C$SPI0.c$139$1$49 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:139: while(!SPIF);
+00104$:
+	jnb	_SPIF,00104$
+	C$SPI0.c$140$1$49 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:140: for (i=0;i<101;i++);
+	mov	r6,#0x65
 	mov	r7,#0x00
-	C$Lab_2.c$130$1$52 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:130: break;
-00105$:
-	C$Lab_2.c$134$1$52 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:134: if(SW2press==1){
-	jb	_SW2press,00124$
-	ljmp	00107$
-00124$:
-	C$Lab_2.c$135$2$55 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:135: reaction = tenth;
-	mov	r6,_tenth
-	mov	r7,(_tenth + 1)
-	C$Lab_2.c$136$2$55 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:136: printf("\033[5;1H");
+00110$:
+	dec	r6
+	cjne	r6,#0xFF,00134$
+	dec	r7
+00134$:
+	mov	a,r6
+	orl	a,r7
+	jnz	00110$
+	C$SPI0.c$141$1$49 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:141: NSSMD0 = 0;
+	clr	_NSSMD0
+	C$SPI0.c$142$1$49 ==.
+	XG$write$0$0 ==.
+	ret
+;------------------------------------------------------------
+;Allocation info for local variables in function 'dummy'
+;------------------------------------------------------------
+;r                         Allocated to registers r7 
+;dumb                      Allocated to registers 
+;i                         Allocated to registers 
+;j                         Allocated with name '_dummy_j_1_51'
+;------------------------------------------------------------
+	G$dummy$0$0 ==.
+	C$SPI0.c$144$1$49 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:144: void dummy()
+;	-----------------------------------------
+;	 function dummy
+;	-----------------------------------------
+_dummy:
+	C$SPI0.c$150$1$51 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:150: r = 0x00;
+	mov	r7,#0x00
+	C$SPI0.c$154$1$51 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:154: printf("   you pressed <DEL>");
 	push	ar7
-	push	ar6
 	mov	a,#___str_9
 	push	acc
 	mov	a,#(___str_9 >> 8)
@@ -1864,14 +1913,153 @@ _Flash:
 	dec	sp
 	dec	sp
 	dec	sp
-	pop	ar6
 	pop	ar7
-	C$Lab_2.c$137$2$55 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:137: printf("You reacted in %d thousands of a second", reaction);
+	C$SPI0.c$155$1$51 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:155: while(r!=0xFF)//for(j=0;j<100;j++)
+00102$:
+	cjne	r7,#0xFF,00123$
+	sjmp	00108$
+00123$:
+	C$SPI0.c$160$2$52 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:160: r = dread();
+	lcall	_dread
+	C$SPI0.c$163$2$52 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:163: foreign(r);
+	mov  r7,dpl
 	push	ar7
-	push	ar6
-	push	ar6
-	push	ar7
+	lcall	_foreign
+	pop	ar7
+	C$SPI0.c$164$2$52 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:164: for (i=0;i<101;i++);
+	mov	r5,#0x65
+	mov	r6,#0x00
+00107$:
+	dec	r5
+	cjne	r5,#0xFF,00124$
+	dec	r6
+00124$:
+	mov	a,r5
+	orl	a,r6
+	jnz	00107$
+	sjmp	00102$
+00108$:
+	C$SPI0.c$167$1$51 ==.
+	XG$dummy$0$0 ==.
+	ret
+;------------------------------------------------------------
+;Allocation info for local variables in function 'Timer1_ISR'
+;------------------------------------------------------------
+	G$Timer1_ISR$0$0 ==.
+	C$SPI0.c$169$1$51 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:169: void Timer1_ISR(void) __interrupt 1
+;	-----------------------------------------
+;	 function Timer1_ISR
+;	-----------------------------------------
+_Timer1_ISR:
+	push	acc
+	push	psw
+	C$SPI0.c$171$1$54 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:171: SFRPAGE = TIMER01_PAGE;
+	mov	_SFRPAGE,#0x00
+	C$SPI0.c$172$1$54 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:172: TF1 = 0;
+	clr	_TF1
+	C$SPI0.c$173$1$54 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:173: counts ++;
+	inc	_counts
+	clr	a
+	cjne	a,_counts,00103$
+	inc	(_counts + 1)
+00103$:
+	C$SPI0.c$175$1$54 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:175: TL1 = 0;
+	mov	_TL1,#0x00
+	C$SPI0.c$176$1$54 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:176: TH1 = 0;
+	mov	_TH1,#0x00
+	pop	psw
+	pop	acc
+	C$SPI0.c$177$1$54 ==.
+	XG$Timer1_ISR$0$0 ==.
+	reti
+;	eliminated unneeded mov psw,# (no regs used in bank)
+;	eliminated unneeded push/pop dpl
+;	eliminated unneeded push/pop dph
+;	eliminated unneeded push/pop b
+;------------------------------------------------------------
+;Allocation info for local variables in function 'SYSCLK_INIT'
+;------------------------------------------------------------
+;j                         Allocated to registers 
+;------------------------------------------------------------
+	G$SYSCLK_INIT$0$0 ==.
+	C$SPI0.c$180$1$54 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:180: void SYSCLK_INIT()
+;	-----------------------------------------
+;	 function SYSCLK_INIT
+;	-----------------------------------------
+_SYSCLK_INIT:
+	C$SPI0.c$184$1$55 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:184: SFRPAGE = CONFIG_PAGE;
+	mov	_SFRPAGE,#0x0F
+	C$SPI0.c$185$1$55 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:185: OSCXCN  = 0x67;             // Start external oscillator
+	mov	_OSCXCN,#0x67
+	C$SPI0.c$186$1$55 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:186: for(j=0; j < 256; j++);     // Wait for the oscillator to start up.
+	mov	r6,#0x00
+	mov	r7,#0x01
+00107$:
+	dec	r6
+	cjne	r6,#0xFF,00121$
+	dec	r7
+00121$:
+	mov	a,r6
+	orl	a,r7
+	jnz	00107$
+	C$SPI0.c$187$1$55 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:187: while(!(OSCXCN & 0x80));    // Check to see if the Crystal Oscillator Valid Flag is set.
+00102$:
+	mov	a,_OSCXCN
+	jnb	acc.7,00102$
+	C$SPI0.c$188$1$55 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:188: CLKSEL  = 0x01;             // SYSCLK derived from the External Oscillator circuit.
+	mov	_CLKSEL,#0x01
+	C$SPI0.c$189$1$55 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:189: OSCICN  = 0x00;             // Disable the internal oscillator.
+	mov	_OSCICN,#0x00
+	C$SPI0.c$190$1$55 ==.
+	XG$SYSCLK_INIT$0$0 ==.
+	ret
+;------------------------------------------------------------
+;Allocation info for local variables in function 'Timer_Init'
+;------------------------------------------------------------
+	G$Timer_Init$0$0 ==.
+	C$SPI0.c$192$1$55 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:192: void Timer_Init()
+;	-----------------------------------------
+;	 function Timer_Init
+;	-----------------------------------------
+_Timer_Init:
+	C$SPI0.c$194$1$56 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:194: SFRPAGE   = TIMER01_PAGE;
+	mov	_SFRPAGE,#0x00
+	C$SPI0.c$195$1$56 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:195: TCON      = 0x40;
+	mov	_TCON,#0x40
+	C$SPI0.c$196$1$56 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:196: TMOD      = 0x20;//timer 1 in 16 bit mode
+	mov	_TMOD,#0x20
+	C$SPI0.c$197$1$56 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:197: CKCON     = 0x10;
+	mov	_CKCON,#0x10
+	C$SPI0.c$198$1$56 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:198: TH1       = 0xA0;
+	mov	_TH1,#0xA0
+	C$SPI0.c$199$1$56 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:199: TL1 = TH1;
+	mov	_TL1,_TH1
+	C$SPI0.c$201$1$56 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:201: printf("timer 1 set");
 	mov	a,#___str_10
 	push	acc
 	mov	a,#(___str_10 >> 8)
@@ -1879,334 +2067,182 @@ _Flash:
 	mov	a,#0x80
 	push	acc
 	lcall	_printf
-	mov	a,sp
-	add	a,#0xfb
-	mov	sp,a
-	C$Lab_2.c$138$2$55 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:138: printf("\033[12;12H");
-	mov	a,#___str_6
-	push	acc
-	mov	a,#(___str_6 >> 8)
-	push	acc
-	mov	a,#0x80
-	push	acc
-	lcall	_printf
 	dec	sp
 	dec	sp
 	dec	sp
-	C$Lab_2.c$139$2$55 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:139: printf("THE BUTTON WAS PRESSED");
-	mov	a,#___str_11
-	push	acc
-	mov	a,#(___str_11 >> 8)
-	push	acc
-	mov	a,#0x80
-	push	acc
-	lcall	_printf
-	dec	sp
-	dec	sp
-	dec	sp
-	pop	ar6
-	pop	ar7
-	C$Lab_2.c$141$2$55 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:141: SW2press = 0;
-	clr	_SW2press
-	C$Lab_2.c$142$2$55 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:142: tenth = 0;
-	clr	a
-	mov	_tenth,a
-	mov	(_tenth + 1),a
-	mov	(_tenth + 2),a
-	mov	(_tenth + 3),a
-	C$Lab_2.c$143$2$55 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:143: time = 0;
-	mov	_time,a
-	mov	(_time + 1),a
-	C$Lab_2.c$144$2$55 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:144: TL0 = TH0 = 0; // reset timer
-;	1-genFromRTrack replaced	mov	_TH0,#0x00
-	mov	_TH0,a
-;	1-genFromRTrack replaced	mov	_TL0,#0x00
-	mov	_TL0,a
-00107$:
-	C$Lab_2.c$146$1$52 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:146: return reaction;
-	mov	dpl,r6
-	mov	dph,r7
-	C$Lab_2.c$147$1$52 ==.
-	XG$Flash$0$0 ==.
+	C$SPI0.c$202$1$56 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:202: SFRPAGE   = TMR2_PAGE;
+	mov	_SFRPAGE,#0x00
+	C$SPI0.c$203$1$56 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:203: TMR2CN    = 0x04;
+	mov	_TMR2CN,#0x04
+	C$SPI0.c$204$1$56 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:204: TMR2CF    = 0x08;
+	mov	_TMR2CF,#0x08
+	C$SPI0.c$205$1$56 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:205: TMR2H	  = 0xFF;
+	mov	_TMR2H,#0xFF
+	C$SPI0.c$206$1$56 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:206: TMR2L 	  = 0x70;
+	mov	_TMR2L,#0x70
+	C$SPI0.c$207$1$56 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:207: RCAP2L    = 0x70;
+	mov	_RCAP2L,#0x70
+	C$SPI0.c$208$1$56 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:208: RCAP2H    = 0xFF;
+	mov	_RCAP2H,#0xFF
+	C$SPI0.c$209$1$56 ==.
+	XG$Timer_Init$0$0 ==.
 	ret
 ;------------------------------------------------------------
-;Allocation info for local variables in function 'PORT_INIT'
+;Allocation info for local variables in function 'UART_Init'
 ;------------------------------------------------------------
-;SFRPAGE_SAVE              Allocated to registers r7 
-;------------------------------------------------------------
-	G$PORT_INIT$0$0 ==.
-	C$Lab_2.c$156$1$52 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:156: void PORT_INIT(void)
+	G$UART_Init$0$0 ==.
+	C$SPI0.c$210$1$56 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:210: void UART_Init()
 ;	-----------------------------------------
-;	 function PORT_INIT
+;	 function UART_Init
 ;	-----------------------------------------
-_PORT_INIT:
-	C$Lab_2.c$160$1$57 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:160: SFRPAGE_SAVE = SFRPAGE;     // Save Current SFR page.
-	mov	r7,_SFRPAGE
-	C$Lab_2.c$162$1$57 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:162: SFRPAGE = CONFIG_PAGE;
-	mov	_SFRPAGE,#0x0F
-	C$Lab_2.c$163$1$57 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:163: WDTCN   = 0xDE;             // Disable watchdog timer.
-	mov	_WDTCN,#0xDE
-	C$Lab_2.c$164$1$57 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:164: WDTCN   = 0xAD;
-	mov	_WDTCN,#0xAD
-	C$Lab_2.c$165$1$57 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:165: EA      = 1;                // Enable interrupts as selected.
-	setb	_EA
-	C$Lab_2.c$167$1$57 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:167: XBR0    = 0x04;             // Enable UART0.
-	mov	_XBR0,#0x04
-	C$Lab_2.c$168$1$57 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:168: XBR1    = 0x04;             // 
-	mov	_XBR1,#0x04
-	C$Lab_2.c$169$1$57 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:169: XBR2    = 0x40;             // Enable Crossbar and weak pull-ups.
-	mov	_XBR2,#0x40
-	C$Lab_2.c$171$1$57 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:171: P0MDOUT = 0x01;             // P0.0 (TX0) is configured as Push-Pull for output.
-	mov	_P0MDOUT,#0x01
-	C$Lab_2.c$174$1$57 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:174: P0      = 0x06;             // Additionally, set P0.0=0, P0.1=1, and P0.2=1.
-	mov	_P0,#0x06
-	C$Lab_2.c$176$1$57 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:176: SFRPAGE = SFRPAGE_SAVE;     // Restore SFR page.
-	mov	_SFRPAGE,r7
-	C$Lab_2.c$177$1$57 ==.
-	XG$PORT_INIT$0$0 ==.
-	ret
-;------------------------------------------------------------
-;Allocation info for local variables in function 'SYSCLK_INIT'
-;------------------------------------------------------------
-;i                         Allocated to registers r5 r6 
-;SFRPAGE_SAVE              Allocated to registers r7 
-;------------------------------------------------------------
-	G$SYSCLK_INIT$0$0 ==.
-	C$Lab_2.c$185$1$57 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:185: void SYSCLK_INIT(void)
-;	-----------------------------------------
-;	 function SYSCLK_INIT
-;	-----------------------------------------
-_SYSCLK_INIT:
-	C$Lab_2.c$191$1$59 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:191: SFRPAGE_SAVE = SFRPAGE;     // Save Current SFR page.
-	mov	r7,_SFRPAGE
-	C$Lab_2.c$193$1$59 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:193: SFRPAGE = CONFIG_PAGE;
-	mov	_SFRPAGE,#0x0F
-	C$Lab_2.c$194$1$59 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:194: OSCXCN  = 0x67;             // Start external oscillator
-	mov	_OSCXCN,#0x67
-	C$Lab_2.c$195$1$59 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:195: for(i=0; i < 256; i++);     // Wait for the oscillator to start up.
-	mov	r5,#0x00
-	mov	r6,#0x01
-00111$:
-	dec	r5
-	cjne	r5,#0xFF,00141$
-	dec	r6
-00141$:
-	mov	a,r5
-	orl	a,r6
-	jnz	00111$
-	C$Lab_2.c$196$1$59 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:196: while(!(OSCXCN & 0x80));    // Check to see if the Crystal Oscillator Valid Flag is set.
-00102$:
-	mov	a,_OSCXCN
-	jnb	acc.7,00102$
-	C$Lab_2.c$197$1$59 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:197: CLKSEL  = 0x01;             // SYSCLK derived from the External Oscillator circuit.
-	mov	_CLKSEL,#0x01
-	C$Lab_2.c$198$1$59 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:198: OSCICN  = 0x00;             // Disable the internal oscillator.
-	mov	_OSCICN,#0x00
-	C$Lab_2.c$200$1$59 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:200: SFRPAGE = CONFIG_PAGE;
-	mov	_SFRPAGE,#0x0F
-	C$Lab_2.c$201$1$59 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:201: PLL0CN  = 0x04;
-	mov	_PLL0CN,#0x04
-	C$Lab_2.c$202$1$59 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:202: SFRPAGE = LEGACY_PAGE;
+_UART_Init:
+	C$SPI0.c$212$1$57 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:212: SFRPAGE   = UART0_PAGE;//Same as Timer 2 and Timer 1 SFR PAGES
 	mov	_SFRPAGE,#0x00
-	C$Lab_2.c$203$1$59 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:203: FLSCL   = 0x10;
-	mov	_FLSCL,#0x10
-	C$Lab_2.c$204$1$59 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:204: SFRPAGE = CONFIG_PAGE;
-	mov	_SFRPAGE,#0x0F
-	C$Lab_2.c$205$1$59 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:205: PLL0CN |= 0x01;
-	orl	_PLL0CN,#0x01
-	C$Lab_2.c$206$1$59 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:206: PLL0DIV = 0x1B;//27
-	mov	_PLL0DIV,#0x1B
-	C$Lab_2.c$207$1$59 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:207: PLL0FLT = 0x01;//refrence clock is 22MHz
-	mov	_PLL0FLT,#0x01
-	C$Lab_2.c$208$1$59 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:208: PLL0MUL = 0x50;//80
-	mov	_PLL0MUL,#0x50
-	C$Lab_2.c$209$1$59 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:209: for(i=0; i < 256; i++);
-	mov	r5,#0x00
-	mov	r6,#0x01
-00114$:
-	dec	r5
-	cjne	r5,#0xFF,00144$
-	dec	r6
-00144$:
-	mov	a,r5
-	orl	a,r6
-	jnz	00114$
-	C$Lab_2.c$210$1$59 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:210: PLL0CN |= 0x02;
-	orl	_PLL0CN,#0x02
-	C$Lab_2.c$211$1$59 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:211: while(!(PLL0CN & 0x10));
-00106$:
-	mov	a,_PLL0CN
-	jnb	acc.4,00106$
-	C$Lab_2.c$212$1$59 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:212: CLKSEL  = 0x02;             // SYSCLK derived from the PLL.
-	mov	_CLKSEL,#0x02
-	C$Lab_2.c$214$1$59 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:214: SFRPAGE = SFRPAGE_SAVE;     // Restore SFR page.
-	mov	_SFRPAGE,r7
-	C$Lab_2.c$215$1$59 ==.
-	XG$SYSCLK_INIT$0$0 ==.
-	ret
-;------------------------------------------------------------
-;Allocation info for local variables in function 'UART0_INIT'
-;------------------------------------------------------------
-;SFRPAGE_SAVE              Allocated to registers r7 
-;------------------------------------------------------------
-	G$UART0_INIT$0$0 ==.
-	C$Lab_2.c$224$1$59 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:224: void UART0_INIT(void)
-;	-----------------------------------------
-;	 function UART0_INIT
-;	-----------------------------------------
-_UART0_INIT:
-	C$Lab_2.c$228$1$61 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:228: SFRPAGE_SAVE = SFRPAGE;     // Save Current SFR page.
-	mov	r7,_SFRPAGE
-	C$Lab_2.c$230$1$61 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:230: SFRPAGE = TIMER01_PAGE;
-	mov	_SFRPAGE,#0x00
-	C$Lab_2.c$231$1$61 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:231: TMOD   &= ~0xF0;
-	mov	r6,_TMOD
-	mov	a,#0x0F
-	anl	a,r6
-	mov	_TMOD,a
-	C$Lab_2.c$232$1$61 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:232: TMOD   |=  0x21;            // Timer1, Mode 2: 8-bit counter/timer with auto-reload.//Timer0, Mode 1: 16 bit counter/timer
-	orl	_TMOD,#0x21
-	C$Lab_2.c$233$1$61 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:233: TH1     = (unsigned char)-(SYSCLK/BAUDRATE/16); // Set Timer1 reload value for baudrate
-	mov	_TH1,#0xDD
-	C$Lab_2.c$234$1$61 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:234: CKCON  |= 0x18;             // Timer1&0 uses SYSCLK as time base
-	orl	_CKCON,#0x18
-	C$Lab_2.c$235$1$61 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:235: TL1     = TH1;
-	mov	_TL1,_TH1
-	C$Lab_2.c$236$1$61 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:236: TR1     = 1;                // Start Timer1.
-	setb	_TR1
-	C$Lab_2.c$237$1$61 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:237: TL0= TH0;
-	mov	_TL0,_TH0
-	C$Lab_2.c$238$1$61 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:238: TR0 = 1; //Start Timer0
-	setb	_TR0
-	C$Lab_2.c$239$1$61 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:239: SFRPAGE = UART0_PAGE;
-	mov	_SFRPAGE,#0x00
-	C$Lab_2.c$240$1$61 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:240: SCON0   = 0x50;             // Set Mode 1: 8-Bit UART
+	C$SPI0.c$213$1$57 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:213: TR2		  = 1;//Start Timer 2
+	setb	_TR2
+	C$SPI0.c$214$1$57 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:214: SCON0     = 0x50;
 	mov	_SCON0,#0x50
-	C$Lab_2.c$241$1$61 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:241: SSTA0   = 0x10;             // UART0 baud rate divide-by-two disabled (SMOD0 = 1).
-	mov	_SSTA0,#0x10
-	C$Lab_2.c$242$1$61 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:242: TI0     = 1;                // Indicate TX0 ready.
+	C$SPI0.c$215$1$57 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:215: SSTA0   = 0x15;
+	mov	_SSTA0,#0x15
+	C$SPI0.c$216$1$57 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:216: TI0		  = 1; // Indicate TX0 is ready
 	setb	_TI0
-	C$Lab_2.c$244$1$61 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_02\2.3-Reaction Time Game\Lab_2.c:244: SFRPAGE = SFRPAGE_SAVE;     // Restore SFR page.
-	mov	_SFRPAGE,r7
-	C$Lab_2.c$245$1$61 ==.
-	XG$UART0_INIT$0$0 ==.
+	C$SPI0.c$217$1$57 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:217: TR1		  = 1; //Start Timer 1
+	setb	_TR1
+	C$SPI0.c$221$1$57 ==.
+	XG$UART_Init$0$0 ==.
+	ret
+;------------------------------------------------------------
+;Allocation info for local variables in function 'Port_IO_Init'
+;------------------------------------------------------------
+	G$Port_IO_Init$0$0 ==.
+	C$SPI0.c$222$1$57 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:222: void Port_IO_Init()
+;	-----------------------------------------
+;	 function Port_IO_Init
+;	-----------------------------------------
+_Port_IO_Init:
+	C$SPI0.c$224$1$58 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:224: SFRPAGE   = CONFIG_PAGE;
+	mov	_SFRPAGE,#0x0F
+	C$SPI0.c$231$1$58 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:231: P0MDOUT = 0x35;
+	mov	_P0MDOUT,#0x35
+	C$SPI0.c$232$1$58 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:232: P0 = 0x8A;
+	mov	_P0,#0x8A
+	C$SPI0.c$236$1$58 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:236: WDTCN   = 0xDE;             // Disable watchdog timer.
+	mov	_WDTCN,#0xDE
+	C$SPI0.c$237$1$58 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:237: WDTCN   = 0xAD;
+	mov	_WDTCN,#0xAD
+	C$SPI0.c$238$1$58 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:238: EA 		  = 1; // enable global interrupts
+	setb	_EA
+	C$SPI0.c$239$1$58 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:239: XBR0      = 0x06;
+	mov	_XBR0,#0x06
+	C$SPI0.c$240$1$58 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:240: XBR2      = 0x40;
+	mov	_XBR2,#0x40
+	C$SPI0.c$241$1$58 ==.
+	XG$Port_IO_Init$0$0 ==.
+	ret
+;------------------------------------------------------------
+;Allocation info for local variables in function 'SPI0_INIT'
+;------------------------------------------------------------
+	G$SPI0_INIT$0$0 ==.
+	C$SPI0.c$242$1$58 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:242: void SPI0_INIT()
+;	-----------------------------------------
+;	 function SPI0_INIT
+;	-----------------------------------------
+_SPI0_INIT:
+	C$SPI0.c$244$1$59 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:244: SFRPAGE = SPI0_PAGE;
+	mov	_SFRPAGE,#0x00
+	C$SPI0.c$245$1$59 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:245: SPI0CFG = 0x40;
+	mov	_SPI0CFG,#0x40
+	C$SPI0.c$247$1$59 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:247: SPI0CN = 0x0D;
+	mov	_SPI0CN,#0x0D
+	C$SPI0.c$248$1$59 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:248: SPI0CKR =  0x26;
+	mov	_SPI0CKR,#0x26
+	C$SPI0.c$249$1$59 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_remote\SPI0.c:249: SPIF = 1;
+	setb	_SPIF
+	C$SPI0.c$250$1$59 ==.
+	XG$SPI0_INIT$0$0 ==.
 	ret
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-FLab_2$__str_0$0$0 == .
+FSPI0$__str_0$0$0 == .
 ___str_0:
+	.ascii "at least i'm here"
+	.db 0x00
+FSPI0$__str_1$0$0 == .
+___str_1:
 	.db 0x1B
 	.ascii "[2J"
 	.db 0x00
-FLab_2$__str_1$0$0 == .
-___str_1:
-	.ascii "MPS Interrupt Timer Test"
-	.db 0x0A
-	.db 0x0A
-	.db 0x0D
-	.db 0x00
-FLab_2$__str_2$0$0 == .
+FSPI0$__str_2$0$0 == .
 ___str_2:
-	.ascii "When indicated press the button"
-	.db 0x0A
-	.db 0x0D
+	.ascii "I'm alive"
 	.db 0x00
-FLab_2$__str_3$0$0 == .
+FSPI0$__str_3$0$0 == .
 ___str_3:
 	.db 0x1B
-	.ascii "[0m"
+	.ascii "[%d;1H"
 	.db 0x00
-FLab_2$__str_4$0$0 == .
+FSPI0$__str_4$0$0 == .
 ___str_4:
 	.db 0x1B
-	.ascii "[6;1H"
+	.ascii "[1J"
 	.db 0x00
-FLab_2$__str_5$0$0 == .
+FSPI0$__str_5$0$0 == .
 ___str_5:
-	.ascii "Your average response time is %d thousands of a second"
+	.db 0x1B
+	.ascii "[1;1H"
 	.db 0x00
-FLab_2$__str_6$0$0 == .
+FSPI0$__str_6$0$0 == .
 ___str_6:
 	.db 0x1B
-	.ascii "[12;12H"
+	.ascii "[12;1H"
 	.db 0x00
-FLab_2$__str_7$0$0 == .
+FSPI0$__str_7$0$0 == .
 ___str_7:
-	.ascii "PRESS THE BUTTON           "
-	.db 0x00
-FLab_2$__str_8$0$0 == .
-___str_8:
-	.ascii "THE SYSTEM HAS BEEN RESET"
-	.db 0x00
-FLab_2$__str_9$0$0 == .
-___str_9:
 	.db 0x1B
-	.ascii "[5;1H"
+	.ascii "[J"
 	.db 0x00
-FLab_2$__str_10$0$0 == .
+FSPI0$__str_8$0$0 == .
+___str_8:
+	.ascii "I made it "
+	.db 0x0A
+	.db 0x0D
+	.db 0x00
+FSPI0$__str_9$0$0 == .
+___str_9:
+	.ascii "   you pressed <DEL>"
+	.db 0x00
+FSPI0$__str_10$0$0 == .
 ___str_10:
-	.ascii "You reacted in %d thousands of a second"
-	.db 0x00
-FLab_2$__str_11$0$0 == .
-___str_11:
-	.ascii "THE BUTTON WAS PRESSED"
+	.ascii "timer 1 set"
 	.db 0x00
 	.area XINIT   (CODE)
 	.area CABS    (ABS,CODE)

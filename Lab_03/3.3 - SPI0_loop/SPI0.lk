@@ -1,5 +1,5 @@
 -muwx
--i C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0\SPI0.hex
+-i C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.hex
 -M
 -Y
 -y
@@ -14,6 +14,6 @@
 -l libint
 -l liblong
 -l libfloat
-C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0\SPI0.rel
+C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.rel
 
 -e

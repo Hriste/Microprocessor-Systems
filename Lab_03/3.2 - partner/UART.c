@@ -43,7 +43,12 @@ void main (void)
 	EIE2 |=0x40;
 	while(1)
 	{
-
+		SFRPAGE = UART1_PAGE;
+		if (!RI1 && !TI1 )
+		{
+			SFRPAGE = UART0_PAGE;
+			if(!ES0){ES0 =1;}// if UART 0 interrupts have been disabled and not nothing is in there and they have not been renabled renable interrupt for UART0
+		}
 	}
 	
 }
@@ -59,8 +64,9 @@ void UART0_INTERRUPT(void)  __interrupt 4
 		RI0 = 0;
 		SFRPAGE = UART1_PAGE;
 		SBUF1 =c;
+		ES0 = 0;
 	}
-	if(TI0){TI0=0;}
+	if(TI0){TI0=0;ES0 = 0;}
 	
 	
 }
@@ -73,8 +79,9 @@ void UART1_INTERRUPT(void)	__interrupt 20
 		RI1 = 0;
 		SFRPAGE = UART0_PAGE;
 		SBUF0 = c;
+		ES0 = 1;
 	}
-	if(TI1){TI1=0;}
+	if(TI1){TI1=0;ES0= 1;}
 }
 
 

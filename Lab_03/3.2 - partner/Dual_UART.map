@@ -73,16 +73,16 @@ C:   000000A9  s_GSINIT0
 C:   000000AC  s_GSINIT1                       
 C:   000000AC  s_GSINIT2                       
 C:   000000B6  s_GSINIT3                       
-C:   000000D1  l_CSEG                          
 C:   000000D8  s_GSINIT4                       
+C:   000000EA  l_CSEG                          
 C:   000000F8  l_SSEG                          
 C:   00000100  l_IRAM                          
 C:   00000102  s_GSFINAL                       
 C:   00000102  s_GSINIT                        
 C:   00000102  s_GSINIT5                       
 C:   00000105  s_CSEG                          
-C:   000001D6  s_CONST                         
-C:   000001D6  s_XINIT                         
+C:   000001EF  s_CONST                         
+C:   000001EF  s_XINIT                         
 
 ASxxxx Linker V03.00 + NoICE + sdld,  page 3.
 Hexadecimal  [32-Bits]
@@ -1117,7 +1117,7 @@ Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-CSEG                                00000105    000000D1 =         209. bytes (REL,CON,CODE)
+CSEG                                00000105    000000EA =         234. bytes (REL,CON,CODE)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
@@ -1140,194 +1140,209 @@ C:   00000117  A$UART$1349                        UART
 C:   00000117  C$UART.c$42$1$24                   UART
 C:   00000119  A$UART$1352                        UART
 C:   00000119  C$UART.c$43$1$24                   UART
-C:   0000011C  A$UART$1356                        UART
+C:   0000011C  A$UART$1358                        UART
 C:   0000011C  C$UART.c$44$1$24                   UART
-C:   0000011E  A$UART$1359                        UART
-C:   0000011E  C$UART.c$49$1$24                   UART
-C:   0000011E  XG$main$0$0                        UART
-C:   0000011F  A$UART$1372                        UART
-C:   0000011F  C$UART.c$52$1$24                   UART
-C:   0000011F  G$UART0_INTERRUPT$0$0              UART
-C:   0000011F  _UART0_INTERRUPT                   UART
-C:   00000121  A$UART$1373                        UART
-C:   00000123  A$UART$1374                        UART
-C:   00000126  A$UART$1377                        UART
-C:   00000126  C$UART.c$55$1$27                   UART
-C:   00000129  A$UART$1380                        UART
-C:   00000129  C$UART.c$57$2$28                   UART
-C:   0000012B  A$UART$1383                        UART
-C:   0000012B  C$UART.c$58$2$28                   UART
-C:   0000012D  A$UART$1386                        UART
-C:   0000012D  C$UART.c$59$2$28                   UART
-C:   0000012F  A$UART$1389                        UART
-C:   0000012F  C$UART.c$60$2$28                   UART
-C:   00000132  A$UART$1392                        UART
-C:   00000132  C$UART.c$61$2$28                   UART
-C:   00000134  A$UART$1396                        UART
-C:   00000134  C$UART.c$63$1$27                   UART
-C:   00000137  A$UART$1397                        UART
-C:   00000139  A$UART$1400                        UART
-C:   0000013B  A$UART$1401                        UART
-C:   0000013D  A$UART$1404                        UART
-C:   0000013D  C$UART.c$66$1$27                   UART
-C:   0000013D  XG$UART0_INTERRUPT$0$0             UART
+C:   0000011C  C$UART.c$46$2$25                   UART
+C:   0000011F  A$UART$1361                        UART
+C:   0000011F  C$UART.c$47$2$25                   UART
+C:   00000122  A$UART$1362                        UART
+C:   00000125  A$UART$1365                        UART
+C:   00000125  C$UART.c$49$3$26                   UART
+C:   00000128  A$UART$1368                        UART
+C:   00000128  C$UART.c$50$3$26                   UART
+C:   0000012B  A$UART$1369                        UART
+C:   0000012D  A$UART$1370                        UART
+C:   0000012F  A$UART$1373                        UART
+C:   0000012F  C$UART.c$54$1$24                   UART
+C:   0000012F  XG$main$0$0                        UART
+C:   00000130  A$UART$1386                        UART
+C:   00000130  C$UART.c$57$1$24                   UART
+C:   00000130  G$UART0_INTERRUPT$0$0              UART
+C:   00000130  _UART0_INTERRUPT                   UART
+C:   00000132  A$UART$1387                        UART
+C:   00000134  A$UART$1388                        UART
+C:   00000137  A$UART$1391                        UART
+C:   00000137  C$UART.c$60$1$29                   UART
+C:   0000013A  A$UART$1394                        UART
+C:   0000013A  C$UART.c$62$2$30                   UART
+C:   0000013C  A$UART$1397                        UART
+C:   0000013C  C$UART.c$63$2$30                   UART
+C:   0000013E  A$UART$1400                        UART
+C:   0000013E  C$UART.c$64$2$30                   UART
+C:   00000140  A$UART$1403                        UART
+C:   00000140  C$UART.c$65$2$30                   UART
 ASxxxx Linker V03.00 + NoICE + sdld,  page 29.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-CSEG                                00000105    000000D1 =         209. bytes (REL,CON,CODE)
+CSEG                                00000105    000000EA =         234. bytes (REL,CON,CODE)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-C:   0000013E  A$UART$1421                        UART
-C:   0000013E  C$UART.c$67$1$27                   UART
-C:   0000013E  G$UART1_INTERRUPT$0$0              UART
-C:   0000013E  _UART1_INTERRUPT                   UART
-C:   00000140  A$UART$1422                        UART
-C:   00000142  A$UART$1423                        UART
-C:   00000145  A$UART$1426                        UART
-C:   00000145  C$UART.c$70$1$31                   UART
-C:   00000148  A$UART$1429                        UART
-C:   00000148  C$UART.c$72$2$32                   UART
-C:   0000014A  A$UART$1432                        UART
-C:   0000014A  C$UART.c$73$2$32                   UART
-C:   0000014C  A$UART$1435                        UART
-C:   0000014C  C$UART.c$74$2$32                   UART
-C:   0000014F  A$UART$1438                        UART
-C:   0000014F  C$UART.c$75$2$32                   UART
-C:   00000151  A$UART$1442                        UART
-C:   00000151  C$UART.c$77$1$31                   UART
-C:   00000154  A$UART$1443                        UART
-C:   00000156  A$UART$1446                        UART
-C:   00000158  A$UART$1447                        UART
-C:   0000015A  A$UART$1450                        UART
-C:   0000015A  C$UART.c$78$1$31                   UART
-C:   0000015A  XG$UART1_INTERRUPT$0$0             UART
-C:   0000015B  A$UART$1469                        UART
-C:   0000015B  C$UART.c$82$1$31                   UART
-C:   0000015B  C$UART.c$86$1$34                   UART
-C:   0000015B  G$SYSCLK_INIT$0$0                  UART
-C:   0000015B  _SYSCLK_INIT                       UART
-C:   0000015E  A$UART$1472                        UART
-C:   0000015E  C$UART.c$87$1$34                   UART
-C:   00000161  A$UART$1475                        UART
-C:   00000161  C$UART.c$88$1$34                   UART
-C:   00000163  A$UART$1476                        UART
-C:   00000165  A$UART$1478                        UART
-C:   00000166  A$UART$1479                        UART
-C:   00000169  A$UART$1480                        UART
-C:   0000016A  A$UART$1482                        UART
-C:   0000016B  A$UART$1483                        UART
-C:   0000016C  A$UART$1484                        UART
-C:   0000016E  A$UART$1488                        UART
-C:   0000016E  C$UART.c$89$1$34                   UART
-C:   00000170  A$UART$1489                        UART
-C:   00000173  A$UART$1492                        UART
-C:   00000173  C$UART.c$90$1$34                   UART
-C:   00000176  A$UART$1495                        UART
-C:   00000176  C$UART.c$91$1$34                   UART
-C:   00000179  A$UART$1498                        UART
-C:   00000179  C$UART.c$92$1$34                   UART
-C:   00000179  XG$SYSCLK_INIT$0$0                 UART
-C:   0000017A  A$UART$1511                        UART
+C:   00000143  A$UART$1406                        UART
+C:   00000143  C$UART.c$66$2$30                   UART
+C:   00000145  A$UART$1409                        UART
+C:   00000145  C$UART.c$67$2$30                   UART
+C:   00000147  A$UART$1413                        UART
+C:   00000147  C$UART.c$69$1$29                   UART
+C:   0000014A  A$UART$1414                        UART
+C:   0000014C  A$UART$1416                        UART
+C:   0000014E  A$UART$1418                        UART
+C:   00000150  A$UART$1419                        UART
+C:   00000152  A$UART$1422                        UART
+C:   00000152  C$UART.c$72$1$29                   UART
+C:   00000152  XG$UART0_INTERRUPT$0$0             UART
+C:   00000153  A$UART$1439                        UART
+C:   00000153  C$UART.c$73$1$29                   UART
+C:   00000153  G$UART1_INTERRUPT$0$0              UART
+C:   00000153  _UART1_INTERRUPT                   UART
+C:   00000155  A$UART$1440                        UART
+C:   00000157  A$UART$1441                        UART
+C:   0000015A  A$UART$1444                        UART
+C:   0000015A  C$UART.c$76$1$33                   UART
+C:   0000015D  A$UART$1447                        UART
+C:   0000015D  C$UART.c$78$2$34                   UART
+C:   0000015F  A$UART$1450                        UART
+C:   0000015F  C$UART.c$79$2$34                   UART
+C:   00000161  A$UART$1453                        UART
+C:   00000161  C$UART.c$80$2$34                   UART
+C:   00000164  A$UART$1456                        UART
+C:   00000164  C$UART.c$81$2$34                   UART
+C:   00000166  A$UART$1459                        UART
+C:   00000166  C$UART.c$82$2$34                   UART
+C:   00000168  A$UART$1463                        UART
+C:   00000168  C$UART.c$84$1$33                   UART
+C:   0000016B  A$UART$1464                        UART
+C:   0000016D  A$UART$1466                        UART
+C:   0000016F  A$UART$1468                        UART
+C:   00000171  A$UART$1469                        UART
+C:   00000173  A$UART$1472                        UART
+C:   00000173  C$UART.c$85$1$33                   UART
+C:   00000173  XG$UART1_INTERRUPT$0$0             UART
+C:   00000174  A$UART$1491                        UART
+C:   00000174  C$UART.c$89$1$33                   UART
+C:   00000174  C$UART.c$93$1$36                   UART
+C:   00000174  G$SYSCLK_INIT$0$0                  UART
+C:   00000174  _SYSCLK_INIT                       UART
+C:   00000177  A$UART$1494                        UART
+C:   00000177  C$UART.c$94$1$36                   UART
+C:   0000017A  A$UART$1497                        UART
+C:   0000017A  C$UART.c$95$1$36                   UART
+C:   0000017C  A$UART$1498                        UART
+C:   0000017E  A$UART$1500                        UART
 ASxxxx Linker V03.00 + NoICE + sdld,  page 30.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-CSEG                                00000105    000000D1 =         209. bytes (REL,CON,CODE)
+CSEG                                00000105    000000EA =         234. bytes (REL,CON,CODE)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-C:   0000017A  C$UART.c$94$1$34                   UART
-C:   0000017A  C$UART.c$96$1$35                   UART
-C:   0000017A  G$Timer_Init$0$0                   UART
-C:   0000017A  _Timer_Init                        UART
-C:   0000017D  A$UART$1514                        UART
-C:   0000017D  C$UART.c$97$1$35                   UART
-C:   00000180  A$UART$1517                        UART
-C:   00000180  C$UART.c$98$1$35                   UART
-C:   00000183  A$UART$1520                        UART
-C:   00000183  C$UART.c$99$1$35                   UART
-C:   00000186  A$UART$1523                        UART
-C:   00000186  C$UART.c$100$1$35                  UART
-C:   00000189  A$UART$1526                        UART
-C:   00000189  C$UART.c$101$1$35                  UART
-C:   0000018C  A$UART$1529                        UART
-C:   0000018C  C$UART.c$102$1$35                  UART
-C:   0000018F  A$UART$1532                        UART
-C:   0000018F  C$UART.c$103$1$35                  UART
-C:   00000192  A$UART$1535                        UART
-C:   00000192  C$UART.c$104$1$35                  UART
-C:   00000195  A$UART$1538                        UART
-C:   00000195  C$UART.c$105$1$35                  UART
-C:   00000198  A$UART$1541                        UART
-C:   00000198  C$UART.c$106$1$35                  UART
-C:   0000019B  A$UART$1544                        UART
-C:   0000019B  C$UART.c$107$1$35                  UART
-C:   0000019E  A$UART$1547                        UART
-C:   0000019E  C$UART.c$108$1$35                  UART
-C:   000001A1  A$UART$1550                        UART
-C:   000001A1  C$UART.c$109$1$35                  UART
-C:   000001A1  XG$Timer_Init$0$0                  UART
-C:   000001A2  A$UART$1563                        UART
-C:   000001A2  C$UART.c$110$1$35                  UART
-C:   000001A2  C$UART.c$112$1$36                  UART
-C:   000001A2  G$UART_Init$0$0                    UART
-C:   000001A2  _UART_Init                         UART
-C:   000001A5  A$UART$1566                        UART
-C:   000001A5  C$UART.c$113$1$36                  UART
-C:   000001A7  A$UART$1569                        UART
-C:   000001A7  C$UART.c$114$1$36                  UART
-C:   000001AA  A$UART$1572                        UART
-C:   000001AA  C$UART.c$115$1$36                  UART
-C:   000001AD  A$UART$1575                        UART
-C:   000001AD  C$UART.c$116$1$36                  UART
-C:   000001AF  A$UART$1578                        UART
-C:   000001AF  C$UART.c$117$1$36                  UART
-C:   000001B1  A$UART$1581                        UART
-C:   000001B1  C$UART.c$118$1$36                  UART
-C:   000001B4  A$UART$1584                        UART
-C:   000001B4  C$UART.c$119$1$36                  UART
-C:   000001B7  A$UART$1587                        UART
+C:   0000017F  A$UART$1501                        UART
+C:   00000182  A$UART$1502                        UART
+C:   00000183  A$UART$1504                        UART
+C:   00000184  A$UART$1505                        UART
+C:   00000185  A$UART$1506                        UART
+C:   00000187  A$UART$1510                        UART
+C:   00000187  C$UART.c$96$1$36                   UART
+C:   00000189  A$UART$1511                        UART
+C:   0000018C  A$UART$1514                        UART
+C:   0000018C  C$UART.c$97$1$36                   UART
+C:   0000018F  A$UART$1517                        UART
+C:   0000018F  C$UART.c$98$1$36                   UART
+C:   00000192  A$UART$1520                        UART
+C:   00000192  C$UART.c$99$1$36                   UART
+C:   00000192  XG$SYSCLK_INIT$0$0                 UART
+C:   00000193  A$UART$1533                        UART
+C:   00000193  C$UART.c$101$1$36                  UART
+C:   00000193  C$UART.c$103$1$37                  UART
+C:   00000193  G$Timer_Init$0$0                   UART
+C:   00000193  _Timer_Init                        UART
+C:   00000196  A$UART$1536                        UART
+C:   00000196  C$UART.c$104$1$37                  UART
+C:   00000199  A$UART$1539                        UART
+C:   00000199  C$UART.c$105$1$37                  UART
+C:   0000019C  A$UART$1542                        UART
+C:   0000019C  C$UART.c$106$1$37                  UART
+C:   0000019F  A$UART$1545                        UART
+C:   0000019F  C$UART.c$107$1$37                  UART
+C:   000001A2  A$UART$1548                        UART
+C:   000001A2  C$UART.c$108$1$37                  UART
+C:   000001A5  A$UART$1551                        UART
+C:   000001A5  C$UART.c$109$1$37                  UART
+C:   000001A8  A$UART$1554                        UART
+C:   000001A8  C$UART.c$110$1$37                  UART
+C:   000001AB  A$UART$1557                        UART
+C:   000001AB  C$UART.c$111$1$37                  UART
+C:   000001AE  A$UART$1560                        UART
+C:   000001AE  C$UART.c$112$1$37                  UART
+C:   000001B1  A$UART$1563                        UART
+C:   000001B1  C$UART.c$113$1$37                  UART
+C:   000001B4  A$UART$1566                        UART
+C:   000001B4  C$UART.c$114$1$37                  UART
+C:   000001B7  A$UART$1569                        UART
+C:   000001B7  C$UART.c$115$1$37                  UART
+C:   000001BA  A$UART$1572                        UART
+C:   000001BA  C$UART.c$116$1$37                  UART
+C:   000001BA  XG$Timer_Init$0$0                  UART
+C:   000001BB  A$UART$1585                        UART
+C:   000001BB  C$UART.c$117$1$37                  UART
+C:   000001BB  C$UART.c$119$1$38                  UART
+C:   000001BB  G$UART_Init$0$0                    UART
 ASxxxx Linker V03.00 + NoICE + sdld,  page 31.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-CSEG                                00000105    000000D1 =         209. bytes (REL,CON,CODE)
+CSEG                                00000105    000000EA =         234. bytes (REL,CON,CODE)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-C:   000001B7  C$UART.c$120$1$36                  UART
-C:   000001B9  A$UART$1590                        UART
-C:   000001B9  C$UART.c$121$1$36                  UART
-C:   000001B9  XG$UART_Init$0$0                   UART
-C:   000001BA  A$UART$1603                        UART
-C:   000001BA  C$UART.c$122$1$36                  UART
-C:   000001BA  C$UART.c$124$1$37                  UART
-C:   000001BA  G$Port_IO_Init$0$0                 UART
-C:   000001BA  _Port_IO_Init                      UART
-C:   000001BD  A$UART$1606                        UART
-C:   000001BD  C$UART.c$127$1$37                  UART
-C:   000001C0  A$UART$1609                        UART
-C:   000001C0  C$UART.c$128$1$37                  UART
-C:   000001C3  A$UART$1612                        UART
-C:   000001C3  C$UART.c$132$1$37                  UART
-C:   000001C6  A$UART$1615                        UART
-C:   000001C6  C$UART.c$133$1$37                  UART
-C:   000001C9  A$UART$1618                        UART
-C:   000001C9  C$UART.c$134$1$37                  UART
-C:   000001CB  A$UART$1621                        UART
-C:   000001CB  C$UART.c$135$1$37                  UART
-C:   000001CE  A$UART$1624                        UART
-C:   000001CE  C$UART.c$136$1$37                  UART
-C:   000001D1  A$UART$1627                        UART
-C:   000001D1  C$UART.c$137$1$37                  UART
-C:   000001D1  XG$Port_IO_Init$0$0                UART
-C:   000001D2  __sdcc_external_startup            _startup
-
+C:   000001BB  _UART_Init                         UART
+C:   000001BE  A$UART$1588                        UART
+C:   000001BE  C$UART.c$120$1$38                  UART
+C:   000001C0  A$UART$1591                        UART
+C:   000001C0  C$UART.c$121$1$38                  UART
+C:   000001C3  A$UART$1594                        UART
+C:   000001C3  C$UART.c$122$1$38                  UART
+C:   000001C6  A$UART$1597                        UART
+C:   000001C6  C$UART.c$123$1$38                  UART
+C:   000001C8  A$UART$1600                        UART
+C:   000001C8  C$UART.c$124$1$38                  UART
+C:   000001CA  A$UART$1603                        UART
+C:   000001CA  C$UART.c$125$1$38                  UART
+C:   000001CD  A$UART$1606                        UART
+C:   000001CD  C$UART.c$126$1$38                  UART
+C:   000001D0  A$UART$1609                        UART
+C:   000001D0  C$UART.c$127$1$38                  UART
+C:   000001D2  A$UART$1612                        UART
+C:   000001D2  C$UART.c$128$1$38                  UART
+C:   000001D2  XG$UART_Init$0$0                   UART
+C:   000001D3  A$UART$1625                        UART
+C:   000001D3  C$UART.c$129$1$38                  UART
+C:   000001D3  C$UART.c$131$1$39                  UART
+C:   000001D3  G$Port_IO_Init$0$0                 UART
+C:   000001D3  _Port_IO_Init                      UART
+C:   000001D6  A$UART$1628                        UART
+C:   000001D6  C$UART.c$134$1$39                  UART
+C:   000001D9  A$UART$1631                        UART
+C:   000001D9  C$UART.c$135$1$39                  UART
+C:   000001DC  A$UART$1634                        UART
+C:   000001DC  C$UART.c$139$1$39                  UART
+C:   000001DF  A$UART$1637                        UART
+C:   000001DF  C$UART.c$140$1$39                  UART
+C:   000001E2  A$UART$1640                        UART
+C:   000001E2  C$UART.c$141$1$39                  UART
+C:   000001E4  A$UART$1643                        UART
+C:   000001E4  C$UART.c$142$1$39                  UART
+C:   000001E7  A$UART$1646                        UART
+C:   000001E7  C$UART.c$143$1$39                  UART
+C:   000001EA  A$UART$1649                        UART
+C:   000001EA  C$UART.c$144$1$39                  UART
+C:   000001EA  XG$Port_IO_Init$0$0                UART
+C:   000001EB  __sdcc_external_startup            _startup
 ASxxxx Linker V03.00 + NoICE + sdld,  page 32.
 
 Files Linked                              [ module(s) ]

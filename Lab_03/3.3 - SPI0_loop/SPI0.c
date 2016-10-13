@@ -29,26 +29,34 @@ char read(void);
 void write(char);
 void local(char);
 void foreign(char);
-//void UART0_INTERRUPT(void)  __interrupt 4;
+
+
+void Timer1_ISR(void) __interrupt 3;
+unsigned char dread(void);
+void dummy(void);
+
 ////Global Variables
 int local_ct = 1;
 int alien_ct = 14;
+unsigned int counts =0;
 ////FUNCTIONS
 void main (void)
 {
 	char c;
 	int i;
+	char d;
 	
 	SFRPAGE = CONFIG_PAGE;
+	IE |=0x88;
+	PT1 = 1;
 	SYSCLK_INIT();
 	Port_IO_Init();
 	Timer_Init();
 	UART_Init();
 	SPI0_INIT();
-	//ES0 = 1;
 	SFRPAGE = LEGACY_PAGE;//same as UART0_PAGE
 	printf("\033[2J");
-
+	printf("UART is working");
 	while(1)
 	{
 			
@@ -60,10 +68,11 @@ void main (void)
 			write(c);
 			SFRPAGE = UART0_PAGE;
 			for (i=0;i<101;i++);
-			c = read();
+			d = read();
 			SPIF =0;
 			SFRPAGE = UART0_PAGE;
-			foreign(c);
+			foreign(d);
+			if(d == 0x7F){dummy();}
 		}
 	}
 	
@@ -98,17 +107,61 @@ char read ()
 	return SPI0DAT;
 }
 
+unsigned char dread()
+{
+	int i;
+	char dumb = 0x65;
+	SFRPAGE = SPI0_PAGE;
+	NSSMD0 = 0;
+	for (i=0;i<101;i++);
+	while(SPIF){SPIF=0;}//make sure SPIF is not busy
+	SPI0DAT = dumb;
+	while(!SPIF);
+	NSSMD0 = 1;
+	for (i=0;i<101;i++);
+	counts =1 ;
+	while(counts < 2000);
+	return SPI0DAT;
+}
+
 void write(char c)
 {
 	int i;
 	SFRPAGE = SPI0_PAGE;
 	SPIF = 0;
-	NSSMD0 = 1;
+	NSSMD0 = 0;
 	while(SPIF){SPIF=0;}//make sure SPIF is not busy
 	SPI0DAT = c;
 	while(!SPIF);
 	for (i=0;i<101;i++);
-	NSSMD0 = 0;
+}
+void dummy ()
+{
+	unsigned char r;
+	int i;
+	r = 0x00;
+	//DEL is 0xF7
+	// we want to call this when DEL is pressed
+	printf("   you pressed <DEL>");
+	while(r!=0xFF)
+	{
+		counts =0 ;
+		while(counts < 49999);
+		r = dread();
+		NSSMD0 = 0;
+		foreign(r);
+		for (i=0;i<101;i++);
+	}
+}
+///ISRs
+void Timer1_ISR(void) __interrupt 3
+{
+	SFRPAGE = TIMER01_PAGE;
+	TF1 = 0;
+	counts ++;
+//	printf("It's not totally a trap");
+	TL1 = 0;
+	TH1 = 0;	
 }
 /// INITILIZATIONS
 void SYSCLK_INIT()
@@ -177,6 +230,6 @@ void SPI0_INIT()
 	SPI0CFG = 0x40;
 	//SPI0CFG &= 0x4F;
 	SPI0CN = 0x0D;
-	SPI0CKR =  0x0B;
+	SPI0CKR =  0x26;
 	SPIF = 1;
 }

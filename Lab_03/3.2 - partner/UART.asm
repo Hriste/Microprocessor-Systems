@@ -1,7 +1,7 @@
 ;--------------------------------------------------------
 ; File Created by SDCC : free open source ANSI-C Compiler
 ; Version 3.4.0 #8981 (Apr  5 2014) (MINGW32)
-; This file was generated Thu Sep 29 18:46:14 2016
+; This file was generated Tue Oct 11 17:46:31 2016
 ;--------------------------------------------------------
 	.module UART
 	.optsdcc -mmcs51 --model-small
@@ -1352,9 +1352,23 @@ _main:
 	orl	_EIE2,#0x40
 	C$UART.c$44$1$24 ==.
 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:44: while(1)
-00102$:
-	sjmp	00102$
-	C$UART.c$49$1$24 ==.
+00107$:
+	C$UART.c$46$2$25 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:46: SFRPAGE = UART1_PAGE;
+	mov	_SFRPAGE,#0x01
+	C$UART.c$47$2$25 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:47: if (!RI1 && !TI1 )
+	jb	_RI1,00107$
+	jb	_TI1,00107$
+	C$UART.c$49$3$26 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:49: SFRPAGE = UART0_PAGE;
+	mov	_SFRPAGE,#0x00
+	C$UART.c$50$3$26 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:50: if(!ES0){ES0 =1;}// if UART 0 interrupts have been disabled and not nothing is in there and they have not been renabled renable interrupt for UART0
+	jb	_ES0,00107$
+	setb	_ES0
+	sjmp	00107$
+	C$UART.c$54$1$24 ==.
 	XG$main$0$0 ==.
 	ret
 ;------------------------------------------------------------
@@ -1363,8 +1377,8 @@ _main:
 ;c                         Allocated to registers r7 
 ;------------------------------------------------------------
 	G$UART0_INTERRUPT$0$0 ==.
-	C$UART.c$52$1$24 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:52: void UART0_INTERRUPT(void)  __interrupt 4
+	C$UART.c$57$1$24 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:57: void UART0_INTERRUPT(void)  __interrupt 4
 ;	-----------------------------------------
 ;	 function UART0_INTERRUPT
 ;	-----------------------------------------
@@ -1372,34 +1386,38 @@ _UART0_INTERRUPT:
 	push	ar7
 	push	psw
 	mov	psw,#0x00
-	C$UART.c$55$1$27 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:55: if(RI0)
+	C$UART.c$60$1$29 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:60: if(RI0)
 	jnb	_RI0,00102$
-	C$UART.c$57$2$28 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:57: c = SBUF0;
+	C$UART.c$62$2$30 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:62: c = SBUF0;
 	mov	r7,_SBUF0
-	C$UART.c$58$2$28 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:58: SBUF0 =c;
+	C$UART.c$63$2$30 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:63: SBUF0 =c;
 	mov	_SBUF0,r7
-	C$UART.c$59$2$28 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:59: RI0 = 0;
+	C$UART.c$64$2$30 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:64: RI0 = 0;
 	clr	_RI0
-	C$UART.c$60$2$28 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:60: SFRPAGE = UART1_PAGE;
+	C$UART.c$65$2$30 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:65: SFRPAGE = UART1_PAGE;
 	mov	_SFRPAGE,#0x01
-	C$UART.c$61$2$28 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:61: SBUF1 =c;
+	C$UART.c$66$2$30 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:66: SBUF1 =c;
 	mov	_SBUF1,r7
+	C$UART.c$67$2$30 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:67: ES0 = 0;
+	clr	_ES0
 00102$:
-	C$UART.c$63$1$27 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:63: if(TI0){TI0=0;}
+	C$UART.c$69$1$29 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:69: if(TI0){TI0=0;ES0 = 0;}
 	jbc	_TI0,00114$
 	sjmp	00105$
 00114$:
+	clr	_ES0
 00105$:
 	pop	psw
 	pop	ar7
-	C$UART.c$66$1$27 ==.
+	C$UART.c$72$1$29 ==.
 	XG$UART0_INTERRUPT$0$0 ==.
 	reti
 ;	eliminated unneeded push/pop dpl
@@ -1412,8 +1430,8 @@ _UART0_INTERRUPT:
 ;c                         Allocated to registers r7 
 ;------------------------------------------------------------
 	G$UART1_INTERRUPT$0$0 ==.
-	C$UART.c$67$1$27 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:67: void UART1_INTERRUPT(void)	__interrupt 20
+	C$UART.c$73$1$29 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:73: void UART1_INTERRUPT(void)	__interrupt 20
 ;	-----------------------------------------
 ;	 function UART1_INTERRUPT
 ;	-----------------------------------------
@@ -1421,31 +1439,35 @@ _UART1_INTERRUPT:
 	push	ar7
 	push	psw
 	mov	psw,#0x00
-	C$UART.c$70$1$31 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:70: if(RI1)
+	C$UART.c$76$1$33 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:76: if(RI1)
 	jnb	_RI1,00102$
-	C$UART.c$72$2$32 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:72: c = SBUF1;
+	C$UART.c$78$2$34 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:78: c = SBUF1;
 	mov	r7,_SBUF1
-	C$UART.c$73$2$32 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:73: RI1 = 0;
+	C$UART.c$79$2$34 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:79: RI1 = 0;
 	clr	_RI1
-	C$UART.c$74$2$32 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:74: SFRPAGE = UART0_PAGE;
+	C$UART.c$80$2$34 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:80: SFRPAGE = UART0_PAGE;
 	mov	_SFRPAGE,#0x00
-	C$UART.c$75$2$32 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:75: SBUF0 = c;
+	C$UART.c$81$2$34 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:81: SBUF0 = c;
 	mov	_SBUF0,r7
+	C$UART.c$82$2$34 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:82: ES0 = 1;
+	setb	_ES0
 00102$:
-	C$UART.c$77$1$31 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:77: if(TI1){TI1=0;}
+	C$UART.c$84$1$33 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:84: if(TI1){TI1=0;ES0= 1;}
 	jbc	_TI1,00114$
 	sjmp	00105$
 00114$:
+	setb	_ES0
 00105$:
 	pop	psw
 	pop	ar7
-	C$UART.c$78$1$31 ==.
+	C$UART.c$85$1$33 ==.
 	XG$UART1_INTERRUPT$0$0 ==.
 	reti
 ;	eliminated unneeded push/pop dpl
@@ -1458,20 +1480,20 @@ _UART1_INTERRUPT:
 ;j                         Allocated to registers 
 ;------------------------------------------------------------
 	G$SYSCLK_INIT$0$0 ==.
-	C$UART.c$82$1$31 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:82: void SYSCLK_INIT()
+	C$UART.c$89$1$33 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:89: void SYSCLK_INIT()
 ;	-----------------------------------------
 ;	 function SYSCLK_INIT
 ;	-----------------------------------------
 _SYSCLK_INIT:
-	C$UART.c$86$1$34 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:86: SFRPAGE = CONFIG_PAGE;
+	C$UART.c$93$1$36 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:93: SFRPAGE = CONFIG_PAGE;
 	mov	_SFRPAGE,#0x0F
-	C$UART.c$87$1$34 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:87: OSCXCN  = 0x67;             // Start external oscillator
+	C$UART.c$94$1$36 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:94: OSCXCN  = 0x67;             // Start external oscillator
 	mov	_OSCXCN,#0x67
-	C$UART.c$88$1$34 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:88: for(j=0; j < 256; j++);     // Wait for the oscillator to start up.
+	C$UART.c$95$1$36 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:95: for(j=0; j < 256; j++);     // Wait for the oscillator to start up.
 	mov	r6,#0x00
 	mov	r7,#0x01
 00107$:
@@ -1482,147 +1504,147 @@ _SYSCLK_INIT:
 	mov	a,r6
 	orl	a,r7
 	jnz	00107$
-	C$UART.c$89$1$34 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:89: while(!(OSCXCN & 0x80));    // Check to see if the Crystal Oscillator Valid Flag is set.
+	C$UART.c$96$1$36 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:96: while(!(OSCXCN & 0x80));    // Check to see if the Crystal Oscillator Valid Flag is set.
 00102$:
 	mov	a,_OSCXCN
 	jnb	acc.7,00102$
-	C$UART.c$90$1$34 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:90: CLKSEL  = 0x01;             // SYSCLK derived from the External Oscillator circuit.
+	C$UART.c$97$1$36 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:97: CLKSEL  = 0x01;             // SYSCLK derived from the External Oscillator circuit.
 	mov	_CLKSEL,#0x01
-	C$UART.c$91$1$34 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:91: OSCICN  = 0x00;             // Disable the internal oscillator.
+	C$UART.c$98$1$36 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:98: OSCICN  = 0x00;             // Disable the internal oscillator.
 	mov	_OSCICN,#0x00
-	C$UART.c$92$1$34 ==.
+	C$UART.c$99$1$36 ==.
 	XG$SYSCLK_INIT$0$0 ==.
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'Timer_Init'
 ;------------------------------------------------------------
 	G$Timer_Init$0$0 ==.
-	C$UART.c$94$1$34 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:94: void Timer_Init()
+	C$UART.c$101$1$36 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:101: void Timer_Init()
 ;	-----------------------------------------
 ;	 function Timer_Init
 ;	-----------------------------------------
 _Timer_Init:
-	C$UART.c$96$1$35 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:96: SFRPAGE   = TIMER01_PAGE;
+	C$UART.c$103$1$37 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:103: SFRPAGE   = TIMER01_PAGE;
 	mov	_SFRPAGE,#0x00
-	C$UART.c$97$1$35 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:97: TCON      = 0x40;
+	C$UART.c$104$1$37 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:104: TCON      = 0x40;
 	mov	_TCON,#0x40
-	C$UART.c$98$1$35 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:98: TMOD      = 0x20;
+	C$UART.c$105$1$37 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:105: TMOD      = 0x20;
 	mov	_TMOD,#0x20
-	C$UART.c$99$1$35 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:99: CKCON     = 0x10;
+	C$UART.c$106$1$37 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:106: CKCON     = 0x10;
 	mov	_CKCON,#0x10
-	C$UART.c$100$1$35 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:100: TH1       = 0xA0;
+	C$UART.c$107$1$37 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:107: TH1       = 0xA0;
 	mov	_TH1,#0xA0
-	C$UART.c$101$1$35 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:101: TL1 = TH1;
+	C$UART.c$108$1$37 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:108: TL1 = TH1;
 	mov	_TL1,_TH1
-	C$UART.c$102$1$35 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:102: SFRPAGE   = TMR2_PAGE;
+	C$UART.c$109$1$37 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:109: SFRPAGE   = TMR2_PAGE;
 	mov	_SFRPAGE,#0x00
-	C$UART.c$103$1$35 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:103: TMR2CN    = 0x04;
+	C$UART.c$110$1$37 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:110: TMR2CN    = 0x04;
 	mov	_TMR2CN,#0x04
-	C$UART.c$104$1$35 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:104: TMR2CF    = 0x08;
+	C$UART.c$111$1$37 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:111: TMR2CF    = 0x08;
 	mov	_TMR2CF,#0x08
-	C$UART.c$105$1$35 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:105: TMR2H	  = 0xFF;//(unsigned char) -(EXTCLK/BAUDRATE0/16);
+	C$UART.c$112$1$37 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:112: TMR2H	  = 0xFF;//(unsigned char) -(EXTCLK/BAUDRATE0/16);
 	mov	_TMR2H,#0xFF
-	C$UART.c$106$1$35 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:106: TMR2L = 0x70;//TMR2H;
+	C$UART.c$113$1$37 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:113: TMR2L = 0x70;//TMR2H;
 	mov	_TMR2L,#0x70
-	C$UART.c$107$1$35 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:107: RCAP2L    = 0x70;
+	C$UART.c$114$1$37 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:114: RCAP2L    = 0x70;
 	mov	_RCAP2L,#0x70
-	C$UART.c$108$1$35 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:108: RCAP2H    = 0xFF;
+	C$UART.c$115$1$37 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:115: RCAP2H    = 0xFF;
 	mov	_RCAP2H,#0xFF
-	C$UART.c$109$1$35 ==.
+	C$UART.c$116$1$37 ==.
 	XG$Timer_Init$0$0 ==.
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'UART_Init'
 ;------------------------------------------------------------
 	G$UART_Init$0$0 ==.
-	C$UART.c$110$1$35 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:110: void UART_Init()
+	C$UART.c$117$1$37 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:117: void UART_Init()
 ;	-----------------------------------------
 ;	 function UART_Init
 ;	-----------------------------------------
 _UART_Init:
-	C$UART.c$112$1$36 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:112: SFRPAGE   = UART0_PAGE;//Same as Timer 2 and Timer 1 SFR PAGES
+	C$UART.c$119$1$38 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:119: SFRPAGE   = UART0_PAGE;//Same as Timer 2 and Timer 1 SFR PAGES
 	mov	_SFRPAGE,#0x00
-	C$UART.c$113$1$36 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:113: TR2		  = 1;//Start Timer 2
+	C$UART.c$120$1$38 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:120: TR2		  = 1;//Start Timer 2
 	setb	_TR2
-	C$UART.c$114$1$36 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:114: SCON0     = 0x50;
+	C$UART.c$121$1$38 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:121: SCON0     = 0x50;
 	mov	_SCON0,#0x50
-	C$UART.c$115$1$36 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:115: SSTA0   = 0x15;
+	C$UART.c$122$1$38 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:122: SSTA0   = 0x15;
 	mov	_SSTA0,#0x15
-	C$UART.c$116$1$36 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:116: TI0		  = 1; // Indicate TX0 is ready
+	C$UART.c$123$1$38 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:123: TI0		  = 1; // Indicate TX0 is ready
 	setb	_TI0
-	C$UART.c$117$1$36 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:117: TR1		  = 1; //Start Timer 1
+	C$UART.c$124$1$38 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:124: TR1		  = 1; //Start Timer 1
 	setb	_TR1
-	C$UART.c$118$1$36 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:118: SFRPAGE   = UART1_PAGE;
+	C$UART.c$125$1$38 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:125: SFRPAGE   = UART1_PAGE;
 	mov	_SFRPAGE,#0x01
-	C$UART.c$119$1$36 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:119: SCON1     = 0x50;
+	C$UART.c$126$1$38 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:126: SCON1     = 0x50;
 	mov	_SCON1,#0x50
-	C$UART.c$120$1$36 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:120: TI1		  = 1; //Indicatie TX1 is ready
+	C$UART.c$127$1$38 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:127: TI1		  = 1; //Indicatie TX1 is ready
 	setb	_TI1
-	C$UART.c$121$1$36 ==.
+	C$UART.c$128$1$38 ==.
 	XG$UART_Init$0$0 ==.
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'Port_IO_Init'
 ;------------------------------------------------------------
 	G$Port_IO_Init$0$0 ==.
-	C$UART.c$122$1$36 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:122: void Port_IO_Init()
+	C$UART.c$129$1$38 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:129: void Port_IO_Init()
 ;	-----------------------------------------
 ;	 function Port_IO_Init
 ;	-----------------------------------------
 _Port_IO_Init:
-	C$UART.c$124$1$37 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:124: SFRPAGE   = CONFIG_PAGE;
+	C$UART.c$131$1$39 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:131: SFRPAGE   = CONFIG_PAGE;
 	mov	_SFRPAGE,#0x0F
-	C$UART.c$127$1$37 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:127: P0MDOUT = 0x05;
+	C$UART.c$134$1$39 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:134: P0MDOUT = 0x05;
 	mov	_P0MDOUT,#0x05
-	C$UART.c$128$1$37 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:128: P0 = 0x0A;
+	C$UART.c$135$1$39 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:135: P0 = 0x0A;
 	mov	_P0,#0x0A
-	C$UART.c$132$1$37 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:132: WDTCN   = 0xDE;             // Disable watchdog timer.
+	C$UART.c$139$1$39 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:139: WDTCN   = 0xDE;             // Disable watchdog timer.
 	mov	_WDTCN,#0xDE
-	C$UART.c$133$1$37 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:133: WDTCN   = 0xAD;
+	C$UART.c$140$1$39 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:140: WDTCN   = 0xAD;
 	mov	_WDTCN,#0xAD
-	C$UART.c$134$1$37 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:134: EA 		  = 1; // enable global interrupts
+	C$UART.c$141$1$39 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:141: EA 		  = 1; // enable global interrupts
 	setb	_EA
-	C$UART.c$135$1$37 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:135: XBR0      = 0x04;
+	C$UART.c$142$1$39 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:142: XBR0      = 0x04;
 	mov	_XBR0,#0x04
-	C$UART.c$136$1$37 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:136: XBR2      = 0x44;
+	C$UART.c$143$1$39 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.2 - partner\UART.c:143: XBR2      = 0x44;
 	mov	_XBR2,#0x44
-	C$UART.c$137$1$37 ==.
+	C$UART.c$144$1$39 ==.
 	XG$Port_IO_Init$0$0 ==.
 	ret
 	.area CSEG    (CODE)
