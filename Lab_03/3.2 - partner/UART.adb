@@ -1,4 +1,6 @@
 M:UART
+F:G$putchar$0$0({2}DF,SV:S),Z,0,0,0,0,0
+F:G$getchar$0$0({2}DF,SC:S),Z,0,0,0,0,0
 F:G$main$0$0({2}DF,SV:S),Z,0,0,0,0,0
 F:G$UART0_INTERRUPT$0$0({2}DF,SV:S),Z,0,0,1,4,0
 F:G$UART1_INTERRUPT$0$0({2}DF,SV:S),Z,0,0,1,20,0
@@ -6,8 +8,10 @@ F:G$SYSCLK_INIT$0$0({2}DF,SV:S),Z,0,0,0,0,0
 F:G$Timer_Init$0$0({2}DF,SV:S),Z,0,0,0,0,0
 F:G$UART_Init$0$0({2}DF,SV:S),Z,0,0,0,0,0
 F:G$Port_IO_Init$0$0({2}DF,SV:S),Z,0,0,0,0,0
-S:LUART.UART0_INTERRUPT$c$1$29({1}SC:S),R,0,0,[r7]
-S:LUART.UART1_INTERRUPT$c$1$33({1}SC:S),R,0,0,[r7]
+S:G$receive$0$0({1}SC:S),E,0,0
+S:LUART.main$i$1$28({2}SI:S),E,0,0
+S:LUART.UART0_INTERRUPT$c$1$31({1}SC:S),R,0,0,[r7]
+S:LUART.UART1_INTERRUPT$c$1$35({1}SC:S),R,0,0,[r7]
 S:G$P0$0$0({1}SC:U),I,0,0
 S:G$SP$0$0({1}SC:U),I,0,0
 S:G$DPL$0$0({1}SC:U),I,0,0
@@ -399,8 +403,6 @@ S:G$sprintf$0$0({2}DF,SI:S),C,0,0
 S:G$vsprintf$0$0({2}DF,SI:S),C,0,0
 S:G$puts$0$0({2}DF,SI:S),C,0,0
 S:G$gets$0$0({2}DF,DG,SC:S),C,0,0
-S:G$getchar$0$0({2}DF,SC:S),C,0,0
-S:G$putchar$0$0({2}DF,SV:S),C,0,0
 S:G$printf_fast$0$0({2}DF,SV:S),C,0,0
 S:G$printf_fast_f$0$0({2}DF,SV:S),C,0,0
 S:G$printf_tiny$0$0({2}DF,SV:S),C,0,0

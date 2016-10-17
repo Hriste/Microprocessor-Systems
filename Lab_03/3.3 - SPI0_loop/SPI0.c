@@ -102,8 +102,13 @@ char read ()
 	SFRPAGE = SPI0_PAGE;
 	NSSMD0 = 0;
 	for (i=0;i<101;i++);
-	//write(0xFF);
+	write(0x64);
 	while(!SPIF);
+	NSSMD0 = 1;
+	for (i=0;i<101;i++);
+	counts =1 ;
+	while(counts < 2000);
+	NSSMD0 = 0;
 	return SPI0DAT;
 }
 
@@ -118,9 +123,11 @@ unsigned char dread()
 	SPI0DAT = dumb;
 	while(!SPIF);
 	NSSMD0 = 1;
-	for (i=0;i<101;i++);
+	
 	counts =1 ;
 	while(counts < 2000);
+	NSSMD0 = 0;
+	for (i=0;i<101;i++);
 	return SPI0DAT;
 }
 

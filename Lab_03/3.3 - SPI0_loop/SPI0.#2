@@ -102,8 +102,13 @@ char read ()
 	SFRPAGE = SPI0_PAGE;
 	NSSMD0 = 0;
 	for (i=0;i<101;i++);
-	//write(0xFF);
+	write(0xF7);
 	while(!SPIF);
+	NSSMD0 = 1;
+	for (i=0;i<101;i++);
+	counts =1 ;
+	while(counts < 2000);
+	NSSMD0 = 0;
 	return SPI0DAT;
 }
 
@@ -117,10 +122,12 @@ unsigned char dread()
 	while(SPIF){SPIF=0;}//make sure SPIF is not busy
 	SPI0DAT = dumb;
 	while(!SPIF);
-	NSSMD0 = 0;
-	for (i=0;i<101;i++);
+	NSSMD0 = 1;
+	
 	counts =1 ;
 	while(counts < 2000);
+	NSSMD0 = 0;
+	for (i=0;i<101;i++);
 	return SPI0DAT;
 }
 
@@ -148,6 +155,7 @@ void dummy ()
 		counts =0 ;
 		while(counts < 49999);
 		r = dread();
+		NSSMD0 = 0;
 		foreign(r);
 		for (i=0;i<101;i++);
 	}

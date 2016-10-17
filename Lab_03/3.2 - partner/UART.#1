@@ -8,6 +8,7 @@
 //-------------------------------------------------------------------------------------------
 #include <c8051f120.h>          // SFR declarations.
 #include <stdio.h>              // Necessary for printf.
+#include <putget.h>
 
 //-------------------------------------------------------------------------------------------
 // Global CONSTANTS
@@ -30,9 +31,11 @@ void UART1_INTERRUPT(void)	__interrupt 20;
 
 ////FUNCTIONS
 
+char receive = 0;
+
 void main (void)
 {
-
+	int i;
 	SFRPAGE = CONFIG_PAGE;
 	SYSCLK_INIT();
 	Port_IO_Init();
@@ -43,7 +46,12 @@ void main (void)
 	EIE2 |=0x40;
 	while(1)
 	{
-
+		ES0 = 0;
+		SFRPAGE = UART1_PAGE;
+		//for( i= 0; i< 500; i++);
+		if(receive == 1){printf("\n\rKINDA WORKING\n\r"); receive = 0;}
+		SFRPAGE = UART0_PAGE;
+		ES0 = 1;
 	}
 	
 }
@@ -52,9 +60,11 @@ void main (void)
 void UART0_INTERRUPT(void)  __interrupt 4
 {
 	char c;
+	SFRPAGE = UART0_PAGE;
 	if(RI0)
 	{
 		c = SBUF0;
+		RI0 = 0;
 		SBUF0 =c;
 		RI0 = 0;
 		SFRPAGE = UART1_PAGE;
@@ -67,12 +77,14 @@ void UART0_INTERRUPT(void)  __interrupt 4
 void UART1_INTERRUPT(void)	__interrupt 20
 {	
 	char c;
+	SFRPAGE = UART1_PAGE;
 	if(RI1)
 	{
 		c = SBUF1;
 		RI1 = 0;
 		SFRPAGE = UART0_PAGE;
 		SBUF0 = c;
+		receive = 1;
 	}
 	if(TI1){TI1=0;}
 }

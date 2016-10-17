@@ -1,7 +1,7 @@
                                       1 ;--------------------------------------------------------
                                       2 ; File Created by SDCC : free open source ANSI-C Compiler
                                       3 ; Version 3.4.0 #8981 (Apr  5 2014) (MINGW32)
-                                      4 ; This file was generated Thu Oct 13 17:18:08 2016
+                                      4 ; This file was generated Thu Oct 13 17:28:23 2016
                                       5 ;--------------------------------------------------------
                                       6 	.module SPI0
                                       7 	.optsdcc -mmcs51 --model-small
@@ -1213,1024 +1213,1061 @@
                                    1213 	.area	OSEG    (OVR,DATA)
                                    1214 	.area	OSEG    (OVR,DATA)
                                    1215 	.area	OSEG    (OVR,DATA)
-                                   1216 	.area	OSEG    (OVR,DATA)
-                                   1217 ;--------------------------------------------------------
-                                   1218 ; Stack segment in internal ram 
-                                   1219 ;--------------------------------------------------------
-                                   1220 	.area	SSEG
-      00003C                       1221 __start__stack:
-      00003C                       1222 	.ds	1
-                                   1223 
-                                   1224 ;--------------------------------------------------------
-                                   1225 ; indirectly addressable internal ram data
-                                   1226 ;--------------------------------------------------------
-                                   1227 	.area ISEG    (DATA)
-                                   1228 ;--------------------------------------------------------
-                                   1229 ; absolute internal ram data
-                                   1230 ;--------------------------------------------------------
+                                   1216 ;--------------------------------------------------------
+                                   1217 ; Stack segment in internal ram 
+                                   1218 ;--------------------------------------------------------
+                                   1219 	.area	SSEG
+      00003C                       1220 __start__stack:
+      00003C                       1221 	.ds	1
+                                   1222 
+                                   1223 ;--------------------------------------------------------
+                                   1224 ; indirectly addressable internal ram data
+                                   1225 ;--------------------------------------------------------
+                                   1226 	.area ISEG    (DATA)
+                                   1227 ;--------------------------------------------------------
+                                   1228 ; absolute internal ram data
+                                   1229 ;--------------------------------------------------------
+                                   1230 	.area IABS    (ABS,DATA)
                                    1231 	.area IABS    (ABS,DATA)
-                                   1232 	.area IABS    (ABS,DATA)
-                                   1233 ;--------------------------------------------------------
-                                   1234 ; bit data
-                                   1235 ;--------------------------------------------------------
-                                   1236 	.area BSEG    (BIT)
-                                   1237 ;--------------------------------------------------------
-                                   1238 ; paged external ram data
-                                   1239 ;--------------------------------------------------------
-                                   1240 	.area PSEG    (PAG,XDATA)
-                                   1241 ;--------------------------------------------------------
-                                   1242 ; external ram data
-                                   1243 ;--------------------------------------------------------
-                                   1244 	.area XSEG    (XDATA)
-                                   1245 ;--------------------------------------------------------
-                                   1246 ; absolute external ram data
-                                   1247 ;--------------------------------------------------------
-                                   1248 	.area XABS    (ABS,XDATA)
-                                   1249 ;--------------------------------------------------------
-                                   1250 ; external initialized ram data
-                                   1251 ;--------------------------------------------------------
-                                   1252 	.area XISEG   (XDATA)
-                                   1253 	.area HOME    (CODE)
-                                   1254 	.area GSINIT0 (CODE)
-                                   1255 	.area GSINIT1 (CODE)
-                                   1256 	.area GSINIT2 (CODE)
-                                   1257 	.area GSINIT3 (CODE)
-                                   1258 	.area GSINIT4 (CODE)
-                                   1259 	.area GSINIT5 (CODE)
-                                   1260 	.area GSINIT  (CODE)
-                                   1261 	.area GSFINAL (CODE)
-                                   1262 	.area CSEG    (CODE)
-                                   1263 ;--------------------------------------------------------
-                                   1264 ; interrupt vector 
-                                   1265 ;--------------------------------------------------------
-                                   1266 	.area HOME    (CODE)
-      000000                       1267 __interrupt_vect:
-      000000 02 00 21         [24] 1268 	ljmp	__sdcc_gsinit_startup
-      000003 32               [24] 1269 	reti
-      000004                       1270 	.ds	7
-      00000B 32               [24] 1271 	reti
-      00000C                       1272 	.ds	7
-      000013 32               [24] 1273 	reti
-      000014                       1274 	.ds	7
-      00001B 02 02 FE         [24] 1275 	ljmp	_Timer1_ISR
-                                   1276 ;--------------------------------------------------------
-                                   1277 ; global & static initialisations
-                                   1278 ;--------------------------------------------------------
-                                   1279 	.area HOME    (CODE)
-                                   1280 	.area GSINIT  (CODE)
-                                   1281 	.area GSFINAL (CODE)
-                                   1282 	.area GSINIT  (CODE)
-                                   1283 	.globl __sdcc_gsinit_startup
-                                   1284 	.globl __sdcc_program_startup
-                                   1285 	.globl __start__stack
-                                   1286 	.globl __mcs51_genXINIT
-                                   1287 	.globl __mcs51_genXRAMCLEAR
-                                   1288 	.globl __mcs51_genRAMCLEAR
-                           000000  1289 	C$SPI0.c$39$1$59 ==.
-                                   1290 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:39: int local_ct = 1;
-      00007A 75 08 01         [24] 1291 	mov	_local_ct,#0x01
-      00007D 75 09 00         [24] 1292 	mov	(_local_ct + 1),#0x00
-                           000006  1293 	C$SPI0.c$40$1$59 ==.
-                                   1294 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:40: int alien_ct = 14;
-      000080 75 0A 0E         [24] 1295 	mov	_alien_ct,#0x0E
-      000083 75 0B 00         [24] 1296 	mov	(_alien_ct + 1),#0x00
-                           00000C  1297 	C$SPI0.c$41$1$59 ==.
-                                   1298 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:41: unsigned int counts =0;
-      000086 E4               [12] 1299 	clr	a
-      000087 F5 0C            [12] 1300 	mov	_counts,a
-      000089 F5 0D            [12] 1301 	mov	(_counts + 1),a
-                                   1302 	.area GSFINAL (CODE)
-      00008B 02 00 1E         [24] 1303 	ljmp	__sdcc_program_startup
-                                   1304 ;--------------------------------------------------------
-                                   1305 ; Home
-                                   1306 ;--------------------------------------------------------
+                                   1232 ;--------------------------------------------------------
+                                   1233 ; bit data
+                                   1234 ;--------------------------------------------------------
+                                   1235 	.area BSEG    (BIT)
+                                   1236 ;--------------------------------------------------------
+                                   1237 ; paged external ram data
+                                   1238 ;--------------------------------------------------------
+                                   1239 	.area PSEG    (PAG,XDATA)
+                                   1240 ;--------------------------------------------------------
+                                   1241 ; external ram data
+                                   1242 ;--------------------------------------------------------
+                                   1243 	.area XSEG    (XDATA)
+                                   1244 ;--------------------------------------------------------
+                                   1245 ; absolute external ram data
+                                   1246 ;--------------------------------------------------------
+                                   1247 	.area XABS    (ABS,XDATA)
+                                   1248 ;--------------------------------------------------------
+                                   1249 ; external initialized ram data
+                                   1250 ;--------------------------------------------------------
+                                   1251 	.area XISEG   (XDATA)
+                                   1252 	.area HOME    (CODE)
+                                   1253 	.area GSINIT0 (CODE)
+                                   1254 	.area GSINIT1 (CODE)
+                                   1255 	.area GSINIT2 (CODE)
+                                   1256 	.area GSINIT3 (CODE)
+                                   1257 	.area GSINIT4 (CODE)
+                                   1258 	.area GSINIT5 (CODE)
+                                   1259 	.area GSINIT  (CODE)
+                                   1260 	.area GSFINAL (CODE)
+                                   1261 	.area CSEG    (CODE)
+                                   1262 ;--------------------------------------------------------
+                                   1263 ; interrupt vector 
+                                   1264 ;--------------------------------------------------------
+                                   1265 	.area HOME    (CODE)
+      000000                       1266 __interrupt_vect:
+      000000 02 00 21         [24] 1267 	ljmp	__sdcc_gsinit_startup
+      000003 32               [24] 1268 	reti
+      000004                       1269 	.ds	7
+      00000B 32               [24] 1270 	reti
+      00000C                       1271 	.ds	7
+      000013 32               [24] 1272 	reti
+      000014                       1273 	.ds	7
+      00001B 02 03 28         [24] 1274 	ljmp	_Timer1_ISR
+                                   1275 ;--------------------------------------------------------
+                                   1276 ; global & static initialisations
+                                   1277 ;--------------------------------------------------------
+                                   1278 	.area HOME    (CODE)
+                                   1279 	.area GSINIT  (CODE)
+                                   1280 	.area GSFINAL (CODE)
+                                   1281 	.area GSINIT  (CODE)
+                                   1282 	.globl __sdcc_gsinit_startup
+                                   1283 	.globl __sdcc_program_startup
+                                   1284 	.globl __start__stack
+                                   1285 	.globl __mcs51_genXINIT
+                                   1286 	.globl __mcs51_genXRAMCLEAR
+                                   1287 	.globl __mcs51_genRAMCLEAR
+                           000000  1288 	C$SPI0.c$39$1$59 ==.
+                                   1289 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:39: int local_ct = 1;
+      00007A 75 08 01         [24] 1290 	mov	_local_ct,#0x01
+      00007D 75 09 00         [24] 1291 	mov	(_local_ct + 1),#0x00
+                           000006  1292 	C$SPI0.c$40$1$59 ==.
+                                   1293 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:40: int alien_ct = 14;
+      000080 75 0A 0E         [24] 1294 	mov	_alien_ct,#0x0E
+      000083 75 0B 00         [24] 1295 	mov	(_alien_ct + 1),#0x00
+                           00000C  1296 	C$SPI0.c$41$1$59 ==.
+                                   1297 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:41: unsigned int counts =0;
+      000086 E4               [12] 1298 	clr	a
+      000087 F5 0C            [12] 1299 	mov	_counts,a
+      000089 F5 0D            [12] 1300 	mov	(_counts + 1),a
+                                   1301 	.area GSFINAL (CODE)
+      00008B 02 00 1E         [24] 1302 	ljmp	__sdcc_program_startup
+                                   1303 ;--------------------------------------------------------
+                                   1304 ; Home
+                                   1305 ;--------------------------------------------------------
+                                   1306 	.area HOME    (CODE)
                                    1307 	.area HOME    (CODE)
-                                   1308 	.area HOME    (CODE)
-      00001E                       1309 __sdcc_program_startup:
-      00001E 02 00 A3         [24] 1310 	ljmp	_main
-                                   1311 ;	return from main will return to caller
-                                   1312 ;--------------------------------------------------------
-                                   1313 ; code
-                                   1314 ;--------------------------------------------------------
-                                   1315 	.area CSEG    (CODE)
-                                   1316 ;------------------------------------------------------------
-                                   1317 ;Allocation info for local variables in function 'putchar'
-                                   1318 ;------------------------------------------------------------
-                                   1319 ;c                         Allocated to registers r7 
-                                   1320 ;------------------------------------------------------------
-                           000000  1321 	G$putchar$0$0 ==.
-                           000000  1322 	C$putget.h$18$0$0 ==.
-                                   1323 ;	C:/Users/Christina/Documents/MPS/Versions/Lab_03/3.3 - SPI0_loop/putget.h:18: void putchar(char c)
-                                   1324 ;	-----------------------------------------
-                                   1325 ;	 function putchar
-                                   1326 ;	-----------------------------------------
-      00008E                       1327 _putchar:
-                           000007  1328 	ar7 = 0x07
-                           000006  1329 	ar6 = 0x06
-                           000005  1330 	ar5 = 0x05
-                           000004  1331 	ar4 = 0x04
-                           000003  1332 	ar3 = 0x03
-                           000002  1333 	ar2 = 0x02
-                           000001  1334 	ar1 = 0x01
-                           000000  1335 	ar0 = 0x00
-      00008E AF 82            [24] 1336 	mov	r7,dpl
-                           000002  1337 	C$putget.h$20$1$16 ==.
-                                   1338 ;	C:/Users/Christina/Documents/MPS/Versions/Lab_03/3.3 - SPI0_loop/putget.h:20: while(!TI0); 
-      000090                       1339 00101$:
-                           000002  1340 	C$putget.h$21$1$16 ==.
-                                   1341 ;	C:/Users/Christina/Documents/MPS/Versions/Lab_03/3.3 - SPI0_loop/putget.h:21: TI0=0;
-      000090 10 99 02         [24] 1342 	jbc	_TI0,00112$
-      000093 80 FB            [24] 1343 	sjmp	00101$
-      000095                       1344 00112$:
-                           000007  1345 	C$putget.h$22$1$16 ==.
-                                   1346 ;	C:/Users/Christina/Documents/MPS/Versions/Lab_03/3.3 - SPI0_loop/putget.h:22: SBUF0 = c;
-      000095 8F 99            [24] 1347 	mov	_SBUF0,r7
-                           000009  1348 	C$putget.h$23$1$16 ==.
-                           000009  1349 	XG$putchar$0$0 ==.
-      000097 22               [24] 1350 	ret
-                                   1351 ;------------------------------------------------------------
-                                   1352 ;Allocation info for local variables in function 'getchar'
-                                   1353 ;------------------------------------------------------------
-                                   1354 ;c                         Allocated to registers 
-                                   1355 ;------------------------------------------------------------
-                           00000A  1356 	G$getchar$0$0 ==.
-                           00000A  1357 	C$putget.h$28$1$16 ==.
-                                   1358 ;	C:/Users/Christina/Documents/MPS/Versions/Lab_03/3.3 - SPI0_loop/putget.h:28: char getchar(void)
-                                   1359 ;	-----------------------------------------
-                                   1360 ;	 function getchar
-                                   1361 ;	-----------------------------------------
-      000098                       1362 _getchar:
-                           00000A  1363 	C$putget.h$31$1$18 ==.
-                                   1364 ;	C:/Users/Christina/Documents/MPS/Versions/Lab_03/3.3 - SPI0_loop/putget.h:31: while(!RI0);
-      000098                       1365 00101$:
-                           00000A  1366 	C$putget.h$32$1$18 ==.
-                                   1367 ;	C:/Users/Christina/Documents/MPS/Versions/Lab_03/3.3 - SPI0_loop/putget.h:32: RI0 =0;
-      000098 10 98 02         [24] 1368 	jbc	_RI0,00112$
-      00009B 80 FB            [24] 1369 	sjmp	00101$
-      00009D                       1370 00112$:
-                           00000F  1371 	C$putget.h$33$1$18 ==.
-                                   1372 ;	C:/Users/Christina/Documents/MPS/Versions/Lab_03/3.3 - SPI0_loop/putget.h:33: c = SBUF0;
-      00009D E5 99            [12] 1373 	mov	a,_SBUF0
-                           000011  1374 	C$putget.h$36$1$18 ==.
-                                   1375 ;	C:/Users/Christina/Documents/MPS/Versions/Lab_03/3.3 - SPI0_loop/putget.h:36: return SBUF0;
-      00009F 85 99 82         [24] 1376 	mov	dpl,_SBUF0
-                           000014  1377 	C$putget.h$37$1$18 ==.
-                           000014  1378 	XG$getchar$0$0 ==.
-      0000A2 22               [24] 1379 	ret
-                                   1380 ;------------------------------------------------------------
-                                   1381 ;Allocation info for local variables in function 'main'
-                                   1382 ;------------------------------------------------------------
-                                   1383 ;c                         Allocated to registers r7 
-                                   1384 ;i                         Allocated to registers 
-                                   1385 ;d                         Allocated to registers r7 
-                                   1386 ;------------------------------------------------------------
-                           000015  1387 	G$main$0$0 ==.
-                           000015  1388 	C$SPI0.c$43$1$18 ==.
-                                   1389 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:43: void main (void)
-                                   1390 ;	-----------------------------------------
-                                   1391 ;	 function main
-                                   1392 ;	-----------------------------------------
-      0000A3                       1393 _main:
-                           000015  1394 	C$SPI0.c$49$1$33 ==.
-                                   1395 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:49: SFRPAGE = CONFIG_PAGE;
-      0000A3 75 84 0F         [24] 1396 	mov	_SFRPAGE,#0x0F
-                           000018  1397 	C$SPI0.c$50$1$33 ==.
-                                   1398 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:50: IE |=0x88;
-      0000A6 43 A8 88         [24] 1399 	orl	_IE,#0x88
-                           00001B  1400 	C$SPI0.c$51$1$33 ==.
-                                   1401 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:51: PT1 = 1;
-      0000A9 D2 BB            [12] 1402 	setb	_PT1
-                           00001D  1403 	C$SPI0.c$52$1$33 ==.
-                                   1404 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:52: SYSCLK_INIT();
-      0000AB 12 03 1A         [24] 1405 	lcall	_SYSCLK_INIT
-                           000020  1406 	C$SPI0.c$53$1$33 ==.
-                                   1407 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:53: Port_IO_Init();
-      0000AE 12 03 79         [24] 1408 	lcall	_Port_IO_Init
-                           000023  1409 	C$SPI0.c$54$1$33 ==.
-                                   1410 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:54: Timer_Init();
-      0000B1 12 03 39         [24] 1411 	lcall	_Timer_Init
-                           000026  1412 	C$SPI0.c$55$1$33 ==.
-                                   1413 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:55: UART_Init();
-      0000B4 12 03 61         [24] 1414 	lcall	_UART_Init
-                           000029  1415 	C$SPI0.c$56$1$33 ==.
-                                   1416 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:56: SPI0_INIT();
-      0000B7 12 03 91         [24] 1417 	lcall	_SPI0_INIT
-                           00002C  1418 	C$SPI0.c$57$1$33 ==.
-                                   1419 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:57: SFRPAGE = LEGACY_PAGE;//same as UART0_PAGE
-      0000BA 75 84 00         [24] 1420 	mov	_SFRPAGE,#0x00
-                           00002F  1421 	C$SPI0.c$58$1$33 ==.
-                                   1422 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:58: printf("\033[2J");
-      0000BD 74 D8            [12] 1423 	mov	a,#___str_0
-      0000BF C0 E0            [24] 1424 	push	acc
-      0000C1 74 09            [12] 1425 	mov	a,#(___str_0 >> 8)
-      0000C3 C0 E0            [24] 1426 	push	acc
-      0000C5 74 80            [12] 1427 	mov	a,#0x80
-      0000C7 C0 E0            [24] 1428 	push	acc
-      0000C9 12 03 C4         [24] 1429 	lcall	_printf
-      0000CC 15 81            [12] 1430 	dec	sp
-      0000CE 15 81            [12] 1431 	dec	sp
-      0000D0 15 81            [12] 1432 	dec	sp
-                           000044  1433 	C$SPI0.c$59$1$33 ==.
-                                   1434 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:59: printf("UART is working");
-      0000D2 74 DD            [12] 1435 	mov	a,#___str_1
-      0000D4 C0 E0            [24] 1436 	push	acc
-      0000D6 74 09            [12] 1437 	mov	a,#(___str_1 >> 8)
-      0000D8 C0 E0            [24] 1438 	push	acc
-      0000DA 74 80            [12] 1439 	mov	a,#0x80
-      0000DC C0 E0            [24] 1440 	push	acc
-      0000DE 12 03 C4         [24] 1441 	lcall	_printf
-      0000E1 15 81            [12] 1442 	dec	sp
-      0000E3 15 81            [12] 1443 	dec	sp
-      0000E5 15 81            [12] 1444 	dec	sp
-                           000059  1445 	C$SPI0.c$60$1$33 ==.
-                                   1446 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:60: while(1)
-      0000E7                       1447 00107$:
-                           000059  1448 	C$SPI0.c$63$2$34 ==.
-                                   1449 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:63: if(RI0)
-                           000059  1450 	C$SPI0.c$65$3$35 ==.
-                                   1451 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:65: RI0 = 0;
-      0000E7 10 98 02         [24] 1452 	jbc	_RI0,00130$
-      0000EA 80 FB            [24] 1453 	sjmp	00107$
-      0000EC                       1454 00130$:
-                           00005E  1455 	C$SPI0.c$66$3$35 ==.
-                                   1456 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:66: c = SBUF0;
-      0000EC AF 99            [24] 1457 	mov	r7,_SBUF0
-                           000060  1458 	C$SPI0.c$67$3$35 ==.
-                                   1459 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:67: local(c);
-      0000EE 8F 82            [24] 1460 	mov	dpl,r7
-      0000F0 C0 07            [24] 1461 	push	ar7
-      0000F2 12 01 28         [24] 1462 	lcall	_local
-      0000F5 D0 07            [24] 1463 	pop	ar7
-                           000069  1464 	C$SPI0.c$68$3$35 ==.
-                                   1465 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:68: write(c);
-      0000F7 8F 82            [24] 1466 	mov	dpl,r7
-      0000F9 12 02 7D         [24] 1467 	lcall	_write
-                           00006E  1468 	C$SPI0.c$69$3$35 ==.
-                                   1469 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:69: SFRPAGE = UART0_PAGE;
-      0000FC 75 84 00         [24] 1470 	mov	_SFRPAGE,#0x00
-                           000071  1471 	C$SPI0.c$70$3$35 ==.
-                                   1472 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:70: for (i=0;i<101;i++);
-      0000FF 7E 65            [12] 1473 	mov	r6,#0x65
-      000101 7F 00            [12] 1474 	mov	r7,#0x00
-      000103                       1475 00111$:
-      000103 1E               [12] 1476 	dec	r6
-      000104 BE FF 01         [24] 1477 	cjne	r6,#0xFF,00131$
-      000107 1F               [12] 1478 	dec	r7
-      000108                       1479 00131$:
-      000108 EE               [12] 1480 	mov	a,r6
-      000109 4F               [12] 1481 	orl	a,r7
-      00010A 70 F7            [24] 1482 	jnz	00111$
-                           00007E  1483 	C$SPI0.c$71$3$35 ==.
-                                   1484 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:71: d = read();
-      00010C 12 02 21         [24] 1485 	lcall	_read
-      00010F AF 82            [24] 1486 	mov	r7,dpl
-                           000083  1487 	C$SPI0.c$72$3$35 ==.
-                                   1488 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:72: SPIF =0;
-      000111 C2 FF            [12] 1489 	clr	_SPIF
-                           000085  1490 	C$SPI0.c$73$3$35 ==.
-                                   1491 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:73: SFRPAGE = UART0_PAGE;
-      000113 75 84 00         [24] 1492 	mov	_SFRPAGE,#0x00
-                           000088  1493 	C$SPI0.c$74$3$35 ==.
-                                   1494 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:74: foreign(d);
-      000116 8F 82            [24] 1495 	mov	dpl,r7
-      000118 C0 07            [24] 1496 	push	ar7
-      00011A 12 01 9A         [24] 1497 	lcall	_foreign
-      00011D D0 07            [24] 1498 	pop	ar7
-                           000091  1499 	C$SPI0.c$75$3$35 ==.
-                                   1500 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:75: if(d == 0x7F){dummy();}
-      00011F BF 7F C5         [24] 1501 	cjne	r7,#0x7F,00107$
-      000122 12 02 A0         [24] 1502 	lcall	_dummy
-      000125 80 C0            [24] 1503 	sjmp	00107$
-                           000099  1504 	C$SPI0.c$79$1$33 ==.
-                           000099  1505 	XG$main$0$0 ==.
-      000127 22               [24] 1506 	ret
-                                   1507 ;------------------------------------------------------------
-                                   1508 ;Allocation info for local variables in function 'local'
-                                   1509 ;------------------------------------------------------------
-                                   1510 ;c                         Allocated to registers r7 
-                                   1511 ;------------------------------------------------------------
-                           00009A  1512 	G$local$0$0 ==.
-                           00009A  1513 	C$SPI0.c$80$1$33 ==.
-                                   1514 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:80: void local(char c)
-                                   1515 ;	-----------------------------------------
-                                   1516 ;	 function local
-                                   1517 ;	-----------------------------------------
-      000128                       1518 _local:
-      000128 AF 82            [24] 1519 	mov	r7,dpl
-                           00009C  1520 	C$SPI0.c$82$1$38 ==.
-                                   1521 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:82: printf("\033[%d;1H",local_ct);
-      00012A C0 07            [24] 1522 	push	ar7
-      00012C C0 08            [24] 1523 	push	_local_ct
-      00012E C0 09            [24] 1524 	push	(_local_ct + 1)
-      000130 74 ED            [12] 1525 	mov	a,#___str_2
-      000132 C0 E0            [24] 1526 	push	acc
-      000134 74 09            [12] 1527 	mov	a,#(___str_2 >> 8)
-      000136 C0 E0            [24] 1528 	push	acc
-      000138 74 80            [12] 1529 	mov	a,#0x80
-      00013A C0 E0            [24] 1530 	push	acc
-      00013C 12 03 C4         [24] 1531 	lcall	_printf
-      00013F E5 81            [12] 1532 	mov	a,sp
-      000141 24 FB            [12] 1533 	add	a,#0xfb
-      000143 F5 81            [12] 1534 	mov	sp,a
-      000145 D0 07            [24] 1535 	pop	ar7
-                           0000B9  1536 	C$SPI0.c$83$1$38 ==.
-                                   1537 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:83: if(local_ct < 13){local_ct++;}
-      000147 C3               [12] 1538 	clr	c
-      000148 E5 08            [12] 1539 	mov	a,_local_ct
-      00014A 94 0D            [12] 1540 	subb	a,#0x0D
-      00014C E5 09            [12] 1541 	mov	a,(_local_ct + 1)
-      00014E 64 80            [12] 1542 	xrl	a,#0x80
-      000150 94 80            [12] 1543 	subb	a,#0x80
-      000152 50 0A            [24] 1544 	jnc	00102$
-      000154 05 08            [12] 1545 	inc	_local_ct
-      000156 E4               [12] 1546 	clr	a
-      000157 B5 08 38         [24] 1547 	cjne	a,_local_ct,00104$
-      00015A 05 09            [12] 1548 	inc	(_local_ct + 1)
-      00015C 80 34            [24] 1549 	sjmp	00104$
-      00015E                       1550 00102$:
-                           0000D0  1551 	C$SPI0.c$84$2$40 ==.
-                                   1552 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:84: else{printf("\033[1J");local_ct=2;printf("\033[1;1H");}
-      00015E C0 07            [24] 1553 	push	ar7
-      000160 74 F5            [12] 1554 	mov	a,#___str_3
-      000162 C0 E0            [24] 1555 	push	acc
-      000164 74 09            [12] 1556 	mov	a,#(___str_3 >> 8)
-      000166 C0 E0            [24] 1557 	push	acc
-      000168 74 80            [12] 1558 	mov	a,#0x80
-      00016A C0 E0            [24] 1559 	push	acc
-      00016C 12 03 C4         [24] 1560 	lcall	_printf
-      00016F 15 81            [12] 1561 	dec	sp
-      000171 15 81            [12] 1562 	dec	sp
-      000173 15 81            [12] 1563 	dec	sp
-      000175 75 08 02         [24] 1564 	mov	_local_ct,#0x02
-      000178 75 09 00         [24] 1565 	mov	(_local_ct + 1),#0x00
-      00017B 74 FA            [12] 1566 	mov	a,#___str_4
-      00017D C0 E0            [24] 1567 	push	acc
-      00017F 74 09            [12] 1568 	mov	a,#(___str_4 >> 8)
-      000181 C0 E0            [24] 1569 	push	acc
-      000183 74 80            [12] 1570 	mov	a,#0x80
-      000185 C0 E0            [24] 1571 	push	acc
-      000187 12 03 C4         [24] 1572 	lcall	_printf
-      00018A 15 81            [12] 1573 	dec	sp
-      00018C 15 81            [12] 1574 	dec	sp
-      00018E 15 81            [12] 1575 	dec	sp
-      000190 D0 07            [24] 1576 	pop	ar7
-                           000104  1577 	C$SPI0.c$85$1$38 ==.
-                                   1578 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:85: while(!TI0);
-      000192                       1579 00104$:
-                           000104  1580 	C$SPI0.c$86$1$38 ==.
-                                   1581 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:86: TI0 = 0;
-      000192 10 99 02         [24] 1582 	jbc	_TI0,00120$
-      000195 80 FB            [24] 1583 	sjmp	00104$
-      000197                       1584 00120$:
-                           000109  1585 	C$SPI0.c$87$1$38 ==.
-                                   1586 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:87: SBUF0 = c;
-      000197 8F 99            [24] 1587 	mov	_SBUF0,r7
-                           00010B  1588 	C$SPI0.c$88$1$38 ==.
-                           00010B  1589 	XG$local$0$0 ==.
-      000199 22               [24] 1590 	ret
-                                   1591 ;------------------------------------------------------------
-                                   1592 ;Allocation info for local variables in function 'foreign'
-                                   1593 ;------------------------------------------------------------
-                                   1594 ;c                         Allocated to registers r7 
-                                   1595 ;------------------------------------------------------------
-                           00010C  1596 	G$foreign$0$0 ==.
-                           00010C  1597 	C$SPI0.c$90$1$38 ==.
-                                   1598 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:90: void foreign(char c)
-                                   1599 ;	-----------------------------------------
-                                   1600 ;	 function foreign
-                                   1601 ;	-----------------------------------------
-      00019A                       1602 _foreign:
-      00019A AF 82            [24] 1603 	mov	r7,dpl
-                           00010E  1604 	C$SPI0.c$92$1$42 ==.
-                                   1605 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:92: printf("\033[%d;1H",alien_ct);
-      00019C C0 07            [24] 1606 	push	ar7
-      00019E C0 0A            [24] 1607 	push	_alien_ct
-      0001A0 C0 0B            [24] 1608 	push	(_alien_ct + 1)
-      0001A2 74 ED            [12] 1609 	mov	a,#___str_2
-      0001A4 C0 E0            [24] 1610 	push	acc
-      0001A6 74 09            [12] 1611 	mov	a,#(___str_2 >> 8)
-      0001A8 C0 E0            [24] 1612 	push	acc
-      0001AA 74 80            [12] 1613 	mov	a,#0x80
-      0001AC C0 E0            [24] 1614 	push	acc
-      0001AE 12 03 C4         [24] 1615 	lcall	_printf
-      0001B1 E5 81            [12] 1616 	mov	a,sp
-      0001B3 24 FB            [12] 1617 	add	a,#0xfb
-      0001B5 F5 81            [12] 1618 	mov	sp,a
-      0001B7 D0 07            [24] 1619 	pop	ar7
-                           00012B  1620 	C$SPI0.c$93$1$42 ==.
-                                   1621 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:93: if(alien_ct < 25){alien_ct++;}
-      0001B9 C3               [12] 1622 	clr	c
-      0001BA E5 0A            [12] 1623 	mov	a,_alien_ct
-      0001BC 94 19            [12] 1624 	subb	a,#0x19
-      0001BE E5 0B            [12] 1625 	mov	a,(_alien_ct + 1)
-      0001C0 64 80            [12] 1626 	xrl	a,#0x80
-      0001C2 94 80            [12] 1627 	subb	a,#0x80
-      0001C4 50 0A            [24] 1628 	jnc	00102$
-      0001C6 05 0A            [12] 1629 	inc	_alien_ct
-      0001C8 E4               [12] 1630 	clr	a
-      0001C9 B5 0A 4D         [24] 1631 	cjne	a,_alien_ct,00104$
-      0001CC 05 0B            [12] 1632 	inc	(_alien_ct + 1)
-      0001CE 80 49            [24] 1633 	sjmp	00104$
-      0001D0                       1634 00102$:
-                           000142  1635 	C$SPI0.c$94$2$44 ==.
-                                   1636 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:94: else{printf("\033[12;1H");printf("\033[J");alien_ct = 12;printf("\033[12;1H");}
-      0001D0 C0 07            [24] 1637 	push	ar7
-      0001D2 74 01            [12] 1638 	mov	a,#___str_5
-      0001D4 C0 E0            [24] 1639 	push	acc
-      0001D6 74 0A            [12] 1640 	mov	a,#(___str_5 >> 8)
-      0001D8 C0 E0            [24] 1641 	push	acc
-      0001DA 74 80            [12] 1642 	mov	a,#0x80
-      0001DC C0 E0            [24] 1643 	push	acc
-      0001DE 12 03 C4         [24] 1644 	lcall	_printf
-      0001E1 15 81            [12] 1645 	dec	sp
-      0001E3 15 81            [12] 1646 	dec	sp
-      0001E5 15 81            [12] 1647 	dec	sp
-      0001E7 74 09            [12] 1648 	mov	a,#___str_6
-      0001E9 C0 E0            [24] 1649 	push	acc
-      0001EB 74 0A            [12] 1650 	mov	a,#(___str_6 >> 8)
-      0001ED C0 E0            [24] 1651 	push	acc
-      0001EF 74 80            [12] 1652 	mov	a,#0x80
-      0001F1 C0 E0            [24] 1653 	push	acc
-      0001F3 12 03 C4         [24] 1654 	lcall	_printf
-      0001F6 15 81            [12] 1655 	dec	sp
-      0001F8 15 81            [12] 1656 	dec	sp
-      0001FA 15 81            [12] 1657 	dec	sp
-      0001FC 75 0A 0C         [24] 1658 	mov	_alien_ct,#0x0C
-      0001FF 75 0B 00         [24] 1659 	mov	(_alien_ct + 1),#0x00
-      000202 74 01            [12] 1660 	mov	a,#___str_5
-      000204 C0 E0            [24] 1661 	push	acc
-      000206 74 0A            [12] 1662 	mov	a,#(___str_5 >> 8)
-      000208 C0 E0            [24] 1663 	push	acc
-      00020A 74 80            [12] 1664 	mov	a,#0x80
-      00020C C0 E0            [24] 1665 	push	acc
-      00020E 12 03 C4         [24] 1666 	lcall	_printf
-      000211 15 81            [12] 1667 	dec	sp
-      000213 15 81            [12] 1668 	dec	sp
-      000215 15 81            [12] 1669 	dec	sp
-      000217 D0 07            [24] 1670 	pop	ar7
-                           00018B  1671 	C$SPI0.c$95$1$42 ==.
-                                   1672 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:95: while(!TI0);
-      000219                       1673 00104$:
-                           00018B  1674 	C$SPI0.c$96$1$42 ==.
-                                   1675 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:96: TI0 = 0;
-      000219 10 99 02         [24] 1676 	jbc	_TI0,00120$
-      00021C 80 FB            [24] 1677 	sjmp	00104$
-      00021E                       1678 00120$:
-                           000190  1679 	C$SPI0.c$97$1$42 ==.
-                                   1680 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:97: SBUF0 = c;
-      00021E 8F 99            [24] 1681 	mov	_SBUF0,r7
-                           000192  1682 	C$SPI0.c$98$1$42 ==.
-                           000192  1683 	XG$foreign$0$0 ==.
-      000220 22               [24] 1684 	ret
-                                   1685 ;------------------------------------------------------------
-                                   1686 ;Allocation info for local variables in function 'read'
-                                   1687 ;------------------------------------------------------------
-                                   1688 ;i                         Allocated to registers 
-                                   1689 ;------------------------------------------------------------
-                           000193  1690 	G$read$0$0 ==.
-                           000193  1691 	C$SPI0.c$99$1$42 ==.
-                                   1692 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:99: char read ()
-                                   1693 ;	-----------------------------------------
-                                   1694 ;	 function read
-                                   1695 ;	-----------------------------------------
-      000221                       1696 _read:
-                           000193  1697 	C$SPI0.c$102$1$45 ==.
-                                   1698 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:102: SFRPAGE = SPI0_PAGE;
-      000221 75 84 00         [24] 1699 	mov	_SFRPAGE,#0x00
-                           000196  1700 	C$SPI0.c$103$1$45 ==.
-                                   1701 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:103: NSSMD0 = 0;
-      000224 C2 FA            [12] 1702 	clr	_NSSMD0
-                           000198  1703 	C$SPI0.c$104$1$45 ==.
-                                   1704 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:104: for (i=0;i<101;i++);
-      000226 7E 65            [12] 1705 	mov	r6,#0x65
-      000228 7F 00            [12] 1706 	mov	r7,#0x00
-      00022A                       1707 00107$:
-      00022A 1E               [12] 1708 	dec	r6
-      00022B BE FF 01         [24] 1709 	cjne	r6,#0xFF,00121$
-      00022E 1F               [12] 1710 	dec	r7
-      00022F                       1711 00121$:
-      00022F EE               [12] 1712 	mov	a,r6
-      000230 4F               [12] 1713 	orl	a,r7
-      000231 70 F7            [24] 1714 	jnz	00107$
-                           0001A5  1715 	C$SPI0.c$106$1$45 ==.
-                                   1716 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:106: while(!SPIF);
-      000233                       1717 00102$:
-      000233 30 FF FD         [24] 1718 	jnb	_SPIF,00102$
-                           0001A8  1719 	C$SPI0.c$107$1$45 ==.
-                                   1720 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:107: return SPI0DAT;
-      000236 85 9B 82         [24] 1721 	mov	dpl,_SPI0DAT
-                           0001AB  1722 	C$SPI0.c$108$1$45 ==.
-                           0001AB  1723 	XG$read$0$0 ==.
-      000239 22               [24] 1724 	ret
-                                   1725 ;------------------------------------------------------------
-                                   1726 ;Allocation info for local variables in function 'dread'
-                                   1727 ;------------------------------------------------------------
-                                   1728 ;i                         Allocated to registers r5 r6 
-                                   1729 ;dumb                      Allocated to registers r7 
-                                   1730 ;------------------------------------------------------------
-                           0001AC  1731 	G$dread$0$0 ==.
-                           0001AC  1732 	C$SPI0.c$110$1$45 ==.
-                                   1733 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:110: unsigned char dread()
-                                   1734 ;	-----------------------------------------
-                                   1735 ;	 function dread
-                                   1736 ;	-----------------------------------------
-      00023A                       1737 _dread:
-                           0001AC  1738 	C$SPI0.c$113$1$45 ==.
-                                   1739 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:113: char dumb = 0x65;
-      00023A 7F 65            [12] 1740 	mov	r7,#0x65
-                           0001AE  1741 	C$SPI0.c$114$1$46 ==.
-                                   1742 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:114: SFRPAGE = SPI0_PAGE;
-      00023C 75 84 00         [24] 1743 	mov	_SFRPAGE,#0x00
-                           0001B1  1744 	C$SPI0.c$115$1$46 ==.
-                                   1745 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:115: NSSMD0 = 0;
-      00023F C2 FA            [12] 1746 	clr	_NSSMD0
-                           0001B3  1747 	C$SPI0.c$116$1$46 ==.
-                                   1748 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:116: for (i=0;i<101;i++);
-      000241 7D 65            [12] 1749 	mov	r5,#0x65
-      000243 7E 00            [12] 1750 	mov	r6,#0x00
-      000245                       1751 00114$:
-      000245 1D               [12] 1752 	dec	r5
-      000246 BD FF 01         [24] 1753 	cjne	r5,#0xFF,00150$
-      000249 1E               [12] 1754 	dec	r6
-      00024A                       1755 00150$:
-      00024A ED               [12] 1756 	mov	a,r5
-      00024B 4E               [12] 1757 	orl	a,r6
-      00024C 70 F7            [24] 1758 	jnz	00114$
-                           0001C0  1759 	C$SPI0.c$117$1$46 ==.
-                                   1760 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:117: while(SPIF){SPIF=0;}//make sure SPIF is not busy
-      00024E                       1761 00102$:
-      00024E 10 FF 02         [24] 1762 	jbc	_SPIF,00152$
-      000251 80 02            [24] 1763 	sjmp	00104$
-      000253                       1764 00152$:
-      000253 80 F9            [24] 1765 	sjmp	00102$
-      000255                       1766 00104$:
-                           0001C7  1767 	C$SPI0.c$118$1$46 ==.
-                                   1768 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:118: SPI0DAT = dumb;
-      000255 8F 9B            [24] 1769 	mov	_SPI0DAT,r7
-                           0001C9  1770 	C$SPI0.c$119$1$46 ==.
-                                   1771 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:119: while(!SPIF);
-      000257                       1772 00105$:
-      000257 30 FF FD         [24] 1773 	jnb	_SPIF,00105$
-                           0001CC  1774 	C$SPI0.c$120$1$46 ==.
-                                   1775 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:120: NSSMD0 = 1;
-      00025A D2 FA            [12] 1776 	setb	_NSSMD0
-                           0001CE  1777 	C$SPI0.c$121$1$46 ==.
-                                   1778 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:121: for (i=0;i<101;i++);
-      00025C 7E 65            [12] 1779 	mov	r6,#0x65
-      00025E 7F 00            [12] 1780 	mov	r7,#0x00
-      000260                       1781 00117$:
-      000260 1E               [12] 1782 	dec	r6
-      000261 BE FF 01         [24] 1783 	cjne	r6,#0xFF,00154$
-      000264 1F               [12] 1784 	dec	r7
-      000265                       1785 00154$:
-      000265 EE               [12] 1786 	mov	a,r6
-      000266 4F               [12] 1787 	orl	a,r7
-                           0001D9  1788 	C$SPI0.c$122$1$46 ==.
-                                   1789 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:122: counts =1 ;
-      000267 70 F7            [24] 1790 	jnz	00117$
-      000269 75 0C 01         [24] 1791 	mov	_counts,#0x01
-      00026C F5 0D            [12] 1792 	mov	(_counts + 1),a
-                           0001E0  1793 	C$SPI0.c$123$1$46 ==.
-                                   1794 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:123: while(counts < 2000);
-      00026E                       1795 00109$:
-      00026E C3               [12] 1796 	clr	c
-      00026F E5 0C            [12] 1797 	mov	a,_counts
-      000271 94 D0            [12] 1798 	subb	a,#0xD0
-      000273 E5 0D            [12] 1799 	mov	a,(_counts + 1)
-      000275 94 07            [12] 1800 	subb	a,#0x07
-      000277 40 F5            [24] 1801 	jc	00109$
-                           0001EB  1802 	C$SPI0.c$124$1$46 ==.
-                                   1803 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:124: return SPI0DAT;
-      000279 85 9B 82         [24] 1804 	mov	dpl,_SPI0DAT
-                           0001EE  1805 	C$SPI0.c$125$1$46 ==.
-                           0001EE  1806 	XG$dread$0$0 ==.
-      00027C 22               [24] 1807 	ret
-                                   1808 ;------------------------------------------------------------
-                                   1809 ;Allocation info for local variables in function 'write'
-                                   1810 ;------------------------------------------------------------
-                                   1811 ;c                         Allocated to registers r7 
-                                   1812 ;i                         Allocated to registers 
-                                   1813 ;------------------------------------------------------------
-                           0001EF  1814 	G$write$0$0 ==.
-                           0001EF  1815 	C$SPI0.c$127$1$46 ==.
-                                   1816 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:127: void write(char c)
-                                   1817 ;	-----------------------------------------
-                                   1818 ;	 function write
-                                   1819 ;	-----------------------------------------
-      00027D                       1820 _write:
-      00027D AF 82            [24] 1821 	mov	r7,dpl
-                           0001F1  1822 	C$SPI0.c$130$1$49 ==.
-                                   1823 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:130: SFRPAGE = SPI0_PAGE;
-      00027F 75 84 00         [24] 1824 	mov	_SFRPAGE,#0x00
-                           0001F4  1825 	C$SPI0.c$131$1$49 ==.
-                                   1826 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:131: SPIF = 0;
-      000282 C2 FF            [12] 1827 	clr	_SPIF
-                           0001F6  1828 	C$SPI0.c$132$1$49 ==.
-                                   1829 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:132: NSSMD0 = 0;
-      000284 C2 FA            [12] 1830 	clr	_NSSMD0
-                           0001F8  1831 	C$SPI0.c$133$1$49 ==.
-                                   1832 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:133: while(SPIF){SPIF=0;}//make sure SPIF is not busy
-      000286                       1833 00101$:
-      000286 10 FF 02         [24] 1834 	jbc	_SPIF,00130$
-      000289 80 02            [24] 1835 	sjmp	00103$
-      00028B                       1836 00130$:
-      00028B 80 F9            [24] 1837 	sjmp	00101$
-      00028D                       1838 00103$:
-                           0001FF  1839 	C$SPI0.c$134$1$49 ==.
-                                   1840 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:134: SPI0DAT = c;
-      00028D 8F 9B            [24] 1841 	mov	_SPI0DAT,r7
-                           000201  1842 	C$SPI0.c$135$1$49 ==.
-                                   1843 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:135: while(!SPIF);
-      00028F                       1844 00104$:
-      00028F 30 FF FD         [24] 1845 	jnb	_SPIF,00104$
-                           000204  1846 	C$SPI0.c$136$1$49 ==.
-                                   1847 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:136: for (i=0;i<101;i++);
-      000292 7E 65            [12] 1848 	mov	r6,#0x65
-      000294 7F 00            [12] 1849 	mov	r7,#0x00
-      000296                       1850 00110$:
-      000296 1E               [12] 1851 	dec	r6
-      000297 BE FF 01         [24] 1852 	cjne	r6,#0xFF,00132$
-      00029A 1F               [12] 1853 	dec	r7
-      00029B                       1854 00132$:
-      00029B EE               [12] 1855 	mov	a,r6
-      00029C 4F               [12] 1856 	orl	a,r7
-      00029D 70 F7            [24] 1857 	jnz	00110$
-                           000211  1858 	C$SPI0.c$137$1$49 ==.
-                           000211  1859 	XG$write$0$0 ==.
-      00029F 22               [24] 1860 	ret
-                                   1861 ;------------------------------------------------------------
-                                   1862 ;Allocation info for local variables in function 'dummy'
-                                   1863 ;------------------------------------------------------------
-                                   1864 ;r                         Allocated to registers r7 
-                                   1865 ;i                         Allocated to registers 
-                                   1866 ;------------------------------------------------------------
-                           000212  1867 	G$dummy$0$0 ==.
-                           000212  1868 	C$SPI0.c$138$1$49 ==.
-                                   1869 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:138: void dummy ()
-                                   1870 ;	-----------------------------------------
-                                   1871 ;	 function dummy
-                                   1872 ;	-----------------------------------------
-      0002A0                       1873 _dummy:
-                           000212  1874 	C$SPI0.c$142$1$51 ==.
-                                   1875 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:142: r = 0x00;
-      0002A0 7F 00            [12] 1876 	mov	r7,#0x00
-                           000214  1877 	C$SPI0.c$145$1$51 ==.
-                                   1878 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:145: printf("   you pressed <DEL>");
-      0002A2 C0 07            [24] 1879 	push	ar7
-      0002A4 74 0D            [12] 1880 	mov	a,#___str_7
-      0002A6 C0 E0            [24] 1881 	push	acc
-      0002A8 74 0A            [12] 1882 	mov	a,#(___str_7 >> 8)
-      0002AA C0 E0            [24] 1883 	push	acc
-      0002AC 74 80            [12] 1884 	mov	a,#0x80
-      0002AE C0 E0            [24] 1885 	push	acc
-      0002B0 12 03 C4         [24] 1886 	lcall	_printf
-      0002B3 15 81            [12] 1887 	dec	sp
-      0002B5 15 81            [12] 1888 	dec	sp
-      0002B7 15 81            [12] 1889 	dec	sp
-      0002B9 D0 07            [24] 1890 	pop	ar7
-                           00022D  1891 	C$SPI0.c$146$1$51 ==.
-                                   1892 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:146: while(r!=0xFF)
-      0002BB                       1893 00105$:
-      0002BB BF FF 02         [24] 1894 	cjne	r7,#0xFF,00132$
-      0002BE 80 3D            [24] 1895 	sjmp	00111$
-      0002C0                       1896 00132$:
-                           000232  1897 	C$SPI0.c$148$2$52 ==.
-                                   1898 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:148: counts =0 ;
-      0002C0 E4               [12] 1899 	clr	a
-      0002C1 F5 0C            [12] 1900 	mov	_counts,a
-      0002C3 F5 0D            [12] 1901 	mov	(_counts + 1),a
-                           000237  1902 	C$SPI0.c$149$2$52 ==.
-                                   1903 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:149: while(counts < 49999);
-      0002C5                       1904 00101$:
-      0002C5 AB 0C            [24] 1905 	mov	r3,_counts
-      0002C7 AC 0D            [24] 1906 	mov	r4,(_counts + 1)
-      0002C9 7D 00            [12] 1907 	mov	r5,#0x00
-      0002CB 7E 00            [12] 1908 	mov	r6,#0x00
-      0002CD C3               [12] 1909 	clr	c
-      0002CE EB               [12] 1910 	mov	a,r3
-      0002CF 94 4F            [12] 1911 	subb	a,#0x4F
-      0002D1 EC               [12] 1912 	mov	a,r4
-      0002D2 94 C3            [12] 1913 	subb	a,#0xC3
-      0002D4 ED               [12] 1914 	mov	a,r5
-      0002D5 94 00            [12] 1915 	subb	a,#0x00
-      0002D7 EE               [12] 1916 	mov	a,r6
-      0002D8 64 80            [12] 1917 	xrl	a,#0x80
-      0002DA 94 80            [12] 1918 	subb	a,#0x80
-      0002DC 40 E7            [24] 1919 	jc	00101$
-                           000250  1920 	C$SPI0.c$150$2$52 ==.
-                                   1921 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:150: r = dread();
-      0002DE 12 02 3A         [24] 1922 	lcall	_dread
-      0002E1 AF 82            [24] 1923 	mov	r7,dpl
-                           000255  1924 	C$SPI0.c$151$2$52 ==.
-                                   1925 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:151: NSSMD0 = 0;
-      0002E3 C2 FA            [12] 1926 	clr	_NSSMD0
-                           000257  1927 	C$SPI0.c$152$2$52 ==.
-                                   1928 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:152: foreign(r);
-      0002E5 8F 82            [24] 1929 	mov	dpl,r7
-      0002E7 C0 07            [24] 1930 	push	ar7
-      0002E9 12 01 9A         [24] 1931 	lcall	_foreign
-      0002EC D0 07            [24] 1932 	pop	ar7
-                           000260  1933 	C$SPI0.c$153$2$52 ==.
-                                   1934 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:153: for (i=0;i<101;i++);
-      0002EE 7D 65            [12] 1935 	mov	r5,#0x65
-      0002F0 7E 00            [12] 1936 	mov	r6,#0x00
-      0002F2                       1937 00110$:
-      0002F2 1D               [12] 1938 	dec	r5
-      0002F3 BD FF 01         [24] 1939 	cjne	r5,#0xFF,00134$
-      0002F6 1E               [12] 1940 	dec	r6
-      0002F7                       1941 00134$:
-      0002F7 ED               [12] 1942 	mov	a,r5
-      0002F8 4E               [12] 1943 	orl	a,r6
-      0002F9 70 F7            [24] 1944 	jnz	00110$
-      0002FB 80 BE            [24] 1945 	sjmp	00105$
-      0002FD                       1946 00111$:
-                           00026F  1947 	C$SPI0.c$155$1$51 ==.
-                           00026F  1948 	XG$dummy$0$0 ==.
-      0002FD 22               [24] 1949 	ret
-                                   1950 ;------------------------------------------------------------
-                                   1951 ;Allocation info for local variables in function 'Timer1_ISR'
-                                   1952 ;------------------------------------------------------------
-                           000270  1953 	G$Timer1_ISR$0$0 ==.
-                           000270  1954 	C$SPI0.c$157$1$51 ==.
-                                   1955 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:157: void Timer1_ISR(void) __interrupt 3
-                                   1956 ;	-----------------------------------------
-                                   1957 ;	 function Timer1_ISR
-                                   1958 ;	-----------------------------------------
-      0002FE                       1959 _Timer1_ISR:
-      0002FE C0 E0            [24] 1960 	push	acc
-      000300 C0 D0            [24] 1961 	push	psw
-                           000274  1962 	C$SPI0.c$159$1$54 ==.
-                                   1963 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:159: SFRPAGE = TIMER01_PAGE;
-      000302 75 84 00         [24] 1964 	mov	_SFRPAGE,#0x00
-                           000277  1965 	C$SPI0.c$160$1$54 ==.
-                                   1966 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:160: TF1 = 0;
-      000305 C2 8F            [12] 1967 	clr	_TF1
-                           000279  1968 	C$SPI0.c$161$1$54 ==.
-                                   1969 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:161: counts ++;
-      000307 05 0C            [12] 1970 	inc	_counts
-      000309 E4               [12] 1971 	clr	a
-      00030A B5 0C 02         [24] 1972 	cjne	a,_counts,00103$
-      00030D 05 0D            [12] 1973 	inc	(_counts + 1)
-      00030F                       1974 00103$:
-                           000281  1975 	C$SPI0.c$163$1$54 ==.
-                                   1976 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:163: TL1 = 0;
-      00030F 75 8B 00         [24] 1977 	mov	_TL1,#0x00
-                           000284  1978 	C$SPI0.c$164$1$54 ==.
-                                   1979 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:164: TH1 = 0;	
-      000312 75 8D 00         [24] 1980 	mov	_TH1,#0x00
-      000315 D0 D0            [24] 1981 	pop	psw
-      000317 D0 E0            [24] 1982 	pop	acc
-                           00028B  1983 	C$SPI0.c$165$1$54 ==.
-                           00028B  1984 	XG$Timer1_ISR$0$0 ==.
-      000319 32               [24] 1985 	reti
-                                   1986 ;	eliminated unneeded mov psw,# (no regs used in bank)
-                                   1987 ;	eliminated unneeded push/pop dpl
-                                   1988 ;	eliminated unneeded push/pop dph
-                                   1989 ;	eliminated unneeded push/pop b
-                                   1990 ;------------------------------------------------------------
-                                   1991 ;Allocation info for local variables in function 'SYSCLK_INIT'
-                                   1992 ;------------------------------------------------------------
-                                   1993 ;j                         Allocated to registers 
-                                   1994 ;------------------------------------------------------------
-                           00028C  1995 	G$SYSCLK_INIT$0$0 ==.
-                           00028C  1996 	C$SPI0.c$167$1$54 ==.
-                                   1997 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:167: void SYSCLK_INIT()
-                                   1998 ;	-----------------------------------------
-                                   1999 ;	 function SYSCLK_INIT
-                                   2000 ;	-----------------------------------------
-      00031A                       2001 _SYSCLK_INIT:
-                           00028C  2002 	C$SPI0.c$171$1$55 ==.
-                                   2003 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:171: SFRPAGE = CONFIG_PAGE;
-      00031A 75 84 0F         [24] 2004 	mov	_SFRPAGE,#0x0F
-                           00028F  2005 	C$SPI0.c$172$1$55 ==.
-                                   2006 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:172: OSCXCN  = 0x67;             // Start external oscillator
-      00031D 75 8C 67         [24] 2007 	mov	_OSCXCN,#0x67
-                           000292  2008 	C$SPI0.c$173$1$55 ==.
-                                   2009 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:173: for(j=0; j < 256; j++);     // Wait for the oscillator to start up.
-      000320 7E 00            [12] 2010 	mov	r6,#0x00
-      000322 7F 01            [12] 2011 	mov	r7,#0x01
-      000324                       2012 00107$:
-      000324 1E               [12] 2013 	dec	r6
-      000325 BE FF 01         [24] 2014 	cjne	r6,#0xFF,00121$
-      000328 1F               [12] 2015 	dec	r7
-      000329                       2016 00121$:
-      000329 EE               [12] 2017 	mov	a,r6
-      00032A 4F               [12] 2018 	orl	a,r7
-      00032B 70 F7            [24] 2019 	jnz	00107$
-                           00029F  2020 	C$SPI0.c$174$1$55 ==.
-                                   2021 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:174: while(!(OSCXCN & 0x80));    // Check to see if the Crystal Oscillator Valid Flag is set.
-      00032D                       2022 00102$:
-      00032D E5 8C            [12] 2023 	mov	a,_OSCXCN
-      00032F 30 E7 FB         [24] 2024 	jnb	acc.7,00102$
-                           0002A4  2025 	C$SPI0.c$175$1$55 ==.
-                                   2026 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:175: CLKSEL  = 0x01;             // SYSCLK derived from the External Oscillator circuit.
-      000332 75 97 01         [24] 2027 	mov	_CLKSEL,#0x01
-                           0002A7  2028 	C$SPI0.c$176$1$55 ==.
-                                   2029 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:176: OSCICN  = 0x00;             // Disable the internal oscillator.
-      000335 75 8A 00         [24] 2030 	mov	_OSCICN,#0x00
-                           0002AA  2031 	C$SPI0.c$177$1$55 ==.
-                           0002AA  2032 	XG$SYSCLK_INIT$0$0 ==.
-      000338 22               [24] 2033 	ret
-                                   2034 ;------------------------------------------------------------
-                                   2035 ;Allocation info for local variables in function 'Timer_Init'
-                                   2036 ;------------------------------------------------------------
-                           0002AB  2037 	G$Timer_Init$0$0 ==.
-                           0002AB  2038 	C$SPI0.c$179$1$55 ==.
-                                   2039 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:179: void Timer_Init()
-                                   2040 ;	-----------------------------------------
-                                   2041 ;	 function Timer_Init
-                                   2042 ;	-----------------------------------------
-      000339                       2043 _Timer_Init:
-                           0002AB  2044 	C$SPI0.c$181$1$56 ==.
-                                   2045 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:181: SFRPAGE   = TIMER01_PAGE;
-      000339 75 84 00         [24] 2046 	mov	_SFRPAGE,#0x00
-                           0002AE  2047 	C$SPI0.c$182$1$56 ==.
-                                   2048 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:182: TCON      = 0x40;
-      00033C 75 88 40         [24] 2049 	mov	_TCON,#0x40
-                           0002B1  2050 	C$SPI0.c$183$1$56 ==.
-                                   2051 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:183: TMOD      = 0x20;
-      00033F 75 89 20         [24] 2052 	mov	_TMOD,#0x20
-                           0002B4  2053 	C$SPI0.c$184$1$56 ==.
-                                   2054 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:184: CKCON     = 0x10;
-      000342 75 8E 10         [24] 2055 	mov	_CKCON,#0x10
-                           0002B7  2056 	C$SPI0.c$185$1$56 ==.
-                                   2057 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:185: TH1       = 0xA0;
-      000345 75 8D A0         [24] 2058 	mov	_TH1,#0xA0
-                           0002BA  2059 	C$SPI0.c$186$1$56 ==.
-                                   2060 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:186: TL1 = TH1;
-      000348 85 8D 8B         [24] 2061 	mov	_TL1,_TH1
-                           0002BD  2062 	C$SPI0.c$187$1$56 ==.
-                                   2063 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:187: SFRPAGE   = TMR2_PAGE;
-      00034B 75 84 00         [24] 2064 	mov	_SFRPAGE,#0x00
-                           0002C0  2065 	C$SPI0.c$188$1$56 ==.
-                                   2066 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:188: TMR2CN    = 0x04;
-      00034E 75 C8 04         [24] 2067 	mov	_TMR2CN,#0x04
-                           0002C3  2068 	C$SPI0.c$189$1$56 ==.
-                                   2069 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:189: TMR2CF    = 0x08;
-      000351 75 C9 08         [24] 2070 	mov	_TMR2CF,#0x08
-                           0002C6  2071 	C$SPI0.c$190$1$56 ==.
-                                   2072 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:190: TMR2H	  = 0xFF;
-      000354 75 CD FF         [24] 2073 	mov	_TMR2H,#0xFF
-                           0002C9  2074 	C$SPI0.c$191$1$56 ==.
-                                   2075 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:191: TMR2L 	  = 0x70;
-      000357 75 CC 70         [24] 2076 	mov	_TMR2L,#0x70
-                           0002CC  2077 	C$SPI0.c$192$1$56 ==.
-                                   2078 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:192: RCAP2L    = 0x70;
-      00035A 75 CA 70         [24] 2079 	mov	_RCAP2L,#0x70
-                           0002CF  2080 	C$SPI0.c$193$1$56 ==.
-                                   2081 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:193: RCAP2H    = 0xFF;
-      00035D 75 CB FF         [24] 2082 	mov	_RCAP2H,#0xFF
-                           0002D2  2083 	C$SPI0.c$194$1$56 ==.
-                           0002D2  2084 	XG$Timer_Init$0$0 ==.
-      000360 22               [24] 2085 	ret
-                                   2086 ;------------------------------------------------------------
-                                   2087 ;Allocation info for local variables in function 'UART_Init'
-                                   2088 ;------------------------------------------------------------
-                           0002D3  2089 	G$UART_Init$0$0 ==.
-                           0002D3  2090 	C$SPI0.c$195$1$56 ==.
-                                   2091 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:195: void UART_Init()
-                                   2092 ;	-----------------------------------------
-                                   2093 ;	 function UART_Init
-                                   2094 ;	-----------------------------------------
-      000361                       2095 _UART_Init:
-                           0002D3  2096 	C$SPI0.c$197$1$57 ==.
-                                   2097 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:197: SFRPAGE   = UART0_PAGE;//Same as Timer 2 and Timer 1 SFR PAGES
-      000361 75 84 00         [24] 2098 	mov	_SFRPAGE,#0x00
-                           0002D6  2099 	C$SPI0.c$198$1$57 ==.
-                                   2100 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:198: TR2		  = 1;//Start Timer 2
-      000364 D2 CA            [12] 2101 	setb	_TR2
-                           0002D8  2102 	C$SPI0.c$199$1$57 ==.
-                                   2103 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:199: SCON0     = 0x50;
-      000366 75 98 50         [24] 2104 	mov	_SCON0,#0x50
-                           0002DB  2105 	C$SPI0.c$200$1$57 ==.
-                                   2106 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:200: SSTA0   = 0x15;
-      000369 75 91 15         [24] 2107 	mov	_SSTA0,#0x15
-                           0002DE  2108 	C$SPI0.c$201$1$57 ==.
-                                   2109 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:201: TI0		  = 1; // Indicate TX0 is ready
-      00036C D2 99            [12] 2110 	setb	_TI0
-                           0002E0  2111 	C$SPI0.c$202$1$57 ==.
-                                   2112 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:202: TR1		  = 1; //Start Timer 1
-      00036E D2 8E            [12] 2113 	setb	_TR1
-                           0002E2  2114 	C$SPI0.c$203$1$57 ==.
-                                   2115 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:203: SFRPAGE   = UART1_PAGE;
-      000370 75 84 01         [24] 2116 	mov	_SFRPAGE,#0x01
-                           0002E5  2117 	C$SPI0.c$204$1$57 ==.
-                                   2118 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:204: SCON1     = 0x50;
-      000373 75 98 50         [24] 2119 	mov	_SCON1,#0x50
-                           0002E8  2120 	C$SPI0.c$205$1$57 ==.
-                                   2121 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:205: TI1		  = 1; //Indicatie TX1 is ready
-      000376 D2 99            [12] 2122 	setb	_TI1
-                           0002EA  2123 	C$SPI0.c$206$1$57 ==.
-                           0002EA  2124 	XG$UART_Init$0$0 ==.
-      000378 22               [24] 2125 	ret
-                                   2126 ;------------------------------------------------------------
-                                   2127 ;Allocation info for local variables in function 'Port_IO_Init'
-                                   2128 ;------------------------------------------------------------
-                           0002EB  2129 	G$Port_IO_Init$0$0 ==.
-                           0002EB  2130 	C$SPI0.c$207$1$57 ==.
-                                   2131 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:207: void Port_IO_Init()
-                                   2132 ;	-----------------------------------------
-                                   2133 ;	 function Port_IO_Init
-                                   2134 ;	-----------------------------------------
-      000379                       2135 _Port_IO_Init:
-                           0002EB  2136 	C$SPI0.c$209$1$58 ==.
-                                   2137 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:209: SFRPAGE   = CONFIG_PAGE;
-      000379 75 84 0F         [24] 2138 	mov	_SFRPAGE,#0x0F
-                           0002EE  2139 	C$SPI0.c$216$1$58 ==.
-                                   2140 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:216: P0MDOUT = 0x75;
-      00037C 75 A4 75         [24] 2141 	mov	_P0MDOUT,#0x75
-                           0002F1  2142 	C$SPI0.c$217$1$58 ==.
-                                   2143 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:217: P0 = 0xAA;
-      00037F 75 80 AA         [24] 2144 	mov	_P0,#0xAA
-                           0002F4  2145 	C$SPI0.c$221$1$58 ==.
-                                   2146 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:221: WDTCN   = 0xDE;             // Disable watchdog timer.
-      000382 75 FF DE         [24] 2147 	mov	_WDTCN,#0xDE
-                           0002F7  2148 	C$SPI0.c$222$1$58 ==.
-                                   2149 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:222: WDTCN   = 0xAD;
-      000385 75 FF AD         [24] 2150 	mov	_WDTCN,#0xAD
-                           0002FA  2151 	C$SPI0.c$223$1$58 ==.
-                                   2152 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:223: EA 		  = 1; // enable global interrupts
-      000388 D2 AF            [12] 2153 	setb	_EA
-                           0002FC  2154 	C$SPI0.c$224$1$58 ==.
-                                   2155 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:224: XBR0      = 0x06;
-      00038A 75 E1 06         [24] 2156 	mov	_XBR0,#0x06
-                           0002FF  2157 	C$SPI0.c$225$1$58 ==.
-                                   2158 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:225: XBR2      = 0x44;
-      00038D 75 E3 44         [24] 2159 	mov	_XBR2,#0x44
-                           000302  2160 	C$SPI0.c$226$1$58 ==.
-                           000302  2161 	XG$Port_IO_Init$0$0 ==.
-      000390 22               [24] 2162 	ret
+      00001E                       1308 __sdcc_program_startup:
+      00001E 02 00 A3         [24] 1309 	ljmp	_main
+                                   1310 ;	return from main will return to caller
+                                   1311 ;--------------------------------------------------------
+                                   1312 ; code
+                                   1313 ;--------------------------------------------------------
+                                   1314 	.area CSEG    (CODE)
+                                   1315 ;------------------------------------------------------------
+                                   1316 ;Allocation info for local variables in function 'putchar'
+                                   1317 ;------------------------------------------------------------
+                                   1318 ;c                         Allocated to registers r7 
+                                   1319 ;------------------------------------------------------------
+                           000000  1320 	G$putchar$0$0 ==.
+                           000000  1321 	C$putget.h$18$0$0 ==.
+                                   1322 ;	C:/Users/Christina/Documents/MPS/Versions/Lab_03/3.3 - SPI0_loop/putget.h:18: void putchar(char c)
+                                   1323 ;	-----------------------------------------
+                                   1324 ;	 function putchar
+                                   1325 ;	-----------------------------------------
+      00008E                       1326 _putchar:
+                           000007  1327 	ar7 = 0x07
+                           000006  1328 	ar6 = 0x06
+                           000005  1329 	ar5 = 0x05
+                           000004  1330 	ar4 = 0x04
+                           000003  1331 	ar3 = 0x03
+                           000002  1332 	ar2 = 0x02
+                           000001  1333 	ar1 = 0x01
+                           000000  1334 	ar0 = 0x00
+      00008E AF 82            [24] 1335 	mov	r7,dpl
+                           000002  1336 	C$putget.h$20$1$16 ==.
+                                   1337 ;	C:/Users/Christina/Documents/MPS/Versions/Lab_03/3.3 - SPI0_loop/putget.h:20: while(!TI0); 
+      000090                       1338 00101$:
+                           000002  1339 	C$putget.h$21$1$16 ==.
+                                   1340 ;	C:/Users/Christina/Documents/MPS/Versions/Lab_03/3.3 - SPI0_loop/putget.h:21: TI0=0;
+      000090 10 99 02         [24] 1341 	jbc	_TI0,00112$
+      000093 80 FB            [24] 1342 	sjmp	00101$
+      000095                       1343 00112$:
+                           000007  1344 	C$putget.h$22$1$16 ==.
+                                   1345 ;	C:/Users/Christina/Documents/MPS/Versions/Lab_03/3.3 - SPI0_loop/putget.h:22: SBUF0 = c;
+      000095 8F 99            [24] 1346 	mov	_SBUF0,r7
+                           000009  1347 	C$putget.h$23$1$16 ==.
+                           000009  1348 	XG$putchar$0$0 ==.
+      000097 22               [24] 1349 	ret
+                                   1350 ;------------------------------------------------------------
+                                   1351 ;Allocation info for local variables in function 'getchar'
+                                   1352 ;------------------------------------------------------------
+                                   1353 ;c                         Allocated to registers 
+                                   1354 ;------------------------------------------------------------
+                           00000A  1355 	G$getchar$0$0 ==.
+                           00000A  1356 	C$putget.h$28$1$16 ==.
+                                   1357 ;	C:/Users/Christina/Documents/MPS/Versions/Lab_03/3.3 - SPI0_loop/putget.h:28: char getchar(void)
+                                   1358 ;	-----------------------------------------
+                                   1359 ;	 function getchar
+                                   1360 ;	-----------------------------------------
+      000098                       1361 _getchar:
+                           00000A  1362 	C$putget.h$31$1$18 ==.
+                                   1363 ;	C:/Users/Christina/Documents/MPS/Versions/Lab_03/3.3 - SPI0_loop/putget.h:31: while(!RI0);
+      000098                       1364 00101$:
+                           00000A  1365 	C$putget.h$32$1$18 ==.
+                                   1366 ;	C:/Users/Christina/Documents/MPS/Versions/Lab_03/3.3 - SPI0_loop/putget.h:32: RI0 =0;
+      000098 10 98 02         [24] 1367 	jbc	_RI0,00112$
+      00009B 80 FB            [24] 1368 	sjmp	00101$
+      00009D                       1369 00112$:
+                           00000F  1370 	C$putget.h$33$1$18 ==.
+                                   1371 ;	C:/Users/Christina/Documents/MPS/Versions/Lab_03/3.3 - SPI0_loop/putget.h:33: c = SBUF0;
+      00009D E5 99            [12] 1372 	mov	a,_SBUF0
+                           000011  1373 	C$putget.h$36$1$18 ==.
+                                   1374 ;	C:/Users/Christina/Documents/MPS/Versions/Lab_03/3.3 - SPI0_loop/putget.h:36: return SBUF0;
+      00009F 85 99 82         [24] 1375 	mov	dpl,_SBUF0
+                           000014  1376 	C$putget.h$37$1$18 ==.
+                           000014  1377 	XG$getchar$0$0 ==.
+      0000A2 22               [24] 1378 	ret
+                                   1379 ;------------------------------------------------------------
+                                   1380 ;Allocation info for local variables in function 'main'
+                                   1381 ;------------------------------------------------------------
+                                   1382 ;c                         Allocated to registers r7 
+                                   1383 ;i                         Allocated to registers 
+                                   1384 ;d                         Allocated to registers r7 
+                                   1385 ;------------------------------------------------------------
+                           000015  1386 	G$main$0$0 ==.
+                           000015  1387 	C$SPI0.c$43$1$18 ==.
+                                   1388 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:43: void main (void)
+                                   1389 ;	-----------------------------------------
+                                   1390 ;	 function main
+                                   1391 ;	-----------------------------------------
+      0000A3                       1392 _main:
+                           000015  1393 	C$SPI0.c$49$1$33 ==.
+                                   1394 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:49: SFRPAGE = CONFIG_PAGE;
+      0000A3 75 84 0F         [24] 1395 	mov	_SFRPAGE,#0x0F
+                           000018  1396 	C$SPI0.c$50$1$33 ==.
+                                   1397 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:50: IE |=0x88;
+      0000A6 43 A8 88         [24] 1398 	orl	_IE,#0x88
+                           00001B  1399 	C$SPI0.c$51$1$33 ==.
+                                   1400 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:51: PT1 = 1;
+      0000A9 D2 BB            [12] 1401 	setb	_PT1
+                           00001D  1402 	C$SPI0.c$52$1$33 ==.
+                                   1403 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:52: SYSCLK_INIT();
+      0000AB 12 03 44         [24] 1404 	lcall	_SYSCLK_INIT
+                           000020  1405 	C$SPI0.c$53$1$33 ==.
+                                   1406 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:53: Port_IO_Init();
+      0000AE 12 03 A3         [24] 1407 	lcall	_Port_IO_Init
+                           000023  1408 	C$SPI0.c$54$1$33 ==.
+                                   1409 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:54: Timer_Init();
+      0000B1 12 03 63         [24] 1410 	lcall	_Timer_Init
+                           000026  1411 	C$SPI0.c$55$1$33 ==.
+                                   1412 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:55: UART_Init();
+      0000B4 12 03 8B         [24] 1413 	lcall	_UART_Init
+                           000029  1414 	C$SPI0.c$56$1$33 ==.
+                                   1415 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:56: SPI0_INIT();
+      0000B7 12 03 BB         [24] 1416 	lcall	_SPI0_INIT
+                           00002C  1417 	C$SPI0.c$57$1$33 ==.
+                                   1418 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:57: SFRPAGE = LEGACY_PAGE;//same as UART0_PAGE
+      0000BA 75 84 00         [24] 1419 	mov	_SFRPAGE,#0x00
+                           00002F  1420 	C$SPI0.c$58$1$33 ==.
+                                   1421 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:58: printf("\033[2J");
+      0000BD 74 02            [12] 1422 	mov	a,#___str_0
+      0000BF C0 E0            [24] 1423 	push	acc
+      0000C1 74 0A            [12] 1424 	mov	a,#(___str_0 >> 8)
+      0000C3 C0 E0            [24] 1425 	push	acc
+      0000C5 74 80            [12] 1426 	mov	a,#0x80
+      0000C7 C0 E0            [24] 1427 	push	acc
+      0000C9 12 03 EE         [24] 1428 	lcall	_printf
+      0000CC 15 81            [12] 1429 	dec	sp
+      0000CE 15 81            [12] 1430 	dec	sp
+      0000D0 15 81            [12] 1431 	dec	sp
+                           000044  1432 	C$SPI0.c$59$1$33 ==.
+                                   1433 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:59: printf("UART is working");
+      0000D2 74 07            [12] 1434 	mov	a,#___str_1
+      0000D4 C0 E0            [24] 1435 	push	acc
+      0000D6 74 0A            [12] 1436 	mov	a,#(___str_1 >> 8)
+      0000D8 C0 E0            [24] 1437 	push	acc
+      0000DA 74 80            [12] 1438 	mov	a,#0x80
+      0000DC C0 E0            [24] 1439 	push	acc
+      0000DE 12 03 EE         [24] 1440 	lcall	_printf
+      0000E1 15 81            [12] 1441 	dec	sp
+      0000E3 15 81            [12] 1442 	dec	sp
+      0000E5 15 81            [12] 1443 	dec	sp
+                           000059  1444 	C$SPI0.c$60$1$33 ==.
+                                   1445 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:60: while(1)
+      0000E7                       1446 00107$:
+                           000059  1447 	C$SPI0.c$63$2$34 ==.
+                                   1448 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:63: if(RI0)
+                           000059  1449 	C$SPI0.c$65$3$35 ==.
+                                   1450 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:65: RI0 = 0;
+      0000E7 10 98 02         [24] 1451 	jbc	_RI0,00130$
+      0000EA 80 FB            [24] 1452 	sjmp	00107$
+      0000EC                       1453 00130$:
+                           00005E  1454 	C$SPI0.c$66$3$35 ==.
+                                   1455 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:66: c = SBUF0;
+      0000EC AF 99            [24] 1456 	mov	r7,_SBUF0
+                           000060  1457 	C$SPI0.c$67$3$35 ==.
+                                   1458 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:67: local(c);
+      0000EE 8F 82            [24] 1459 	mov	dpl,r7
+      0000F0 C0 07            [24] 1460 	push	ar7
+      0000F2 12 01 28         [24] 1461 	lcall	_local
+      0000F5 D0 07            [24] 1462 	pop	ar7
+                           000069  1463 	C$SPI0.c$68$3$35 ==.
+                                   1464 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:68: write(c);
+      0000F7 8F 82            [24] 1465 	mov	dpl,r7
+      0000F9 12 02 A7         [24] 1466 	lcall	_write
+                           00006E  1467 	C$SPI0.c$69$3$35 ==.
+                                   1468 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:69: SFRPAGE = UART0_PAGE;
+      0000FC 75 84 00         [24] 1469 	mov	_SFRPAGE,#0x00
+                           000071  1470 	C$SPI0.c$70$3$35 ==.
+                                   1471 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:70: for (i=0;i<101;i++);
+      0000FF 7E 65            [12] 1472 	mov	r6,#0x65
+      000101 7F 00            [12] 1473 	mov	r7,#0x00
+      000103                       1474 00111$:
+      000103 1E               [12] 1475 	dec	r6
+      000104 BE FF 01         [24] 1476 	cjne	r6,#0xFF,00131$
+      000107 1F               [12] 1477 	dec	r7
+      000108                       1478 00131$:
+      000108 EE               [12] 1479 	mov	a,r6
+      000109 4F               [12] 1480 	orl	a,r7
+      00010A 70 F7            [24] 1481 	jnz	00111$
+                           00007E  1482 	C$SPI0.c$71$3$35 ==.
+                                   1483 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:71: d = read();
+      00010C 12 02 21         [24] 1484 	lcall	_read
+      00010F AF 82            [24] 1485 	mov	r7,dpl
+                           000083  1486 	C$SPI0.c$72$3$35 ==.
+                                   1487 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:72: SPIF =0;
+      000111 C2 FF            [12] 1488 	clr	_SPIF
+                           000085  1489 	C$SPI0.c$73$3$35 ==.
+                                   1490 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:73: SFRPAGE = UART0_PAGE;
+      000113 75 84 00         [24] 1491 	mov	_SFRPAGE,#0x00
+                           000088  1492 	C$SPI0.c$74$3$35 ==.
+                                   1493 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:74: foreign(d);
+      000116 8F 82            [24] 1494 	mov	dpl,r7
+      000118 C0 07            [24] 1495 	push	ar7
+      00011A 12 01 9A         [24] 1496 	lcall	_foreign
+      00011D D0 07            [24] 1497 	pop	ar7
+                           000091  1498 	C$SPI0.c$75$3$35 ==.
+                                   1499 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:75: if(d == 0x7F){dummy();}
+      00011F BF 7F C5         [24] 1500 	cjne	r7,#0x7F,00107$
+      000122 12 02 CA         [24] 1501 	lcall	_dummy
+      000125 80 C0            [24] 1502 	sjmp	00107$
+                           000099  1503 	C$SPI0.c$79$1$33 ==.
+                           000099  1504 	XG$main$0$0 ==.
+      000127 22               [24] 1505 	ret
+                                   1506 ;------------------------------------------------------------
+                                   1507 ;Allocation info for local variables in function 'local'
+                                   1508 ;------------------------------------------------------------
+                                   1509 ;c                         Allocated to registers r7 
+                                   1510 ;------------------------------------------------------------
+                           00009A  1511 	G$local$0$0 ==.
+                           00009A  1512 	C$SPI0.c$80$1$33 ==.
+                                   1513 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:80: void local(char c)
+                                   1514 ;	-----------------------------------------
+                                   1515 ;	 function local
+                                   1516 ;	-----------------------------------------
+      000128                       1517 _local:
+      000128 AF 82            [24] 1518 	mov	r7,dpl
+                           00009C  1519 	C$SPI0.c$82$1$38 ==.
+                                   1520 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:82: printf("\033[%d;1H",local_ct);
+      00012A C0 07            [24] 1521 	push	ar7
+      00012C C0 08            [24] 1522 	push	_local_ct
+      00012E C0 09            [24] 1523 	push	(_local_ct + 1)
+      000130 74 17            [12] 1524 	mov	a,#___str_2
+      000132 C0 E0            [24] 1525 	push	acc
+      000134 74 0A            [12] 1526 	mov	a,#(___str_2 >> 8)
+      000136 C0 E0            [24] 1527 	push	acc
+      000138 74 80            [12] 1528 	mov	a,#0x80
+      00013A C0 E0            [24] 1529 	push	acc
+      00013C 12 03 EE         [24] 1530 	lcall	_printf
+      00013F E5 81            [12] 1531 	mov	a,sp
+      000141 24 FB            [12] 1532 	add	a,#0xfb
+      000143 F5 81            [12] 1533 	mov	sp,a
+      000145 D0 07            [24] 1534 	pop	ar7
+                           0000B9  1535 	C$SPI0.c$83$1$38 ==.
+                                   1536 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:83: if(local_ct < 13){local_ct++;}
+      000147 C3               [12] 1537 	clr	c
+      000148 E5 08            [12] 1538 	mov	a,_local_ct
+      00014A 94 0D            [12] 1539 	subb	a,#0x0D
+      00014C E5 09            [12] 1540 	mov	a,(_local_ct + 1)
+      00014E 64 80            [12] 1541 	xrl	a,#0x80
+      000150 94 80            [12] 1542 	subb	a,#0x80
+      000152 50 0A            [24] 1543 	jnc	00102$
+      000154 05 08            [12] 1544 	inc	_local_ct
+      000156 E4               [12] 1545 	clr	a
+      000157 B5 08 38         [24] 1546 	cjne	a,_local_ct,00104$
+      00015A 05 09            [12] 1547 	inc	(_local_ct + 1)
+      00015C 80 34            [24] 1548 	sjmp	00104$
+      00015E                       1549 00102$:
+                           0000D0  1550 	C$SPI0.c$84$2$40 ==.
+                                   1551 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:84: else{printf("\033[1J");local_ct=2;printf("\033[1;1H");}
+      00015E C0 07            [24] 1552 	push	ar7
+      000160 74 1F            [12] 1553 	mov	a,#___str_3
+      000162 C0 E0            [24] 1554 	push	acc
+      000164 74 0A            [12] 1555 	mov	a,#(___str_3 >> 8)
+      000166 C0 E0            [24] 1556 	push	acc
+      000168 74 80            [12] 1557 	mov	a,#0x80
+      00016A C0 E0            [24] 1558 	push	acc
+      00016C 12 03 EE         [24] 1559 	lcall	_printf
+      00016F 15 81            [12] 1560 	dec	sp
+      000171 15 81            [12] 1561 	dec	sp
+      000173 15 81            [12] 1562 	dec	sp
+      000175 75 08 02         [24] 1563 	mov	_local_ct,#0x02
+      000178 75 09 00         [24] 1564 	mov	(_local_ct + 1),#0x00
+      00017B 74 24            [12] 1565 	mov	a,#___str_4
+      00017D C0 E0            [24] 1566 	push	acc
+      00017F 74 0A            [12] 1567 	mov	a,#(___str_4 >> 8)
+      000181 C0 E0            [24] 1568 	push	acc
+      000183 74 80            [12] 1569 	mov	a,#0x80
+      000185 C0 E0            [24] 1570 	push	acc
+      000187 12 03 EE         [24] 1571 	lcall	_printf
+      00018A 15 81            [12] 1572 	dec	sp
+      00018C 15 81            [12] 1573 	dec	sp
+      00018E 15 81            [12] 1574 	dec	sp
+      000190 D0 07            [24] 1575 	pop	ar7
+                           000104  1576 	C$SPI0.c$85$1$38 ==.
+                                   1577 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:85: while(!TI0);
+      000192                       1578 00104$:
+                           000104  1579 	C$SPI0.c$86$1$38 ==.
+                                   1580 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:86: TI0 = 0;
+      000192 10 99 02         [24] 1581 	jbc	_TI0,00120$
+      000195 80 FB            [24] 1582 	sjmp	00104$
+      000197                       1583 00120$:
+                           000109  1584 	C$SPI0.c$87$1$38 ==.
+                                   1585 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:87: SBUF0 = c;
+      000197 8F 99            [24] 1586 	mov	_SBUF0,r7
+                           00010B  1587 	C$SPI0.c$88$1$38 ==.
+                           00010B  1588 	XG$local$0$0 ==.
+      000199 22               [24] 1589 	ret
+                                   1590 ;------------------------------------------------------------
+                                   1591 ;Allocation info for local variables in function 'foreign'
+                                   1592 ;------------------------------------------------------------
+                                   1593 ;c                         Allocated to registers r7 
+                                   1594 ;------------------------------------------------------------
+                           00010C  1595 	G$foreign$0$0 ==.
+                           00010C  1596 	C$SPI0.c$90$1$38 ==.
+                                   1597 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:90: void foreign(char c)
+                                   1598 ;	-----------------------------------------
+                                   1599 ;	 function foreign
+                                   1600 ;	-----------------------------------------
+      00019A                       1601 _foreign:
+      00019A AF 82            [24] 1602 	mov	r7,dpl
+                           00010E  1603 	C$SPI0.c$92$1$42 ==.
+                                   1604 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:92: printf("\033[%d;1H",alien_ct);
+      00019C C0 07            [24] 1605 	push	ar7
+      00019E C0 0A            [24] 1606 	push	_alien_ct
+      0001A0 C0 0B            [24] 1607 	push	(_alien_ct + 1)
+      0001A2 74 17            [12] 1608 	mov	a,#___str_2
+      0001A4 C0 E0            [24] 1609 	push	acc
+      0001A6 74 0A            [12] 1610 	mov	a,#(___str_2 >> 8)
+      0001A8 C0 E0            [24] 1611 	push	acc
+      0001AA 74 80            [12] 1612 	mov	a,#0x80
+      0001AC C0 E0            [24] 1613 	push	acc
+      0001AE 12 03 EE         [24] 1614 	lcall	_printf
+      0001B1 E5 81            [12] 1615 	mov	a,sp
+      0001B3 24 FB            [12] 1616 	add	a,#0xfb
+      0001B5 F5 81            [12] 1617 	mov	sp,a
+      0001B7 D0 07            [24] 1618 	pop	ar7
+                           00012B  1619 	C$SPI0.c$93$1$42 ==.
+                                   1620 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:93: if(alien_ct < 25){alien_ct++;}
+      0001B9 C3               [12] 1621 	clr	c
+      0001BA E5 0A            [12] 1622 	mov	a,_alien_ct
+      0001BC 94 19            [12] 1623 	subb	a,#0x19
+      0001BE E5 0B            [12] 1624 	mov	a,(_alien_ct + 1)
+      0001C0 64 80            [12] 1625 	xrl	a,#0x80
+      0001C2 94 80            [12] 1626 	subb	a,#0x80
+      0001C4 50 0A            [24] 1627 	jnc	00102$
+      0001C6 05 0A            [12] 1628 	inc	_alien_ct
+      0001C8 E4               [12] 1629 	clr	a
+      0001C9 B5 0A 4D         [24] 1630 	cjne	a,_alien_ct,00104$
+      0001CC 05 0B            [12] 1631 	inc	(_alien_ct + 1)
+      0001CE 80 49            [24] 1632 	sjmp	00104$
+      0001D0                       1633 00102$:
+                           000142  1634 	C$SPI0.c$94$2$44 ==.
+                                   1635 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:94: else{printf("\033[12;1H");printf("\033[J");alien_ct = 12;printf("\033[12;1H");}
+      0001D0 C0 07            [24] 1636 	push	ar7
+      0001D2 74 2B            [12] 1637 	mov	a,#___str_5
+      0001D4 C0 E0            [24] 1638 	push	acc
+      0001D6 74 0A            [12] 1639 	mov	a,#(___str_5 >> 8)
+      0001D8 C0 E0            [24] 1640 	push	acc
+      0001DA 74 80            [12] 1641 	mov	a,#0x80
+      0001DC C0 E0            [24] 1642 	push	acc
+      0001DE 12 03 EE         [24] 1643 	lcall	_printf
+      0001E1 15 81            [12] 1644 	dec	sp
+      0001E3 15 81            [12] 1645 	dec	sp
+      0001E5 15 81            [12] 1646 	dec	sp
+      0001E7 74 33            [12] 1647 	mov	a,#___str_6
+      0001E9 C0 E0            [24] 1648 	push	acc
+      0001EB 74 0A            [12] 1649 	mov	a,#(___str_6 >> 8)
+      0001ED C0 E0            [24] 1650 	push	acc
+      0001EF 74 80            [12] 1651 	mov	a,#0x80
+      0001F1 C0 E0            [24] 1652 	push	acc
+      0001F3 12 03 EE         [24] 1653 	lcall	_printf
+      0001F6 15 81            [12] 1654 	dec	sp
+      0001F8 15 81            [12] 1655 	dec	sp
+      0001FA 15 81            [12] 1656 	dec	sp
+      0001FC 75 0A 0C         [24] 1657 	mov	_alien_ct,#0x0C
+      0001FF 75 0B 00         [24] 1658 	mov	(_alien_ct + 1),#0x00
+      000202 74 2B            [12] 1659 	mov	a,#___str_5
+      000204 C0 E0            [24] 1660 	push	acc
+      000206 74 0A            [12] 1661 	mov	a,#(___str_5 >> 8)
+      000208 C0 E0            [24] 1662 	push	acc
+      00020A 74 80            [12] 1663 	mov	a,#0x80
+      00020C C0 E0            [24] 1664 	push	acc
+      00020E 12 03 EE         [24] 1665 	lcall	_printf
+      000211 15 81            [12] 1666 	dec	sp
+      000213 15 81            [12] 1667 	dec	sp
+      000215 15 81            [12] 1668 	dec	sp
+      000217 D0 07            [24] 1669 	pop	ar7
+                           00018B  1670 	C$SPI0.c$95$1$42 ==.
+                                   1671 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:95: while(!TI0);
+      000219                       1672 00104$:
+                           00018B  1673 	C$SPI0.c$96$1$42 ==.
+                                   1674 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:96: TI0 = 0;
+      000219 10 99 02         [24] 1675 	jbc	_TI0,00120$
+      00021C 80 FB            [24] 1676 	sjmp	00104$
+      00021E                       1677 00120$:
+                           000190  1678 	C$SPI0.c$97$1$42 ==.
+                                   1679 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:97: SBUF0 = c;
+      00021E 8F 99            [24] 1680 	mov	_SBUF0,r7
+                           000192  1681 	C$SPI0.c$98$1$42 ==.
+                           000192  1682 	XG$foreign$0$0 ==.
+      000220 22               [24] 1683 	ret
+                                   1684 ;------------------------------------------------------------
+                                   1685 ;Allocation info for local variables in function 'read'
+                                   1686 ;------------------------------------------------------------
+                                   1687 ;i                         Allocated to registers r6 r7 
+                                   1688 ;------------------------------------------------------------
+                           000193  1689 	G$read$0$0 ==.
+                           000193  1690 	C$SPI0.c$99$1$42 ==.
+                                   1691 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:99: char read ()
+                                   1692 ;	-----------------------------------------
+                                   1693 ;	 function read
+                                   1694 ;	-----------------------------------------
+      000221                       1695 _read:
+                           000193  1696 	C$SPI0.c$102$1$45 ==.
+                                   1697 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:102: SFRPAGE = SPI0_PAGE;
+      000221 75 84 00         [24] 1698 	mov	_SFRPAGE,#0x00
+                           000196  1699 	C$SPI0.c$103$1$45 ==.
+                                   1700 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:103: NSSMD0 = 0;
+      000224 C2 FA            [12] 1701 	clr	_NSSMD0
+                           000198  1702 	C$SPI0.c$104$1$45 ==.
+                                   1703 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:104: for (i=0;i<101;i++);
+      000226 7E 65            [12] 1704 	mov	r6,#0x65
+      000228 7F 00            [12] 1705 	mov	r7,#0x00
+      00022A                       1706 00111$:
+      00022A 1E               [12] 1707 	dec	r6
+      00022B BE FF 01         [24] 1708 	cjne	r6,#0xFF,00143$
+      00022E 1F               [12] 1709 	dec	r7
+      00022F                       1710 00143$:
+      00022F EE               [12] 1711 	mov	a,r6
+      000230 4F               [12] 1712 	orl	a,r7
+      000231 70 F7            [24] 1713 	jnz	00111$
+                           0001A5  1714 	C$SPI0.c$105$1$45 ==.
+                                   1715 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:105: write(0x64);
+      000233 75 82 64         [24] 1716 	mov	dpl,#0x64
+      000236 12 02 A7         [24] 1717 	lcall	_write
+                           0001AB  1718 	C$SPI0.c$106$1$45 ==.
+                                   1719 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:106: while(!SPIF);
+      000239                       1720 00102$:
+      000239 30 FF FD         [24] 1721 	jnb	_SPIF,00102$
+                           0001AE  1722 	C$SPI0.c$107$1$45 ==.
+                                   1723 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:107: NSSMD0 = 1;
+      00023C D2 FA            [12] 1724 	setb	_NSSMD0
+                           0001B0  1725 	C$SPI0.c$108$1$45 ==.
+                                   1726 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:108: for (i=0;i<101;i++);
+      00023E 7E 65            [12] 1727 	mov	r6,#0x65
+      000240 7F 00            [12] 1728 	mov	r7,#0x00
+      000242                       1729 00114$:
+      000242 1E               [12] 1730 	dec	r6
+      000243 BE FF 01         [24] 1731 	cjne	r6,#0xFF,00146$
+      000246 1F               [12] 1732 	dec	r7
+      000247                       1733 00146$:
+      000247 EE               [12] 1734 	mov	a,r6
+      000248 4F               [12] 1735 	orl	a,r7
+                           0001BB  1736 	C$SPI0.c$109$1$45 ==.
+                                   1737 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:109: counts =1 ;
+      000249 70 F7            [24] 1738 	jnz	00114$
+      00024B 75 0C 01         [24] 1739 	mov	_counts,#0x01
+      00024E F5 0D            [12] 1740 	mov	(_counts + 1),a
+                           0001C2  1741 	C$SPI0.c$110$1$45 ==.
+                                   1742 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:110: while(counts < 2000);
+      000250                       1743 00106$:
+      000250 C3               [12] 1744 	clr	c
+      000251 E5 0C            [12] 1745 	mov	a,_counts
+      000253 94 D0            [12] 1746 	subb	a,#0xD0
+      000255 E5 0D            [12] 1747 	mov	a,(_counts + 1)
+      000257 94 07            [12] 1748 	subb	a,#0x07
+      000259 40 F5            [24] 1749 	jc	00106$
+                           0001CD  1750 	C$SPI0.c$111$1$45 ==.
+                                   1751 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:111: NSSMD0 = 0;
+      00025B C2 FA            [12] 1752 	clr	_NSSMD0
+                           0001CF  1753 	C$SPI0.c$112$1$45 ==.
+                                   1754 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:112: return SPI0DAT;
+      00025D 85 9B 82         [24] 1755 	mov	dpl,_SPI0DAT
+                           0001D2  1756 	C$SPI0.c$113$1$45 ==.
+                           0001D2  1757 	XG$read$0$0 ==.
+      000260 22               [24] 1758 	ret
+                                   1759 ;------------------------------------------------------------
+                                   1760 ;Allocation info for local variables in function 'dread'
+                                   1761 ;------------------------------------------------------------
+                                   1762 ;i                         Allocated to registers r5 r6 
+                                   1763 ;dumb                      Allocated to registers r7 
+                                   1764 ;------------------------------------------------------------
+                           0001D3  1765 	G$dread$0$0 ==.
+                           0001D3  1766 	C$SPI0.c$115$1$45 ==.
+                                   1767 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:115: unsigned char dread()
+                                   1768 ;	-----------------------------------------
+                                   1769 ;	 function dread
+                                   1770 ;	-----------------------------------------
+      000261                       1771 _dread:
+                           0001D3  1772 	C$SPI0.c$118$1$45 ==.
+                                   1773 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:118: char dumb = 0x65;
+      000261 7F 65            [12] 1774 	mov	r7,#0x65
+                           0001D5  1775 	C$SPI0.c$119$1$46 ==.
+                                   1776 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:119: SFRPAGE = SPI0_PAGE;
+      000263 75 84 00         [24] 1777 	mov	_SFRPAGE,#0x00
+                           0001D8  1778 	C$SPI0.c$120$1$46 ==.
+                                   1779 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:120: NSSMD0 = 0;
+      000266 C2 FA            [12] 1780 	clr	_NSSMD0
+                           0001DA  1781 	C$SPI0.c$121$1$46 ==.
+                                   1782 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:121: for (i=0;i<101;i++);
+      000268 7D 65            [12] 1783 	mov	r5,#0x65
+      00026A 7E 00            [12] 1784 	mov	r6,#0x00
+      00026C                       1785 00114$:
+      00026C 1D               [12] 1786 	dec	r5
+      00026D BD FF 01         [24] 1787 	cjne	r5,#0xFF,00150$
+      000270 1E               [12] 1788 	dec	r6
+      000271                       1789 00150$:
+      000271 ED               [12] 1790 	mov	a,r5
+      000272 4E               [12] 1791 	orl	a,r6
+      000273 70 F7            [24] 1792 	jnz	00114$
+                           0001E7  1793 	C$SPI0.c$122$1$46 ==.
+                                   1794 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:122: while(SPIF){SPIF=0;}//make sure SPIF is not busy
+      000275                       1795 00102$:
+      000275 10 FF 02         [24] 1796 	jbc	_SPIF,00152$
+      000278 80 02            [24] 1797 	sjmp	00104$
+      00027A                       1798 00152$:
+      00027A 80 F9            [24] 1799 	sjmp	00102$
+      00027C                       1800 00104$:
+                           0001EE  1801 	C$SPI0.c$123$1$46 ==.
+                                   1802 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:123: SPI0DAT = dumb;
+      00027C 8F 9B            [24] 1803 	mov	_SPI0DAT,r7
+                           0001F0  1804 	C$SPI0.c$124$1$46 ==.
+                                   1805 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:124: while(!SPIF);
+      00027E                       1806 00105$:
+      00027E 30 FF FD         [24] 1807 	jnb	_SPIF,00105$
+                           0001F3  1808 	C$SPI0.c$125$1$46 ==.
+                                   1809 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:125: NSSMD0 = 1;
+      000281 D2 FA            [12] 1810 	setb	_NSSMD0
+                           0001F5  1811 	C$SPI0.c$127$1$46 ==.
+                                   1812 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:127: counts =1 ;
+      000283 75 0C 01         [24] 1813 	mov	_counts,#0x01
+      000286 75 0D 00         [24] 1814 	mov	(_counts + 1),#0x00
+                           0001FB  1815 	C$SPI0.c$128$1$46 ==.
+                                   1816 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:128: while(counts < 2000);
+      000289                       1817 00108$:
+      000289 C3               [12] 1818 	clr	c
+      00028A E5 0C            [12] 1819 	mov	a,_counts
+      00028C 94 D0            [12] 1820 	subb	a,#0xD0
+      00028E E5 0D            [12] 1821 	mov	a,(_counts + 1)
+      000290 94 07            [12] 1822 	subb	a,#0x07
+      000292 40 F5            [24] 1823 	jc	00108$
+                           000206  1824 	C$SPI0.c$129$1$46 ==.
+                                   1825 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:129: NSSMD0 = 0;
+      000294 C2 FA            [12] 1826 	clr	_NSSMD0
+                           000208  1827 	C$SPI0.c$130$1$46 ==.
+                                   1828 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:130: for (i=0;i<101;i++);
+      000296 7E 65            [12] 1829 	mov	r6,#0x65
+      000298 7F 00            [12] 1830 	mov	r7,#0x00
+      00029A                       1831 00117$:
+      00029A 1E               [12] 1832 	dec	r6
+      00029B BE FF 01         [24] 1833 	cjne	r6,#0xFF,00155$
+      00029E 1F               [12] 1834 	dec	r7
+      00029F                       1835 00155$:
+      00029F EE               [12] 1836 	mov	a,r6
+      0002A0 4F               [12] 1837 	orl	a,r7
+      0002A1 70 F7            [24] 1838 	jnz	00117$
+                           000215  1839 	C$SPI0.c$131$1$46 ==.
+                                   1840 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:131: return SPI0DAT;
+      0002A3 85 9B 82         [24] 1841 	mov	dpl,_SPI0DAT
+                           000218  1842 	C$SPI0.c$132$1$46 ==.
+                           000218  1843 	XG$dread$0$0 ==.
+      0002A6 22               [24] 1844 	ret
+                                   1845 ;------------------------------------------------------------
+                                   1846 ;Allocation info for local variables in function 'write'
+                                   1847 ;------------------------------------------------------------
+                                   1848 ;c                         Allocated to registers r7 
+                                   1849 ;i                         Allocated to registers 
+                                   1850 ;------------------------------------------------------------
+                           000219  1851 	G$write$0$0 ==.
+                           000219  1852 	C$SPI0.c$134$1$46 ==.
+                                   1853 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:134: void write(char c)
+                                   1854 ;	-----------------------------------------
+                                   1855 ;	 function write
+                                   1856 ;	-----------------------------------------
+      0002A7                       1857 _write:
+      0002A7 AF 82            [24] 1858 	mov	r7,dpl
+                           00021B  1859 	C$SPI0.c$137$1$49 ==.
+                                   1860 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:137: SFRPAGE = SPI0_PAGE;
+      0002A9 75 84 00         [24] 1861 	mov	_SFRPAGE,#0x00
+                           00021E  1862 	C$SPI0.c$138$1$49 ==.
+                                   1863 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:138: SPIF = 0;
+      0002AC C2 FF            [12] 1864 	clr	_SPIF
+                           000220  1865 	C$SPI0.c$139$1$49 ==.
+                                   1866 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:139: NSSMD0 = 0;
+      0002AE C2 FA            [12] 1867 	clr	_NSSMD0
+                           000222  1868 	C$SPI0.c$140$1$49 ==.
+                                   1869 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:140: while(SPIF){SPIF=0;}//make sure SPIF is not busy
+      0002B0                       1870 00101$:
+      0002B0 10 FF 02         [24] 1871 	jbc	_SPIF,00130$
+      0002B3 80 02            [24] 1872 	sjmp	00103$
+      0002B5                       1873 00130$:
+      0002B5 80 F9            [24] 1874 	sjmp	00101$
+      0002B7                       1875 00103$:
+                           000229  1876 	C$SPI0.c$141$1$49 ==.
+                                   1877 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:141: SPI0DAT = c;
+      0002B7 8F 9B            [24] 1878 	mov	_SPI0DAT,r7
+                           00022B  1879 	C$SPI0.c$142$1$49 ==.
+                                   1880 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:142: while(!SPIF);
+      0002B9                       1881 00104$:
+      0002B9 30 FF FD         [24] 1882 	jnb	_SPIF,00104$
+                           00022E  1883 	C$SPI0.c$143$1$49 ==.
+                                   1884 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:143: for (i=0;i<101;i++);
+      0002BC 7E 65            [12] 1885 	mov	r6,#0x65
+      0002BE 7F 00            [12] 1886 	mov	r7,#0x00
+      0002C0                       1887 00110$:
+      0002C0 1E               [12] 1888 	dec	r6
+      0002C1 BE FF 01         [24] 1889 	cjne	r6,#0xFF,00132$
+      0002C4 1F               [12] 1890 	dec	r7
+      0002C5                       1891 00132$:
+      0002C5 EE               [12] 1892 	mov	a,r6
+      0002C6 4F               [12] 1893 	orl	a,r7
+      0002C7 70 F7            [24] 1894 	jnz	00110$
+                           00023B  1895 	C$SPI0.c$144$1$49 ==.
+                           00023B  1896 	XG$write$0$0 ==.
+      0002C9 22               [24] 1897 	ret
+                                   1898 ;------------------------------------------------------------
+                                   1899 ;Allocation info for local variables in function 'dummy'
+                                   1900 ;------------------------------------------------------------
+                                   1901 ;r                         Allocated to registers r7 
+                                   1902 ;i                         Allocated to registers 
+                                   1903 ;------------------------------------------------------------
+                           00023C  1904 	G$dummy$0$0 ==.
+                           00023C  1905 	C$SPI0.c$145$1$49 ==.
+                                   1906 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:145: void dummy ()
+                                   1907 ;	-----------------------------------------
+                                   1908 ;	 function dummy
+                                   1909 ;	-----------------------------------------
+      0002CA                       1910 _dummy:
+                           00023C  1911 	C$SPI0.c$149$1$51 ==.
+                                   1912 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:149: r = 0x00;
+      0002CA 7F 00            [12] 1913 	mov	r7,#0x00
+                           00023E  1914 	C$SPI0.c$152$1$51 ==.
+                                   1915 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:152: printf("   you pressed <DEL>");
+      0002CC C0 07            [24] 1916 	push	ar7
+      0002CE 74 37            [12] 1917 	mov	a,#___str_7
+      0002D0 C0 E0            [24] 1918 	push	acc
+      0002D2 74 0A            [12] 1919 	mov	a,#(___str_7 >> 8)
+      0002D4 C0 E0            [24] 1920 	push	acc
+      0002D6 74 80            [12] 1921 	mov	a,#0x80
+      0002D8 C0 E0            [24] 1922 	push	acc
+      0002DA 12 03 EE         [24] 1923 	lcall	_printf
+      0002DD 15 81            [12] 1924 	dec	sp
+      0002DF 15 81            [12] 1925 	dec	sp
+      0002E1 15 81            [12] 1926 	dec	sp
+      0002E3 D0 07            [24] 1927 	pop	ar7
+                           000257  1928 	C$SPI0.c$153$1$51 ==.
+                                   1929 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:153: while(r!=0xFF)
+      0002E5                       1930 00105$:
+      0002E5 BF FF 02         [24] 1931 	cjne	r7,#0xFF,00132$
+      0002E8 80 3D            [24] 1932 	sjmp	00111$
+      0002EA                       1933 00132$:
+                           00025C  1934 	C$SPI0.c$155$2$52 ==.
+                                   1935 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:155: counts =0 ;
+      0002EA E4               [12] 1936 	clr	a
+      0002EB F5 0C            [12] 1937 	mov	_counts,a
+      0002ED F5 0D            [12] 1938 	mov	(_counts + 1),a
+                           000261  1939 	C$SPI0.c$156$2$52 ==.
+                                   1940 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:156: while(counts < 49999);
+      0002EF                       1941 00101$:
+      0002EF AB 0C            [24] 1942 	mov	r3,_counts
+      0002F1 AC 0D            [24] 1943 	mov	r4,(_counts + 1)
+      0002F3 7D 00            [12] 1944 	mov	r5,#0x00
+      0002F5 7E 00            [12] 1945 	mov	r6,#0x00
+      0002F7 C3               [12] 1946 	clr	c
+      0002F8 EB               [12] 1947 	mov	a,r3
+      0002F9 94 4F            [12] 1948 	subb	a,#0x4F
+      0002FB EC               [12] 1949 	mov	a,r4
+      0002FC 94 C3            [12] 1950 	subb	a,#0xC3
+      0002FE ED               [12] 1951 	mov	a,r5
+      0002FF 94 00            [12] 1952 	subb	a,#0x00
+      000301 EE               [12] 1953 	mov	a,r6
+      000302 64 80            [12] 1954 	xrl	a,#0x80
+      000304 94 80            [12] 1955 	subb	a,#0x80
+      000306 40 E7            [24] 1956 	jc	00101$
+                           00027A  1957 	C$SPI0.c$157$2$52 ==.
+                                   1958 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:157: r = dread();
+      000308 12 02 61         [24] 1959 	lcall	_dread
+      00030B AF 82            [24] 1960 	mov	r7,dpl
+                           00027F  1961 	C$SPI0.c$158$2$52 ==.
+                                   1962 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:158: NSSMD0 = 0;
+      00030D C2 FA            [12] 1963 	clr	_NSSMD0
+                           000281  1964 	C$SPI0.c$159$2$52 ==.
+                                   1965 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:159: foreign(r);
+      00030F 8F 82            [24] 1966 	mov	dpl,r7
+      000311 C0 07            [24] 1967 	push	ar7
+      000313 12 01 9A         [24] 1968 	lcall	_foreign
+      000316 D0 07            [24] 1969 	pop	ar7
+                           00028A  1970 	C$SPI0.c$160$2$52 ==.
+                                   1971 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:160: for (i=0;i<101;i++);
+      000318 7D 65            [12] 1972 	mov	r5,#0x65
+      00031A 7E 00            [12] 1973 	mov	r6,#0x00
+      00031C                       1974 00110$:
+      00031C 1D               [12] 1975 	dec	r5
+      00031D BD FF 01         [24] 1976 	cjne	r5,#0xFF,00134$
+      000320 1E               [12] 1977 	dec	r6
+      000321                       1978 00134$:
+      000321 ED               [12] 1979 	mov	a,r5
+      000322 4E               [12] 1980 	orl	a,r6
+      000323 70 F7            [24] 1981 	jnz	00110$
+      000325 80 BE            [24] 1982 	sjmp	00105$
+      000327                       1983 00111$:
+                           000299  1984 	C$SPI0.c$162$1$51 ==.
+                           000299  1985 	XG$dummy$0$0 ==.
+      000327 22               [24] 1986 	ret
+                                   1987 ;------------------------------------------------------------
+                                   1988 ;Allocation info for local variables in function 'Timer1_ISR'
+                                   1989 ;------------------------------------------------------------
+                           00029A  1990 	G$Timer1_ISR$0$0 ==.
+                           00029A  1991 	C$SPI0.c$164$1$51 ==.
+                                   1992 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:164: void Timer1_ISR(void) __interrupt 3
+                                   1993 ;	-----------------------------------------
+                                   1994 ;	 function Timer1_ISR
+                                   1995 ;	-----------------------------------------
+      000328                       1996 _Timer1_ISR:
+      000328 C0 E0            [24] 1997 	push	acc
+      00032A C0 D0            [24] 1998 	push	psw
+                           00029E  1999 	C$SPI0.c$166$1$54 ==.
+                                   2000 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:166: SFRPAGE = TIMER01_PAGE;
+      00032C 75 84 00         [24] 2001 	mov	_SFRPAGE,#0x00
+                           0002A1  2002 	C$SPI0.c$167$1$54 ==.
+                                   2003 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:167: TF1 = 0;
+      00032F C2 8F            [12] 2004 	clr	_TF1
+                           0002A3  2005 	C$SPI0.c$168$1$54 ==.
+                                   2006 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:168: counts ++;
+      000331 05 0C            [12] 2007 	inc	_counts
+      000333 E4               [12] 2008 	clr	a
+      000334 B5 0C 02         [24] 2009 	cjne	a,_counts,00103$
+      000337 05 0D            [12] 2010 	inc	(_counts + 1)
+      000339                       2011 00103$:
+                           0002AB  2012 	C$SPI0.c$170$1$54 ==.
+                                   2013 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:170: TL1 = 0;
+      000339 75 8B 00         [24] 2014 	mov	_TL1,#0x00
+                           0002AE  2015 	C$SPI0.c$171$1$54 ==.
+                                   2016 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:171: TH1 = 0;	
+      00033C 75 8D 00         [24] 2017 	mov	_TH1,#0x00
+      00033F D0 D0            [24] 2018 	pop	psw
+      000341 D0 E0            [24] 2019 	pop	acc
+                           0002B5  2020 	C$SPI0.c$172$1$54 ==.
+                           0002B5  2021 	XG$Timer1_ISR$0$0 ==.
+      000343 32               [24] 2022 	reti
+                                   2023 ;	eliminated unneeded mov psw,# (no regs used in bank)
+                                   2024 ;	eliminated unneeded push/pop dpl
+                                   2025 ;	eliminated unneeded push/pop dph
+                                   2026 ;	eliminated unneeded push/pop b
+                                   2027 ;------------------------------------------------------------
+                                   2028 ;Allocation info for local variables in function 'SYSCLK_INIT'
+                                   2029 ;------------------------------------------------------------
+                                   2030 ;j                         Allocated to registers 
+                                   2031 ;------------------------------------------------------------
+                           0002B6  2032 	G$SYSCLK_INIT$0$0 ==.
+                           0002B6  2033 	C$SPI0.c$174$1$54 ==.
+                                   2034 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:174: void SYSCLK_INIT()
+                                   2035 ;	-----------------------------------------
+                                   2036 ;	 function SYSCLK_INIT
+                                   2037 ;	-----------------------------------------
+      000344                       2038 _SYSCLK_INIT:
+                           0002B6  2039 	C$SPI0.c$178$1$55 ==.
+                                   2040 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:178: SFRPAGE = CONFIG_PAGE;
+      000344 75 84 0F         [24] 2041 	mov	_SFRPAGE,#0x0F
+                           0002B9  2042 	C$SPI0.c$179$1$55 ==.
+                                   2043 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:179: OSCXCN  = 0x67;             // Start external oscillator
+      000347 75 8C 67         [24] 2044 	mov	_OSCXCN,#0x67
+                           0002BC  2045 	C$SPI0.c$180$1$55 ==.
+                                   2046 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:180: for(j=0; j < 256; j++);     // Wait for the oscillator to start up.
+      00034A 7E 00            [12] 2047 	mov	r6,#0x00
+      00034C 7F 01            [12] 2048 	mov	r7,#0x01
+      00034E                       2049 00107$:
+      00034E 1E               [12] 2050 	dec	r6
+      00034F BE FF 01         [24] 2051 	cjne	r6,#0xFF,00121$
+      000352 1F               [12] 2052 	dec	r7
+      000353                       2053 00121$:
+      000353 EE               [12] 2054 	mov	a,r6
+      000354 4F               [12] 2055 	orl	a,r7
+      000355 70 F7            [24] 2056 	jnz	00107$
+                           0002C9  2057 	C$SPI0.c$181$1$55 ==.
+                                   2058 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:181: while(!(OSCXCN & 0x80));    // Check to see if the Crystal Oscillator Valid Flag is set.
+      000357                       2059 00102$:
+      000357 E5 8C            [12] 2060 	mov	a,_OSCXCN
+      000359 30 E7 FB         [24] 2061 	jnb	acc.7,00102$
+                           0002CE  2062 	C$SPI0.c$182$1$55 ==.
+                                   2063 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:182: CLKSEL  = 0x01;             // SYSCLK derived from the External Oscillator circuit.
+      00035C 75 97 01         [24] 2064 	mov	_CLKSEL,#0x01
+                           0002D1  2065 	C$SPI0.c$183$1$55 ==.
+                                   2066 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:183: OSCICN  = 0x00;             // Disable the internal oscillator.
+      00035F 75 8A 00         [24] 2067 	mov	_OSCICN,#0x00
+                           0002D4  2068 	C$SPI0.c$184$1$55 ==.
+                           0002D4  2069 	XG$SYSCLK_INIT$0$0 ==.
+      000362 22               [24] 2070 	ret
+                                   2071 ;------------------------------------------------------------
+                                   2072 ;Allocation info for local variables in function 'Timer_Init'
+                                   2073 ;------------------------------------------------------------
+                           0002D5  2074 	G$Timer_Init$0$0 ==.
+                           0002D5  2075 	C$SPI0.c$186$1$55 ==.
+                                   2076 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:186: void Timer_Init()
+                                   2077 ;	-----------------------------------------
+                                   2078 ;	 function Timer_Init
+                                   2079 ;	-----------------------------------------
+      000363                       2080 _Timer_Init:
+                           0002D5  2081 	C$SPI0.c$188$1$56 ==.
+                                   2082 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:188: SFRPAGE   = TIMER01_PAGE;
+      000363 75 84 00         [24] 2083 	mov	_SFRPAGE,#0x00
+                           0002D8  2084 	C$SPI0.c$189$1$56 ==.
+                                   2085 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:189: TCON      = 0x40;
+      000366 75 88 40         [24] 2086 	mov	_TCON,#0x40
+                           0002DB  2087 	C$SPI0.c$190$1$56 ==.
+                                   2088 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:190: TMOD      = 0x20;
+      000369 75 89 20         [24] 2089 	mov	_TMOD,#0x20
+                           0002DE  2090 	C$SPI0.c$191$1$56 ==.
+                                   2091 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:191: CKCON     = 0x10;
+      00036C 75 8E 10         [24] 2092 	mov	_CKCON,#0x10
+                           0002E1  2093 	C$SPI0.c$192$1$56 ==.
+                                   2094 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:192: TH1       = 0xA0;
+      00036F 75 8D A0         [24] 2095 	mov	_TH1,#0xA0
+                           0002E4  2096 	C$SPI0.c$193$1$56 ==.
+                                   2097 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:193: TL1 = TH1;
+      000372 85 8D 8B         [24] 2098 	mov	_TL1,_TH1
+                           0002E7  2099 	C$SPI0.c$194$1$56 ==.
+                                   2100 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:194: SFRPAGE   = TMR2_PAGE;
+      000375 75 84 00         [24] 2101 	mov	_SFRPAGE,#0x00
+                           0002EA  2102 	C$SPI0.c$195$1$56 ==.
+                                   2103 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:195: TMR2CN    = 0x04;
+      000378 75 C8 04         [24] 2104 	mov	_TMR2CN,#0x04
+                           0002ED  2105 	C$SPI0.c$196$1$56 ==.
+                                   2106 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:196: TMR2CF    = 0x08;
+      00037B 75 C9 08         [24] 2107 	mov	_TMR2CF,#0x08
+                           0002F0  2108 	C$SPI0.c$197$1$56 ==.
+                                   2109 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:197: TMR2H	  = 0xFF;
+      00037E 75 CD FF         [24] 2110 	mov	_TMR2H,#0xFF
+                           0002F3  2111 	C$SPI0.c$198$1$56 ==.
+                                   2112 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:198: TMR2L 	  = 0x70;
+      000381 75 CC 70         [24] 2113 	mov	_TMR2L,#0x70
+                           0002F6  2114 	C$SPI0.c$199$1$56 ==.
+                                   2115 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:199: RCAP2L    = 0x70;
+      000384 75 CA 70         [24] 2116 	mov	_RCAP2L,#0x70
+                           0002F9  2117 	C$SPI0.c$200$1$56 ==.
+                                   2118 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:200: RCAP2H    = 0xFF;
+      000387 75 CB FF         [24] 2119 	mov	_RCAP2H,#0xFF
+                           0002FC  2120 	C$SPI0.c$201$1$56 ==.
+                           0002FC  2121 	XG$Timer_Init$0$0 ==.
+      00038A 22               [24] 2122 	ret
+                                   2123 ;------------------------------------------------------------
+                                   2124 ;Allocation info for local variables in function 'UART_Init'
+                                   2125 ;------------------------------------------------------------
+                           0002FD  2126 	G$UART_Init$0$0 ==.
+                           0002FD  2127 	C$SPI0.c$202$1$56 ==.
+                                   2128 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:202: void UART_Init()
+                                   2129 ;	-----------------------------------------
+                                   2130 ;	 function UART_Init
+                                   2131 ;	-----------------------------------------
+      00038B                       2132 _UART_Init:
+                           0002FD  2133 	C$SPI0.c$204$1$57 ==.
+                                   2134 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:204: SFRPAGE   = UART0_PAGE;//Same as Timer 2 and Timer 1 SFR PAGES
+      00038B 75 84 00         [24] 2135 	mov	_SFRPAGE,#0x00
+                           000300  2136 	C$SPI0.c$205$1$57 ==.
+                                   2137 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:205: TR2		  = 1;//Start Timer 2
+      00038E D2 CA            [12] 2138 	setb	_TR2
+                           000302  2139 	C$SPI0.c$206$1$57 ==.
+                                   2140 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:206: SCON0     = 0x50;
+      000390 75 98 50         [24] 2141 	mov	_SCON0,#0x50
+                           000305  2142 	C$SPI0.c$207$1$57 ==.
+                                   2143 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:207: SSTA0   = 0x15;
+      000393 75 91 15         [24] 2144 	mov	_SSTA0,#0x15
+                           000308  2145 	C$SPI0.c$208$1$57 ==.
+                                   2146 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:208: TI0		  = 1; // Indicate TX0 is ready
+      000396 D2 99            [12] 2147 	setb	_TI0
+                           00030A  2148 	C$SPI0.c$209$1$57 ==.
+                                   2149 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:209: TR1		  = 1; //Start Timer 1
+      000398 D2 8E            [12] 2150 	setb	_TR1
+                           00030C  2151 	C$SPI0.c$210$1$57 ==.
+                                   2152 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:210: SFRPAGE   = UART1_PAGE;
+      00039A 75 84 01         [24] 2153 	mov	_SFRPAGE,#0x01
+                           00030F  2154 	C$SPI0.c$211$1$57 ==.
+                                   2155 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:211: SCON1     = 0x50;
+      00039D 75 98 50         [24] 2156 	mov	_SCON1,#0x50
+                           000312  2157 	C$SPI0.c$212$1$57 ==.
+                                   2158 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:212: TI1		  = 1; //Indicatie TX1 is ready
+      0003A0 D2 99            [12] 2159 	setb	_TI1
+                           000314  2160 	C$SPI0.c$213$1$57 ==.
+                           000314  2161 	XG$UART_Init$0$0 ==.
+      0003A2 22               [24] 2162 	ret
                                    2163 ;------------------------------------------------------------
-                                   2164 ;Allocation info for local variables in function 'SPI0_INIT'
+                                   2164 ;Allocation info for local variables in function 'Port_IO_Init'
                                    2165 ;------------------------------------------------------------
-                           000303  2166 	G$SPI0_INIT$0$0 ==.
-                           000303  2167 	C$SPI0.c$227$1$58 ==.
-                                   2168 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:227: void SPI0_INIT()
+                           000315  2166 	G$Port_IO_Init$0$0 ==.
+                           000315  2167 	C$SPI0.c$214$1$57 ==.
+                                   2168 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:214: void Port_IO_Init()
                                    2169 ;	-----------------------------------------
-                                   2170 ;	 function SPI0_INIT
+                                   2170 ;	 function Port_IO_Init
                                    2171 ;	-----------------------------------------
-      000391                       2172 _SPI0_INIT:
-                           000303  2173 	C$SPI0.c$229$1$59 ==.
-                                   2174 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:229: SFRPAGE = SPI0_PAGE;
-      000391 75 84 00         [24] 2175 	mov	_SFRPAGE,#0x00
-                           000306  2176 	C$SPI0.c$230$1$59 ==.
-                                   2177 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:230: SPI0CFG = 0x40;
-      000394 75 9A 40         [24] 2178 	mov	_SPI0CFG,#0x40
-                           000309  2179 	C$SPI0.c$232$1$59 ==.
-                                   2180 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:232: SPI0CN = 0x0D;
-      000397 75 F8 0D         [24] 2181 	mov	_SPI0CN,#0x0D
-                           00030C  2182 	C$SPI0.c$233$1$59 ==.
-                                   2183 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:233: SPI0CKR =  0x26;
-      00039A 75 9D 26         [24] 2184 	mov	_SPI0CKR,#0x26
-                           00030F  2185 	C$SPI0.c$234$1$59 ==.
-                                   2186 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:234: SPIF = 1;
-      00039D D2 FF            [12] 2187 	setb	_SPIF
-                           000311  2188 	C$SPI0.c$235$1$59 ==.
-                           000311  2189 	XG$SPI0_INIT$0$0 ==.
-      00039F 22               [24] 2190 	ret
-                                   2191 	.area CSEG    (CODE)
-                                   2192 	.area CONST   (CODE)
-                           000000  2193 FSPI0$__str_0$0$0 == .
-      0009D8                       2194 ___str_0:
-      0009D8 1B                    2195 	.db 0x1B
-      0009D9 5B 32 4A              2196 	.ascii "[2J"
-      0009DC 00                    2197 	.db 0x00
-                           000005  2198 FSPI0$__str_1$0$0 == .
-      0009DD                       2199 ___str_1:
-      0009DD 55 41 52 54 20 69 73  2200 	.ascii "UART is working"
+      0003A3                       2172 _Port_IO_Init:
+                           000315  2173 	C$SPI0.c$216$1$58 ==.
+                                   2174 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:216: SFRPAGE   = CONFIG_PAGE;
+      0003A3 75 84 0F         [24] 2175 	mov	_SFRPAGE,#0x0F
+                           000318  2176 	C$SPI0.c$223$1$58 ==.
+                                   2177 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:223: P0MDOUT = 0x75;
+      0003A6 75 A4 75         [24] 2178 	mov	_P0MDOUT,#0x75
+                           00031B  2179 	C$SPI0.c$224$1$58 ==.
+                                   2180 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:224: P0 = 0xAA;
+      0003A9 75 80 AA         [24] 2181 	mov	_P0,#0xAA
+                           00031E  2182 	C$SPI0.c$228$1$58 ==.
+                                   2183 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:228: WDTCN   = 0xDE;             // Disable watchdog timer.
+      0003AC 75 FF DE         [24] 2184 	mov	_WDTCN,#0xDE
+                           000321  2185 	C$SPI0.c$229$1$58 ==.
+                                   2186 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:229: WDTCN   = 0xAD;
+      0003AF 75 FF AD         [24] 2187 	mov	_WDTCN,#0xAD
+                           000324  2188 	C$SPI0.c$230$1$58 ==.
+                                   2189 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:230: EA 		  = 1; // enable global interrupts
+      0003B2 D2 AF            [12] 2190 	setb	_EA
+                           000326  2191 	C$SPI0.c$231$1$58 ==.
+                                   2192 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:231: XBR0      = 0x06;
+      0003B4 75 E1 06         [24] 2193 	mov	_XBR0,#0x06
+                           000329  2194 	C$SPI0.c$232$1$58 ==.
+                                   2195 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:232: XBR2      = 0x44;
+      0003B7 75 E3 44         [24] 2196 	mov	_XBR2,#0x44
+                           00032C  2197 	C$SPI0.c$233$1$58 ==.
+                           00032C  2198 	XG$Port_IO_Init$0$0 ==.
+      0003BA 22               [24] 2199 	ret
+                                   2200 ;------------------------------------------------------------
+                                   2201 ;Allocation info for local variables in function 'SPI0_INIT'
+                                   2202 ;------------------------------------------------------------
+                           00032D  2203 	G$SPI0_INIT$0$0 ==.
+                           00032D  2204 	C$SPI0.c$234$1$58 ==.
+                                   2205 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:234: void SPI0_INIT()
+                                   2206 ;	-----------------------------------------
+                                   2207 ;	 function SPI0_INIT
+                                   2208 ;	-----------------------------------------
+      0003BB                       2209 _SPI0_INIT:
+                           00032D  2210 	C$SPI0.c$236$1$59 ==.
+                                   2211 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:236: SFRPAGE = SPI0_PAGE;
+      0003BB 75 84 00         [24] 2212 	mov	_SFRPAGE,#0x00
+                           000330  2213 	C$SPI0.c$237$1$59 ==.
+                                   2214 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:237: SPI0CFG = 0x40;
+      0003BE 75 9A 40         [24] 2215 	mov	_SPI0CFG,#0x40
+                           000333  2216 	C$SPI0.c$239$1$59 ==.
+                                   2217 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:239: SPI0CN = 0x0D;
+      0003C1 75 F8 0D         [24] 2218 	mov	_SPI0CN,#0x0D
+                           000336  2219 	C$SPI0.c$240$1$59 ==.
+                                   2220 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:240: SPI0CKR =  0x26;
+      0003C4 75 9D 26         [24] 2221 	mov	_SPI0CKR,#0x26
+                           000339  2222 	C$SPI0.c$241$1$59 ==.
+                                   2223 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:241: SPIF = 1;
+      0003C7 D2 FF            [12] 2224 	setb	_SPIF
+                           00033B  2225 	C$SPI0.c$242$1$59 ==.
+                           00033B  2226 	XG$SPI0_INIT$0$0 ==.
+      0003C9 22               [24] 2227 	ret
+                                   2228 	.area CSEG    (CODE)
+                                   2229 	.area CONST   (CODE)
+                           000000  2230 FSPI0$__str_0$0$0 == .
+      000A02                       2231 ___str_0:
+      000A02 1B                    2232 	.db 0x1B
+      000A03 5B 32 4A              2233 	.ascii "[2J"
+      000A06 00                    2234 	.db 0x00
+                           000005  2235 FSPI0$__str_1$0$0 == .
+      000A07                       2236 ___str_1:
+      000A07 55 41 52 54 20 69 73  2237 	.ascii "UART is working"
              20 77 6F 72 6B 69 6E
              67
-      0009EC 00                    2201 	.db 0x00
-                           000015  2202 FSPI0$__str_2$0$0 == .
-      0009ED                       2203 ___str_2:
-      0009ED 1B                    2204 	.db 0x1B
-      0009EE 5B 25 64 3B 31 48     2205 	.ascii "[%d;1H"
-      0009F4 00                    2206 	.db 0x00
-                           00001D  2207 FSPI0$__str_3$0$0 == .
-      0009F5                       2208 ___str_3:
-      0009F5 1B                    2209 	.db 0x1B
-      0009F6 5B 31 4A              2210 	.ascii "[1J"
-      0009F9 00                    2211 	.db 0x00
-                           000022  2212 FSPI0$__str_4$0$0 == .
-      0009FA                       2213 ___str_4:
-      0009FA 1B                    2214 	.db 0x1B
-      0009FB 5B 31 3B 31 48        2215 	.ascii "[1;1H"
-      000A00 00                    2216 	.db 0x00
-                           000029  2217 FSPI0$__str_5$0$0 == .
-      000A01                       2218 ___str_5:
-      000A01 1B                    2219 	.db 0x1B
-      000A02 5B 31 32 3B 31 48     2220 	.ascii "[12;1H"
-      000A08 00                    2221 	.db 0x00
-                           000031  2222 FSPI0$__str_6$0$0 == .
-      000A09                       2223 ___str_6:
-      000A09 1B                    2224 	.db 0x1B
-      000A0A 5B 4A                 2225 	.ascii "[J"
-      000A0C 00                    2226 	.db 0x00
-                           000035  2227 FSPI0$__str_7$0$0 == .
-      000A0D                       2228 ___str_7:
-      000A0D 20 20 20 79 6F 75 20  2229 	.ascii "   you pressed <DEL>"
+      000A16 00                    2238 	.db 0x00
+                           000015  2239 FSPI0$__str_2$0$0 == .
+      000A17                       2240 ___str_2:
+      000A17 1B                    2241 	.db 0x1B
+      000A18 5B 25 64 3B 31 48     2242 	.ascii "[%d;1H"
+      000A1E 00                    2243 	.db 0x00
+                           00001D  2244 FSPI0$__str_3$0$0 == .
+      000A1F                       2245 ___str_3:
+      000A1F 1B                    2246 	.db 0x1B
+      000A20 5B 31 4A              2247 	.ascii "[1J"
+      000A23 00                    2248 	.db 0x00
+                           000022  2249 FSPI0$__str_4$0$0 == .
+      000A24                       2250 ___str_4:
+      000A24 1B                    2251 	.db 0x1B
+      000A25 5B 31 3B 31 48        2252 	.ascii "[1;1H"
+      000A2A 00                    2253 	.db 0x00
+                           000029  2254 FSPI0$__str_5$0$0 == .
+      000A2B                       2255 ___str_5:
+      000A2B 1B                    2256 	.db 0x1B
+      000A2C 5B 31 32 3B 31 48     2257 	.ascii "[12;1H"
+      000A32 00                    2258 	.db 0x00
+                           000031  2259 FSPI0$__str_6$0$0 == .
+      000A33                       2260 ___str_6:
+      000A33 1B                    2261 	.db 0x1B
+      000A34 5B 4A                 2262 	.ascii "[J"
+      000A36 00                    2263 	.db 0x00
+                           000035  2264 FSPI0$__str_7$0$0 == .
+      000A37                       2265 ___str_7:
+      000A37 20 20 20 79 6F 75 20  2266 	.ascii "   you pressed <DEL>"
              70 72 65 73 73 65 64
              20 3C 44 45 4C 3E
-      000A21 00                    2230 	.db 0x00
-                                   2231 	.area XINIT   (CODE)
-                                   2232 	.area CABS    (ABS,CODE)
+      000A4B 00                    2267 	.db 0x00
+                                   2268 	.area XINIT   (CODE)
+                                   2269 	.area CABS    (ABS,CODE)

@@ -1,7 +1,7 @@
 ;--------------------------------------------------------
 ; File Created by SDCC : free open source ANSI-C Compiler
 ; Version 3.4.0 #8981 (Apr  5 2014) (MINGW32)
-; This file was generated Thu Oct 13 17:18:08 2016
+; This file was generated Thu Oct 13 17:28:23 2016
 ;--------------------------------------------------------
 	.module SPI0
 	.optsdcc -mmcs51 --model-small
@@ -1213,7 +1213,6 @@ _counts::
 	.area	OSEG    (OVR,DATA)
 	.area	OSEG    (OVR,DATA)
 	.area	OSEG    (OVR,DATA)
-	.area	OSEG    (OVR,DATA)
 ;--------------------------------------------------------
 ; Stack segment in internal ram 
 ;--------------------------------------------------------
@@ -1685,7 +1684,7 @@ _foreign:
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'read'
 ;------------------------------------------------------------
-;i                         Allocated to registers 
+;i                         Allocated to registers r6 r7 
 ;------------------------------------------------------------
 	G$read$0$0 ==.
 	C$SPI0.c$99$1$42 ==.
@@ -1704,22 +1703,57 @@ _read:
 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:104: for (i=0;i<101;i++);
 	mov	r6,#0x65
 	mov	r7,#0x00
-00107$:
+00111$:
 	dec	r6
-	cjne	r6,#0xFF,00121$
+	cjne	r6,#0xFF,00143$
 	dec	r7
-00121$:
+00143$:
 	mov	a,r6
 	orl	a,r7
-	jnz	00107$
+	jnz	00111$
+	C$SPI0.c$105$1$45 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:105: write(0x64);
+	mov	dpl,#0x64
+	lcall	_write
 	C$SPI0.c$106$1$45 ==.
 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:106: while(!SPIF);
 00102$:
 	jnb	_SPIF,00102$
 	C$SPI0.c$107$1$45 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:107: return SPI0DAT;
-	mov	dpl,_SPI0DAT
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:107: NSSMD0 = 1;
+	setb	_NSSMD0
 	C$SPI0.c$108$1$45 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:108: for (i=0;i<101;i++);
+	mov	r6,#0x65
+	mov	r7,#0x00
+00114$:
+	dec	r6
+	cjne	r6,#0xFF,00146$
+	dec	r7
+00146$:
+	mov	a,r6
+	orl	a,r7
+	C$SPI0.c$109$1$45 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:109: counts =1 ;
+	jnz	00114$
+	mov	_counts,#0x01
+	mov	(_counts + 1),a
+	C$SPI0.c$110$1$45 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:110: while(counts < 2000);
+00106$:
+	clr	c
+	mov	a,_counts
+	subb	a,#0xD0
+	mov	a,(_counts + 1)
+	subb	a,#0x07
+	jc	00106$
+	C$SPI0.c$111$1$45 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:111: NSSMD0 = 0;
+	clr	_NSSMD0
+	C$SPI0.c$112$1$45 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:112: return SPI0DAT;
+	mov	dpl,_SPI0DAT
+	C$SPI0.c$113$1$45 ==.
 	XG$read$0$0 ==.
 	ret
 ;------------------------------------------------------------
@@ -1729,23 +1763,23 @@ _read:
 ;dumb                      Allocated to registers r7 
 ;------------------------------------------------------------
 	G$dread$0$0 ==.
-	C$SPI0.c$110$1$45 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:110: unsigned char dread()
+	C$SPI0.c$115$1$45 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:115: unsigned char dread()
 ;	-----------------------------------------
 ;	 function dread
 ;	-----------------------------------------
 _dread:
-	C$SPI0.c$113$1$45 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:113: char dumb = 0x65;
+	C$SPI0.c$118$1$45 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:118: char dumb = 0x65;
 	mov	r7,#0x65
-	C$SPI0.c$114$1$46 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:114: SFRPAGE = SPI0_PAGE;
+	C$SPI0.c$119$1$46 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:119: SFRPAGE = SPI0_PAGE;
 	mov	_SFRPAGE,#0x00
-	C$SPI0.c$115$1$46 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:115: NSSMD0 = 0;
+	C$SPI0.c$120$1$46 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:120: NSSMD0 = 0;
 	clr	_NSSMD0
-	C$SPI0.c$116$1$46 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:116: for (i=0;i<101;i++);
+	C$SPI0.c$121$1$46 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:121: for (i=0;i<101;i++);
 	mov	r5,#0x65
 	mov	r6,#0x00
 00114$:
@@ -1756,53 +1790,56 @@ _dread:
 	mov	a,r5
 	orl	a,r6
 	jnz	00114$
-	C$SPI0.c$117$1$46 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:117: while(SPIF){SPIF=0;}//make sure SPIF is not busy
+	C$SPI0.c$122$1$46 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:122: while(SPIF){SPIF=0;}//make sure SPIF is not busy
 00102$:
 	jbc	_SPIF,00152$
 	sjmp	00104$
 00152$:
 	sjmp	00102$
 00104$:
-	C$SPI0.c$118$1$46 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:118: SPI0DAT = dumb;
+	C$SPI0.c$123$1$46 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:123: SPI0DAT = dumb;
 	mov	_SPI0DAT,r7
-	C$SPI0.c$119$1$46 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:119: while(!SPIF);
+	C$SPI0.c$124$1$46 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:124: while(!SPIF);
 00105$:
 	jnb	_SPIF,00105$
-	C$SPI0.c$120$1$46 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:120: NSSMD0 = 1;
+	C$SPI0.c$125$1$46 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:125: NSSMD0 = 1;
 	setb	_NSSMD0
-	C$SPI0.c$121$1$46 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:121: for (i=0;i<101;i++);
-	mov	r6,#0x65
-	mov	r7,#0x00
-00117$:
-	dec	r6
-	cjne	r6,#0xFF,00154$
-	dec	r7
-00154$:
-	mov	a,r6
-	orl	a,r7
-	C$SPI0.c$122$1$46 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:122: counts =1 ;
-	jnz	00117$
+	C$SPI0.c$127$1$46 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:127: counts =1 ;
 	mov	_counts,#0x01
-	mov	(_counts + 1),a
-	C$SPI0.c$123$1$46 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:123: while(counts < 2000);
-00109$:
+	mov	(_counts + 1),#0x00
+	C$SPI0.c$128$1$46 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:128: while(counts < 2000);
+00108$:
 	clr	c
 	mov	a,_counts
 	subb	a,#0xD0
 	mov	a,(_counts + 1)
 	subb	a,#0x07
-	jc	00109$
-	C$SPI0.c$124$1$46 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:124: return SPI0DAT;
+	jc	00108$
+	C$SPI0.c$129$1$46 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:129: NSSMD0 = 0;
+	clr	_NSSMD0
+	C$SPI0.c$130$1$46 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:130: for (i=0;i<101;i++);
+	mov	r6,#0x65
+	mov	r7,#0x00
+00117$:
+	dec	r6
+	cjne	r6,#0xFF,00155$
+	dec	r7
+00155$:
+	mov	a,r6
+	orl	a,r7
+	jnz	00117$
+	C$SPI0.c$131$1$46 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:131: return SPI0DAT;
 	mov	dpl,_SPI0DAT
-	C$SPI0.c$125$1$46 ==.
+	C$SPI0.c$132$1$46 ==.
 	XG$dread$0$0 ==.
 	ret
 ;------------------------------------------------------------
@@ -1812,39 +1849,39 @@ _dread:
 ;i                         Allocated to registers 
 ;------------------------------------------------------------
 	G$write$0$0 ==.
-	C$SPI0.c$127$1$46 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:127: void write(char c)
+	C$SPI0.c$134$1$46 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:134: void write(char c)
 ;	-----------------------------------------
 ;	 function write
 ;	-----------------------------------------
 _write:
 	mov	r7,dpl
-	C$SPI0.c$130$1$49 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:130: SFRPAGE = SPI0_PAGE;
+	C$SPI0.c$137$1$49 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:137: SFRPAGE = SPI0_PAGE;
 	mov	_SFRPAGE,#0x00
-	C$SPI0.c$131$1$49 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:131: SPIF = 0;
+	C$SPI0.c$138$1$49 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:138: SPIF = 0;
 	clr	_SPIF
-	C$SPI0.c$132$1$49 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:132: NSSMD0 = 0;
+	C$SPI0.c$139$1$49 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:139: NSSMD0 = 0;
 	clr	_NSSMD0
-	C$SPI0.c$133$1$49 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:133: while(SPIF){SPIF=0;}//make sure SPIF is not busy
+	C$SPI0.c$140$1$49 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:140: while(SPIF){SPIF=0;}//make sure SPIF is not busy
 00101$:
 	jbc	_SPIF,00130$
 	sjmp	00103$
 00130$:
 	sjmp	00101$
 00103$:
-	C$SPI0.c$134$1$49 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:134: SPI0DAT = c;
+	C$SPI0.c$141$1$49 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:141: SPI0DAT = c;
 	mov	_SPI0DAT,r7
-	C$SPI0.c$135$1$49 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:135: while(!SPIF);
+	C$SPI0.c$142$1$49 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:142: while(!SPIF);
 00104$:
 	jnb	_SPIF,00104$
-	C$SPI0.c$136$1$49 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:136: for (i=0;i<101;i++);
+	C$SPI0.c$143$1$49 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:143: for (i=0;i<101;i++);
 	mov	r6,#0x65
 	mov	r7,#0x00
 00110$:
@@ -1855,7 +1892,7 @@ _write:
 	mov	a,r6
 	orl	a,r7
 	jnz	00110$
-	C$SPI0.c$137$1$49 ==.
+	C$SPI0.c$144$1$49 ==.
 	XG$write$0$0 ==.
 	ret
 ;------------------------------------------------------------
@@ -1865,17 +1902,17 @@ _write:
 ;i                         Allocated to registers 
 ;------------------------------------------------------------
 	G$dummy$0$0 ==.
-	C$SPI0.c$138$1$49 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:138: void dummy ()
+	C$SPI0.c$145$1$49 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:145: void dummy ()
 ;	-----------------------------------------
 ;	 function dummy
 ;	-----------------------------------------
 _dummy:
-	C$SPI0.c$142$1$51 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:142: r = 0x00;
+	C$SPI0.c$149$1$51 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:149: r = 0x00;
 	mov	r7,#0x00
-	C$SPI0.c$145$1$51 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:145: printf("   you pressed <DEL>");
+	C$SPI0.c$152$1$51 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:152: printf("   you pressed <DEL>");
 	push	ar7
 	mov	a,#___str_7
 	push	acc
@@ -1888,19 +1925,19 @@ _dummy:
 	dec	sp
 	dec	sp
 	pop	ar7
-	C$SPI0.c$146$1$51 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:146: while(r!=0xFF)
+	C$SPI0.c$153$1$51 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:153: while(r!=0xFF)
 00105$:
 	cjne	r7,#0xFF,00132$
 	sjmp	00111$
 00132$:
-	C$SPI0.c$148$2$52 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:148: counts =0 ;
+	C$SPI0.c$155$2$52 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:155: counts =0 ;
 	clr	a
 	mov	_counts,a
 	mov	(_counts + 1),a
-	C$SPI0.c$149$2$52 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:149: while(counts < 49999);
+	C$SPI0.c$156$2$52 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:156: while(counts < 49999);
 00101$:
 	mov	r3,_counts
 	mov	r4,(_counts + 1)
@@ -1917,21 +1954,21 @@ _dummy:
 	xrl	a,#0x80
 	subb	a,#0x80
 	jc	00101$
-	C$SPI0.c$150$2$52 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:150: r = dread();
+	C$SPI0.c$157$2$52 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:157: r = dread();
 	lcall	_dread
 	mov	r7,dpl
-	C$SPI0.c$151$2$52 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:151: NSSMD0 = 0;
+	C$SPI0.c$158$2$52 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:158: NSSMD0 = 0;
 	clr	_NSSMD0
-	C$SPI0.c$152$2$52 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:152: foreign(r);
+	C$SPI0.c$159$2$52 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:159: foreign(r);
 	mov	dpl,r7
 	push	ar7
 	lcall	_foreign
 	pop	ar7
-	C$SPI0.c$153$2$52 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:153: for (i=0;i<101;i++);
+	C$SPI0.c$160$2$52 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:160: for (i=0;i<101;i++);
 	mov	r5,#0x65
 	mov	r6,#0x00
 00110$:
@@ -1944,43 +1981,43 @@ _dummy:
 	jnz	00110$
 	sjmp	00105$
 00111$:
-	C$SPI0.c$155$1$51 ==.
+	C$SPI0.c$162$1$51 ==.
 	XG$dummy$0$0 ==.
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'Timer1_ISR'
 ;------------------------------------------------------------
 	G$Timer1_ISR$0$0 ==.
-	C$SPI0.c$157$1$51 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:157: void Timer1_ISR(void) __interrupt 3
+	C$SPI0.c$164$1$51 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:164: void Timer1_ISR(void) __interrupt 3
 ;	-----------------------------------------
 ;	 function Timer1_ISR
 ;	-----------------------------------------
 _Timer1_ISR:
 	push	acc
 	push	psw
-	C$SPI0.c$159$1$54 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:159: SFRPAGE = TIMER01_PAGE;
+	C$SPI0.c$166$1$54 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:166: SFRPAGE = TIMER01_PAGE;
 	mov	_SFRPAGE,#0x00
-	C$SPI0.c$160$1$54 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:160: TF1 = 0;
+	C$SPI0.c$167$1$54 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:167: TF1 = 0;
 	clr	_TF1
-	C$SPI0.c$161$1$54 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:161: counts ++;
+	C$SPI0.c$168$1$54 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:168: counts ++;
 	inc	_counts
 	clr	a
 	cjne	a,_counts,00103$
 	inc	(_counts + 1)
 00103$:
-	C$SPI0.c$163$1$54 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:163: TL1 = 0;
+	C$SPI0.c$170$1$54 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:170: TL1 = 0;
 	mov	_TL1,#0x00
-	C$SPI0.c$164$1$54 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:164: TH1 = 0;	
+	C$SPI0.c$171$1$54 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:171: TH1 = 0;	
 	mov	_TH1,#0x00
 	pop	psw
 	pop	acc
-	C$SPI0.c$165$1$54 ==.
+	C$SPI0.c$172$1$54 ==.
 	XG$Timer1_ISR$0$0 ==.
 	reti
 ;	eliminated unneeded mov psw,# (no regs used in bank)
@@ -1993,20 +2030,20 @@ _Timer1_ISR:
 ;j                         Allocated to registers 
 ;------------------------------------------------------------
 	G$SYSCLK_INIT$0$0 ==.
-	C$SPI0.c$167$1$54 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:167: void SYSCLK_INIT()
+	C$SPI0.c$174$1$54 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:174: void SYSCLK_INIT()
 ;	-----------------------------------------
 ;	 function SYSCLK_INIT
 ;	-----------------------------------------
 _SYSCLK_INIT:
-	C$SPI0.c$171$1$55 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:171: SFRPAGE = CONFIG_PAGE;
+	C$SPI0.c$178$1$55 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:178: SFRPAGE = CONFIG_PAGE;
 	mov	_SFRPAGE,#0x0F
-	C$SPI0.c$172$1$55 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:172: OSCXCN  = 0x67;             // Start external oscillator
+	C$SPI0.c$179$1$55 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:179: OSCXCN  = 0x67;             // Start external oscillator
 	mov	_OSCXCN,#0x67
-	C$SPI0.c$173$1$55 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:173: for(j=0; j < 256; j++);     // Wait for the oscillator to start up.
+	C$SPI0.c$180$1$55 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:180: for(j=0; j < 256; j++);     // Wait for the oscillator to start up.
 	mov	r6,#0x00
 	mov	r7,#0x01
 00107$:
@@ -2017,175 +2054,175 @@ _SYSCLK_INIT:
 	mov	a,r6
 	orl	a,r7
 	jnz	00107$
-	C$SPI0.c$174$1$55 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:174: while(!(OSCXCN & 0x80));    // Check to see if the Crystal Oscillator Valid Flag is set.
+	C$SPI0.c$181$1$55 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:181: while(!(OSCXCN & 0x80));    // Check to see if the Crystal Oscillator Valid Flag is set.
 00102$:
 	mov	a,_OSCXCN
 	jnb	acc.7,00102$
-	C$SPI0.c$175$1$55 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:175: CLKSEL  = 0x01;             // SYSCLK derived from the External Oscillator circuit.
+	C$SPI0.c$182$1$55 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:182: CLKSEL  = 0x01;             // SYSCLK derived from the External Oscillator circuit.
 	mov	_CLKSEL,#0x01
-	C$SPI0.c$176$1$55 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:176: OSCICN  = 0x00;             // Disable the internal oscillator.
+	C$SPI0.c$183$1$55 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:183: OSCICN  = 0x00;             // Disable the internal oscillator.
 	mov	_OSCICN,#0x00
-	C$SPI0.c$177$1$55 ==.
+	C$SPI0.c$184$1$55 ==.
 	XG$SYSCLK_INIT$0$0 ==.
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'Timer_Init'
 ;------------------------------------------------------------
 	G$Timer_Init$0$0 ==.
-	C$SPI0.c$179$1$55 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:179: void Timer_Init()
+	C$SPI0.c$186$1$55 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:186: void Timer_Init()
 ;	-----------------------------------------
 ;	 function Timer_Init
 ;	-----------------------------------------
 _Timer_Init:
-	C$SPI0.c$181$1$56 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:181: SFRPAGE   = TIMER01_PAGE;
-	mov	_SFRPAGE,#0x00
-	C$SPI0.c$182$1$56 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:182: TCON      = 0x40;
-	mov	_TCON,#0x40
-	C$SPI0.c$183$1$56 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:183: TMOD      = 0x20;
-	mov	_TMOD,#0x20
-	C$SPI0.c$184$1$56 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:184: CKCON     = 0x10;
-	mov	_CKCON,#0x10
-	C$SPI0.c$185$1$56 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:185: TH1       = 0xA0;
-	mov	_TH1,#0xA0
-	C$SPI0.c$186$1$56 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:186: TL1 = TH1;
-	mov	_TL1,_TH1
-	C$SPI0.c$187$1$56 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:187: SFRPAGE   = TMR2_PAGE;
-	mov	_SFRPAGE,#0x00
 	C$SPI0.c$188$1$56 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:188: TMR2CN    = 0x04;
-	mov	_TMR2CN,#0x04
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:188: SFRPAGE   = TIMER01_PAGE;
+	mov	_SFRPAGE,#0x00
 	C$SPI0.c$189$1$56 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:189: TMR2CF    = 0x08;
-	mov	_TMR2CF,#0x08
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:189: TCON      = 0x40;
+	mov	_TCON,#0x40
 	C$SPI0.c$190$1$56 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:190: TMR2H	  = 0xFF;
-	mov	_TMR2H,#0xFF
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:190: TMOD      = 0x20;
+	mov	_TMOD,#0x20
 	C$SPI0.c$191$1$56 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:191: TMR2L 	  = 0x70;
-	mov	_TMR2L,#0x70
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:191: CKCON     = 0x10;
+	mov	_CKCON,#0x10
 	C$SPI0.c$192$1$56 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:192: RCAP2L    = 0x70;
-	mov	_RCAP2L,#0x70
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:192: TH1       = 0xA0;
+	mov	_TH1,#0xA0
 	C$SPI0.c$193$1$56 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:193: RCAP2H    = 0xFF;
-	mov	_RCAP2H,#0xFF
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:193: TL1 = TH1;
+	mov	_TL1,_TH1
 	C$SPI0.c$194$1$56 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:194: SFRPAGE   = TMR2_PAGE;
+	mov	_SFRPAGE,#0x00
+	C$SPI0.c$195$1$56 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:195: TMR2CN    = 0x04;
+	mov	_TMR2CN,#0x04
+	C$SPI0.c$196$1$56 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:196: TMR2CF    = 0x08;
+	mov	_TMR2CF,#0x08
+	C$SPI0.c$197$1$56 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:197: TMR2H	  = 0xFF;
+	mov	_TMR2H,#0xFF
+	C$SPI0.c$198$1$56 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:198: TMR2L 	  = 0x70;
+	mov	_TMR2L,#0x70
+	C$SPI0.c$199$1$56 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:199: RCAP2L    = 0x70;
+	mov	_RCAP2L,#0x70
+	C$SPI0.c$200$1$56 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:200: RCAP2H    = 0xFF;
+	mov	_RCAP2H,#0xFF
+	C$SPI0.c$201$1$56 ==.
 	XG$Timer_Init$0$0 ==.
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'UART_Init'
 ;------------------------------------------------------------
 	G$UART_Init$0$0 ==.
-	C$SPI0.c$195$1$56 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:195: void UART_Init()
+	C$SPI0.c$202$1$56 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:202: void UART_Init()
 ;	-----------------------------------------
 ;	 function UART_Init
 ;	-----------------------------------------
 _UART_Init:
-	C$SPI0.c$197$1$57 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:197: SFRPAGE   = UART0_PAGE;//Same as Timer 2 and Timer 1 SFR PAGES
-	mov	_SFRPAGE,#0x00
-	C$SPI0.c$198$1$57 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:198: TR2		  = 1;//Start Timer 2
-	setb	_TR2
-	C$SPI0.c$199$1$57 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:199: SCON0     = 0x50;
-	mov	_SCON0,#0x50
-	C$SPI0.c$200$1$57 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:200: SSTA0   = 0x15;
-	mov	_SSTA0,#0x15
-	C$SPI0.c$201$1$57 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:201: TI0		  = 1; // Indicate TX0 is ready
-	setb	_TI0
-	C$SPI0.c$202$1$57 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:202: TR1		  = 1; //Start Timer 1
-	setb	_TR1
-	C$SPI0.c$203$1$57 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:203: SFRPAGE   = UART1_PAGE;
-	mov	_SFRPAGE,#0x01
 	C$SPI0.c$204$1$57 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:204: SCON1     = 0x50;
-	mov	_SCON1,#0x50
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:204: SFRPAGE   = UART0_PAGE;//Same as Timer 2 and Timer 1 SFR PAGES
+	mov	_SFRPAGE,#0x00
 	C$SPI0.c$205$1$57 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:205: TI1		  = 1; //Indicatie TX1 is ready
-	setb	_TI1
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:205: TR2		  = 1;//Start Timer 2
+	setb	_TR2
 	C$SPI0.c$206$1$57 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:206: SCON0     = 0x50;
+	mov	_SCON0,#0x50
+	C$SPI0.c$207$1$57 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:207: SSTA0   = 0x15;
+	mov	_SSTA0,#0x15
+	C$SPI0.c$208$1$57 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:208: TI0		  = 1; // Indicate TX0 is ready
+	setb	_TI0
+	C$SPI0.c$209$1$57 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:209: TR1		  = 1; //Start Timer 1
+	setb	_TR1
+	C$SPI0.c$210$1$57 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:210: SFRPAGE   = UART1_PAGE;
+	mov	_SFRPAGE,#0x01
+	C$SPI0.c$211$1$57 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:211: SCON1     = 0x50;
+	mov	_SCON1,#0x50
+	C$SPI0.c$212$1$57 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:212: TI1		  = 1; //Indicatie TX1 is ready
+	setb	_TI1
+	C$SPI0.c$213$1$57 ==.
 	XG$UART_Init$0$0 ==.
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'Port_IO_Init'
 ;------------------------------------------------------------
 	G$Port_IO_Init$0$0 ==.
-	C$SPI0.c$207$1$57 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:207: void Port_IO_Init()
+	C$SPI0.c$214$1$57 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:214: void Port_IO_Init()
 ;	-----------------------------------------
 ;	 function Port_IO_Init
 ;	-----------------------------------------
 _Port_IO_Init:
-	C$SPI0.c$209$1$58 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:209: SFRPAGE   = CONFIG_PAGE;
-	mov	_SFRPAGE,#0x0F
 	C$SPI0.c$216$1$58 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:216: P0MDOUT = 0x75;
-	mov	_P0MDOUT,#0x75
-	C$SPI0.c$217$1$58 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:217: P0 = 0xAA;
-	mov	_P0,#0xAA
-	C$SPI0.c$221$1$58 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:221: WDTCN   = 0xDE;             // Disable watchdog timer.
-	mov	_WDTCN,#0xDE
-	C$SPI0.c$222$1$58 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:222: WDTCN   = 0xAD;
-	mov	_WDTCN,#0xAD
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:216: SFRPAGE   = CONFIG_PAGE;
+	mov	_SFRPAGE,#0x0F
 	C$SPI0.c$223$1$58 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:223: EA 		  = 1; // enable global interrupts
-	setb	_EA
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:223: P0MDOUT = 0x75;
+	mov	_P0MDOUT,#0x75
 	C$SPI0.c$224$1$58 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:224: XBR0      = 0x06;
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:224: P0 = 0xAA;
+	mov	_P0,#0xAA
+	C$SPI0.c$228$1$58 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:228: WDTCN   = 0xDE;             // Disable watchdog timer.
+	mov	_WDTCN,#0xDE
+	C$SPI0.c$229$1$58 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:229: WDTCN   = 0xAD;
+	mov	_WDTCN,#0xAD
+	C$SPI0.c$230$1$58 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:230: EA 		  = 1; // enable global interrupts
+	setb	_EA
+	C$SPI0.c$231$1$58 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:231: XBR0      = 0x06;
 	mov	_XBR0,#0x06
-	C$SPI0.c$225$1$58 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:225: XBR2      = 0x44;
+	C$SPI0.c$232$1$58 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:232: XBR2      = 0x44;
 	mov	_XBR2,#0x44
-	C$SPI0.c$226$1$58 ==.
+	C$SPI0.c$233$1$58 ==.
 	XG$Port_IO_Init$0$0 ==.
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'SPI0_INIT'
 ;------------------------------------------------------------
 	G$SPI0_INIT$0$0 ==.
-	C$SPI0.c$227$1$58 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:227: void SPI0_INIT()
+	C$SPI0.c$234$1$58 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:234: void SPI0_INIT()
 ;	-----------------------------------------
 ;	 function SPI0_INIT
 ;	-----------------------------------------
 _SPI0_INIT:
-	C$SPI0.c$229$1$59 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:229: SFRPAGE = SPI0_PAGE;
+	C$SPI0.c$236$1$59 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:236: SFRPAGE = SPI0_PAGE;
 	mov	_SFRPAGE,#0x00
-	C$SPI0.c$230$1$59 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:230: SPI0CFG = 0x40;
+	C$SPI0.c$237$1$59 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:237: SPI0CFG = 0x40;
 	mov	_SPI0CFG,#0x40
-	C$SPI0.c$232$1$59 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:232: SPI0CN = 0x0D;
+	C$SPI0.c$239$1$59 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:239: SPI0CN = 0x0D;
 	mov	_SPI0CN,#0x0D
-	C$SPI0.c$233$1$59 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:233: SPI0CKR =  0x26;
+	C$SPI0.c$240$1$59 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:240: SPI0CKR =  0x26;
 	mov	_SPI0CKR,#0x26
-	C$SPI0.c$234$1$59 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:234: SPIF = 1;
+	C$SPI0.c$241$1$59 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_03\3.3 - SPI0_loop\SPI0.c:241: SPIF = 1;
 	setb	_SPIF
-	C$SPI0.c$235$1$59 ==.
+	C$SPI0.c$242$1$59 ==.
 	XG$SPI0_INIT$0$0 ==.
 	ret
 	.area CSEG    (CODE)

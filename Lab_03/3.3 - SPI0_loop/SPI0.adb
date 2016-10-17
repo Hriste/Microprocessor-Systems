@@ -22,6 +22,7 @@ S:LSPI0.main$i$1$33({2}SI:S),R,0,0,[]
 S:LSPI0.main$d$1$33({1}SC:S),R,0,0,[r7]
 S:LSPI0.local$c$1$37({1}SC:S),R,0,0,[r7]
 S:LSPI0.foreign$c$1$41({1}SC:S),R,0,0,[r7]
+S:LSPI0.read$i$1$45({2}SI:S),R,0,0,[r6,r7]
 S:LSPI0.dummy$r$1$51({1}SC:U),R,0,0,[r7]
 S:LSPI0.dummy$i$1$51({2}SI:S),R,0,0,[]
 S:G$P0$0$0({1}SC:U),I,0,0
