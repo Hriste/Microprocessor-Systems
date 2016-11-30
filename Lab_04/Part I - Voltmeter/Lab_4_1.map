@@ -49,14 +49,14 @@ C:   00000008  s_REG_BANK_1
 C:   00000009  s_GSINIT1                       
 C:   00000009  s_GSINIT2                       
 C:   0000000A  l_GSINIT2                       
+C:   00000010  s_OSEG                          
 C:   00000010  s_REG_BANK_2                    
 C:   00000011  l_BSEG                          
 C:   00000013  s_GSINIT3                       
+C:   00000016  s_ISEG                          
 C:   00000018  s_BIT_BANK                      
 C:   00000018  s_REG_BANK_3                    
-C:   00000020  l_GSINIT                        
 C:   00000020  s_BSEG_BYTES                    
-C:   00000020  s__CODE                         
 ASxxxx Linker V03.00 + NoICE + sdld,  page 2.
 Hexadecimal  [32-Bits]
 
@@ -66,23 +66,23 @@ CABS                                00000000    00000000 =           0. bytes (A
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
+C:   00000020  s__CODE                         
 C:   00000022  l_GSINIT3                       
 C:   0000002A  l_GSINIT4                       
+C:   00000030  l_GSINIT                        
 C:   00000035  s_GSINIT4                       
-C:   00000043  s_OSEG                          
-C:   00000049  s_ISEG                          
-C:   0000004F  s_SSEG                          
+C:   0000005D  s_SSEG                          
 C:   0000005F  s_GSINIT                        
 C:   0000005F  s_GSINIT5                       
-C:   0000007F  s_GSFINAL                       
-C:   00000080  l_DSEG                          
-C:   00000082  s_CSEG                          
-C:   000000B1  l_SSEG                          
+C:   0000007C  l_DSEG                          
+C:   0000008F  s_GSFINAL                       
+C:   00000092  s_CSEG                          
+C:   000000A3  l_SSEG                          
 C:   00000100  l_IRAM                          
-C:   0000028E  l_CONST                         
-C:   00001131  l_CSEG                          
-C:   000011B3  s_CONST                         
-C:   00001441  s_XINIT                         
+C:   000002B3  l_CONST                         
+C:   000013B5  l_CSEG                          
+C:   00001447  s_CONST                         
+C:   000016FA  s_XINIT                         
 
 ASxxxx Linker V03.00 + NoICE + sdld,  page 3.
 Hexadecimal  [32-Bits]
@@ -93,7 +93,7 @@ Area                                    Addr        Size        Decimal Bytes (A
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-     00000000  .__.ABS.                           _startup
+     00000000  .__.ABS.                           _fsget1arg
      00000080  G$P0$0$0                           voltmeter
      00000080  G$P0_0$0$0                         voltmeter
      00000080  _P0                                voltmeter
@@ -236,10 +236,8 @@ Area                                    Addr        Size        Decimal Bytes (A
      0000008F  _TF1                               voltmeter
      00000090  G$P1$0$0                           voltmeter
      00000090  G$P1_0$0$0                         voltmeter
-     00000090  G$PB$0$0                           voltmeter
      00000090  _P1                                voltmeter
      00000090  _P1_0                              voltmeter
-     00000090  _PB                                voltmeter
      00000091  G$MAC0BL$0$0                       voltmeter
      00000091  G$P1_1$0$0                         voltmeter
      00000091  G$SSTA0$0$0                        voltmeter
@@ -263,6 +261,8 @@ Area                                    Addr        Size        Decimal Bytes (A
      00000095  _MAC0ACC2                          voltmeter
      00000095  _P1_5                              voltmeter
      00000096  G$MAC0ACC3$0$0                     voltmeter
+     00000096  G$P1_6$0$0                         voltmeter
+     00000096  G$SFRPGCN$0$0                      voltmeter
 ASxxxx Linker V03.00 + NoICE + sdld,  page 6.
 Hexadecimal  [32-Bits]
 
@@ -272,8 +272,6 @@ Area                                    Addr        Size        Decimal Bytes (A
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-     00000096  G$P1_6$0$0                         voltmeter
-     00000096  G$SFRPGCN$0$0                      voltmeter
      00000096  _MAC0ACC3                          voltmeter
      00000096  _P1_6                              voltmeter
      00000096  _SFRPGCN                           voltmeter
@@ -323,6 +321,8 @@ Area                                    Addr        Size        Decimal Bytes (A
      0000009B  _TB81                              voltmeter
      0000009C  G$P4MDOUT$0$0                      voltmeter
      0000009C  G$REN$0$0                          voltmeter
+     0000009C  G$REN0$0$0                         voltmeter
+     0000009C  G$REN1$0$0                         voltmeter
 ASxxxx Linker V03.00 + NoICE + sdld,  page 7.
 Hexadecimal  [32-Bits]
 
@@ -332,8 +332,6 @@ Area                                    Addr        Size        Decimal Bytes (A
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-     0000009C  G$REN0$0$0                         voltmeter
-     0000009C  G$REN1$0$0                         voltmeter
      0000009C  _P4MDOUT                           voltmeter
      0000009C  _REN                               voltmeter
      0000009C  _REN0                              voltmeter
@@ -383,6 +381,8 @@ Area                                    Addr        Size        Decimal Bytes (A
      000000A4  G$P0MDOUT$0$0                      voltmeter
      000000A4  G$P2_4$0$0                         voltmeter
      000000A4  _P0MDOUT                           voltmeter
+     000000A4  _P2_4                              voltmeter
+     000000A5  G$P1MDOUT$0$0                      voltmeter
 ASxxxx Linker V03.00 + NoICE + sdld,  page 8.
 Hexadecimal  [32-Bits]
 
@@ -392,8 +392,6 @@ Area                                    Addr        Size        Decimal Bytes (A
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-     000000A4  _P2_4                              voltmeter
-     000000A5  G$P1MDOUT$0$0                      voltmeter
      000000A5  G$P2_5$0$0                         voltmeter
      000000A5  _P1MDOUT                           voltmeter
      000000A5  _P2_5                              voltmeter
@@ -443,6 +441,8 @@ Area                                    Addr        Size        Decimal Bytes (A
      000000B4  _P3_4                              voltmeter
      000000B5  G$P3_5$0$0                         voltmeter
      000000B5  _P3_5                              voltmeter
+     000000B6  G$P3_6$0$0                         voltmeter
+     000000B6  _P3_6                              voltmeter
 ASxxxx Linker V03.00 + NoICE + sdld,  page 9.
 Hexadecimal  [32-Bits]
 
@@ -452,8 +452,6 @@ Area                                    Addr        Size        Decimal Bytes (A
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-     000000B6  G$P3_6$0$0                         voltmeter
-     000000B6  _P3_6                              voltmeter
      000000B7  G$FLACL$0$0                        voltmeter
      000000B7  G$FLSCL$0$0                        voltmeter
      000000B7  G$P3_7$0$0                         voltmeter
@@ -503,6 +501,8 @@ Area                                    Addr        Size        Decimal Bytes (A
      000000C0  _MAC0N                             voltmeter
      000000C0  _MAC0STA                           voltmeter
      000000C0  _SMB0CN                            voltmeter
+     000000C0  _SMBTOE                            voltmeter
+     000000C1  G$MAC0AL$0$0                       voltmeter
 ASxxxx Linker V03.00 + NoICE + sdld,  page 10.
 Hexadecimal  [32-Bits]
 
@@ -512,8 +512,6 @@ Area                                    Addr        Size        Decimal Bytes (A
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-     000000C0  _SMBTOE                            voltmeter
-     000000C1  G$MAC0AL$0$0                       voltmeter
      000000C1  G$MAC0SO$0$0                       voltmeter
      000000C1  G$SMB0STA$0$0                      voltmeter
      000000C1  G$SMBFTE$0$0                       voltmeter
@@ -563,6 +561,8 @@ Area                                    Addr        Size        Decimal Bytes (A
      000000C8  G$P4$0$0                           voltmeter
      000000C8  G$P4_0$0$0                         voltmeter
      000000C8  G$TMR2CN$0$0                       voltmeter
+     000000C8  G$TMR3CN$0$0                       voltmeter
+     000000C8  G$TMR4CN$0$0                       voltmeter
 ASxxxx Linker V03.00 + NoICE + sdld,  page 11.
 Hexadecimal  [32-Bits]
 
@@ -572,8 +572,6 @@ Area                                    Addr        Size        Decimal Bytes (A
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-     000000C8  G$TMR3CN$0$0                       voltmeter
-     000000C8  G$TMR4CN$0$0                       voltmeter
      000000C8  _CPRL2                             voltmeter
      000000C8  _CPRL3                             voltmeter
      000000C8  _CPRL4                             voltmeter
@@ -623,6 +621,8 @@ Area                                    Addr        Size        Decimal Bytes (A
      000000CB  _P4_3                              voltmeter
      000000CB  _RCAP2H                            voltmeter
      000000CB  _RCAP3H                            voltmeter
+     000000CB  _RCAP4H                            voltmeter
+     000000CC  G$P4_4$0$0                         voltmeter
 ASxxxx Linker V03.00 + NoICE + sdld,  page 12.
 Hexadecimal  [32-Bits]
 
@@ -632,8 +632,6 @@ Area                                    Addr        Size        Decimal Bytes (A
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-     000000CB  _RCAP4H                            voltmeter
-     000000CC  G$P4_4$0$0                         voltmeter
      000000CC  G$TL2$0$0                          voltmeter
      000000CC  G$TMR2L$0$0                        voltmeter
      000000CC  G$TMR3L$0$0                        voltmeter
@@ -683,6 +681,8 @@ Area                                    Addr        Size        Decimal Bytes (A
      000000D1  G$REF0CN$0$0                       voltmeter
      000000D1  _F1                                voltmeter
      000000D1  _REF0CN                            voltmeter
+     000000D2  G$DAC0L$0$0                        voltmeter
+     000000D2  G$DAC1L$0$0                        voltmeter
 ASxxxx Linker V03.00 + NoICE + sdld,  page 13.
 Hexadecimal  [32-Bits]
 
@@ -692,8 +692,6 @@ Area                                    Addr        Size        Decimal Bytes (A
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-     000000D2  G$DAC0L$0$0                        voltmeter
-     000000D2  G$DAC1L$0$0                        voltmeter
      000000D2  G$OV$0$0                           voltmeter
      000000D2  _DAC0L                             voltmeter
      000000D2  _DAC1L                             voltmeter
@@ -743,6 +741,8 @@ Area                                    Addr        Size        Decimal Bytes (A
      000000DB  _P5_3                              voltmeter
      000000DB  _PCA0CPM1                          voltmeter
      000000DC  G$CCF4$0$0                         voltmeter
+     000000DC  G$P5_4$0$0                         voltmeter
+     000000DC  G$PCA0CPM2$0$0                     voltmeter
 ASxxxx Linker V03.00 + NoICE + sdld,  page 14.
 Hexadecimal  [32-Bits]
 
@@ -752,8 +752,6 @@ Area                                    Addr        Size        Decimal Bytes (A
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-     000000DC  G$P5_4$0$0                         voltmeter
-     000000DC  G$PCA0CPM2$0$0                     voltmeter
      000000DC  _CCF4                              voltmeter
      000000DC  _P5_4                              voltmeter
      000000DC  _PCA0CPM2                          voltmeter
@@ -803,6 +801,8 @@ Area                                    Addr        Size        Decimal Bytes (A
      000000E8  _ADC2CN                            voltmeter
      000000E8  _P6                                voltmeter
      000000E8  _P6_0                              voltmeter
+     000000E9  G$AD0WINT$0$0                      voltmeter
+     000000E9  G$AD2CM0$0$0                       voltmeter
 ASxxxx Linker V03.00 + NoICE + sdld,  page 15.
 Hexadecimal  [32-Bits]
 
@@ -812,8 +812,6 @@ Area                                    Addr        Size        Decimal Bytes (A
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-     000000E9  G$AD0WINT$0$0                      voltmeter
-     000000E9  G$AD2CM0$0$0                       voltmeter
      000000E9  G$P6_1$0$0                         voltmeter
      000000E9  G$PCA0CPL2$0$0                     voltmeter
      000000E9  _AD0WINT                           voltmeter
@@ -863,6 +861,8 @@ Area                                    Addr        Size        Decimal Bytes (A
      000000EF  G$AD0EN$0$0                        voltmeter
      000000EF  G$AD2EN$0$0                        voltmeter
      000000EF  G$P6_7$0$0                         voltmeter
+     000000EF  G$RSTSRC$0$0                       voltmeter
+     000000EF  _AD0EN                             voltmeter
 ASxxxx Linker V03.00 + NoICE + sdld,  page 16.
 Hexadecimal  [32-Bits]
 
@@ -872,8 +872,6 @@ Area                                    Addr        Size        Decimal Bytes (A
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-     000000EF  G$RSTSRC$0$0                       voltmeter
-     000000EF  _AD0EN                             voltmeter
      000000EF  _AD2EN                             voltmeter
      000000EF  _P6_7                              voltmeter
      000000EF  _RSTSRC                            voltmeter
@@ -923,6 +921,8 @@ Area                                    Addr        Size        Decimal Bytes (A
      000000FD  G$PCA0CPL1$0$0                     voltmeter
      000000FD  _MODF                              voltmeter
      000000FD  _P7_5                              voltmeter
+     000000FD  _PCA0CPL1                          voltmeter
+     000000FE  G$P7_6$0$0                         voltmeter
 ASxxxx Linker V03.00 + NoICE + sdld,  page 17.
 Hexadecimal  [32-Bits]
 
@@ -932,8 +932,6 @@ Area                                    Addr        Size        Decimal Bytes (A
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-     000000FD  _PCA0CPL1                          voltmeter
-     000000FE  G$P7_6$0$0                         voltmeter
      000000FE  G$PCA0CPH1$0$0                     voltmeter
      000000FE  G$WCOL$0$0                         voltmeter
      000000FE  _P7_6                              voltmeter
@@ -983,6 +981,8 @@ Area                                    Addr        Size        Decimal Bytes (A
      0000ECEB  _PCA0CP3                           voltmeter
      0000EEED  G$PCA0CP4$0$0                      voltmeter
      0000EEED  _PCA0CP4                           voltmeter
+     0000FAF9  G$PCA0$0$0                         voltmeter
+     0000FAF9  _PCA0                              voltmeter
 ASxxxx Linker V03.00 + NoICE + sdld,  page 18.
 Hexadecimal  [32-Bits]
 
@@ -992,8 +992,6 @@ Area                                    Addr        Size        Decimal Bytes (A
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-     0000FAF9  G$PCA0$0$0                         voltmeter
-     0000FAF9  _PCA0                              voltmeter
      0000FCFB  G$PCA0CP0$0$0                      voltmeter
      0000FCFB  _PCA0CP0                           voltmeter
      0000FEFD  G$PCA0CP1$0$0                      voltmeter
@@ -1024,31 +1022,39 @@ Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-DSEG                                00000000    00000080 =         128. bytes (REL,CON)
+DSEG                                00000000    0000007C =         124. bytes (REL,CON)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-     00000008  G$running$0$0                      voltmeter
-     00000008  _running                           voltmeter
-     0000000C  G$min$0$0                          voltmeter
-     0000000C  _min                               voltmeter
-     00000010  G$max$0$0                          voltmeter
-     00000010  _max                               voltmeter
-     00000014  G$trials$0$0                       voltmeter
-     00000014  _trials                            voltmeter
-     00000016  Lvoltmeter.score$volts$1$33        voltmeter
-     0000001A  Lvoltmeter.score$sloc0$1$0         voltmeter
-     0000001E  _bp                                _bp
-     0000001F  _vprintf_PARM_2                    vprintf
-     00000035  __print_format_PARM_2              printf_large
-     00000038  __print_format_PARM_3              printf_large
-     0000003B  __print_format_PARM_4              printf_large
+     0000000E  _bp                                _bp
+     0000000F  _vprintf_PARM_2                    vprintf
+     00000023  G$running$0$0                      voltmeter
+     00000023  _running                           voltmeter
+     00000027  G$run$0$0                          voltmeter
+     00000027  _run                               voltmeter
+     00000029  G$min$0$0                          voltmeter
+     00000029  _min                               voltmeter
+     0000002D  G$hmin$0$0                         voltmeter
+     0000002D  _hmin                              voltmeter
+     0000002F  G$max$0$0                          voltmeter
+     0000002F  _max                               voltmeter
+     00000033  G$hmax$0$0                         voltmeter
+     00000033  _hmax                              voltmeter
+     00000035  G$trials$0$0                       voltmeter
+     00000035  _trials                            voltmeter
+     00000039  Lvoltmeter.score$volts$1$55        voltmeter
+     0000003D  Lvoltmeter.score$hvolts$1$55       voltmeter
+     0000003F  Lvoltmeter.score$sloc0$1$0         voltmeter
+     0000004F  __print_format_PARM_2              printf_large
+     00000052  __print_format_PARM_3              printf_large
+     00000055  __print_format_PARM_4              printf_large
+
 ASxxxx Linker V03.00 + NoICE + sdld,  page 22.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-OSEG                                00000043    00000006 =           6. bytes (REL,OVR)
+OSEG                                00000010    00000006 =           6. bytes (REL,OVR)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
@@ -1057,7 +1063,7 @@ Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-ISEG                                00000049    00000006 =           6. bytes (REL,CON)
+ISEG                                00000016    00000006 =           6. bytes (REL,CON)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
@@ -1066,11 +1072,11 @@ Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-SSEG                                0000004F    000000B1 =         177. bytes (REL,OVR)
+SSEG                                0000005D    000000A3 =         163. bytes (REL,OVR)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-     0000004F  __start__stack                     voltmeter
+     0000005D  __start__stack                     voltmeter
 
 ASxxxx Linker V03.00 + NoICE + sdld,  page 25.
 Hexadecimal  [32-Bits]
@@ -1081,8 +1087,8 @@ HOME                                00000000    00000006 =           6. bytes (R
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-C:   00000000  A$voltmeter$1274                   voltmeter
-C:   00000003  A$voltmeter$1320                   voltmeter
+C:   00000000  A$voltmeter$1286                   voltmeter
+C:   00000003  A$voltmeter$1346                   voltmeter
 C:   00000003  __sdcc_program_startup             voltmeter
 ASxxxx Linker V03.00 + NoICE + sdld,  page 26.
 Hexadecimal  [32-Bits]
@@ -1132,591 +1138,900 @@ Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-GSINIT                              0000005F    00000020 =          32. bytes (REL,CON,CODE)
+GSINIT                              0000005F    00000030 =          48. bytes (REL,CON,CODE)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-C:   0000005F  A$voltmeter$1290                   voltmeter
-C:   0000005F  C$voltmeter.c$19$1$40              voltmeter
-C:   00000060  A$voltmeter$1291                   voltmeter
-C:   00000062  A$voltmeter$1292                   voltmeter
-C:   00000064  A$voltmeter$1293                   voltmeter
-C:   00000066  A$voltmeter$1294                   voltmeter
-C:   00000068  A$voltmeter$1297                   voltmeter
-C:   00000068  C$voltmeter.c$20$1$40              voltmeter
-C:   0000006A  A$voltmeter$1298                   voltmeter
-C:   0000006C  A$voltmeter$1299                   voltmeter
-C:   0000006F  A$voltmeter$1300                   voltmeter
-C:   00000072  A$voltmeter$1303                   voltmeter
-C:   00000072  C$voltmeter.c$21$1$40              voltmeter
-C:   00000074  A$voltmeter$1304                   voltmeter
-C:   00000076  A$voltmeter$1305                   voltmeter
-C:   00000078  A$voltmeter$1306                   voltmeter
-C:   0000007A  A$voltmeter$1309                   voltmeter
-C:   0000007A  C$voltmeter.c$22$1$40              voltmeter
-C:   0000007D  A$voltmeter$1311                   voltmeter
-
+C:   0000005F  A$voltmeter$1302                   voltmeter
+C:   0000005F  C$voltmeter.c$19$1$62              voltmeter
+C:   00000060  A$voltmeter$1303                   voltmeter
+C:   00000062  A$voltmeter$1304                   voltmeter
+C:   00000064  A$voltmeter$1305                   voltmeter
+C:   00000066  A$voltmeter$1306                   voltmeter
+C:   00000068  A$voltmeter$1309                   voltmeter
+C:   00000068  C$voltmeter.c$20$1$62              voltmeter
+C:   0000006A  A$voltmeter$1310                   voltmeter
+C:   0000006C  A$voltmeter$1313                   voltmeter
+C:   0000006C  C$voltmeter.c$21$1$62              voltmeter
+C:   0000006E  A$voltmeter$1314                   voltmeter
+C:   00000070  A$voltmeter$1315                   voltmeter
+C:   00000073  A$voltmeter$1316                   voltmeter
+C:   00000076  A$voltmeter$1319                   voltmeter
+C:   00000076  C$voltmeter.c$22$1$62              voltmeter
+C:   00000079  A$voltmeter$1321                   voltmeter
+C:   0000007B  A$voltmeter$1324                   voltmeter
+C:   0000007B  C$voltmeter.c$23$1$62              voltmeter
+C:   0000007D  A$voltmeter$1325                   voltmeter
+C:   0000007F  A$voltmeter$1326                   voltmeter
+C:   00000081  A$voltmeter$1327                   voltmeter
+C:   00000083  A$voltmeter$1330                   voltmeter
+C:   00000083  C$voltmeter.c$24$1$62              voltmeter
+C:   00000085  A$voltmeter$1331                   voltmeter
+C:   00000087  A$voltmeter$1334                   voltmeter
+C:   00000087  C$voltmeter.c$25$1$62              voltmeter
+C:   00000089  A$voltmeter$1335                   voltmeter
+C:   0000008B  A$voltmeter$1336                   voltmeter
+C:   0000008D  A$voltmeter$1337                   voltmeter
 ASxxxx Linker V03.00 + NoICE + sdld,  page 31.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-GSFINAL                             0000007F    00000003 =           3. bytes (REL,CON,CODE)
+GSFINAL                             0000008F    00000003 =           3. bytes (REL,CON,CODE)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-C:   0000007F  A$voltmeter$1313                   voltmeter
+C:   0000008F  A$voltmeter$1339                   voltmeter
 
 ASxxxx Linker V03.00 + NoICE + sdld,  page 32.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-CSEG                                00000082    00001131 =        4401. bytes (REL,CON,CODE)
+CSEG                                00000092    000013B5 =        5045. bytes (REL,CON,CODE)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-C:   00000082  A$voltmeter$1346                   voltmeter
-C:   00000082  C$putget.h$18$0$0                  voltmeter
-C:   00000082  G$putchar$0$0                      voltmeter
-C:   00000082  _putchar                           voltmeter
-C:   00000084  A$voltmeter$1352                   voltmeter
-C:   00000084  C$putget.h$20$1$16                 voltmeter
-C:   00000084  C$putget.h$21$1$16                 voltmeter
-C:   00000087  A$voltmeter$1353                   voltmeter
-C:   00000089  A$voltmeter$1357                   voltmeter
-C:   00000089  C$putget.h$22$1$16                 voltmeter
-C:   0000008B  A$voltmeter$1360                   voltmeter
-C:   0000008B  C$putget.h$23$1$16                 voltmeter
-C:   0000008B  XG$putchar$0$0                     voltmeter
-C:   0000008C  A$voltmeter$1378                   voltmeter
-C:   0000008C  C$putget.h$28$1$16                 voltmeter
-C:   0000008C  C$putget.h$31$1$18                 voltmeter
-C:   0000008C  C$putget.h$32$1$18                 voltmeter
-C:   0000008C  G$getchar$0$0                      voltmeter
-C:   0000008C  _getchar                           voltmeter
-C:   0000008F  A$voltmeter$1379                   voltmeter
-C:   00000091  A$voltmeter$1383                   voltmeter
-C:   00000091  C$putget.h$33$1$18                 voltmeter
-C:   00000093  A$voltmeter$1386                   voltmeter
-C:   00000093  C$putget.h$36$1$18                 voltmeter
-C:   00000096  A$voltmeter$1389                   voltmeter
-C:   00000096  C$putget.h$37$1$18                 voltmeter
-C:   00000096  XG$getchar$0$0                     voltmeter
-C:   00000097  A$voltmeter$1402                   voltmeter
-C:   00000097  C$voltmeter.c$35$1$18              voltmeter
-C:   00000097  C$voltmeter.c$38$1$28              voltmeter
-C:   00000097  G$main$0$0                         voltmeter
-C:   00000097  _main                              voltmeter
-C:   0000009A  A$voltmeter$1405                   voltmeter
-C:   0000009A  C$voltmeter.c$39$1$28              voltmeter
-C:   0000009D  A$voltmeter$1408                   voltmeter
-C:   0000009D  C$voltmeter.c$40$1$28              voltmeter
-C:   000000A0  A$voltmeter$1411                   voltmeter
-C:   000000A0  C$voltmeter.c$41$1$28              voltmeter
-C:   000000A3  A$voltmeter$1414                   voltmeter
-C:   000000A3  C$voltmeter.c$42$1$28              voltmeter
-C:   000000A6  A$voltmeter$1417                   voltmeter
-C:   000000A6  C$voltmeter.c$43$1$28              voltmeter
-C:   000000A9  A$voltmeter$1420                   voltmeter
-C:   000000A9  C$voltmeter.c$44$1$28              voltmeter
-C:   000000AC  A$voltmeter$1423                   voltmeter
-C:   000000AC  C$voltmeter.c$45$1$28              voltmeter
-C:   000000AE  A$voltmeter$1424                   voltmeter
-C:   000000B0  A$voltmeter$1425                   voltmeter
-C:   000000B2  A$voltmeter$1426                   voltmeter
-C:   000000B4  A$voltmeter$1427                   voltmeter
+C:   00000092  A$voltmeter$1372                   voltmeter
+C:   00000092  C$putget.h$18$0$0                  voltmeter
+C:   00000092  G$putchar$0$0                      voltmeter
+C:   00000092  _putchar                           voltmeter
+C:   00000094  A$voltmeter$1378                   voltmeter
+C:   00000094  C$putget.h$20$1$16                 voltmeter
+C:   00000094  C$putget.h$21$1$16                 voltmeter
+C:   00000097  A$voltmeter$1379                   voltmeter
+C:   00000099  A$voltmeter$1383                   voltmeter
+C:   00000099  C$putget.h$22$1$16                 voltmeter
+C:   0000009B  A$voltmeter$1386                   voltmeter
+C:   0000009B  C$putget.h$23$1$16                 voltmeter
+C:   0000009B  XG$putchar$0$0                     voltmeter
+C:   0000009C  A$voltmeter$1404                   voltmeter
+C:   0000009C  C$putget.h$28$1$16                 voltmeter
+C:   0000009C  C$putget.h$31$1$18                 voltmeter
+C:   0000009C  C$putget.h$32$1$18                 voltmeter
+C:   0000009C  G$getchar$0$0                      voltmeter
+C:   0000009C  _getchar                           voltmeter
+C:   0000009F  A$voltmeter$1405                   voltmeter
+C:   000000A1  A$voltmeter$1409                   voltmeter
+C:   000000A1  C$putget.h$33$1$18                 voltmeter
+C:   000000A3  A$voltmeter$1412                   voltmeter
+C:   000000A3  C$putget.h$36$1$18                 voltmeter
+C:   000000A6  A$voltmeter$1415                   voltmeter
+C:   000000A6  C$putget.h$37$1$18                 voltmeter
+C:   000000A6  XG$getchar$0$0                     voltmeter
+C:   000000A7  A$voltmeter$1428                   voltmeter
+C:   000000A7  C$voltmeter.c$38$1$18              voltmeter
+C:   000000A7  C$voltmeter.c$41$1$50              voltmeter
+C:   000000A7  G$main$0$0                         voltmeter
+C:   000000A7  _main                              voltmeter
+C:   000000AA  A$voltmeter$1431                   voltmeter
+C:   000000AA  C$voltmeter.c$42$1$50              voltmeter
+C:   000000AD  A$voltmeter$1434                   voltmeter
+C:   000000AD  C$voltmeter.c$43$1$50              voltmeter
+C:   000000B0  A$voltmeter$1437                   voltmeter
+C:   000000B0  C$voltmeter.c$44$1$50              voltmeter
+C:   000000B3  A$voltmeter$1440                   voltmeter
+C:   000000B3  C$voltmeter.c$45$1$50              voltmeter
+C:   000000B6  A$voltmeter$1443                   voltmeter
+C:   000000B6  C$voltmeter.c$46$1$50              voltmeter
+C:   000000B9  A$voltmeter$1446                   voltmeter
+C:   000000B9  C$voltmeter.c$47$1$50              voltmeter
+C:   000000BC  A$voltmeter$1449                   voltmeter
+C:   000000BC  C$voltmeter.c$48$1$50              voltmeter
+C:   000000BE  A$voltmeter$1450                   voltmeter
+C:   000000C0  A$voltmeter$1451                   voltmeter
+C:   000000C2  A$voltmeter$1452                   voltmeter
+C:   000000C4  A$voltmeter$1453                   voltmeter
 ASxxxx Linker V03.00 + NoICE + sdld,  page 33.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-CSEG                                00000082    00001131 =        4401. bytes (REL,CON,CODE)
+CSEG                                00000092    000013B5 =        5045. bytes (REL,CON,CODE)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-C:   000000B6  A$voltmeter$1428                   voltmeter
-C:   000000B8  A$voltmeter$1429                   voltmeter
-C:   000000BB  A$voltmeter$1430                   voltmeter
-C:   000000BD  A$voltmeter$1431                   voltmeter
-C:   000000BF  A$voltmeter$1432                   voltmeter
-C:   000000C1  A$voltmeter$1435                   voltmeter
-C:   000000C1  C$voltmeter.c$46$1$28              voltmeter
-C:   000000C3  A$voltmeter$1436                   voltmeter
-C:   000000C5  A$voltmeter$1437                   voltmeter
-C:   000000C7  A$voltmeter$1438                   voltmeter
-C:   000000C9  A$voltmeter$1439                   voltmeter
-C:   000000CB  A$voltmeter$1440                   voltmeter
-C:   000000CD  A$voltmeter$1441                   voltmeter
-C:   000000D0  A$voltmeter$1442                   voltmeter
-C:   000000D2  A$voltmeter$1443                   voltmeter
-C:   000000D4  A$voltmeter$1444                   voltmeter
-C:   000000D6  A$voltmeter$1450                   voltmeter
-C:   000000D6  C$voltmeter.c$47$1$28              voltmeter
-C:   000000D6  C$voltmeter.c$49$2$29              voltmeter
-C:   000000D9  A$voltmeter$1453                   voltmeter
-C:   000000D9  C$voltmeter.c$50$2$29              voltmeter
-C:   000000DC  A$voltmeter$1456                   voltmeter
-C:   000000DC  C$voltmeter.c$52$3$30              voltmeter
-C:   000000DF  A$voltmeter$1457                   voltmeter
-C:   000000E2  A$voltmeter$1458                   voltmeter
-C:   000000E4  A$voltmeter$1461                   voltmeter
-C:   000000E4  C$voltmeter.c$57$1$28              voltmeter
-C:   000000E4  XG$main$0$0                        voltmeter
-C:   000000E5  A$voltmeter$1474                   voltmeter
-C:   000000E5  C$voltmeter.c$59$1$28              voltmeter
-C:   000000E5  C$voltmeter.c$61$1$31              voltmeter
-C:   000000E5  G$ADC_read$0$0                     voltmeter
-C:   000000E5  _ADC_read                          voltmeter
-C:   000000E8  A$voltmeter$1477                   voltmeter
-C:   000000E8  C$voltmeter.c$62$1$31              voltmeter
-C:   000000EA  A$voltmeter$1478                   voltmeter
-C:   000000EC  A$voltmeter$1479                   voltmeter
-C:   000000ED  A$voltmeter$1480                   voltmeter
-C:   000000EF  A$voltmeter$1483                   voltmeter
-C:   000000EF  C$voltmeter.c$63$1$31              voltmeter
-C:   000000F2  A$voltmeter$1487                   voltmeter
-C:   000000F2  C$voltmeter.c$64$1$31              voltmeter
-C:   000000F4  A$voltmeter$1488                   voltmeter
-C:   000000F7  A$voltmeter$1491                   voltmeter
-C:   000000F7  C$voltmeter.c$65$1$31              voltmeter
-C:   000000FA  A$voltmeter$1492                   voltmeter
-C:   000000FD  A$voltmeter$1495                   voltmeter
-C:   000000FD  C$voltmeter.c$66$1$31              voltmeter
-C:   000000FD  XG$ADC_read$0$0                    voltmeter
-C:   000000FE  A$voltmeter$1512                   voltmeter
-C:   000000FE  C$voltmeter.c$67$1$31              voltmeter
+C:   000000C6  A$voltmeter$1454                   voltmeter
+C:   000000C8  A$voltmeter$1455                   voltmeter
+C:   000000CB  A$voltmeter$1456                   voltmeter
+C:   000000CD  A$voltmeter$1457                   voltmeter
+C:   000000CF  A$voltmeter$1458                   voltmeter
+C:   000000D1  A$voltmeter$1461                   voltmeter
+C:   000000D1  C$voltmeter.c$49$1$50              voltmeter
+C:   000000D3  A$voltmeter$1462                   voltmeter
+C:   000000D5  A$voltmeter$1463                   voltmeter
+C:   000000D7  A$voltmeter$1464                   voltmeter
+C:   000000D9  A$voltmeter$1465                   voltmeter
+C:   000000DB  A$voltmeter$1466                   voltmeter
+C:   000000DD  A$voltmeter$1467                   voltmeter
+C:   000000E0  A$voltmeter$1468                   voltmeter
+C:   000000E2  A$voltmeter$1469                   voltmeter
+C:   000000E4  A$voltmeter$1470                   voltmeter
+C:   000000E6  A$voltmeter$1476                   voltmeter
+C:   000000E6  C$voltmeter.c$50$1$50              voltmeter
+C:   000000E6  C$voltmeter.c$52$2$51              voltmeter
+C:   000000E9  A$voltmeter$1479                   voltmeter
+C:   000000E9  C$voltmeter.c$53$2$51              voltmeter
+C:   000000EB  A$voltmeter$1480                   voltmeter
+C:   000000ED  A$voltmeter$1483                   voltmeter
+C:   000000ED  C$voltmeter.c$55$3$52              voltmeter
+C:   000000F0  A$voltmeter$1484                   voltmeter
+C:   000000F3  A$voltmeter$1485                   voltmeter
+C:   000000F5  A$voltmeter$1488                   voltmeter
+C:   000000F5  C$voltmeter.c$60$1$50              voltmeter
+C:   000000F5  XG$main$0$0                        voltmeter
+C:   000000F6  A$voltmeter$1501                   voltmeter
+C:   000000F6  C$voltmeter.c$62$1$50              voltmeter
+C:   000000F6  C$voltmeter.c$64$1$53              voltmeter
+C:   000000F6  G$ADC_read$0$0                     voltmeter
+C:   000000F6  _ADC_read                          voltmeter
+C:   000000F9  A$voltmeter$1504                   voltmeter
+C:   000000F9  C$voltmeter.c$65$1$53              voltmeter
+C:   000000FB  A$voltmeter$1505                   voltmeter
+C:   000000FD  A$voltmeter$1506                   voltmeter
+C:   000000FE  A$voltmeter$1507                   voltmeter
+C:   00000100  A$voltmeter$1510                   voltmeter
+C:   00000100  C$voltmeter.c$66$1$53              voltmeter
+C:   00000103  A$voltmeter$1514                   voltmeter
+C:   00000103  C$voltmeter.c$67$1$53              voltmeter
+C:   00000105  A$voltmeter$1515                   voltmeter
+C:   00000108  A$voltmeter$1518                   voltmeter
+C:   00000108  C$voltmeter.c$68$1$53              voltmeter
+C:   0000010B  A$voltmeter$1519                   voltmeter
+C:   0000010E  A$voltmeter$1522                   voltmeter
+C:   0000010E  C$voltmeter.c$69$1$53              voltmeter
+C:   0000010E  XG$ADC_read$0$0                    voltmeter
+C:   0000010F  A$voltmeter$1538                   voltmeter
 ASxxxx Linker V03.00 + NoICE + sdld,  page 34.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-CSEG                                00000082    00001131 =        4401. bytes (REL,CON,CODE)
+CSEG                                00000092    000013B5 =        5045. bytes (REL,CON,CODE)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-C:   000000FE  C$voltmeter.c$70$1$33              voltmeter
-C:   000000FE  G$score$0$0                        voltmeter
-C:   000000FE  _score                             voltmeter
-C:   00000101  A$voltmeter$1513                   voltmeter
-C:   00000103  A$voltmeter$1514                   voltmeter
-C:   00000105  A$voltmeter$1515                   voltmeter
-C:   00000107  A$voltmeter$1516                   voltmeter
-C:   00000108  A$voltmeter$1517                   voltmeter
-C:   0000010A  A$voltmeter$1518                   voltmeter
-C:   0000010C  A$voltmeter$1519                   voltmeter
-C:   0000010E  A$voltmeter$1520                   voltmeter
-C:   00000110  A$voltmeter$1521                   voltmeter
-C:   00000112  A$voltmeter$1522                   voltmeter
-C:   00000114  A$voltmeter$1523                   voltmeter
-C:   00000116  A$voltmeter$1524                   voltmeter
-C:   00000118  A$voltmeter$1525                   voltmeter
-C:   0000011B  A$voltmeter$1526                   voltmeter
-C:   0000011E  A$voltmeter$1527                   voltmeter
-C:   00000120  A$voltmeter$1528                   voltmeter
-C:   00000123  A$voltmeter$1529                   voltmeter
-C:   00000126  A$voltmeter$1530                   voltmeter
-C:   00000129  A$voltmeter$1531                   voltmeter
-C:   0000012C  A$voltmeter$1532                   voltmeter
-C:   0000012E  A$voltmeter$1533                   voltmeter
-C:   00000130  A$voltmeter$1534                   voltmeter
-C:   00000132  A$voltmeter$1535                   voltmeter
-C:   00000134  A$voltmeter$1538                   voltmeter
-C:   00000134  C$voltmeter.c$71$1$33              voltmeter
-C:   00000136  A$voltmeter$1539                   voltmeter
-C:   00000138  A$voltmeter$1540                   voltmeter
-C:   0000013A  A$voltmeter$1541                   voltmeter
-C:   0000013C  A$voltmeter$1542                   voltmeter
-C:   0000013E  A$voltmeter$1543                   voltmeter
-C:   00000140  A$voltmeter$1544                   voltmeter
-C:   00000142  A$voltmeter$1545                   voltmeter
-C:   00000144  A$voltmeter$1546                   voltmeter
-C:   00000146  A$voltmeter$1547                   voltmeter
-C:   00000148  A$voltmeter$1548                   voltmeter
-C:   0000014A  A$voltmeter$1549                   voltmeter
-C:   0000014C  A$voltmeter$1550                   voltmeter
-C:   0000014F  A$voltmeter$1551                   voltmeter
-C:   00000151  A$voltmeter$1552                   voltmeter
-C:   00000153  A$voltmeter$1553                   voltmeter
-C:   00000155  A$voltmeter$1556                   voltmeter
-C:   00000155  C$voltmeter.c$72$1$33              voltmeter
-C:   00000158  A$voltmeter$1557                   voltmeter
-C:   0000015B  A$voltmeter$1558                   voltmeter
-C:   0000015E  A$voltmeter$1559                   voltmeter
-C:   00000160  A$voltmeter$1560                   voltmeter
-C:   00000162  A$voltmeter$1561                   voltmeter
-C:   00000164  A$voltmeter$1562                   voltmeter
+C:   0000010F  C$voltmeter.c$70$1$53              voltmeter
+C:   0000010F  G$score$0$0                        voltmeter
+C:   0000010F  _score                             voltmeter
+C:   00000111  A$voltmeter$1539                   voltmeter
+C:   00000113  A$voltmeter$1542                   voltmeter
+C:   00000113  C$voltmeter.c$74$1$55              voltmeter
+C:   00000115  A$voltmeter$1543                   voltmeter
+C:   00000117  A$voltmeter$1544                   voltmeter
+C:   00000119  A$voltmeter$1545                   voltmeter
+C:   0000011B  A$voltmeter$1546                   voltmeter
+C:   0000011D  A$voltmeter$1547                   voltmeter
+C:   0000011F  A$voltmeter$1548                   voltmeter
+C:   00000121  A$voltmeter$1549                   voltmeter
+C:   00000123  A$voltmeter$1550                   voltmeter
+C:   00000126  A$voltmeter$1551                   voltmeter
+C:   00000128  A$voltmeter$1552                   voltmeter
+C:   0000012A  A$voltmeter$1553                   voltmeter
+C:   0000012C  A$voltmeter$1554                   voltmeter
+C:   0000012E  A$voltmeter$1555                   voltmeter
+C:   00000130  A$voltmeter$1558                   voltmeter
+C:   00000130  C$voltmeter.c$75$1$55              voltmeter
+C:   00000132  A$voltmeter$1559                   voltmeter
+C:   00000134  A$voltmeter$1560                   voltmeter
+C:   00000137  A$voltmeter$1561                   voltmeter
+C:   00000139  A$voltmeter$1562                   voltmeter
+C:   0000013B  A$voltmeter$1563                   voltmeter
+C:   0000013D  A$voltmeter$1564                   voltmeter
+C:   0000013E  A$voltmeter$1565                   voltmeter
+C:   00000140  A$voltmeter$1566                   voltmeter
+C:   00000142  A$voltmeter$1567                   voltmeter
+C:   00000144  A$voltmeter$1568                   voltmeter
+C:   00000146  A$voltmeter$1569                   voltmeter
+C:   00000147  A$voltmeter$1570                   voltmeter
+C:   00000149  A$voltmeter$1571                   voltmeter
+C:   0000014B  A$voltmeter$1572                   voltmeter
+C:   0000014D  A$voltmeter$1573                   voltmeter
+C:   0000014F  A$voltmeter$1574                   voltmeter
+C:   00000151  A$voltmeter$1575                   voltmeter
+C:   00000153  A$voltmeter$1576                   voltmeter
+C:   00000155  A$voltmeter$1577                   voltmeter
+C:   00000157  A$voltmeter$1578                   voltmeter
+C:   00000159  A$voltmeter$1579                   voltmeter
+C:   0000015A  A$voltmeter$1580                   voltmeter
+C:   0000015D  A$voltmeter$1581                   voltmeter
+C:   00000160  A$voltmeter$1582                   voltmeter
+C:   00000163  A$voltmeter$1583                   voltmeter
+C:   00000166  A$voltmeter$1584                   voltmeter
+C:   00000168  A$voltmeter$1585                   voltmeter
+C:   0000016A  A$voltmeter$1586                   voltmeter
+C:   0000016C  A$voltmeter$1587                   voltmeter
+C:   0000016E  A$voltmeter$1590                   voltmeter
 ASxxxx Linker V03.00 + NoICE + sdld,  page 35.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-CSEG                                00000082    00001131 =        4401. bytes (REL,CON,CODE)
+CSEG                                00000092    000013B5 =        5045. bytes (REL,CON,CODE)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-C:   00000165  A$voltmeter$1563                   voltmeter
-C:   00000167  A$voltmeter$1564                   voltmeter
-C:   00000169  A$voltmeter$1565                   voltmeter
-C:   0000016B  A$voltmeter$1566                   voltmeter
-C:   0000016D  A$voltmeter$1567                   voltmeter
-C:   00000170  A$voltmeter$1568                   voltmeter
-C:   00000173  A$voltmeter$1569                   voltmeter
-C:   00000176  A$voltmeter$1570                   voltmeter
-C:   00000178  A$voltmeter$1571                   voltmeter
-C:   0000017B  A$voltmeter$1572                   voltmeter
-C:   0000017D  A$voltmeter$1573                   voltmeter
-C:   0000017F  A$voltmeter$1574                   voltmeter
-C:   00000181  A$voltmeter$1575                   voltmeter
-C:   00000182  A$voltmeter$1576                   voltmeter
-C:   00000184  A$voltmeter$1577                   voltmeter
-C:   00000186  A$voltmeter$1578                   voltmeter
-C:   00000188  A$voltmeter$1579                   voltmeter
-C:   0000018A  A$voltmeter$1580                   voltmeter
-C:   0000018C  A$voltmeter$1581                   voltmeter
-C:   0000018E  A$voltmeter$1582                   voltmeter
-C:   00000190  A$voltmeter$1583                   voltmeter
-C:   00000192  A$voltmeter$1584                   voltmeter
-C:   00000194  A$voltmeter$1585                   voltmeter
-C:   00000196  A$voltmeter$1586                   voltmeter
-C:   00000198  A$voltmeter$1587                   voltmeter
-C:   0000019A  A$voltmeter$1588                   voltmeter
-C:   0000019C  A$voltmeter$1589                   voltmeter
-C:   0000019E  A$voltmeter$1590                   voltmeter
-C:   0000019F  A$voltmeter$1591                   voltmeter
-C:   000001A2  A$voltmeter$1592                   voltmeter
-C:   000001A5  A$voltmeter$1593                   voltmeter
-C:   000001A8  A$voltmeter$1594                   voltmeter
-C:   000001AB  A$voltmeter$1595                   voltmeter
-C:   000001AD  A$voltmeter$1596                   voltmeter
-C:   000001AF  A$voltmeter$1597                   voltmeter
-C:   000001B1  A$voltmeter$1598                   voltmeter
-C:   000001B3  A$voltmeter$1599                   voltmeter
-C:   000001B5  A$voltmeter$1600                   voltmeter
-C:   000001B7  A$voltmeter$1601                   voltmeter
-C:   000001B8  A$voltmeter$1602                   voltmeter
-C:   000001B9  A$voltmeter$1603                   voltmeter
-C:   000001BB  A$voltmeter$1604                   voltmeter
-C:   000001BC  A$voltmeter$1605                   voltmeter
-C:   000001BE  A$voltmeter$1606                   voltmeter
-C:   000001C0  A$voltmeter$1607                   voltmeter
-C:   000001C2  A$voltmeter$1608                   voltmeter
-C:   000001C4  A$voltmeter$1609                   voltmeter
-C:   000001C7  A$voltmeter$1610                   voltmeter
-C:   000001C9  A$voltmeter$1611                   voltmeter
-C:   000001CB  A$voltmeter$1612                   voltmeter
-C:   000001CD  A$voltmeter$1613                   voltmeter
+C:   0000016E  C$voltmeter.c$76$1$55              voltmeter
+C:   00000170  A$voltmeter$1591                   voltmeter
+C:   00000172  A$voltmeter$1592                   voltmeter
+C:   00000174  A$voltmeter$1593                   voltmeter
+C:   00000176  A$voltmeter$1594                   voltmeter
+C:   00000179  A$voltmeter$1595                   voltmeter
+C:   0000017C  A$voltmeter$1596                   voltmeter
+C:   0000017E  A$voltmeter$1597                   voltmeter
+C:   00000181  A$voltmeter$1598                   voltmeter
+C:   00000184  A$voltmeter$1599                   voltmeter
+C:   00000187  A$voltmeter$1600                   voltmeter
+C:   0000018A  A$voltmeter$1601                   voltmeter
+C:   0000018C  A$voltmeter$1602                   voltmeter
+C:   0000018E  A$voltmeter$1603                   voltmeter
+C:   00000190  A$voltmeter$1604                   voltmeter
+C:   00000192  A$voltmeter$1607                   voltmeter
+C:   00000192  C$voltmeter.c$77$1$55              voltmeter
+C:   00000194  A$voltmeter$1608                   voltmeter
+C:   00000196  A$voltmeter$1609                   voltmeter
+C:   00000198  A$voltmeter$1610                   voltmeter
+C:   0000019A  A$voltmeter$1611                   voltmeter
+C:   0000019C  A$voltmeter$1612                   voltmeter
+C:   0000019E  A$voltmeter$1613                   voltmeter
+C:   000001A1  A$voltmeter$1614                   voltmeter
+C:   000001A3  A$voltmeter$1615                   voltmeter
+C:   000001A5  A$voltmeter$1616                   voltmeter
+C:   000001A7  A$voltmeter$1619                   voltmeter
+C:   000001A7  C$voltmeter.c$78$1$55              voltmeter
+C:   000001A9  A$voltmeter$1620                   voltmeter
+C:   000001AB  A$voltmeter$1621                   voltmeter
+C:   000001AD  A$voltmeter$1622                   voltmeter
+C:   000001AF  A$voltmeter$1623                   voltmeter
+C:   000001B1  A$voltmeter$1624                   voltmeter
+C:   000001B3  A$voltmeter$1625                   voltmeter
+C:   000001B5  A$voltmeter$1626                   voltmeter
+C:   000001B7  A$voltmeter$1627                   voltmeter
+C:   000001BA  A$voltmeter$1628                   voltmeter
+C:   000001BC  A$voltmeter$1629                   voltmeter
+C:   000001BE  A$voltmeter$1630                   voltmeter
+C:   000001C0  A$voltmeter$1631                   voltmeter
+C:   000001C2  A$voltmeter$1632                   voltmeter
+C:   000001C4  A$voltmeter$1633                   voltmeter
+C:   000001C6  A$voltmeter$1634                   voltmeter
+C:   000001C8  A$voltmeter$1637                   voltmeter
+C:   000001C8  C$voltmeter.c$79$1$55              voltmeter
+C:   000001CA  A$voltmeter$1638                   voltmeter
+C:   000001CC  A$voltmeter$1639                   voltmeter
+C:   000001CE  A$voltmeter$1640                   voltmeter
+C:   000001D0  A$voltmeter$1641                   voltmeter
+C:   000001D2  A$voltmeter$1642                   voltmeter
+C:   000001D4  A$voltmeter$1643                   voltmeter
 ASxxxx Linker V03.00 + NoICE + sdld,  page 36.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-CSEG                                00000082    00001131 =        4401. bytes (REL,CON,CODE)
+CSEG                                00000092    000013B5 =        5045. bytes (REL,CON,CODE)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-C:   000001CE  A$voltmeter$1614                   voltmeter
-C:   000001D0  A$voltmeter$1615                   voltmeter
-C:   000001D2  A$voltmeter$1616                   voltmeter
-C:   000001D4  A$voltmeter$1617                   voltmeter
-C:   000001D6  A$voltmeter$1618                   voltmeter
-C:   000001D9  A$voltmeter$1619                   voltmeter
-C:   000001DC  A$voltmeter$1620                   voltmeter
-C:   000001DF  A$voltmeter$1621                   voltmeter
-C:   000001E1  A$voltmeter$1622                   voltmeter
-C:   000001E4  A$voltmeter$1623                   voltmeter
-C:   000001E7  A$voltmeter$1624                   voltmeter
-C:   000001EA  A$voltmeter$1625                   voltmeter
-C:   000001ED  A$voltmeter$1626                   voltmeter
-C:   000001EF  A$voltmeter$1627                   voltmeter
-C:   000001F1  A$voltmeter$1628                   voltmeter
-C:   000001F3  A$voltmeter$1629                   voltmeter
-C:   000001F5  A$voltmeter$1630                   voltmeter
-C:   000001F7  A$voltmeter$1631                   voltmeter
-C:   000001F9  A$voltmeter$1634                   voltmeter
-C:   000001F9  C$voltmeter.c$73$1$33              voltmeter
-C:   000001FB  A$voltmeter$1635                   voltmeter
-C:   000001FD  A$voltmeter$1638                   voltmeter
-C:   000001FD  C$voltmeter.c$74$1$33              voltmeter
-C:   000001FF  A$voltmeter$1639                   voltmeter
-C:   00000201  A$voltmeter$1640                   voltmeter
-C:   00000203  A$voltmeter$1641                   voltmeter
-C:   00000205  A$voltmeter$1642                   voltmeter
-C:   00000208  A$voltmeter$1643                   voltmeter
-C:   0000020B  A$voltmeter$1644                   voltmeter
-C:   0000020E  A$voltmeter$1645                   voltmeter
-C:   00000210  A$voltmeter$1646                   voltmeter
-C:   00000213  A$voltmeter$1647                   voltmeter
-C:   00000215  A$voltmeter$1648                   voltmeter
-C:   00000217  A$voltmeter$1649                   voltmeter
-C:   00000219  A$voltmeter$1650                   voltmeter
-C:   0000021B  A$voltmeter$1651                   voltmeter
-C:   0000021C  A$voltmeter$1652                   voltmeter
-C:   0000021E  A$voltmeter$1653                   voltmeter
-C:   00000221  A$voltmeter$1654                   voltmeter
-C:   00000224  A$voltmeter$1655                   voltmeter
-C:   00000227  A$voltmeter$1656                   voltmeter
-C:   0000022A  A$voltmeter$1660                   voltmeter
-C:   0000022A  C$voltmeter.c$75$1$33              voltmeter
-C:   0000022C  A$voltmeter$1661                   voltmeter
-C:   0000022E  A$voltmeter$1662                   voltmeter
-C:   00000230  A$voltmeter$1663                   voltmeter
-C:   00000232  A$voltmeter$1664                   voltmeter
-C:   00000235  A$voltmeter$1665                   voltmeter
-C:   00000238  A$voltmeter$1666                   voltmeter
-C:   0000023B  A$voltmeter$1667                   voltmeter
-C:   0000023D  A$voltmeter$1668                   voltmeter
+C:   000001D6  A$voltmeter$1644                   voltmeter
+C:   000001D8  A$voltmeter$1645                   voltmeter
+C:   000001DA  A$voltmeter$1646                   voltmeter
+C:   000001DC  A$voltmeter$1647                   voltmeter
+C:   000001DE  A$voltmeter$1648                   voltmeter
+C:   000001DF  A$voltmeter$1649                   voltmeter
+C:   000001E2  A$voltmeter$1650                   voltmeter
+C:   000001E4  A$voltmeter$1651                   voltmeter
+C:   000001E6  A$voltmeter$1652                   voltmeter
+C:   000001E8  A$voltmeter$1653                   voltmeter
+C:   000001E9  A$voltmeter$1654                   voltmeter
+C:   000001EB  A$voltmeter$1655                   voltmeter
+C:   000001ED  A$voltmeter$1656                   voltmeter
+C:   000001EF  A$voltmeter$1657                   voltmeter
+C:   000001F1  A$voltmeter$1658                   voltmeter
+C:   000001F3  A$voltmeter$1659                   voltmeter
+C:   000001F5  A$voltmeter$1660                   voltmeter
+C:   000001F6  A$voltmeter$1661                   voltmeter
+C:   000001F9  A$voltmeter$1662                   voltmeter
+C:   000001FC  A$voltmeter$1663                   voltmeter
+C:   000001FF  A$voltmeter$1666                   voltmeter
+C:   000001FF  C$voltmeter.c$80$1$55              voltmeter
+C:   00000201  A$voltmeter$1667                   voltmeter
+C:   00000203  A$voltmeter$1668                   voltmeter
+C:   00000205  A$voltmeter$1669                   voltmeter
+C:   00000207  A$voltmeter$1670                   voltmeter
+C:   00000209  A$voltmeter$1671                   voltmeter
+C:   0000020B  A$voltmeter$1672                   voltmeter
+C:   0000020D  A$voltmeter$1673                   voltmeter
+C:   0000020F  A$voltmeter$1674                   voltmeter
+C:   00000212  A$voltmeter$1675                   voltmeter
+C:   00000214  A$voltmeter$1676                   voltmeter
+C:   00000216  A$voltmeter$1677                   voltmeter
+C:   00000218  A$voltmeter$1680                   voltmeter
+C:   00000218  C$voltmeter.c$81$1$55              voltmeter
+C:   0000021A  A$voltmeter$1681                   voltmeter
+C:   0000021C  A$voltmeter$1682                   voltmeter
+C:   0000021E  A$voltmeter$1683                   voltmeter
+C:   00000220  A$voltmeter$1684                   voltmeter
+C:   00000222  A$voltmeter$1685                   voltmeter
+C:   00000224  A$voltmeter$1686                   voltmeter
+C:   00000227  A$voltmeter$1687                   voltmeter
+C:   00000229  A$voltmeter$1688                   voltmeter
+C:   0000022B  A$voltmeter$1689                   voltmeter
+C:   0000022D  A$voltmeter$1692                   voltmeter
+C:   0000022D  C$voltmeter.c$82$1$55              voltmeter
+C:   0000022F  A$voltmeter$1693                   voltmeter
+C:   00000231  A$voltmeter$1694                   voltmeter
+C:   00000233  A$voltmeter$1695                   voltmeter
+C:   00000235  A$voltmeter$1696                   voltmeter
+C:   00000238  A$voltmeter$1697                   voltmeter
 ASxxxx Linker V03.00 + NoICE + sdld,  page 37.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-CSEG                                00000082    00001131 =        4401. bytes (REL,CON,CODE)
+CSEG                                00000092    000013B5 =        5045. bytes (REL,CON,CODE)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-C:   00000240  A$voltmeter$1669                   voltmeter
-C:   00000242  A$voltmeter$1670                   voltmeter
-C:   00000244  A$voltmeter$1671                   voltmeter
-C:   00000246  A$voltmeter$1672                   voltmeter
-C:   00000248  A$voltmeter$1673                   voltmeter
-C:   00000249  A$voltmeter$1674                   voltmeter
-C:   0000024B  A$voltmeter$1675                   voltmeter
-C:   0000024E  A$voltmeter$1676                   voltmeter
-C:   00000251  A$voltmeter$1677                   voltmeter
-C:   00000254  A$voltmeter$1678                   voltmeter
-C:   00000257  A$voltmeter$1682                   voltmeter
-C:   00000257  C$voltmeter.c$76$1$33              voltmeter
-C:   00000259  A$voltmeter$1683                   voltmeter
-C:   0000025B  A$voltmeter$1684                   voltmeter
-C:   0000025D  A$voltmeter$1685                   voltmeter
-C:   0000025F  A$voltmeter$1686                   voltmeter
-C:   00000261  A$voltmeter$1687                   voltmeter
-C:   00000263  A$voltmeter$1688                   voltmeter
-C:   00000265  A$voltmeter$1689                   voltmeter
-C:   00000267  A$voltmeter$1690                   voltmeter
-C:   00000269  A$voltmeter$1691                   voltmeter
-C:   0000026B  A$voltmeter$1692                   voltmeter
-C:   0000026D  A$voltmeter$1693                   voltmeter
-C:   0000026F  A$voltmeter$1694                   voltmeter
-C:   00000272  A$voltmeter$1695                   voltmeter
-C:   00000274  A$voltmeter$1696                   voltmeter
-C:   00000276  A$voltmeter$1697                   voltmeter
-C:   00000278  A$voltmeter$1700                   voltmeter
-C:   00000278  C$voltmeter.c$77$1$33              voltmeter
-C:   0000027A  A$voltmeter$1701                   voltmeter
-C:   0000027C  A$voltmeter$1702                   voltmeter
-C:   0000027E  A$voltmeter$1703                   voltmeter
-C:   00000280  A$voltmeter$1704                   voltmeter
-C:   00000282  A$voltmeter$1705                   voltmeter
-C:   00000284  A$voltmeter$1706                   voltmeter
-C:   00000286  A$voltmeter$1707                   voltmeter
-C:   00000288  A$voltmeter$1708                   voltmeter
-C:   0000028A  A$voltmeter$1709                   voltmeter
-C:   0000028C  A$voltmeter$1710                   voltmeter
-C:   0000028E  A$voltmeter$1711                   voltmeter
-C:   00000290  A$voltmeter$1712                   voltmeter
-C:   00000293  A$voltmeter$1713                   voltmeter
-C:   00000295  A$voltmeter$1714                   voltmeter
-C:   00000297  A$voltmeter$1715                   voltmeter
-C:   00000299  A$voltmeter$1718                   voltmeter
-C:   00000299  C$voltmeter.c$78$1$33              voltmeter
-C:   0000029B  A$voltmeter$1719                   voltmeter
-C:   0000029D  A$voltmeter$1720                   voltmeter
-C:   0000029F  A$voltmeter$1721                   voltmeter
-C:   000002A1  A$voltmeter$1722                   voltmeter
-C:   000002A3  A$voltmeter$1723                   voltmeter
+C:   0000023B  A$voltmeter$1698                   voltmeter
+C:   0000023E  A$voltmeter$1699                   voltmeter
+C:   00000240  A$voltmeter$1700                   voltmeter
+C:   00000243  A$voltmeter$1701                   voltmeter
+C:   00000245  A$voltmeter$1702                   voltmeter
+C:   00000247  A$voltmeter$1703                   voltmeter
+C:   00000249  A$voltmeter$1704                   voltmeter
+C:   0000024A  A$voltmeter$1705                   voltmeter
+C:   0000024C  A$voltmeter$1706                   voltmeter
+C:   0000024E  A$voltmeter$1707                   voltmeter
+C:   00000250  A$voltmeter$1708                   voltmeter
+C:   00000252  A$voltmeter$1709                   voltmeter
+C:   00000254  A$voltmeter$1710                   voltmeter
+C:   00000256  A$voltmeter$1711                   voltmeter
+C:   00000258  A$voltmeter$1712                   voltmeter
+C:   0000025A  A$voltmeter$1713                   voltmeter
+C:   0000025C  A$voltmeter$1714                   voltmeter
+C:   0000025E  A$voltmeter$1715                   voltmeter
+C:   0000025F  A$voltmeter$1716                   voltmeter
+C:   00000262  A$voltmeter$1717                   voltmeter
+C:   00000264  A$voltmeter$1718                   voltmeter
+C:   00000266  A$voltmeter$1719                   voltmeter
+C:   00000268  A$voltmeter$1720                   voltmeter
+C:   00000269  A$voltmeter$1721                   voltmeter
+C:   0000026B  A$voltmeter$1722                   voltmeter
+C:   0000026D  A$voltmeter$1723                   voltmeter
+C:   0000026F  A$voltmeter$1724                   voltmeter
+C:   00000271  A$voltmeter$1725                   voltmeter
+C:   00000273  A$voltmeter$1726                   voltmeter
+C:   00000275  A$voltmeter$1727                   voltmeter
+C:   00000277  A$voltmeter$1728                   voltmeter
+C:   00000278  A$voltmeter$1729                   voltmeter
+C:   0000027A  A$voltmeter$1730                   voltmeter
+C:   0000027C  A$voltmeter$1731                   voltmeter
+C:   0000027E  A$voltmeter$1732                   voltmeter
+C:   00000280  A$voltmeter$1733                   voltmeter
+C:   00000282  A$voltmeter$1734                   voltmeter
+C:   00000284  A$voltmeter$1735                   voltmeter
+C:   00000287  A$voltmeter$1736                   voltmeter
+C:   0000028A  A$voltmeter$1737                   voltmeter
+C:   0000028D  A$voltmeter$1738                   voltmeter
+C:   0000028F  A$voltmeter$1739                   voltmeter
+C:   00000292  A$voltmeter$1740                   voltmeter
+C:   00000294  A$voltmeter$1741                   voltmeter
+C:   00000296  A$voltmeter$1742                   voltmeter
+C:   00000298  A$voltmeter$1743                   voltmeter
+C:   00000299  A$voltmeter$1744                   voltmeter
+C:   0000029B  A$voltmeter$1745                   voltmeter
+C:   0000029D  A$voltmeter$1746                   voltmeter
+C:   0000029F  A$voltmeter$1747                   voltmeter
+C:   000002A1  A$voltmeter$1748                   voltmeter
 ASxxxx Linker V03.00 + NoICE + sdld,  page 38.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-CSEG                                00000082    00001131 =        4401. bytes (REL,CON,CODE)
+CSEG                                00000092    000013B5 =        5045. bytes (REL,CON,CODE)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-C:   000002A5  A$voltmeter$1724                   voltmeter
-C:   000002A7  A$voltmeter$1725                   voltmeter
-C:   000002A9  A$voltmeter$1726                   voltmeter
-C:   000002AB  A$voltmeter$1727                   voltmeter
-C:   000002AD  A$voltmeter$1728                   voltmeter
-C:   000002AF  A$voltmeter$1729                   voltmeter
-C:   000002B1  A$voltmeter$1730                   voltmeter
-C:   000002B4  A$voltmeter$1731                   voltmeter
-C:   000002B6  A$voltmeter$1732                   voltmeter
-C:   000002B8  A$voltmeter$1733                   voltmeter
-C:   000002BA  A$voltmeter$1736                   voltmeter
-C:   000002BA  C$voltmeter.c$80$1$33              voltmeter
-C:   000002BA  XG$score$0$0                       voltmeter
-C:   000002BB  A$voltmeter$1751                   voltmeter
-C:   000002BB  C$voltmeter.c$82$1$33              voltmeter
-C:   000002BB  C$voltmeter.c$85$1$36              voltmeter
-C:   000002BB  G$SYSCLK_INIT$0$0                  voltmeter
-C:   000002BB  _SYSCLK_INIT                       voltmeter
-C:   000002BE  A$voltmeter$1754                   voltmeter
-C:   000002BE  C$voltmeter.c$86$1$36              voltmeter
-C:   000002C1  A$voltmeter$1757                   voltmeter
-C:   000002C1  C$voltmeter.c$87$1$36              voltmeter
-C:   000002C3  A$voltmeter$1758                   voltmeter
-C:   000002C5  A$voltmeter$1760                   voltmeter
-C:   000002C6  A$voltmeter$1761                   voltmeter
-C:   000002C9  A$voltmeter$1762                   voltmeter
-C:   000002CA  A$voltmeter$1764                   voltmeter
-C:   000002CB  A$voltmeter$1765                   voltmeter
-C:   000002CC  A$voltmeter$1766                   voltmeter
-C:   000002CE  A$voltmeter$1770                   voltmeter
-C:   000002CE  C$voltmeter.c$88$1$36              voltmeter
-C:   000002D0  A$voltmeter$1771                   voltmeter
-C:   000002D3  A$voltmeter$1774                   voltmeter
-C:   000002D3  C$voltmeter.c$89$1$36              voltmeter
-C:   000002D6  A$voltmeter$1777                   voltmeter
-C:   000002D6  C$voltmeter.c$90$1$36              voltmeter
-C:   000002D9  A$voltmeter$1780                   voltmeter
-C:   000002D9  C$voltmeter.c$91$1$36              voltmeter
-C:   000002D9  XG$SYSCLK_INIT$0$0                 voltmeter
-C:   000002DA  A$voltmeter$1793                   voltmeter
-C:   000002DA  C$voltmeter.c$93$1$36              voltmeter
-C:   000002DA  C$voltmeter.c$95$1$37              voltmeter
-C:   000002DA  G$Timer_Init$0$0                   voltmeter
-C:   000002DA  _Timer_Init                        voltmeter
-C:   000002DD  A$voltmeter$1796                   voltmeter
-C:   000002DD  C$voltmeter.c$96$1$37              voltmeter
-C:   000002E0  A$voltmeter$1799                   voltmeter
-C:   000002E0  C$voltmeter.c$97$1$37              voltmeter
-C:   000002E3  A$voltmeter$1802                   voltmeter
-C:   000002E3  C$voltmeter.c$98$1$37              voltmeter
-C:   000002E6  A$voltmeter$1805                   voltmeter
+C:   000002A3  A$voltmeter$1749                   voltmeter
+C:   000002A5  A$voltmeter$1750                   voltmeter
+C:   000002A7  A$voltmeter$1751                   voltmeter
+C:   000002A9  A$voltmeter$1752                   voltmeter
+C:   000002AB  A$voltmeter$1753                   voltmeter
+C:   000002AD  A$voltmeter$1754                   voltmeter
+C:   000002AF  A$voltmeter$1755                   voltmeter
+C:   000002B1  A$voltmeter$1756                   voltmeter
+C:   000002B3  A$voltmeter$1757                   voltmeter
+C:   000002B5  A$voltmeter$1758                   voltmeter
+C:   000002B7  A$voltmeter$1759                   voltmeter
+C:   000002B9  A$voltmeter$1760                   voltmeter
+C:   000002BB  A$voltmeter$1761                   voltmeter
+C:   000002BD  A$voltmeter$1762                   voltmeter
+C:   000002BE  A$voltmeter$1763                   voltmeter
+C:   000002C1  A$voltmeter$1764                   voltmeter
+C:   000002C4  A$voltmeter$1765                   voltmeter
+C:   000002C7  A$voltmeter$1766                   voltmeter
+C:   000002CA  A$voltmeter$1767                   voltmeter
+C:   000002CC  A$voltmeter$1768                   voltmeter
+C:   000002CE  A$voltmeter$1769                   voltmeter
+C:   000002D0  A$voltmeter$1770                   voltmeter
+C:   000002D2  A$voltmeter$1773                   voltmeter
+C:   000002D2  C$voltmeter.c$83$1$55              voltmeter
+C:   000002D5  A$voltmeter$1774                   voltmeter
+C:   000002D8  A$voltmeter$1775                   voltmeter
+C:   000002DB  A$voltmeter$1776                   voltmeter
+C:   000002DD  A$voltmeter$1777                   voltmeter
+C:   000002DF  A$voltmeter$1778                   voltmeter
+C:   000002E1  A$voltmeter$1779                   voltmeter
+C:   000002E2  A$voltmeter$1780                   voltmeter
+C:   000002E4  A$voltmeter$1781                   voltmeter
+C:   000002E6  A$voltmeter$1782                   voltmeter
+C:   000002E8  A$voltmeter$1783                   voltmeter
+C:   000002EA  A$voltmeter$1784                   voltmeter
+C:   000002EC  A$voltmeter$1785                   voltmeter
+C:   000002EE  A$voltmeter$1786                   voltmeter
+C:   000002F0  A$voltmeter$1787                   voltmeter
+C:   000002F1  A$voltmeter$1788                   voltmeter
+C:   000002F4  A$voltmeter$1789                   voltmeter
+C:   000002F7  A$voltmeter$1790                   voltmeter
+C:   000002FA  A$voltmeter$1791                   voltmeter
+C:   000002FD  A$voltmeter$1792                   voltmeter
+C:   000002FF  A$voltmeter$1793                   voltmeter
+C:   00000301  A$voltmeter$1794                   voltmeter
+C:   00000303  A$voltmeter$1795                   voltmeter
+C:   00000305  A$voltmeter$1796                   voltmeter
+C:   00000308  A$voltmeter$1797                   voltmeter
+C:   0000030B  A$voltmeter$1798                   voltmeter
+C:   0000030E  A$voltmeter$1799                   voltmeter
+C:   00000310  A$voltmeter$1800                   voltmeter
 ASxxxx Linker V03.00 + NoICE + sdld,  page 39.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-CSEG                                00000082    00001131 =        4401. bytes (REL,CON,CODE)
+CSEG                                00000092    000013B5 =        5045. bytes (REL,CON,CODE)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-C:   000002E6  C$voltmeter.c$99$1$37              voltmeter
-C:   000002E9  A$voltmeter$1808                   voltmeter
-C:   000002E9  C$voltmeter.c$100$1$37             voltmeter
-C:   000002EC  A$voltmeter$1811                   voltmeter
-C:   000002EC  C$voltmeter.c$101$1$37             voltmeter
-C:   000002EF  A$voltmeter$1814                   voltmeter
-C:   000002EF  C$voltmeter.c$102$1$37             voltmeter
-C:   000002EF  XG$Timer_Init$0$0                  voltmeter
-C:   000002F0  A$voltmeter$1827                   voltmeter
-C:   000002F0  C$voltmeter.c$104$1$37             voltmeter
-C:   000002F0  C$voltmeter.c$106$1$38             voltmeter
-C:   000002F0  G$UART_Init$0$0                    voltmeter
-C:   000002F0  _UART_Init                         voltmeter
-C:   000002F3  A$voltmeter$1830                   voltmeter
-C:   000002F3  C$voltmeter.c$107$1$38             voltmeter
-C:   000002F5  A$voltmeter$1833                   voltmeter
-C:   000002F5  C$voltmeter.c$108$1$38             voltmeter
-C:   000002F8  A$voltmeter$1836                   voltmeter
-C:   000002F8  C$voltmeter.c$109$1$38             voltmeter
-C:   000002FB  A$voltmeter$1839                   voltmeter
-C:   000002FB  C$voltmeter.c$110$1$38             voltmeter
-C:   000002FD  A$voltmeter$1842                   voltmeter
-C:   000002FD  C$voltmeter.c$111$1$38             voltmeter
-C:   000002FD  XG$UART_Init$0$0                   voltmeter
-C:   000002FE  A$voltmeter$1855                   voltmeter
-C:   000002FE  C$voltmeter.c$113$1$38             voltmeter
-C:   000002FE  C$voltmeter.c$115$1$39             voltmeter
-C:   000002FE  G$Port_IO_Init$0$0                 voltmeter
-C:   000002FE  _Port_IO_Init                      voltmeter
-C:   00000301  A$voltmeter$1858                   voltmeter
-C:   00000301  C$voltmeter.c$116$1$39             voltmeter
-C:   00000304  A$voltmeter$1861                   voltmeter
-C:   00000304  C$voltmeter.c$117$1$39             voltmeter
-C:   00000307  A$voltmeter$1864                   voltmeter
-C:   00000307  C$voltmeter.c$118$1$39             voltmeter
-C:   0000030A  A$voltmeter$1867                   voltmeter
-C:   0000030A  C$voltmeter.c$119$1$39             voltmeter
-C:   0000030D  A$voltmeter$1870                   voltmeter
-C:   0000030D  C$voltmeter.c$121$1$39             voltmeter
-C:   00000310  A$voltmeter$1873                   voltmeter
-C:   00000310  C$voltmeter.c$123$1$39             voltmeter
-C:   00000313  A$voltmeter$1876                   voltmeter
-C:   00000313  C$voltmeter.c$126$1$39             voltmeter
-C:   00000316  A$voltmeter$1879                   voltmeter
-C:   00000316  C$voltmeter.c$127$1$39             voltmeter
-C:   00000319  A$voltmeter$1882                   voltmeter
-C:   00000319  C$voltmeter.c$130$1$39             voltmeter
-C:   0000031B  A$voltmeter$1885                   voltmeter
-C:   0000031B  C$voltmeter.c$131$1$39             voltmeter
-C:   0000031B  XG$Port_IO_Init$0$0                voltmeter
-C:   0000031C  A$voltmeter$1898                   voltmeter
+C:   00000312  A$voltmeter$1801                   voltmeter
+C:   00000314  A$voltmeter$1802                   voltmeter
+C:   00000315  A$voltmeter$1803                   voltmeter
+C:   00000317  A$voltmeter$1804                   voltmeter
+C:   00000319  A$voltmeter$1805                   voltmeter
+C:   0000031B  A$voltmeter$1806                   voltmeter
+C:   0000031D  A$voltmeter$1807                   voltmeter
+C:   00000320  A$voltmeter$1808                   voltmeter
+C:   00000323  A$voltmeter$1809                   voltmeter
+C:   00000326  A$voltmeter$1810                   voltmeter
+C:   00000328  A$voltmeter$1811                   voltmeter
+C:   0000032B  A$voltmeter$1812                   voltmeter
+C:   0000032D  A$voltmeter$1813                   voltmeter
+C:   0000032F  A$voltmeter$1814                   voltmeter
+C:   00000331  A$voltmeter$1815                   voltmeter
+C:   00000332  A$voltmeter$1816                   voltmeter
+C:   00000334  A$voltmeter$1817                   voltmeter
+C:   00000336  A$voltmeter$1818                   voltmeter
+C:   00000338  A$voltmeter$1819                   voltmeter
+C:   0000033A  A$voltmeter$1820                   voltmeter
+C:   0000033C  A$voltmeter$1821                   voltmeter
+C:   0000033E  A$voltmeter$1822                   voltmeter
+C:   00000340  A$voltmeter$1823                   voltmeter
+C:   00000342  A$voltmeter$1824                   voltmeter
+C:   00000344  A$voltmeter$1825                   voltmeter
+C:   00000346  A$voltmeter$1826                   voltmeter
+C:   00000348  A$voltmeter$1827                   voltmeter
+C:   0000034A  A$voltmeter$1828                   voltmeter
+C:   0000034C  A$voltmeter$1829                   voltmeter
+C:   0000034E  A$voltmeter$1830                   voltmeter
+C:   00000350  A$voltmeter$1831                   voltmeter
+C:   00000352  A$voltmeter$1832                   voltmeter
+C:   00000354  A$voltmeter$1833                   voltmeter
+C:   00000356  A$voltmeter$1834                   voltmeter
+C:   00000357  A$voltmeter$1835                   voltmeter
+C:   0000035A  A$voltmeter$1836                   voltmeter
+C:   0000035C  A$voltmeter$1837                   voltmeter
+C:   0000035E  A$voltmeter$1838                   voltmeter
+C:   00000360  A$voltmeter$1839                   voltmeter
+C:   00000361  A$voltmeter$1840                   voltmeter
+C:   00000363  A$voltmeter$1841                   voltmeter
+C:   00000365  A$voltmeter$1842                   voltmeter
+C:   00000367  A$voltmeter$1843                   voltmeter
+C:   00000369  A$voltmeter$1844                   voltmeter
+C:   0000036B  A$voltmeter$1845                   voltmeter
+C:   0000036D  A$voltmeter$1846                   voltmeter
+C:   0000036E  A$voltmeter$1847                   voltmeter
+C:   00000371  A$voltmeter$1848                   voltmeter
+C:   00000374  A$voltmeter$1849                   voltmeter
+C:   00000377  A$voltmeter$1850                   voltmeter
+C:   00000379  A$voltmeter$1851                   voltmeter
 ASxxxx Linker V03.00 + NoICE + sdld,  page 40.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-CSEG                                00000082    00001131 =        4401. bytes (REL,CON,CODE)
+CSEG                                00000092    000013B5 =        5045. bytes (REL,CON,CODE)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-C:   0000031C  C$voltmeter.c$132$1$39             voltmeter
-C:   0000031C  C$voltmeter.c$134$1$40             voltmeter
-C:   0000031C  G$ADC_INIT$0$0                     voltmeter
-C:   0000031C  _ADC_INIT                          voltmeter
-C:   0000031F  A$voltmeter$1901                   voltmeter
-C:   0000031F  C$voltmeter.c$135$1$40             voltmeter
-C:   00000322  A$voltmeter$1904                   voltmeter
-C:   00000322  C$voltmeter.c$136$1$40             voltmeter
-C:   00000325  A$voltmeter$1907                   voltmeter
-C:   00000325  C$voltmeter.c$137$1$40             voltmeter
-C:   00000328  A$voltmeter$1910                   voltmeter
-C:   00000328  C$voltmeter.c$138$1$40             voltmeter
-C:   0000032B  A$voltmeter$1913                   voltmeter
-C:   0000032B  C$voltmeter.c$139$1$40             voltmeter
-C:   0000032B  XG$ADC_INIT$0$0                    voltmeter
-C:   0000032C  _printf_fast_f                     printf_fast_f
-C:   000007AD  ___fsmul                           _fsmul
-C:   00000850  fsgetargs                          _fsget2args
-C:   0000087E  fs_rshift_a                        _fsrshift
-C:   000008C1  fs_normalize_a                     _fsnormalize
-C:   000008F4  ___fsgt                            _fsgt
-C:   00000924  ___fslt                            _fslt
-C:   00000954  ___fsadd                           _fsadd
-C:   00000957  fsadd_direct_entry                 _fsadd
-C:   000009AD  fs_compare_uint32                  _fscmp
-C:   000009CB  fs_check_negative_zeros            _fscmp
-C:   000009F6  ___sint2fs                         _sint2fs
-C:   00000A03  ___uint2fs                         _uint2fs
-C:   00000A0F  fs_round_and_return                _fsreturnval
-C:   00000A27  fs_zerocheck_return                _fsreturnval
-C:   00000A30  fs_return_zero                     _fsreturnval
-C:   00000A38  fs_direct_return                   _fsreturnval
-C:   00000A46  fs_return_inf                      _fsreturnval
-C:   00000A53  fs_return_nan                      _fsreturnval
-C:   00000A69  _vprintf                           vprintf
-C:   00000A82  _printf                            vprintf
-C:   00000B54  __print_format                     printf_large
-C:   0000105E  fs_swap_a_b                        _fsswapargs
-C:   00001078  _strlen                            _strlen
-C:   00001090  ___fsdiv                           _fsdiv
-C:   00001153  __gptrget                          _gptrget
-C:   0000116F  ___slong2fs                        _slong2fs
-C:   00001178  slong2fs_doit                      _slong2fs
-C:   0000119C  ___ulong2fs                        _ulong2fs
-C:   000011A5  ulong2fs_doit                      _ulong2fs
-C:   000011AF  __sdcc_external_startup            _startup
+C:   0000037B  A$voltmeter$1852                   voltmeter
+C:   0000037D  A$voltmeter$1853                   voltmeter
+C:   0000037F  A$voltmeter$1856                   voltmeter
+C:   0000037F  C$voltmeter.c$84$1$55              voltmeter
+C:   00000381  A$voltmeter$1857                   voltmeter
+C:   00000383  A$voltmeter$1858                   voltmeter
+C:   00000385  A$voltmeter$1859                   voltmeter
+C:   00000387  A$voltmeter$1862                   voltmeter
+C:   00000387  C$voltmeter.c$85$1$55              voltmeter
+C:   00000389  A$voltmeter$1863                   voltmeter
+C:   0000038B  A$voltmeter$1864                   voltmeter
+C:   0000038D  A$voltmeter$1865                   voltmeter
+C:   0000038F  A$voltmeter$1866                   voltmeter
+C:   00000392  A$voltmeter$1867                   voltmeter
+C:   00000395  A$voltmeter$1868                   voltmeter
+C:   00000398  A$voltmeter$1869                   voltmeter
+C:   0000039A  A$voltmeter$1870                   voltmeter
+C:   0000039D  A$voltmeter$1871                   voltmeter
+C:   0000039F  A$voltmeter$1872                   voltmeter
+C:   000003A1  A$voltmeter$1873                   voltmeter
+C:   000003A3  A$voltmeter$1874                   voltmeter
+C:   000003A5  A$voltmeter$1875                   voltmeter
+C:   000003A6  A$voltmeter$1876                   voltmeter
+C:   000003A8  A$voltmeter$1877                   voltmeter
+C:   000003AB  A$voltmeter$1878                   voltmeter
+C:   000003AE  A$voltmeter$1879                   voltmeter
+C:   000003B1  A$voltmeter$1880                   voltmeter
+C:   000003B4  A$voltmeter$1881                   voltmeter
+C:   000003B7  A$voltmeter$1882                   voltmeter
+C:   000003BA  A$voltmeter$1886                   voltmeter
+C:   000003BA  C$voltmeter.c$86$1$55              voltmeter
+C:   000003BC  A$voltmeter$1887                   voltmeter
+C:   000003BE  A$voltmeter$1888                   voltmeter
+C:   000003C0  A$voltmeter$1889                   voltmeter
+C:   000003C2  A$voltmeter$1890                   voltmeter
+C:   000003C5  A$voltmeter$1891                   voltmeter
+C:   000003C8  A$voltmeter$1892                   voltmeter
+C:   000003CB  A$voltmeter$1893                   voltmeter
+C:   000003CD  A$voltmeter$1894                   voltmeter
+C:   000003D0  A$voltmeter$1895                   voltmeter
+C:   000003D2  A$voltmeter$1896                   voltmeter
+C:   000003D4  A$voltmeter$1897                   voltmeter
+C:   000003D6  A$voltmeter$1898                   voltmeter
+C:   000003D8  A$voltmeter$1899                   voltmeter
+C:   000003D9  A$voltmeter$1900                   voltmeter
+C:   000003DB  A$voltmeter$1901                   voltmeter
+C:   000003DE  A$voltmeter$1902                   voltmeter
+C:   000003E1  A$voltmeter$1903                   voltmeter
+C:   000003E4  A$voltmeter$1904                   voltmeter
+C:   000003E7  A$voltmeter$1905                   voltmeter
+C:   000003EA  A$voltmeter$1906                   voltmeter
 ASxxxx Linker V03.00 + NoICE + sdld,  page 41.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-CONST                               000011B3    0000028E =         654. bytes (REL,CON,CODE)
+CSEG                                00000092    000013B5 =        5045. bytes (REL,CON,CODE)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-C:   000011B3  Fvoltmeter$__str_0$0$0             voltmeter
-C:   000011B8  Fvoltmeter$__str_1$0$0             voltmeter
-C:   000011C8  Fvoltmeter$__str_2$0$0             voltmeter
-C:   000011EA  Fvoltmeter$__str_3$0$0             voltmeter
-C:   00001210  Fvoltmeter$__str_4$0$0             voltmeter
-C:   00001236  Fvoltmeter$__str_5$0$0             voltmeter
+C:   000003ED  A$voltmeter$1910                   voltmeter
+C:   000003ED  C$voltmeter.c$87$1$55              voltmeter
+C:   000003EF  A$voltmeter$1911                   voltmeter
+C:   000003F1  A$voltmeter$1912                   voltmeter
+C:   000003F3  A$voltmeter$1913                   voltmeter
+C:   000003F5  A$voltmeter$1914                   voltmeter
+C:   000003F7  A$voltmeter$1915                   voltmeter
+C:   000003F9  A$voltmeter$1916                   voltmeter
+C:   000003FB  A$voltmeter$1917                   voltmeter
+C:   000003FD  A$voltmeter$1918                   voltmeter
+C:   00000400  A$voltmeter$1919                   voltmeter
+C:   00000402  A$voltmeter$1920                   voltmeter
+C:   00000404  A$voltmeter$1921                   voltmeter
+C:   00000406  A$voltmeter$1924                   voltmeter
+C:   00000406  C$voltmeter.c$88$1$55              voltmeter
+C:   00000408  A$voltmeter$1925                   voltmeter
+C:   0000040A  A$voltmeter$1926                   voltmeter
+C:   0000040C  A$voltmeter$1927                   voltmeter
+C:   0000040E  A$voltmeter$1928                   voltmeter
+C:   00000410  A$voltmeter$1929                   voltmeter
+C:   00000412  A$voltmeter$1930                   voltmeter
+C:   00000414  A$voltmeter$1931                   voltmeter
+C:   00000416  A$voltmeter$1932                   voltmeter
+C:   00000419  A$voltmeter$1933                   voltmeter
+C:   0000041B  A$voltmeter$1934                   voltmeter
+C:   0000041D  A$voltmeter$1935                   voltmeter
+C:   0000041F  A$voltmeter$1938                   voltmeter
+C:   0000041F  C$voltmeter.c$89$1$55              voltmeter
+C:   00000421  A$voltmeter$1939                   voltmeter
+C:   00000423  A$voltmeter$1940                   voltmeter
+C:   00000425  A$voltmeter$1941                   voltmeter
+C:   00000427  A$voltmeter$1942                   voltmeter
+C:   00000429  A$voltmeter$1943                   voltmeter
+C:   0000042B  A$voltmeter$1944                   voltmeter
+C:   0000042E  A$voltmeter$1945                   voltmeter
+C:   00000430  A$voltmeter$1946                   voltmeter
+C:   00000432  A$voltmeter$1947                   voltmeter
+C:   00000434  A$voltmeter$1950                   voltmeter
+C:   00000434  C$voltmeter.c$90$1$55              voltmeter
+C:   00000436  A$voltmeter$1951                   voltmeter
+C:   00000438  A$voltmeter$1952                   voltmeter
+C:   0000043A  A$voltmeter$1953                   voltmeter
+C:   0000043C  A$voltmeter$1954                   voltmeter
+C:   0000043E  A$voltmeter$1955                   voltmeter
+C:   00000440  A$voltmeter$1956                   voltmeter
+C:   00000442  A$voltmeter$1957                   voltmeter
+C:   00000444  A$voltmeter$1958                   voltmeter
+C:   00000447  A$voltmeter$1959                   voltmeter
+C:   00000449  A$voltmeter$1960                   voltmeter
+C:   0000044B  A$voltmeter$1961                   voltmeter
+C:   0000044D  A$voltmeter$1964                   voltmeter
 ASxxxx Linker V03.00 + NoICE + sdld,  page 42.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+CSEG                                00000092    000013B5 =        5045. bytes (REL,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+C:   0000044D  C$voltmeter.c$91$1$55              voltmeter
+C:   0000044F  A$voltmeter$1965                   voltmeter
+C:   00000451  A$voltmeter$1966                   voltmeter
+C:   00000453  A$voltmeter$1967                   voltmeter
+C:   00000455  A$voltmeter$1968                   voltmeter
+C:   00000457  A$voltmeter$1969                   voltmeter
+C:   00000459  A$voltmeter$1970                   voltmeter
+C:   0000045B  A$voltmeter$1971                   voltmeter
+C:   0000045D  A$voltmeter$1972                   voltmeter
+C:   00000460  A$voltmeter$1973                   voltmeter
+C:   00000462  A$voltmeter$1974                   voltmeter
+C:   00000464  A$voltmeter$1975                   voltmeter
+C:   00000466  A$voltmeter$1978                   voltmeter
+C:   00000466  C$voltmeter.c$92$1$55              voltmeter
+C:   00000468  A$voltmeter$1979                   voltmeter
+C:   0000046A  A$voltmeter$1980                   voltmeter
+C:   0000046C  A$voltmeter$1981                   voltmeter
+C:   0000046E  A$voltmeter$1982                   voltmeter
+C:   00000470  A$voltmeter$1983                   voltmeter
+C:   00000472  A$voltmeter$1984                   voltmeter
+C:   00000475  A$voltmeter$1985                   voltmeter
+C:   00000477  A$voltmeter$1986                   voltmeter
+C:   00000479  A$voltmeter$1987                   voltmeter
+C:   0000047B  A$voltmeter$1990                   voltmeter
+C:   0000047B  C$voltmeter.c$93$1$55              voltmeter
+C:   0000047D  A$voltmeter$1991                   voltmeter
+C:   0000047F  A$voltmeter$1992                   voltmeter
+C:   00000481  A$voltmeter$1993                   voltmeter
+C:   00000483  A$voltmeter$1994                   voltmeter
+C:   00000485  A$voltmeter$1995                   voltmeter
+C:   00000487  A$voltmeter$1996                   voltmeter
+C:   00000489  A$voltmeter$1997                   voltmeter
+C:   0000048B  A$voltmeter$1998                   voltmeter
+C:   0000048E  A$voltmeter$1999                   voltmeter
+C:   00000490  A$voltmeter$2000                   voltmeter
+C:   00000492  A$voltmeter$2001                   voltmeter
+C:   00000494  A$voltmeter$2004                   voltmeter
+C:   00000494  C$voltmeter.c$94$1$55              voltmeter
+C:   00000496  A$voltmeter$2005                   voltmeter
+C:   00000498  A$voltmeter$2006                   voltmeter
+C:   0000049A  A$voltmeter$2007                   voltmeter
+C:   0000049C  A$voltmeter$2008                   voltmeter
+C:   0000049E  A$voltmeter$2009                   voltmeter
+C:   000004A0  A$voltmeter$2010                   voltmeter
+C:   000004A2  A$voltmeter$2011                   voltmeter
+C:   000004A4  A$voltmeter$2012                   voltmeter
+C:   000004A7  A$voltmeter$2013                   voltmeter
+C:   000004A9  A$voltmeter$2014                   voltmeter
+C:   000004AB  A$voltmeter$2015                   voltmeter
+C:   000004AD  A$voltmeter$2018                   voltmeter
+C:   000004AD  C$voltmeter.c$96$1$55              voltmeter
+ASxxxx Linker V03.00 + NoICE + sdld,  page 43.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+CSEG                                00000092    000013B5 =        5045. bytes (REL,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+C:   000004AD  XG$score$0$0                       voltmeter
+C:   000004AE  A$voltmeter$2033                   voltmeter
+C:   000004AE  C$voltmeter.c$101$1$58             voltmeter
+C:   000004AE  C$voltmeter.c$98$1$55              voltmeter
+C:   000004AE  G$SYSCLK_INIT$0$0                  voltmeter
+C:   000004AE  _SYSCLK_INIT                       voltmeter
+C:   000004B1  A$voltmeter$2036                   voltmeter
+C:   000004B1  C$voltmeter.c$102$1$58             voltmeter
+C:   000004B4  A$voltmeter$2039                   voltmeter
+C:   000004B4  C$voltmeter.c$103$1$58             voltmeter
+C:   000004B6  A$voltmeter$2040                   voltmeter
+C:   000004B8  A$voltmeter$2042                   voltmeter
+C:   000004B9  A$voltmeter$2043                   voltmeter
+C:   000004BC  A$voltmeter$2044                   voltmeter
+C:   000004BD  A$voltmeter$2046                   voltmeter
+C:   000004BE  A$voltmeter$2047                   voltmeter
+C:   000004BF  A$voltmeter$2048                   voltmeter
+C:   000004C1  A$voltmeter$2052                   voltmeter
+C:   000004C1  C$voltmeter.c$104$1$58             voltmeter
+C:   000004C3  A$voltmeter$2053                   voltmeter
+C:   000004C6  A$voltmeter$2056                   voltmeter
+C:   000004C6  C$voltmeter.c$105$1$58             voltmeter
+C:   000004C9  A$voltmeter$2059                   voltmeter
+C:   000004C9  C$voltmeter.c$106$1$58             voltmeter
+C:   000004CC  A$voltmeter$2062                   voltmeter
+C:   000004CC  C$voltmeter.c$107$1$58             voltmeter
+C:   000004CC  XG$SYSCLK_INIT$0$0                 voltmeter
+C:   000004CD  A$voltmeter$2075                   voltmeter
+C:   000004CD  C$voltmeter.c$109$1$58             voltmeter
+C:   000004CD  C$voltmeter.c$111$1$59             voltmeter
+C:   000004CD  G$Timer_Init$0$0                   voltmeter
+C:   000004CD  _Timer_Init                        voltmeter
+C:   000004D0  A$voltmeter$2078                   voltmeter
+C:   000004D0  C$voltmeter.c$112$1$59             voltmeter
+C:   000004D3  A$voltmeter$2081                   voltmeter
+C:   000004D3  C$voltmeter.c$113$1$59             voltmeter
+C:   000004D6  A$voltmeter$2084                   voltmeter
+C:   000004D6  C$voltmeter.c$114$1$59             voltmeter
+C:   000004D9  A$voltmeter$2087                   voltmeter
+C:   000004D9  C$voltmeter.c$115$1$59             voltmeter
+C:   000004DC  A$voltmeter$2090                   voltmeter
+C:   000004DC  C$voltmeter.c$116$1$59             voltmeter
+C:   000004DF  A$voltmeter$2093                   voltmeter
+C:   000004DF  C$voltmeter.c$117$1$59             voltmeter
+C:   000004E2  A$voltmeter$2096                   voltmeter
+C:   000004E2  C$voltmeter.c$118$1$59             voltmeter
+C:   000004E2  XG$Timer_Init$0$0                  voltmeter
+C:   000004E3  A$voltmeter$2109                   voltmeter
+C:   000004E3  C$voltmeter.c$120$1$59             voltmeter
+C:   000004E3  C$voltmeter.c$122$1$60             voltmeter
+C:   000004E3  G$UART_Init$0$0                    voltmeter
+ASxxxx Linker V03.00 + NoICE + sdld,  page 44.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+CSEG                                00000092    000013B5 =        5045. bytes (REL,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+C:   000004E3  _UART_Init                         voltmeter
+C:   000004E6  A$voltmeter$2112                   voltmeter
+C:   000004E6  C$voltmeter.c$123$1$60             voltmeter
+C:   000004E8  A$voltmeter$2115                   voltmeter
+C:   000004E8  C$voltmeter.c$124$1$60             voltmeter
+C:   000004EB  A$voltmeter$2118                   voltmeter
+C:   000004EB  C$voltmeter.c$125$1$60             voltmeter
+C:   000004EE  A$voltmeter$2121                   voltmeter
+C:   000004EE  C$voltmeter.c$126$1$60             voltmeter
+C:   000004F0  A$voltmeter$2124                   voltmeter
+C:   000004F0  C$voltmeter.c$127$1$60             voltmeter
+C:   000004F0  XG$UART_Init$0$0                   voltmeter
+C:   000004F1  A$voltmeter$2137                   voltmeter
+C:   000004F1  C$voltmeter.c$129$1$60             voltmeter
+C:   000004F1  C$voltmeter.c$131$1$61             voltmeter
+C:   000004F1  G$Port_IO_Init$0$0                 voltmeter
+C:   000004F1  _Port_IO_Init                      voltmeter
+C:   000004F4  A$voltmeter$2140                   voltmeter
+C:   000004F4  C$voltmeter.c$132$1$61             voltmeter
+C:   000004F7  A$voltmeter$2143                   voltmeter
+C:   000004F7  C$voltmeter.c$133$1$61             voltmeter
+C:   000004FA  A$voltmeter$2146                   voltmeter
+C:   000004FA  C$voltmeter.c$134$1$61             voltmeter
+C:   000004FD  A$voltmeter$2149                   voltmeter
+C:   000004FD  C$voltmeter.c$135$1$61             voltmeter
+C:   00000500  A$voltmeter$2152                   voltmeter
+C:   00000500  C$voltmeter.c$137$1$61             voltmeter
+C:   00000503  A$voltmeter$2155                   voltmeter
+C:   00000503  C$voltmeter.c$139$1$61             voltmeter
+C:   00000506  A$voltmeter$2158                   voltmeter
+C:   00000506  C$voltmeter.c$142$1$61             voltmeter
+C:   00000509  A$voltmeter$2161                   voltmeter
+C:   00000509  C$voltmeter.c$143$1$61             voltmeter
+C:   0000050C  A$voltmeter$2164                   voltmeter
+C:   0000050C  C$voltmeter.c$146$1$61             voltmeter
+C:   0000050E  A$voltmeter$2167                   voltmeter
+C:   0000050E  C$voltmeter.c$147$1$61             voltmeter
+C:   0000050E  XG$Port_IO_Init$0$0                voltmeter
+C:   0000050F  A$voltmeter$2180                   voltmeter
+C:   0000050F  C$voltmeter.c$148$1$61             voltmeter
+C:   0000050F  C$voltmeter.c$150$1$62             voltmeter
+C:   0000050F  G$ADC_INIT$0$0                     voltmeter
+C:   0000050F  _ADC_INIT                          voltmeter
+C:   00000512  A$voltmeter$2183                   voltmeter
+C:   00000512  C$voltmeter.c$151$1$62             voltmeter
+C:   00000515  A$voltmeter$2186                   voltmeter
+C:   00000515  C$voltmeter.c$152$1$62             voltmeter
+C:   00000518  A$voltmeter$2189                   voltmeter
+C:   00000518  C$voltmeter.c$153$1$62             voltmeter
+C:   0000051B  A$voltmeter$2192                   voltmeter
+C:   0000051B  C$voltmeter.c$154$1$62             voltmeter
+ASxxxx Linker V03.00 + NoICE + sdld,  page 45.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+CSEG                                00000092    000013B5 =        5045. bytes (REL,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+C:   0000051E  A$voltmeter$2195                   voltmeter
+C:   0000051E  C$voltmeter.c$155$1$62             voltmeter
+C:   0000051E  XG$ADC_INIT$0$0                    voltmeter
+C:   0000051F  _printf_fast_f                     printf_fast_f
+C:   000009A0  ___fsmul                           _fsmul
+C:   00000A43  fsgetargs                          _fsget2args
+C:   00000A71  fs_rshift_a                        _fsrshift
+C:   00000AB4  fs_normalize_a                     _fsnormalize
+C:   00000AE7  ___fsgt                            _fsgt
+C:   00000B17  ___fslt                            _fslt
+C:   00000B47  ___fsadd                           _fsadd
+C:   00000B4A  fsadd_direct_entry                 _fsadd
+C:   00000BA0  fs_compare_uint32                  _fscmp
+C:   00000BBE  fs_check_negative_zeros            _fscmp
+C:   00000BE9  ___fs2sint                         _fs2sint
+C:   00000C1D  ___sint2fs                         _sint2fs
+C:   00000C2A  ___uint2fs                         _uint2fs
+C:   00000C36  fs_round_and_return                _fsreturnval
+C:   00000C4E  fs_zerocheck_return                _fsreturnval
+C:   00000C57  fs_return_zero                     _fsreturnval
+C:   00000C5F  fs_direct_return                   _fsreturnval
+C:   00000C6D  fs_return_inf                      _fsreturnval
+C:   00000C7A  fs_return_nan                      _fsreturnval
+C:   00000C90  _vprintf                           vprintf
+C:   00000CA9  _printf                            vprintf
+C:   00000D7B  __print_format                     printf_large
+C:   00001285  fs_swap_a_b                        _fsswapargs
+C:   0000129F  _strlen                            _strlen
+C:   000012B7  ___fsdiv                           _fsdiv
+C:   0000137A  __gptrget                          _gptrget
+C:   00001396  ___slong2fs                        _slong2fs
+C:   0000139F  slong2fs_doit                      _slong2fs
+C:   000013C3  ___ulong2fs                        _ulong2fs
+C:   000013CC  ulong2fs_doit                      _ulong2fs
+C:   000013D6  ___fs2slong                        _fs2slong
+C:   00001431  __sdcc_external_startup            _startup
+C:   00001435  fsgetarg                           _fsget1arg
+ASxxxx Linker V03.00 + NoICE + sdld,  page 46.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+CONST                               00001447    000002B3 =         691. bytes (REL,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+C:   00001447  Fvoltmeter$__str_0$0$0             voltmeter
+C:   0000144C  Fvoltmeter$__str_1$0$0             voltmeter
+C:   0000145F  Fvoltmeter$__str_2$0$0             voltmeter
+C:   00001467  Fvoltmeter$__str_3$0$0             voltmeter
+C:   0000146E  Fvoltmeter$__str_4$0$0             voltmeter
+C:   0000148C  Fvoltmeter$__str_5$0$0             voltmeter
+C:   0000148F  Fvoltmeter$__str_6$0$0             voltmeter
+C:   00001498  Fvoltmeter$__str_7$0$0             voltmeter
+C:   000014BA  Fvoltmeter$__str_8$0$0             voltmeter
+C:   000014C0  Fvoltmeter$__str_9$0$0             voltmeter
+C:   000014C9  Fvoltmeter$__str_10$0$0            voltmeter
+C:   000014EB  Fvoltmeter$__str_11$0$0            voltmeter
+C:   000014F4  Fvoltmeter$__str_12$0$0            voltmeter
+
+ASxxxx Linker V03.00 + NoICE + sdld,  page 47.
 
 Files Linked                              [ module(s) ]
 
@@ -1751,6 +2066,8 @@ C:\Program Files (x86)\SDCC\bin\..\lib\small/libfloat.lib
 C:\Program Files (x86)\SDCC\bin\..\lib\small/libfloat.lib
                                           [ _fscmp.rel ]
 C:\Program Files (x86)\SDCC\bin\..\lib\small/libfloat.lib
+                                          [ _fs2sint.rel ]
+C:\Program Files (x86)\SDCC\bin\..\lib\small/libfloat.lib
                                           [ _sint2fs.rel ]
 C:\Program Files (x86)\SDCC\bin\..\lib\small/libfloat.lib
                                           [ _uint2fs.rel ]
@@ -1776,10 +2093,14 @@ C:\Program Files (x86)\SDCC\bin\..\lib\small/libfloat.lib
                                           [ _slong2fs.rel ]
 C:\Program Files (x86)\SDCC\bin\..\lib\small/libfloat.lib
                                           [ _ulong2fs.rel ]
+C:\Program Files (x86)\SDCC\bin\..\lib\small/libfloat.lib
+                                          [ _fs2slong.rel ]
 C:\Program Files (x86)\SDCC\bin\..\lib\small/libsdcc.lib
                                           [ _startup.rel ]
+C:\Program Files (x86)\SDCC\bin\..\lib\small/libfloat.lib
+                                          [ _fsget1arg.rel ]
 
-ASxxxx Linker V03.00 + NoICE + sdld,  page 43.
+ASxxxx Linker V03.00 + NoICE + sdld,  page 48.
 
 User Base Address Definitions
 

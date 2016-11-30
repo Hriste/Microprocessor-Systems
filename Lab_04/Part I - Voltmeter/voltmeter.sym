@@ -8,361 +8,675 @@ Symbol Table
     .__.CPU.                                                    =  000000 L
     .__.H$L.                                                    =  000001 L
     A                                                           =  0000E0 L
-  F A$voltmeter$1274                                               000000 GR
- 16 A$voltmeter$1290                                               000000 GR
- 16 A$voltmeter$1291                                               000001 GR
- 16 A$voltmeter$1292                                               000003 GR
- 16 A$voltmeter$1293                                               000005 GR
- 16 A$voltmeter$1294                                               000007 GR
- 16 A$voltmeter$1297                                               000009 GR
- 16 A$voltmeter$1298                                               00000B GR
- 16 A$voltmeter$1299                                               00000D GR
- 16 A$voltmeter$1300                                               000010 GR
- 16 A$voltmeter$1303                                               000013 GR
- 16 A$voltmeter$1304                                               000015 GR
- 16 A$voltmeter$1305                                               000017 GR
- 16 A$voltmeter$1306                                               000019 GR
- 16 A$voltmeter$1309                                               00001B GR
- 16 A$voltmeter$1311                                               00001E GR
- 17 A$voltmeter$1313                                               000000 GR
-  F A$voltmeter$1320                                               000003 GR
- 18 A$voltmeter$1346                                               000000 GR
- 18 A$voltmeter$1352                                               000002 GR
- 18 A$voltmeter$1353                                               000005 GR
- 18 A$voltmeter$1357                                               000007 GR
- 18 A$voltmeter$1360                                               000009 GR
- 18 A$voltmeter$1378                                               00000A GR
- 18 A$voltmeter$1379                                               00000D GR
- 18 A$voltmeter$1383                                               00000F GR
- 18 A$voltmeter$1386                                               000011 GR
- 18 A$voltmeter$1389                                               000014 GR
- 18 A$voltmeter$1402                                               000015 GR
- 18 A$voltmeter$1405                                               000018 GR
- 18 A$voltmeter$1408                                               00001B GR
- 18 A$voltmeter$1411                                               00001E GR
- 18 A$voltmeter$1414                                               000021 GR
- 18 A$voltmeter$1417                                               000024 GR
- 18 A$voltmeter$1420                                               000027 GR
- 18 A$voltmeter$1423                                               00002A GR
- 18 A$voltmeter$1424                                               00002C GR
- 18 A$voltmeter$1425                                               00002E GR
- 18 A$voltmeter$1426                                               000030 GR
- 18 A$voltmeter$1427                                               000032 GR
- 18 A$voltmeter$1428                                               000034 GR
- 18 A$voltmeter$1429                                               000036 GR
- 18 A$voltmeter$1430                                               000039 GR
- 18 A$voltmeter$1431                                               00003B GR
- 18 A$voltmeter$1432                                               00003D GR
- 18 A$voltmeter$1435                                               00003F GR
- 18 A$voltmeter$1436                                               000041 GR
- 18 A$voltmeter$1437                                               000043 GR
- 18 A$voltmeter$1438                                               000045 GR
- 18 A$voltmeter$1439                                               000047 GR
+  F A$voltmeter$1286                                               000000 GR
+ 16 A$voltmeter$1302                                               000000 GR
+ 16 A$voltmeter$1303                                               000001 GR
+ 16 A$voltmeter$1304                                               000003 GR
+ 16 A$voltmeter$1305                                               000005 GR
+ 16 A$voltmeter$1306                                               000007 GR
+ 16 A$voltmeter$1309                                               000009 GR
+ 16 A$voltmeter$1310                                               00000B GR
+ 16 A$voltmeter$1313                                               00000D GR
+ 16 A$voltmeter$1314                                               00000F GR
+ 16 A$voltmeter$1315                                               000011 GR
+ 16 A$voltmeter$1316                                               000014 GR
+ 16 A$voltmeter$1319                                               000017 GR
+ 16 A$voltmeter$1321                                               00001A GR
+ 16 A$voltmeter$1324                                               00001C GR
+ 16 A$voltmeter$1325                                               00001E GR
+ 16 A$voltmeter$1326                                               000020 GR
+ 16 A$voltmeter$1327                                               000022 GR
+ 16 A$voltmeter$1330                                               000024 GR
+ 16 A$voltmeter$1331                                               000026 GR
+ 16 A$voltmeter$1334                                               000028 GR
+ 16 A$voltmeter$1335                                               00002A GR
+ 16 A$voltmeter$1336                                               00002C GR
+ 16 A$voltmeter$1337                                               00002E GR
+ 17 A$voltmeter$1339                                               000000 GR
+  F A$voltmeter$1346                                               000003 GR
+ 18 A$voltmeter$1372                                               000000 GR
+ 18 A$voltmeter$1378                                               000002 GR
+ 18 A$voltmeter$1379                                               000005 GR
+ 18 A$voltmeter$1383                                               000007 GR
+ 18 A$voltmeter$1386                                               000009 GR
+ 18 A$voltmeter$1404                                               00000A GR
+ 18 A$voltmeter$1405                                               00000D GR
+ 18 A$voltmeter$1409                                               00000F GR
+ 18 A$voltmeter$1412                                               000011 GR
+ 18 A$voltmeter$1415                                               000014 GR
+ 18 A$voltmeter$1428                                               000015 GR
+ 18 A$voltmeter$1431                                               000018 GR
+ 18 A$voltmeter$1434                                               00001B GR
+ 18 A$voltmeter$1437                                               00001E GR
+ 18 A$voltmeter$1440                                               000021 GR
+ 18 A$voltmeter$1443                                               000024 GR
+ 18 A$voltmeter$1446                                               000027 GR
+ 18 A$voltmeter$1449                                               00002A GR
+ 18 A$voltmeter$1450                                               00002C GR
+ 18 A$voltmeter$1451                                               00002E GR
+ 18 A$voltmeter$1452                                               000030 GR
+ 18 A$voltmeter$1453                                               000032 GR
+ 18 A$voltmeter$1454                                               000034 GR
+ 18 A$voltmeter$1455                                               000036 GR
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 2.
 Hexadecimal [24-Bits]
 
 Symbol Table
 
- 18 A$voltmeter$1440                                               000049 GR
- 18 A$voltmeter$1441                                               00004B GR
- 18 A$voltmeter$1442                                               00004E GR
- 18 A$voltmeter$1443                                               000050 GR
- 18 A$voltmeter$1444                                               000052 GR
- 18 A$voltmeter$1450                                               000054 GR
- 18 A$voltmeter$1453                                               000057 GR
- 18 A$voltmeter$1456                                               00005A GR
- 18 A$voltmeter$1457                                               00005D GR
- 18 A$voltmeter$1458                                               000060 GR
- 18 A$voltmeter$1461                                               000062 GR
- 18 A$voltmeter$1474                                               000063 GR
- 18 A$voltmeter$1477                                               000066 GR
- 18 A$voltmeter$1478                                               000068 GR
- 18 A$voltmeter$1479                                               00006A GR
- 18 A$voltmeter$1480                                               00006B GR
- 18 A$voltmeter$1483                                               00006D GR
- 18 A$voltmeter$1487                                               000070 GR
- 18 A$voltmeter$1488                                               000072 GR
- 18 A$voltmeter$1491                                               000075 GR
- 18 A$voltmeter$1492                                               000078 GR
- 18 A$voltmeter$1495                                               00007B GR
- 18 A$voltmeter$1512                                               00007C GR
- 18 A$voltmeter$1513                                               00007F GR
- 18 A$voltmeter$1514                                               000081 GR
- 18 A$voltmeter$1515                                               000083 GR
- 18 A$voltmeter$1516                                               000085 GR
- 18 A$voltmeter$1517                                               000086 GR
- 18 A$voltmeter$1518                                               000088 GR
- 18 A$voltmeter$1519                                               00008A GR
- 18 A$voltmeter$1520                                               00008C GR
- 18 A$voltmeter$1521                                               00008E GR
- 18 A$voltmeter$1522                                               000090 GR
- 18 A$voltmeter$1523                                               000092 GR
- 18 A$voltmeter$1524                                               000094 GR
- 18 A$voltmeter$1525                                               000096 GR
- 18 A$voltmeter$1526                                               000099 GR
- 18 A$voltmeter$1527                                               00009C GR
- 18 A$voltmeter$1528                                               00009E GR
- 18 A$voltmeter$1529                                               0000A1 GR
- 18 A$voltmeter$1530                                               0000A4 GR
- 18 A$voltmeter$1531                                               0000A7 GR
- 18 A$voltmeter$1532                                               0000AA GR
- 18 A$voltmeter$1533                                               0000AC GR
- 18 A$voltmeter$1534                                               0000AE GR
- 18 A$voltmeter$1535                                               0000B0 GR
- 18 A$voltmeter$1538                                               0000B2 GR
- 18 A$voltmeter$1539                                               0000B4 GR
- 18 A$voltmeter$1540                                               0000B6 GR
- 18 A$voltmeter$1541                                               0000B8 GR
- 18 A$voltmeter$1542                                               0000BA GR
- 18 A$voltmeter$1543                                               0000BC GR
- 18 A$voltmeter$1544                                               0000BE GR
- 18 A$voltmeter$1545                                               0000C0 GR
- 18 A$voltmeter$1546                                               0000C2 GR
+ 18 A$voltmeter$1456                                               000039 GR
+ 18 A$voltmeter$1457                                               00003B GR
+ 18 A$voltmeter$1458                                               00003D GR
+ 18 A$voltmeter$1461                                               00003F GR
+ 18 A$voltmeter$1462                                               000041 GR
+ 18 A$voltmeter$1463                                               000043 GR
+ 18 A$voltmeter$1464                                               000045 GR
+ 18 A$voltmeter$1465                                               000047 GR
+ 18 A$voltmeter$1466                                               000049 GR
+ 18 A$voltmeter$1467                                               00004B GR
+ 18 A$voltmeter$1468                                               00004E GR
+ 18 A$voltmeter$1469                                               000050 GR
+ 18 A$voltmeter$1470                                               000052 GR
+ 18 A$voltmeter$1476                                               000054 GR
+ 18 A$voltmeter$1479                                               000057 GR
+ 18 A$voltmeter$1480                                               000059 GR
+ 18 A$voltmeter$1483                                               00005B GR
+ 18 A$voltmeter$1484                                               00005E GR
+ 18 A$voltmeter$1485                                               000061 GR
+ 18 A$voltmeter$1488                                               000063 GR
+ 18 A$voltmeter$1501                                               000064 GR
+ 18 A$voltmeter$1504                                               000067 GR
+ 18 A$voltmeter$1505                                               000069 GR
+ 18 A$voltmeter$1506                                               00006B GR
+ 18 A$voltmeter$1507                                               00006C GR
+ 18 A$voltmeter$1510                                               00006E GR
+ 18 A$voltmeter$1514                                               000071 GR
+ 18 A$voltmeter$1515                                               000073 GR
+ 18 A$voltmeter$1518                                               000076 GR
+ 18 A$voltmeter$1519                                               000079 GR
+ 18 A$voltmeter$1522                                               00007C GR
+ 18 A$voltmeter$1540                                               00007D GR
+ 18 A$voltmeter$1541                                               000080 GR
+ 18 A$voltmeter$1542                                               000082 GR
+ 18 A$voltmeter$1543                                               000084 GR
+ 18 A$voltmeter$1544                                               000086 GR
+ 18 A$voltmeter$1545                                               000087 GR
+ 18 A$voltmeter$1546                                               000089 GR
+ 18 A$voltmeter$1547                                               00008B GR
+ 18 A$voltmeter$1548                                               00008D GR
+ 18 A$voltmeter$1549                                               00008F GR
+ 18 A$voltmeter$1550                                               000090 GR
+ 18 A$voltmeter$1551                                               000092 GR
+ 18 A$voltmeter$1552                                               000094 GR
+ 18 A$voltmeter$1553                                               000096 GR
+ 18 A$voltmeter$1554                                               000098 GR
+ 18 A$voltmeter$1555                                               00009A GR
+ 18 A$voltmeter$1556                                               00009C GR
+ 18 A$voltmeter$1557                                               00009E GR
+ 18 A$voltmeter$1558                                               0000A0 GR
+ 18 A$voltmeter$1559                                               0000A2 GR
+ 18 A$voltmeter$1560                                               0000A3 GR
+ 18 A$voltmeter$1561                                               0000A6 GR
+ 18 A$voltmeter$1562                                               0000A9 GR
+ 18 A$voltmeter$1563                                               0000AC GR
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 3.
 Hexadecimal [24-Bits]
 
 Symbol Table
 
- 18 A$voltmeter$1547                                               0000C4 GR
- 18 A$voltmeter$1548                                               0000C6 GR
- 18 A$voltmeter$1549                                               0000C8 GR
- 18 A$voltmeter$1550                                               0000CA GR
- 18 A$voltmeter$1551                                               0000CD GR
- 18 A$voltmeter$1552                                               0000CF GR
- 18 A$voltmeter$1553                                               0000D1 GR
- 18 A$voltmeter$1556                                               0000D3 GR
- 18 A$voltmeter$1557                                               0000D6 GR
- 18 A$voltmeter$1558                                               0000D9 GR
- 18 A$voltmeter$1559                                               0000DC GR
- 18 A$voltmeter$1560                                               0000DE GR
- 18 A$voltmeter$1561                                               0000E0 GR
- 18 A$voltmeter$1562                                               0000E2 GR
- 18 A$voltmeter$1563                                               0000E3 GR
- 18 A$voltmeter$1564                                               0000E5 GR
- 18 A$voltmeter$1565                                               0000E7 GR
- 18 A$voltmeter$1566                                               0000E9 GR
- 18 A$voltmeter$1567                                               0000EB GR
- 18 A$voltmeter$1568                                               0000EE GR
- 18 A$voltmeter$1569                                               0000F1 GR
- 18 A$voltmeter$1570                                               0000F4 GR
- 18 A$voltmeter$1571                                               0000F6 GR
- 18 A$voltmeter$1572                                               0000F9 GR
- 18 A$voltmeter$1573                                               0000FB GR
- 18 A$voltmeter$1574                                               0000FD GR
- 18 A$voltmeter$1575                                               0000FF GR
- 18 A$voltmeter$1576                                               000100 GR
- 18 A$voltmeter$1577                                               000102 GR
- 18 A$voltmeter$1578                                               000104 GR
- 18 A$voltmeter$1579                                               000106 GR
- 18 A$voltmeter$1580                                               000108 GR
- 18 A$voltmeter$1581                                               00010A GR
- 18 A$voltmeter$1582                                               00010C GR
- 18 A$voltmeter$1583                                               00010E GR
- 18 A$voltmeter$1584                                               000110 GR
- 18 A$voltmeter$1585                                               000112 GR
- 18 A$voltmeter$1586                                               000114 GR
- 18 A$voltmeter$1587                                               000116 GR
- 18 A$voltmeter$1588                                               000118 GR
- 18 A$voltmeter$1589                                               00011A GR
- 18 A$voltmeter$1590                                               00011C GR
- 18 A$voltmeter$1591                                               00011D GR
- 18 A$voltmeter$1592                                               000120 GR
- 18 A$voltmeter$1593                                               000123 GR
- 18 A$voltmeter$1594                                               000126 GR
- 18 A$voltmeter$1595                                               000129 GR
- 18 A$voltmeter$1596                                               00012B GR
- 18 A$voltmeter$1597                                               00012D GR
- 18 A$voltmeter$1598                                               00012F GR
- 18 A$voltmeter$1599                                               000131 GR
- 18 A$voltmeter$1600                                               000133 GR
- 18 A$voltmeter$1601                                               000135 GR
- 18 A$voltmeter$1602                                               000136 GR
- 18 A$voltmeter$1603                                               000137 GR
+ 18 A$voltmeter$1564                                               0000AF GR
+ 18 A$voltmeter$1565                                               0000B1 GR
+ 18 A$voltmeter$1566                                               0000B3 GR
+ 18 A$voltmeter$1567                                               0000B5 GR
+ 18 A$voltmeter$1570                                               0000B7 GR
+ 18 A$voltmeter$1571                                               0000B9 GR
+ 18 A$voltmeter$1572                                               0000BB GR
+ 18 A$voltmeter$1573                                               0000BD GR
+ 18 A$voltmeter$1574                                               0000BF GR
+ 18 A$voltmeter$1575                                               0000C2 GR
+ 18 A$voltmeter$1576                                               0000C5 GR
+ 18 A$voltmeter$1577                                               0000C7 GR
+ 18 A$voltmeter$1578                                               0000CA GR
+ 18 A$voltmeter$1579                                               0000CD GR
+ 18 A$voltmeter$1580                                               0000D0 GR
+ 18 A$voltmeter$1581                                               0000D3 GR
+ 18 A$voltmeter$1582                                               0000D5 GR
+ 18 A$voltmeter$1583                                               0000D7 GR
+ 18 A$voltmeter$1584                                               0000D9 GR
+ 18 A$voltmeter$1587                                               0000DB GR
+ 18 A$voltmeter$1588                                               0000DD GR
+ 18 A$voltmeter$1589                                               0000DF GR
+ 18 A$voltmeter$1590                                               0000E1 GR
+ 18 A$voltmeter$1591                                               0000E3 GR
+ 18 A$voltmeter$1592                                               0000E5 GR
+ 18 A$voltmeter$1593                                               0000E7 GR
+ 18 A$voltmeter$1594                                               0000EA GR
+ 18 A$voltmeter$1595                                               0000EC GR
+ 18 A$voltmeter$1596                                               0000EE GR
+ 18 A$voltmeter$1599                                               0000F0 GR
+ 18 A$voltmeter$1600                                               0000F2 GR
+ 18 A$voltmeter$1601                                               0000F4 GR
+ 18 A$voltmeter$1602                                               0000F6 GR
+ 18 A$voltmeter$1603                                               0000F8 GR
+ 18 A$voltmeter$1604                                               0000FA GR
+ 18 A$voltmeter$1605                                               0000FC GR
+ 18 A$voltmeter$1606                                               0000FE GR
+ 18 A$voltmeter$1607                                               000100 GR
+ 18 A$voltmeter$1608                                               000103 GR
+ 18 A$voltmeter$1609                                               000105 GR
+ 18 A$voltmeter$1610                                               000107 GR
+ 18 A$voltmeter$1611                                               000109 GR
+ 18 A$voltmeter$1612                                               00010B GR
+ 18 A$voltmeter$1613                                               00010D GR
+ 18 A$voltmeter$1614                                               00010F GR
+ 18 A$voltmeter$1617                                               000111 GR
+ 18 A$voltmeter$1618                                               000113 GR
+ 18 A$voltmeter$1619                                               000115 GR
+ 18 A$voltmeter$1620                                               000117 GR
+ 18 A$voltmeter$1621                                               000119 GR
+ 18 A$voltmeter$1622                                               00011B GR
+ 18 A$voltmeter$1623                                               00011D GR
+ 18 A$voltmeter$1624                                               00011F GR
+ 18 A$voltmeter$1625                                               000121 GR
+ 18 A$voltmeter$1626                                               000123 GR
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 4.
 Hexadecimal [24-Bits]
 
 Symbol Table
 
- 18 A$voltmeter$1604                                               000139 GR
- 18 A$voltmeter$1605                                               00013A GR
- 18 A$voltmeter$1606                                               00013C GR
- 18 A$voltmeter$1607                                               00013E GR
- 18 A$voltmeter$1608                                               000140 GR
- 18 A$voltmeter$1609                                               000142 GR
- 18 A$voltmeter$1610                                               000145 GR
- 18 A$voltmeter$1611                                               000147 GR
- 18 A$voltmeter$1612                                               000149 GR
- 18 A$voltmeter$1613                                               00014B GR
- 18 A$voltmeter$1614                                               00014C GR
- 18 A$voltmeter$1615                                               00014E GR
- 18 A$voltmeter$1616                                               000150 GR
- 18 A$voltmeter$1617                                               000152 GR
- 18 A$voltmeter$1618                                               000154 GR
- 18 A$voltmeter$1619                                               000157 GR
- 18 A$voltmeter$1620                                               00015A GR
- 18 A$voltmeter$1621                                               00015D GR
- 18 A$voltmeter$1622                                               00015F GR
- 18 A$voltmeter$1623                                               000162 GR
- 18 A$voltmeter$1624                                               000165 GR
- 18 A$voltmeter$1625                                               000168 GR
- 18 A$voltmeter$1626                                               00016B GR
- 18 A$voltmeter$1627                                               00016D GR
- 18 A$voltmeter$1628                                               00016F GR
- 18 A$voltmeter$1629                                               000171 GR
- 18 A$voltmeter$1630                                               000173 GR
- 18 A$voltmeter$1631                                               000175 GR
- 18 A$voltmeter$1634                                               000177 GR
- 18 A$voltmeter$1635                                               000179 GR
- 18 A$voltmeter$1638                                               00017B GR
- 18 A$voltmeter$1639                                               00017D GR
- 18 A$voltmeter$1640                                               00017F GR
- 18 A$voltmeter$1641                                               000181 GR
- 18 A$voltmeter$1642                                               000183 GR
- 18 A$voltmeter$1643                                               000186 GR
- 18 A$voltmeter$1644                                               000189 GR
- 18 A$voltmeter$1645                                               00018C GR
- 18 A$voltmeter$1646                                               00018E GR
- 18 A$voltmeter$1647                                               000191 GR
- 18 A$voltmeter$1648                                               000193 GR
- 18 A$voltmeter$1649                                               000195 GR
- 18 A$voltmeter$1650                                               000197 GR
- 18 A$voltmeter$1651                                               000199 GR
- 18 A$voltmeter$1652                                               00019A GR
- 18 A$voltmeter$1653                                               00019C GR
- 18 A$voltmeter$1654                                               00019F GR
- 18 A$voltmeter$1655                                               0001A2 GR
- 18 A$voltmeter$1656                                               0001A5 GR
- 18 A$voltmeter$1660                                               0001A8 GR
- 18 A$voltmeter$1661                                               0001AA GR
- 18 A$voltmeter$1662                                               0001AC GR
- 18 A$voltmeter$1663                                               0001AE GR
- 18 A$voltmeter$1664                                               0001B0 GR
- 18 A$voltmeter$1665                                               0001B3 GR
+ 18 A$voltmeter$1627                                               000125 GR
+ 18 A$voltmeter$1628                                               000127 GR
+ 18 A$voltmeter$1629                                               000128 GR
+ 18 A$voltmeter$1630                                               00012B GR
+ 18 A$voltmeter$1631                                               00012D GR
+ 18 A$voltmeter$1632                                               00012F GR
+ 18 A$voltmeter$1633                                               000131 GR
+ 18 A$voltmeter$1634                                               000132 GR
+ 18 A$voltmeter$1635                                               000134 GR
+ 18 A$voltmeter$1636                                               000136 GR
+ 18 A$voltmeter$1637                                               000138 GR
+ 18 A$voltmeter$1638                                               00013A GR
+ 18 A$voltmeter$1639                                               00013C GR
+ 18 A$voltmeter$1640                                               00013E GR
+ 18 A$voltmeter$1641                                               00013F GR
+ 18 A$voltmeter$1642                                               000142 GR
+ 18 A$voltmeter$1643                                               000145 GR
+ 18 A$voltmeter$1646                                               000148 GR
+ 18 A$voltmeter$1647                                               000149 GR
+ 18 A$voltmeter$1648                                               00014B GR
+ 18 A$voltmeter$1649                                               00014D GR
+ 18 A$voltmeter$1650                                               00014F GR
+ 18 A$voltmeter$1651                                               000151 GR
+ 18 A$voltmeter$1652                                               000153 GR
+ 18 A$voltmeter$1653                                               000155 GR
+ 18 A$voltmeter$1654                                               000157 GR
+ 18 A$voltmeter$1655                                               000159 GR
+ 18 A$voltmeter$1656                                               00015B GR
+ 18 A$voltmeter$1657                                               00015D GR
+ 18 A$voltmeter$1658                                               00015F GR
+ 18 A$voltmeter$1659                                               000161 GR
+ 18 A$voltmeter$1660                                               000164 GR
+ 18 A$voltmeter$1661                                               000166 GR
+ 18 A$voltmeter$1662                                               000168 GR
+ 18 A$voltmeter$1666                                               00016A GR
+ 18 A$voltmeter$1667                                               00016C GR
+ 18 A$voltmeter$1668                                               00016E GR
+ 18 A$voltmeter$1669                                               000170 GR
+ 18 A$voltmeter$1670                                               000172 GR
+ 18 A$voltmeter$1671                                               000174 GR
+ 18 A$voltmeter$1672                                               000176 GR
+ 18 A$voltmeter$1673                                               000178 GR
+ 18 A$voltmeter$1674                                               00017A GR
+ 18 A$voltmeter$1675                                               00017D GR
+ 18 A$voltmeter$1676                                               00017F GR
+ 18 A$voltmeter$1677                                               000181 GR
+ 18 A$voltmeter$1680                                               000183 GR
+ 18 A$voltmeter$1681                                               000185 GR
+ 18 A$voltmeter$1682                                               000187 GR
+ 18 A$voltmeter$1683                                               000189 GR
+ 18 A$voltmeter$1684                                               00018B GR
+ 18 A$voltmeter$1685                                               00018D GR
+ 18 A$voltmeter$1686                                               00018F GR
+ 18 A$voltmeter$1687                                               000192 GR
+ 18 A$voltmeter$1688                                               000194 GR
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 5.
 Hexadecimal [24-Bits]
 
 Symbol Table
 
- 18 A$voltmeter$1666                                               0001B6 GR
- 18 A$voltmeter$1667                                               0001B9 GR
- 18 A$voltmeter$1668                                               0001BB GR
- 18 A$voltmeter$1669                                               0001BE GR
- 18 A$voltmeter$1670                                               0001C0 GR
- 18 A$voltmeter$1671                                               0001C2 GR
- 18 A$voltmeter$1672                                               0001C4 GR
- 18 A$voltmeter$1673                                               0001C6 GR
- 18 A$voltmeter$1674                                               0001C7 GR
- 18 A$voltmeter$1675                                               0001C9 GR
- 18 A$voltmeter$1676                                               0001CC GR
- 18 A$voltmeter$1677                                               0001CF GR
- 18 A$voltmeter$1678                                               0001D2 GR
- 18 A$voltmeter$1682                                               0001D5 GR
- 18 A$voltmeter$1683                                               0001D7 GR
- 18 A$voltmeter$1684                                               0001D9 GR
- 18 A$voltmeter$1685                                               0001DB GR
- 18 A$voltmeter$1686                                               0001DD GR
- 18 A$voltmeter$1687                                               0001DF GR
- 18 A$voltmeter$1688                                               0001E1 GR
- 18 A$voltmeter$1689                                               0001E3 GR
- 18 A$voltmeter$1690                                               0001E5 GR
- 18 A$voltmeter$1691                                               0001E7 GR
- 18 A$voltmeter$1692                                               0001E9 GR
- 18 A$voltmeter$1693                                               0001EB GR
- 18 A$voltmeter$1694                                               0001ED GR
- 18 A$voltmeter$1695                                               0001F0 GR
- 18 A$voltmeter$1696                                               0001F2 GR
- 18 A$voltmeter$1697                                               0001F4 GR
- 18 A$voltmeter$1700                                               0001F6 GR
- 18 A$voltmeter$1701                                               0001F8 GR
- 18 A$voltmeter$1702                                               0001FA GR
- 18 A$voltmeter$1703                                               0001FC GR
- 18 A$voltmeter$1704                                               0001FE GR
- 18 A$voltmeter$1705                                               000200 GR
- 18 A$voltmeter$1706                                               000202 GR
- 18 A$voltmeter$1707                                               000204 GR
- 18 A$voltmeter$1708                                               000206 GR
- 18 A$voltmeter$1709                                               000208 GR
- 18 A$voltmeter$1710                                               00020A GR
- 18 A$voltmeter$1711                                               00020C GR
- 18 A$voltmeter$1712                                               00020E GR
- 18 A$voltmeter$1713                                               000211 GR
- 18 A$voltmeter$1714                                               000213 GR
- 18 A$voltmeter$1715                                               000215 GR
- 18 A$voltmeter$1718                                               000217 GR
- 18 A$voltmeter$1719                                               000219 GR
- 18 A$voltmeter$1720                                               00021B GR
- 18 A$voltmeter$1721                                               00021D GR
- 18 A$voltmeter$1722                                               00021F GR
- 18 A$voltmeter$1723                                               000221 GR
- 18 A$voltmeter$1724                                               000223 GR
- 18 A$voltmeter$1725                                               000225 GR
- 18 A$voltmeter$1726                                               000227 GR
- 18 A$voltmeter$1727                                               000229 GR
+ 18 A$voltmeter$1689                                               000196 GR
+ 18 A$voltmeter$1692                                               000198 GR
+ 18 A$voltmeter$1693                                               00019A GR
+ 18 A$voltmeter$1694                                               00019C GR
+ 18 A$voltmeter$1695                                               00019E GR
+ 18 A$voltmeter$1696                                               0001A0 GR
+ 18 A$voltmeter$1697                                               0001A3 GR
+ 18 A$voltmeter$1698                                               0001A6 GR
+ 18 A$voltmeter$1699                                               0001A9 GR
+ 18 A$voltmeter$1700                                               0001AB GR
+ 18 A$voltmeter$1701                                               0001AE GR
+ 18 A$voltmeter$1702                                               0001B0 GR
+ 18 A$voltmeter$1703                                               0001B2 GR
+ 18 A$voltmeter$1704                                               0001B4 GR
+ 18 A$voltmeter$1705                                               0001B5 GR
+ 18 A$voltmeter$1706                                               0001B7 GR
+ 18 A$voltmeter$1707                                               0001B9 GR
+ 18 A$voltmeter$1708                                               0001BB GR
+ 18 A$voltmeter$1709                                               0001BD GR
+ 18 A$voltmeter$1710                                               0001BF GR
+ 18 A$voltmeter$1711                                               0001C1 GR
+ 18 A$voltmeter$1712                                               0001C3 GR
+ 18 A$voltmeter$1713                                               0001C5 GR
+ 18 A$voltmeter$1714                                               0001C7 GR
+ 18 A$voltmeter$1715                                               0001C9 GR
+ 18 A$voltmeter$1716                                               0001CA GR
+ 18 A$voltmeter$1717                                               0001CD GR
+ 18 A$voltmeter$1718                                               0001CF GR
+ 18 A$voltmeter$1719                                               0001D1 GR
+ 18 A$voltmeter$1720                                               0001D3 GR
+ 18 A$voltmeter$1721                                               0001D4 GR
+ 18 A$voltmeter$1722                                               0001D6 GR
+ 18 A$voltmeter$1723                                               0001D8 GR
+ 18 A$voltmeter$1724                                               0001DA GR
+ 18 A$voltmeter$1725                                               0001DC GR
+ 18 A$voltmeter$1726                                               0001DE GR
+ 18 A$voltmeter$1727                                               0001E0 GR
+ 18 A$voltmeter$1728                                               0001E2 GR
+ 18 A$voltmeter$1729                                               0001E3 GR
+ 18 A$voltmeter$1730                                               0001E5 GR
+ 18 A$voltmeter$1731                                               0001E7 GR
+ 18 A$voltmeter$1732                                               0001E9 GR
+ 18 A$voltmeter$1733                                               0001EB GR
+ 18 A$voltmeter$1734                                               0001ED GR
+ 18 A$voltmeter$1735                                               0001EF GR
+ 18 A$voltmeter$1736                                               0001F2 GR
+ 18 A$voltmeter$1737                                               0001F5 GR
+ 18 A$voltmeter$1738                                               0001F8 GR
+ 18 A$voltmeter$1739                                               0001FA GR
+ 18 A$voltmeter$1740                                               0001FD GR
+ 18 A$voltmeter$1741                                               0001FF GR
+ 18 A$voltmeter$1742                                               000201 GR
+ 18 A$voltmeter$1743                                               000203 GR
+ 18 A$voltmeter$1744                                               000204 GR
+ 18 A$voltmeter$1745                                               000206 GR
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 6.
 Hexadecimal [24-Bits]
 
 Symbol Table
 
- 18 A$voltmeter$1728                                               00022B GR
- 18 A$voltmeter$1729                                               00022D GR
- 18 A$voltmeter$1730                                               00022F GR
- 18 A$voltmeter$1731                                               000232 GR
- 18 A$voltmeter$1732                                               000234 GR
- 18 A$voltmeter$1733                                               000236 GR
- 18 A$voltmeter$1736                                               000238 GR
- 18 A$voltmeter$1751                                               000239 GR
- 18 A$voltmeter$1754                                               00023C GR
- 18 A$voltmeter$1757                                               00023F GR
- 18 A$voltmeter$1758                                               000241 GR
- 18 A$voltmeter$1760                                               000243 GR
- 18 A$voltmeter$1761                                               000244 GR
- 18 A$voltmeter$1762                                               000247 GR
- 18 A$voltmeter$1764                                               000248 GR
- 18 A$voltmeter$1765                                               000249 GR
- 18 A$voltmeter$1766                                               00024A GR
- 18 A$voltmeter$1770                                               00024C GR
- 18 A$voltmeter$1771                                               00024E GR
- 18 A$voltmeter$1774                                               000251 GR
- 18 A$voltmeter$1777                                               000254 GR
- 18 A$voltmeter$1780                                               000257 GR
- 18 A$voltmeter$1793                                               000258 GR
- 18 A$voltmeter$1796                                               00025B GR
- 18 A$voltmeter$1799                                               00025E GR
- 18 A$voltmeter$1802                                               000261 GR
- 18 A$voltmeter$1805                                               000264 GR
- 18 A$voltmeter$1808                                               000267 GR
- 18 A$voltmeter$1811                                               00026A GR
- 18 A$voltmeter$1814                                               00026D GR
- 18 A$voltmeter$1827                                               00026E GR
- 18 A$voltmeter$1830                                               000271 GR
- 18 A$voltmeter$1833                                               000273 GR
- 18 A$voltmeter$1836                                               000276 GR
- 18 A$voltmeter$1839                                               000279 GR
- 18 A$voltmeter$1842                                               00027B GR
- 18 A$voltmeter$1855                                               00027C GR
- 18 A$voltmeter$1858                                               00027F GR
- 18 A$voltmeter$1861                                               000282 GR
- 18 A$voltmeter$1864                                               000285 GR
- 18 A$voltmeter$1867                                               000288 GR
- 18 A$voltmeter$1870                                               00028B GR
- 18 A$voltmeter$1873                                               00028E GR
- 18 A$voltmeter$1876                                               000291 GR
- 18 A$voltmeter$1879                                               000294 GR
- 18 A$voltmeter$1882                                               000297 GR
- 18 A$voltmeter$1885                                               000299 GR
- 18 A$voltmeter$1898                                               00029A GR
- 18 A$voltmeter$1901                                               00029D GR
- 18 A$voltmeter$1904                                               0002A0 GR
- 18 A$voltmeter$1907                                               0002A3 GR
- 18 A$voltmeter$1910                                               0002A6 GR
- 18 A$voltmeter$1913                                               0002A9 GR
-    A.0                                                         =  0000E0 L
-    A.1                                                         =  0000E1 L
+ 18 A$voltmeter$1746                                               000208 GR
+ 18 A$voltmeter$1747                                               00020A GR
+ 18 A$voltmeter$1748                                               00020C GR
+ 18 A$voltmeter$1749                                               00020E GR
+ 18 A$voltmeter$1750                                               000210 GR
+ 18 A$voltmeter$1751                                               000212 GR
+ 18 A$voltmeter$1752                                               000214 GR
+ 18 A$voltmeter$1753                                               000216 GR
+ 18 A$voltmeter$1754                                               000218 GR
+ 18 A$voltmeter$1755                                               00021A GR
+ 18 A$voltmeter$1756                                               00021C GR
+ 18 A$voltmeter$1757                                               00021E GR
+ 18 A$voltmeter$1758                                               000220 GR
+ 18 A$voltmeter$1759                                               000222 GR
+ 18 A$voltmeter$1760                                               000224 GR
+ 18 A$voltmeter$1761                                               000226 GR
+ 18 A$voltmeter$1762                                               000228 GR
+ 18 A$voltmeter$1763                                               000229 GR
+ 18 A$voltmeter$1764                                               00022C GR
+ 18 A$voltmeter$1765                                               00022F GR
+ 18 A$voltmeter$1766                                               000232 GR
+ 18 A$voltmeter$1767                                               000235 GR
+ 18 A$voltmeter$1768                                               000237 GR
+ 18 A$voltmeter$1769                                               000239 GR
+ 18 A$voltmeter$1770                                               00023B GR
+ 18 A$voltmeter$1773                                               00023D GR
+ 18 A$voltmeter$1774                                               000240 GR
+ 18 A$voltmeter$1775                                               000243 GR
+ 18 A$voltmeter$1776                                               000246 GR
+ 18 A$voltmeter$1777                                               000248 GR
+ 18 A$voltmeter$1778                                               00024A GR
+ 18 A$voltmeter$1779                                               00024C GR
+ 18 A$voltmeter$1780                                               00024D GR
+ 18 A$voltmeter$1781                                               00024F GR
+ 18 A$voltmeter$1782                                               000251 GR
+ 18 A$voltmeter$1783                                               000253 GR
+ 18 A$voltmeter$1784                                               000255 GR
+ 18 A$voltmeter$1785                                               000257 GR
+ 18 A$voltmeter$1786                                               000259 GR
+ 18 A$voltmeter$1787                                               00025B GR
+ 18 A$voltmeter$1788                                               00025C GR
+ 18 A$voltmeter$1789                                               00025F GR
+ 18 A$voltmeter$1790                                               000262 GR
+ 18 A$voltmeter$1791                                               000265 GR
+ 18 A$voltmeter$1792                                               000268 GR
+ 18 A$voltmeter$1793                                               00026A GR
+ 18 A$voltmeter$1794                                               00026C GR
+ 18 A$voltmeter$1795                                               00026E GR
+ 18 A$voltmeter$1796                                               000270 GR
+ 18 A$voltmeter$1797                                               000273 GR
+ 18 A$voltmeter$1798                                               000276 GR
+ 18 A$voltmeter$1799                                               000279 GR
+ 18 A$voltmeter$1800                                               00027B GR
+ 18 A$voltmeter$1801                                               00027D GR
+ 18 A$voltmeter$1802                                               00027F GR
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 7.
 Hexadecimal [24-Bits]
 
 Symbol Table
 
+ 18 A$voltmeter$1803                                               000280 GR
+ 18 A$voltmeter$1804                                               000282 GR
+ 18 A$voltmeter$1805                                               000284 GR
+ 18 A$voltmeter$1806                                               000286 GR
+ 18 A$voltmeter$1807                                               000288 GR
+ 18 A$voltmeter$1808                                               00028B GR
+ 18 A$voltmeter$1809                                               00028E GR
+ 18 A$voltmeter$1810                                               000291 GR
+ 18 A$voltmeter$1811                                               000293 GR
+ 18 A$voltmeter$1812                                               000296 GR
+ 18 A$voltmeter$1813                                               000298 GR
+ 18 A$voltmeter$1814                                               00029A GR
+ 18 A$voltmeter$1815                                               00029C GR
+ 18 A$voltmeter$1816                                               00029D GR
+ 18 A$voltmeter$1817                                               00029F GR
+ 18 A$voltmeter$1818                                               0002A1 GR
+ 18 A$voltmeter$1819                                               0002A3 GR
+ 18 A$voltmeter$1820                                               0002A5 GR
+ 18 A$voltmeter$1821                                               0002A7 GR
+ 18 A$voltmeter$1822                                               0002A9 GR
+ 18 A$voltmeter$1823                                               0002AB GR
+ 18 A$voltmeter$1824                                               0002AD GR
+ 18 A$voltmeter$1825                                               0002AF GR
+ 18 A$voltmeter$1826                                               0002B1 GR
+ 18 A$voltmeter$1827                                               0002B3 GR
+ 18 A$voltmeter$1828                                               0002B5 GR
+ 18 A$voltmeter$1829                                               0002B7 GR
+ 18 A$voltmeter$1830                                               0002B9 GR
+ 18 A$voltmeter$1831                                               0002BB GR
+ 18 A$voltmeter$1832                                               0002BD GR
+ 18 A$voltmeter$1833                                               0002BF GR
+ 18 A$voltmeter$1834                                               0002C1 GR
+ 18 A$voltmeter$1835                                               0002C2 GR
+ 18 A$voltmeter$1836                                               0002C5 GR
+ 18 A$voltmeter$1837                                               0002C7 GR
+ 18 A$voltmeter$1838                                               0002C9 GR
+ 18 A$voltmeter$1839                                               0002CB GR
+ 18 A$voltmeter$1840                                               0002CC GR
+ 18 A$voltmeter$1841                                               0002CE GR
+ 18 A$voltmeter$1842                                               0002D0 GR
+ 18 A$voltmeter$1843                                               0002D2 GR
+ 18 A$voltmeter$1844                                               0002D4 GR
+ 18 A$voltmeter$1845                                               0002D6 GR
+ 18 A$voltmeter$1846                                               0002D8 GR
+ 18 A$voltmeter$1847                                               0002D9 GR
+ 18 A$voltmeter$1848                                               0002DC GR
+ 18 A$voltmeter$1849                                               0002DF GR
+ 18 A$voltmeter$1850                                               0002E2 GR
+ 18 A$voltmeter$1851                                               0002E4 GR
+ 18 A$voltmeter$1852                                               0002E6 GR
+ 18 A$voltmeter$1853                                               0002E8 GR
+ 18 A$voltmeter$1856                                               0002EA GR
+ 18 A$voltmeter$1857                                               0002EC GR
+ 18 A$voltmeter$1858                                               0002EE GR
+ 18 A$voltmeter$1859                                               0002F0 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 8.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+ 18 A$voltmeter$1862                                               0002F2 GR
+ 18 A$voltmeter$1863                                               0002F4 GR
+ 18 A$voltmeter$1864                                               0002F6 GR
+ 18 A$voltmeter$1865                                               0002F8 GR
+ 18 A$voltmeter$1866                                               0002FA GR
+ 18 A$voltmeter$1867                                               0002FD GR
+ 18 A$voltmeter$1868                                               000300 GR
+ 18 A$voltmeter$1869                                               000303 GR
+ 18 A$voltmeter$1870                                               000305 GR
+ 18 A$voltmeter$1871                                               000308 GR
+ 18 A$voltmeter$1872                                               00030A GR
+ 18 A$voltmeter$1873                                               00030C GR
+ 18 A$voltmeter$1874                                               00030E GR
+ 18 A$voltmeter$1875                                               000310 GR
+ 18 A$voltmeter$1876                                               000311 GR
+ 18 A$voltmeter$1877                                               000313 GR
+ 18 A$voltmeter$1878                                               000316 GR
+ 18 A$voltmeter$1879                                               000319 GR
+ 18 A$voltmeter$1880                                               00031C GR
+ 18 A$voltmeter$1881                                               00031F GR
+ 18 A$voltmeter$1882                                               000322 GR
+ 18 A$voltmeter$1886                                               000325 GR
+ 18 A$voltmeter$1887                                               000327 GR
+ 18 A$voltmeter$1888                                               000329 GR
+ 18 A$voltmeter$1889                                               00032B GR
+ 18 A$voltmeter$1890                                               00032D GR
+ 18 A$voltmeter$1891                                               000330 GR
+ 18 A$voltmeter$1892                                               000333 GR
+ 18 A$voltmeter$1893                                               000336 GR
+ 18 A$voltmeter$1894                                               000338 GR
+ 18 A$voltmeter$1895                                               00033B GR
+ 18 A$voltmeter$1896                                               00033D GR
+ 18 A$voltmeter$1897                                               00033F GR
+ 18 A$voltmeter$1898                                               000341 GR
+ 18 A$voltmeter$1899                                               000343 GR
+ 18 A$voltmeter$1900                                               000344 GR
+ 18 A$voltmeter$1901                                               000346 GR
+ 18 A$voltmeter$1902                                               000349 GR
+ 18 A$voltmeter$1903                                               00034C GR
+ 18 A$voltmeter$1904                                               00034F GR
+ 18 A$voltmeter$1905                                               000352 GR
+ 18 A$voltmeter$1906                                               000355 GR
+ 18 A$voltmeter$1910                                               000358 GR
+ 18 A$voltmeter$1911                                               00035A GR
+ 18 A$voltmeter$1912                                               00035C GR
+ 18 A$voltmeter$1913                                               00035E GR
+ 18 A$voltmeter$1914                                               000360 GR
+ 18 A$voltmeter$1915                                               000362 GR
+ 18 A$voltmeter$1916                                               000364 GR
+ 18 A$voltmeter$1917                                               000366 GR
+ 18 A$voltmeter$1918                                               000368 GR
+ 18 A$voltmeter$1919                                               00036B GR
+ 18 A$voltmeter$1920                                               00036D GR
+ 18 A$voltmeter$1921                                               00036F GR
+ 18 A$voltmeter$1924                                               000371 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 9.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+ 18 A$voltmeter$1925                                               000372 GR
+ 18 A$voltmeter$1926                                               000374 GR
+ 18 A$voltmeter$1927                                               000376 GR
+ 18 A$voltmeter$1928                                               000378 GR
+ 18 A$voltmeter$1929                                               00037A GR
+ 18 A$voltmeter$1930                                               00037C GR
+ 18 A$voltmeter$1931                                               00037E GR
+ 18 A$voltmeter$1932                                               000380 GR
+ 18 A$voltmeter$1933                                               000382 GR
+ 18 A$voltmeter$1934                                               000384 GR
+ 18 A$voltmeter$1935                                               000386 GR
+ 18 A$voltmeter$1936                                               000388 GR
+ 18 A$voltmeter$1937                                               00038A GR
+ 18 A$voltmeter$1938                                               00038D GR
+ 18 A$voltmeter$1939                                               00038F GR
+ 18 A$voltmeter$1940                                               000391 GR
+ 18 A$voltmeter$1944                                               000393 GR
+ 18 A$voltmeter$1945                                               000395 GR
+ 18 A$voltmeter$1946                                               000397 GR
+ 18 A$voltmeter$1947                                               000399 GR
+ 18 A$voltmeter$1948                                               00039B GR
+ 18 A$voltmeter$1949                                               00039D GR
+ 18 A$voltmeter$1950                                               00039F GR
+ 18 A$voltmeter$1951                                               0003A1 GR
+ 18 A$voltmeter$1952                                               0003A3 GR
+ 18 A$voltmeter$1953                                               0003A6 GR
+ 18 A$voltmeter$1954                                               0003A8 GR
+ 18 A$voltmeter$1955                                               0003AA GR
+ 18 A$voltmeter$1958                                               0003AC GR
+ 18 A$voltmeter$1959                                               0003AE GR
+ 18 A$voltmeter$1960                                               0003B0 GR
+ 18 A$voltmeter$1961                                               0003B2 GR
+ 18 A$voltmeter$1962                                               0003B4 GR
+ 18 A$voltmeter$1963                                               0003B6 GR
+ 18 A$voltmeter$1964                                               0003B8 GR
+ 18 A$voltmeter$1965                                               0003BB GR
+ 18 A$voltmeter$1966                                               0003BD GR
+ 18 A$voltmeter$1967                                               0003BF GR
+ 18 A$voltmeter$1970                                               0003C1 GR
+ 18 A$voltmeter$1971                                               0003C3 GR
+ 18 A$voltmeter$1972                                               0003C5 GR
+ 18 A$voltmeter$1973                                               0003C7 GR
+ 18 A$voltmeter$1974                                               0003C9 GR
+ 18 A$voltmeter$1975                                               0003CB GR
+ 18 A$voltmeter$1976                                               0003CD GR
+ 18 A$voltmeter$1977                                               0003CF GR
+ 18 A$voltmeter$1978                                               0003D1 GR
+ 18 A$voltmeter$1979                                               0003D4 GR
+ 18 A$voltmeter$1980                                               0003D6 GR
+ 18 A$voltmeter$1981                                               0003D8 GR
+ 18 A$voltmeter$1984                                               0003DA GR
+ 18 A$voltmeter$1985                                               0003DB GR
+ 18 A$voltmeter$1986                                               0003DD GR
+ 18 A$voltmeter$1987                                               0003DF GR
+ 18 A$voltmeter$1988                                               0003E1 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 10.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+ 18 A$voltmeter$1989                                               0003E3 GR
+ 18 A$voltmeter$1990                                               0003E5 GR
+ 18 A$voltmeter$1991                                               0003E7 GR
+ 18 A$voltmeter$1992                                               0003E9 GR
+ 18 A$voltmeter$1993                                               0003EB GR
+ 18 A$voltmeter$1994                                               0003ED GR
+ 18 A$voltmeter$1995                                               0003EF GR
+ 18 A$voltmeter$1996                                               0003F1 GR
+ 18 A$voltmeter$1997                                               0003F3 GR
+ 18 A$voltmeter$1998                                               0003F6 GR
+ 18 A$voltmeter$1999                                               0003F8 GR
+ 18 A$voltmeter$2000                                               0003FA GR
+ 18 A$voltmeter$2004                                               0003FC GR
+ 18 A$voltmeter$2005                                               0003FE GR
+ 18 A$voltmeter$2006                                               000400 GR
+ 18 A$voltmeter$2007                                               000402 GR
+ 18 A$voltmeter$2008                                               000404 GR
+ 18 A$voltmeter$2009                                               000406 GR
+ 18 A$voltmeter$2010                                               000408 GR
+ 18 A$voltmeter$2011                                               00040A GR
+ 18 A$voltmeter$2012                                               00040C GR
+ 18 A$voltmeter$2013                                               00040F GR
+ 18 A$voltmeter$2014                                               000411 GR
+ 18 A$voltmeter$2015                                               000413 GR
+ 18 A$voltmeter$2018                                               000415 GR
+ 18 A$voltmeter$2019                                               000417 GR
+ 18 A$voltmeter$2020                                               000419 GR
+ 18 A$voltmeter$2021                                               00041B GR
+ 18 A$voltmeter$2022                                               00041D GR
+ 18 A$voltmeter$2023                                               00041F GR
+ 18 A$voltmeter$2024                                               000421 GR
+ 18 A$voltmeter$2025                                               000424 GR
+ 18 A$voltmeter$2026                                               000426 GR
+ 18 A$voltmeter$2027                                               000428 GR
+ 18 A$voltmeter$2030                                               00042A GR
+ 18 A$voltmeter$2031                                               00042C GR
+ 18 A$voltmeter$2032                                               00042E GR
+ 18 A$voltmeter$2033                                               000430 GR
+ 18 A$voltmeter$2034                                               000432 GR
+ 18 A$voltmeter$2035                                               000434 GR
+ 18 A$voltmeter$2036                                               000436 GR
+ 18 A$voltmeter$2037                                               000438 GR
+ 18 A$voltmeter$2038                                               00043A GR
+ 18 A$voltmeter$2039                                               00043D GR
+ 18 A$voltmeter$2040                                               00043F GR
+ 18 A$voltmeter$2041                                               000441 GR
+ 18 A$voltmeter$2044                                               000443 GR
+ 18 A$voltmeter$2045                                               000444 GR
+ 18 A$voltmeter$2046                                               000446 GR
+ 18 A$voltmeter$2047                                               000448 GR
+ 18 A$voltmeter$2048                                               00044A GR
+ 18 A$voltmeter$2049                                               00044C GR
+ 18 A$voltmeter$2050                                               00044E GR
+ 18 A$voltmeter$2051                                               000450 GR
+ 18 A$voltmeter$2052                                               000452 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 11.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+ 18 A$voltmeter$2053                                               000454 GR
+ 18 A$voltmeter$2054                                               000456 GR
+ 18 A$voltmeter$2055                                               000458 GR
+ 18 A$voltmeter$2056                                               00045A GR
+ 18 A$voltmeter$2057                                               00045C GR
+ 18 A$voltmeter$2058                                               00045F GR
+ 18 A$voltmeter$2059                                               000461 GR
+ 18 A$voltmeter$2060                                               000463 GR
+ 18 A$voltmeter$2064                                               000465 GR
+ 18 A$voltmeter$2065                                               000467 GR
+ 18 A$voltmeter$2066                                               000469 GR
+ 18 A$voltmeter$2067                                               00046B GR
+ 18 A$voltmeter$2068                                               00046D GR
+ 18 A$voltmeter$2069                                               00046F GR
+ 18 A$voltmeter$2070                                               000471 GR
+ 18 A$voltmeter$2071                                               000473 GR
+ 18 A$voltmeter$2072                                               000475 GR
+ 18 A$voltmeter$2073                                               000478 GR
+ 18 A$voltmeter$2074                                               00047A GR
+ 18 A$voltmeter$2075                                               00047C GR
+ 18 A$voltmeter$2078                                               00047E GR
+ 18 A$voltmeter$2093                                               00047F GR
+ 18 A$voltmeter$2096                                               000482 GR
+ 18 A$voltmeter$2099                                               000485 GR
+ 18 A$voltmeter$2100                                               000487 GR
+ 18 A$voltmeter$2102                                               000489 GR
+ 18 A$voltmeter$2103                                               00048A GR
+ 18 A$voltmeter$2104                                               00048D GR
+ 18 A$voltmeter$2106                                               00048E GR
+ 18 A$voltmeter$2107                                               00048F GR
+ 18 A$voltmeter$2108                                               000490 GR
+ 18 A$voltmeter$2112                                               000492 GR
+ 18 A$voltmeter$2113                                               000494 GR
+ 18 A$voltmeter$2116                                               000497 GR
+ 18 A$voltmeter$2119                                               00049A GR
+ 18 A$voltmeter$2122                                               00049D GR
+ 18 A$voltmeter$2135                                               00049E GR
+ 18 A$voltmeter$2138                                               0004A1 GR
+ 18 A$voltmeter$2141                                               0004A4 GR
+ 18 A$voltmeter$2144                                               0004A7 GR
+ 18 A$voltmeter$2147                                               0004AA GR
+ 18 A$voltmeter$2150                                               0004AD GR
+ 18 A$voltmeter$2153                                               0004B0 GR
+ 18 A$voltmeter$2156                                               0004B3 GR
+ 18 A$voltmeter$2169                                               0004B4 GR
+ 18 A$voltmeter$2172                                               0004B7 GR
+ 18 A$voltmeter$2175                                               0004B9 GR
+ 18 A$voltmeter$2178                                               0004BC GR
+ 18 A$voltmeter$2181                                               0004BF GR
+ 18 A$voltmeter$2184                                               0004C1 GR
+ 18 A$voltmeter$2197                                               0004C2 GR
+ 18 A$voltmeter$2200                                               0004C5 GR
+ 18 A$voltmeter$2203                                               0004C8 GR
+ 18 A$voltmeter$2206                                               0004CB GR
+ 18 A$voltmeter$2209                                               0004CE GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 12.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+ 18 A$voltmeter$2212                                               0004D1 GR
+ 18 A$voltmeter$2215                                               0004D4 GR
+ 18 A$voltmeter$2218                                               0004D7 GR
+ 18 A$voltmeter$2221                                               0004DA GR
+ 18 A$voltmeter$2224                                               0004DD GR
+ 18 A$voltmeter$2227                                               0004DF GR
+ 18 A$voltmeter$2240                                               0004E0 GR
+ 18 A$voltmeter$2243                                               0004E3 GR
+ 18 A$voltmeter$2246                                               0004E6 GR
+ 18 A$voltmeter$2249                                               0004E9 GR
+ 18 A$voltmeter$2252                                               0004EC GR
+ 18 A$voltmeter$2255                                               0004EF GR
+    A.0                                                         =  0000E0 L
+    A.1                                                         =  0000E1 L
     A.2                                                         =  0000E2 L
     A.3                                                         =  0000E3 L
     A.4                                                         =  0000E4 L
@@ -399,96 +713,114 @@ Symbol Table
  18 C$putget.h$33$1$18                                          =  00000F GR
  18 C$putget.h$36$1$18                                          =  000011 GR
  18 C$putget.h$37$1$18                                          =  000014 GR
- 18 C$voltmeter.c$100$1$37                                      =  000267 GR
- 18 C$voltmeter.c$101$1$37                                      =  00026A GR
- 18 C$voltmeter.c$102$1$37                                      =  00026D GR
- 18 C$voltmeter.c$104$1$37                                      =  00026E GR
- 18 C$voltmeter.c$106$1$38                                      =  00026E GR
- 18 C$voltmeter.c$107$1$38                                      =  000271 GR
- 18 C$voltmeter.c$108$1$38                                      =  000273 GR
- 18 C$voltmeter.c$109$1$38                                      =  000276 GR
- 18 C$voltmeter.c$110$1$38                                      =  000279 GR
- 18 C$voltmeter.c$111$1$38                                      =  00027B GR
- 18 C$voltmeter.c$113$1$38                                      =  00027C GR
- 18 C$voltmeter.c$115$1$39                                      =  00027C GR
- 18 C$voltmeter.c$116$1$39                                      =  00027F GR
- 18 C$voltmeter.c$117$1$39                                      =  000282 GR
- 18 C$voltmeter.c$118$1$39                                      =  000285 GR
- 18 C$voltmeter.c$119$1$39                                      =  000288 GR
- 18 C$voltmeter.c$121$1$39                                      =  00028B GR
- 18 C$voltmeter.c$123$1$39                                      =  00028E GR
- 18 C$voltmeter.c$126$1$39                                      =  000291 GR
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 8.
+ 18 C$voltmeter.c$100$1$55                                      =  000465 GR
+ 18 C$voltmeter.c$102$1$55                                      =  00047E GR
+ 18 C$voltmeter.c$104$1$55                                      =  00047F GR
+ 18 C$voltmeter.c$107$1$62                                      =  00047F GR
+ 18 C$voltmeter.c$108$1$62                                      =  000482 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 13.
 Hexadecimal [24-Bits]
 
 Symbol Table
 
- 18 C$voltmeter.c$127$1$39                                      =  000294 GR
- 18 C$voltmeter.c$130$1$39                                      =  000297 GR
- 18 C$voltmeter.c$131$1$39                                      =  000299 GR
- 18 C$voltmeter.c$132$1$39                                      =  00029A GR
- 18 C$voltmeter.c$134$1$40                                      =  00029A GR
- 18 C$voltmeter.c$135$1$40                                      =  00029D GR
- 18 C$voltmeter.c$136$1$40                                      =  0002A0 GR
- 18 C$voltmeter.c$137$1$40                                      =  0002A3 GR
- 18 C$voltmeter.c$138$1$40                                      =  0002A6 GR
- 18 C$voltmeter.c$139$1$40                                      =  0002A9 GR
- 16 C$voltmeter.c$19$1$40                                       =  000000 GR
- 16 C$voltmeter.c$20$1$40                                       =  000009 GR
- 16 C$voltmeter.c$21$1$40                                       =  000013 GR
- 16 C$voltmeter.c$22$1$40                                       =  00001B GR
- 18 C$voltmeter.c$35$1$18                                       =  000015 GR
- 18 C$voltmeter.c$38$1$28                                       =  000015 GR
- 18 C$voltmeter.c$39$1$28                                       =  000018 GR
- 18 C$voltmeter.c$40$1$28                                       =  00001B GR
- 18 C$voltmeter.c$41$1$28                                       =  00001E GR
- 18 C$voltmeter.c$42$1$28                                       =  000021 GR
- 18 C$voltmeter.c$43$1$28                                       =  000024 GR
- 18 C$voltmeter.c$44$1$28                                       =  000027 GR
- 18 C$voltmeter.c$45$1$28                                       =  00002A GR
- 18 C$voltmeter.c$46$1$28                                       =  00003F GR
- 18 C$voltmeter.c$47$1$28                                       =  000054 GR
- 18 C$voltmeter.c$49$2$29                                       =  000054 GR
- 18 C$voltmeter.c$50$2$29                                       =  000057 GR
- 18 C$voltmeter.c$52$3$30                                       =  00005A GR
- 18 C$voltmeter.c$57$1$28                                       =  000062 GR
- 18 C$voltmeter.c$59$1$28                                       =  000063 GR
- 18 C$voltmeter.c$61$1$31                                       =  000063 GR
- 18 C$voltmeter.c$62$1$31                                       =  000066 GR
- 18 C$voltmeter.c$63$1$31                                       =  00006D GR
- 18 C$voltmeter.c$64$1$31                                       =  000070 GR
- 18 C$voltmeter.c$65$1$31                                       =  000075 GR
- 18 C$voltmeter.c$66$1$31                                       =  00007B GR
- 18 C$voltmeter.c$67$1$31                                       =  00007C GR
- 18 C$voltmeter.c$70$1$33                                       =  00007C GR
- 18 C$voltmeter.c$71$1$33                                       =  0000B2 GR
- 18 C$voltmeter.c$72$1$33                                       =  0000D3 GR
- 18 C$voltmeter.c$73$1$33                                       =  000177 GR
- 18 C$voltmeter.c$74$1$33                                       =  00017B GR
- 18 C$voltmeter.c$75$1$33                                       =  0001A8 GR
- 18 C$voltmeter.c$76$1$33                                       =  0001D5 GR
- 18 C$voltmeter.c$77$1$33                                       =  0001F6 GR
- 18 C$voltmeter.c$78$1$33                                       =  000217 GR
- 18 C$voltmeter.c$80$1$33                                       =  000238 GR
- 18 C$voltmeter.c$82$1$33                                       =  000239 GR
- 18 C$voltmeter.c$85$1$36                                       =  000239 GR
- 18 C$voltmeter.c$86$1$36                                       =  00023C GR
- 18 C$voltmeter.c$87$1$36                                       =  00023F GR
- 18 C$voltmeter.c$88$1$36                                       =  00024C GR
- 18 C$voltmeter.c$89$1$36                                       =  000251 GR
- 18 C$voltmeter.c$90$1$36                                       =  000254 GR
- 18 C$voltmeter.c$91$1$36                                       =  000257 GR
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 9.
+ 18 C$voltmeter.c$109$1$62                                      =  000485 GR
+ 18 C$voltmeter.c$110$1$62                                      =  000492 GR
+ 18 C$voltmeter.c$111$1$62                                      =  000497 GR
+ 18 C$voltmeter.c$112$1$62                                      =  00049A GR
+ 18 C$voltmeter.c$113$1$62                                      =  00049D GR
+ 18 C$voltmeter.c$115$1$62                                      =  00049E GR
+ 18 C$voltmeter.c$117$1$63                                      =  00049E GR
+ 18 C$voltmeter.c$118$1$63                                      =  0004A1 GR
+ 18 C$voltmeter.c$119$1$63                                      =  0004A4 GR
+ 18 C$voltmeter.c$120$1$63                                      =  0004A7 GR
+ 18 C$voltmeter.c$121$1$63                                      =  0004AA GR
+ 18 C$voltmeter.c$122$1$63                                      =  0004AD GR
+ 18 C$voltmeter.c$123$1$63                                      =  0004B0 GR
+ 18 C$voltmeter.c$124$1$63                                      =  0004B3 GR
+ 18 C$voltmeter.c$126$1$63                                      =  0004B4 GR
+ 18 C$voltmeter.c$128$1$64                                      =  0004B4 GR
+ 18 C$voltmeter.c$129$1$64                                      =  0004B7 GR
+ 18 C$voltmeter.c$130$1$64                                      =  0004B9 GR
+ 18 C$voltmeter.c$131$1$64                                      =  0004BC GR
+ 18 C$voltmeter.c$132$1$64                                      =  0004BF GR
+ 18 C$voltmeter.c$133$1$64                                      =  0004C1 GR
+ 18 C$voltmeter.c$135$1$64                                      =  0004C2 GR
+ 18 C$voltmeter.c$137$1$65                                      =  0004C2 GR
+ 18 C$voltmeter.c$138$1$65                                      =  0004C5 GR
+ 18 C$voltmeter.c$139$1$65                                      =  0004C8 GR
+ 18 C$voltmeter.c$140$1$65                                      =  0004CB GR
+ 18 C$voltmeter.c$141$1$65                                      =  0004CE GR
+ 18 C$voltmeter.c$143$1$65                                      =  0004D1 GR
+ 18 C$voltmeter.c$145$1$65                                      =  0004D4 GR
+ 18 C$voltmeter.c$148$1$65                                      =  0004D7 GR
+ 18 C$voltmeter.c$149$1$65                                      =  0004DA GR
+ 18 C$voltmeter.c$152$1$65                                      =  0004DD GR
+ 18 C$voltmeter.c$153$1$65                                      =  0004DF GR
+ 18 C$voltmeter.c$154$1$65                                      =  0004E0 GR
+ 18 C$voltmeter.c$156$1$66                                      =  0004E0 GR
+ 18 C$voltmeter.c$157$1$66                                      =  0004E3 GR
+ 18 C$voltmeter.c$158$1$66                                      =  0004E6 GR
+ 18 C$voltmeter.c$159$1$66                                      =  0004E9 GR
+ 18 C$voltmeter.c$160$1$66                                      =  0004EC GR
+ 18 C$voltmeter.c$161$1$66                                      =  0004EF GR
+ 16 C$voltmeter.c$19$1$66                                       =  000000 GR
+ 16 C$voltmeter.c$20$1$66                                       =  000009 GR
+ 16 C$voltmeter.c$21$1$66                                       =  00000D GR
+ 16 C$voltmeter.c$22$1$66                                       =  000017 GR
+ 16 C$voltmeter.c$23$1$66                                       =  00001C GR
+ 16 C$voltmeter.c$24$1$66                                       =  000024 GR
+ 16 C$voltmeter.c$25$1$66                                       =  000028 GR
+ 18 C$voltmeter.c$38$1$18                                       =  000015 GR
+ 18 C$voltmeter.c$41$1$50                                       =  000015 GR
+ 18 C$voltmeter.c$42$1$50                                       =  000018 GR
+ 18 C$voltmeter.c$43$1$50                                       =  00001B GR
+ 18 C$voltmeter.c$44$1$50                                       =  00001E GR
+ 18 C$voltmeter.c$45$1$50                                       =  000021 GR
+ 18 C$voltmeter.c$46$1$50                                       =  000024 GR
+ 18 C$voltmeter.c$47$1$50                                       =  000027 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 14.
 Hexadecimal [24-Bits]
 
 Symbol Table
 
- 18 C$voltmeter.c$93$1$36                                       =  000258 GR
- 18 C$voltmeter.c$95$1$37                                       =  000258 GR
- 18 C$voltmeter.c$96$1$37                                       =  00025B GR
- 18 C$voltmeter.c$97$1$37                                       =  00025E GR
- 18 C$voltmeter.c$98$1$37                                       =  000261 GR
- 18 C$voltmeter.c$99$1$37                                       =  000264 GR
+ 18 C$voltmeter.c$48$1$50                                       =  00002A GR
+ 18 C$voltmeter.c$50$1$50                                       =  00003F GR
+ 18 C$voltmeter.c$51$1$50                                       =  000054 GR
+ 18 C$voltmeter.c$53$2$51                                       =  000054 GR
+ 18 C$voltmeter.c$55$2$51                                       =  000057 GR
+ 18 C$voltmeter.c$57$3$52                                       =  00005B GR
+ 18 C$voltmeter.c$62$1$50                                       =  000063 GR
+ 18 C$voltmeter.c$64$1$50                                       =  000064 GR
+ 18 C$voltmeter.c$66$1$53                                       =  000064 GR
+ 18 C$voltmeter.c$67$1$53                                       =  000067 GR
+ 18 C$voltmeter.c$68$1$53                                       =  00006E GR
+ 18 C$voltmeter.c$69$1$53                                       =  000071 GR
+ 18 C$voltmeter.c$70$1$53                                       =  000076 GR
+ 18 C$voltmeter.c$71$1$53                                       =  00007C GR
+ 18 C$voltmeter.c$72$1$53                                       =  00007D GR
+ 18 C$voltmeter.c$77$1$55                                       =  00007D GR
+ 18 C$voltmeter.c$78$1$55                                       =  0000B7 GR
+ 18 C$voltmeter.c$79$1$55                                       =  0000DB GR
+ 18 C$voltmeter.c$80$1$55                                       =  0000F0 GR
+ 18 C$voltmeter.c$81$1$55                                       =  000111 GR
+ 18 C$voltmeter.c$82$1$55                                       =  000148 GR
+ 18 C$voltmeter.c$83$1$55                                       =  00016A GR
+ 18 C$voltmeter.c$84$1$55                                       =  000183 GR
+ 18 C$voltmeter.c$85$1$55                                       =  000198 GR
+ 18 C$voltmeter.c$86$1$55                                       =  00023D GR
+ 18 C$voltmeter.c$87$1$55                                       =  0002EA GR
+ 18 C$voltmeter.c$88$1$55                                       =  0002F2 GR
+ 18 C$voltmeter.c$89$1$55                                       =  000325 GR
+ 18 C$voltmeter.c$90$1$55                                       =  000358 GR
+ 18 C$voltmeter.c$91$1$55                                       =  000371 GR
+ 18 C$voltmeter.c$92$1$55                                       =  000393 GR
+ 18 C$voltmeter.c$93$1$55                                       =  0003AC GR
+ 18 C$voltmeter.c$94$1$55                                       =  0003C1 GR
+ 18 C$voltmeter.c$95$1$55                                       =  0003DA GR
+ 18 C$voltmeter.c$96$1$55                                       =  0003FC GR
+ 18 C$voltmeter.c$97$1$55                                       =  000415 GR
+ 18 C$voltmeter.c$98$1$55                                       =  00042A GR
+ 18 C$voltmeter.c$99$1$55                                       =  000443 GR
     CPRL2                                                       =  0000C8 L
     CT2                                                         =  0000C9 L
     CY                                                          =  0000D7 L
@@ -506,10 +838,20 @@ Symbol Table
     F0                                                          =  0000D5 L
  19 Fvoltmeter$__str_0$0$0                                      =  000000 GR
  19 Fvoltmeter$__str_1$0$0                                      =  000005 GR
- 19 Fvoltmeter$__str_2$0$0                                      =  000015 GR
- 19 Fvoltmeter$__str_3$0$0                                      =  000037 GR
- 19 Fvoltmeter$__str_4$0$0                                      =  00005D GR
- 19 Fvoltmeter$__str_5$0$0                                      =  000083 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 15.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+ 19 Fvoltmeter$__str_10$0$0                                     =  00005B GR
+ 19 Fvoltmeter$__str_2$0$0                                      =  000029 GR
+ 19 Fvoltmeter$__str_3$0$0                                      =  000031 GR
+ 19 Fvoltmeter$__str_4$0$0                                      =  00003B GR
+ 19 Fvoltmeter$__str_5$0$0                                      =  00003D GR
+ 19 Fvoltmeter$__str_6$0$0                                      =  000040 GR
+ 19 Fvoltmeter$__str_7$0$0                                      =  000047 GR
+ 19 Fvoltmeter$__str_8$0$0                                      =  00004D GR
+ 19 Fvoltmeter$__str_9$0$0                                      =  000054 GR
     G$AA$0$0                                                    =  0000C2 G
     G$AC$0$0                                                    =  0000D6 G
     G$ACC$0$0                                                   =  0000E0 G
@@ -538,11 +880,6 @@ Symbol Table
     G$ADC0H$0$0                                                 =  0000BF G
     G$ADC0L$0$0                                                 =  0000BE G
     G$ADC0LT$0$0                                                =  00C7C6 G
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 10.
-Hexadecimal [24-Bits]
-
-Symbol Table
-
     G$ADC0LTH$0$0                                               =  0000C7 G
     G$ADC0LTL$0$0                                               =  0000C6 G
     G$ADC2$0$0                                                  =  0000BE G
@@ -550,8 +887,8 @@ Symbol Table
     G$ADC2CN$0$0                                                =  0000E8 G
     G$ADC2GT$0$0                                                =  0000C4 G
     G$ADC2LT$0$0                                                =  0000C6 G
- 18 G$ADC_INIT$0$0                                              =  00029A GR
- 18 G$ADC_read$0$0                                              =  000063 GR
+ 18 G$ADC_INIT$0$0                                              =  0004E0 GR
+ 18 G$ADC_read$0$0                                              =  000064 GR
     G$AMX0CF$0$0                                                =  0000BA G
     G$AMX0SL$0$0                                                =  0000BB G
     G$AMX2CF$0$0                                                =  0000BA G
@@ -561,6 +898,11 @@ Symbol Table
     G$CCF0$0$0                                                  =  0000D8 G
     G$CCF1$0$0                                                  =  0000D9 G
     G$CCF2$0$0                                                  =  0000DA G
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 16.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
     G$CCF3$0$0                                                  =  0000DB G
     G$CCF4$0$0                                                  =  0000DC G
     G$CCF5$0$0                                                  =  0000DD G
@@ -598,11 +940,6 @@ Symbol Table
     G$CT2$0$0                                                   =  0000C9 G
     G$CT3$0$0                                                   =  0000C9 G
     G$CT4$0$0                                                   =  0000C9 G
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 11.
-Hexadecimal [24-Bits]
-
-Symbol Table
-
     G$CY$0$0                                                    =  0000D7 G
     G$DAC0$0$0                                                  =  00D3D2 G
     G$DAC0CN$0$0                                                =  0000D4 G
@@ -621,6 +958,11 @@ Symbol Table
     G$EIP2$0$0                                                  =  0000F7 G
     G$EMI0CF$0$0                                                =  0000A3 G
     G$EMI0CN$0$0                                                =  0000A2 G
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 17.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
     G$EMI0TC$0$0                                                =  0000A1 G
     G$ENSMB$0$0                                                 =  0000C6 G
     G$ES$0$0                                                    =  0000AC G
@@ -658,11 +1000,6 @@ Symbol Table
     G$MAC0AL$0$0                                                =  0000C1 G
     G$MAC0BH$0$0                                                =  000092 G
     G$MAC0BL$0$0                                                =  000091 G
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 12.
-Hexadecimal [24-Bits]
-
-Symbol Table
-
     G$MAC0CF$0$0                                                =  0000C3 G
     G$MAC0HO$0$0                                                =  0000C3 G
     G$MAC0N$0$0                                                 =  0000C0 G
@@ -681,6 +1018,11 @@ Symbol Table
     G$OSCICN$0$0                                                =  00008A G
     G$OSCXCN$0$0                                                =  00008C G
     G$OV$0$0                                                    =  0000D2 G
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 18.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
     G$P$0$0                                                     =  0000D0 G
     G$P0$0$0                                                    =  000080 G
     G$P0MDOUT$0$0                                               =  0000A4 G
@@ -718,11 +1060,6 @@ Symbol Table
     G$P3_0$0$0                                                  =  0000B0 G
     G$P3_1$0$0                                                  =  0000B1 G
     G$P3_2$0$0                                                  =  0000B2 G
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 13.
-Hexadecimal [24-Bits]
-
-Symbol Table
-
     G$P3_3$0$0                                                  =  0000B3 G
     G$P3_4$0$0                                                  =  0000B4 G
     G$P3_5$0$0                                                  =  0000B5 G
@@ -741,6 +1078,11 @@ Symbol Table
     G$P5$0$0                                                    =  0000D8 G
     G$P5MDOUT$0$0                                               =  00009D G
     G$P5_0$0$0                                                  =  0000D8 G
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 19.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
     G$P5_1$0$0                                                  =  0000D9 G
     G$P5_2$0$0                                                  =  0000DA G
     G$P5_3$0$0                                                  =  0000DB G
@@ -768,7 +1110,6 @@ Symbol Table
     G$P7_5$0$0                                                  =  0000FD G
     G$P7_6$0$0                                                  =  0000FE G
     G$P7_7$0$0                                                  =  0000FF G
-    G$PB$0$0                                                    =  000090 G
     G$PCA0$0$0                                                  =  00FAF9 G
     G$PCA0CN$0$0                                                =  0000D8 G
     G$PCA0CP0$0$0                                               =  00FCFB G
@@ -778,11 +1119,6 @@ Symbol Table
     G$PCA0CP4$0$0                                               =  00EEED G
     G$PCA0CP5$0$0                                               =  00E2E1 G
     G$PCA0CPH0$0$0                                              =  0000FC G
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 14.
-Hexadecimal [24-Bits]
-
-Symbol Table
-
     G$PCA0CPH1$0$0                                              =  0000FE G
     G$PCA0CPH2$0$0                                              =  0000EA G
     G$PCA0CPH3$0$0                                              =  0000EC G
@@ -802,6 +1138,11 @@ Symbol Table
     G$PCA0CPM5$0$0                                              =  0000DF G
     G$PCA0H$0$0                                                 =  0000FA G
     G$PCA0L$0$0                                                 =  0000F9 G
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 20.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
     G$PCA0MD$0$0                                                =  0000D9 G
     G$PCON$0$0                                                  =  000087 G
     G$PLL0CN$0$0                                                =  000089 G
@@ -818,7 +1159,7 @@ Symbol Table
     G$PT2$0$0                                                   =  0000BD G
     G$PX0$0$0                                                   =  0000B8 G
     G$PX1$0$0                                                   =  0000BA G
- 18 G$Port_IO_Init$0$0                                          =  00027C GR
+ 18 G$Port_IO_Init$0$0                                          =  0004C2 GR
     G$RB80$0$0                                                  =  00009A G
     G$RB81$0$0                                                  =  00009A G
     G$RCAP2$0$0                                                 =  00CBCA G
@@ -838,11 +1179,6 @@ Symbol Table
     G$RI0$0$0                                                   =  000098 G
     G$RI1$0$0                                                   =  000098 G
     G$RS0$0$0                                                   =  0000D3 G
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 15.
-Hexadecimal [24-Bits]
-
-Symbol Table
-
     G$RS1$0$0                                                   =  0000D4 G
     G$RSTSRC$0$0                                                =  0000EF G
     G$RXOVRN$0$0                                                =  0000FC G
@@ -862,6 +1198,11 @@ Symbol Table
     G$SI$0$0                                                    =  0000C3 G
     G$SM00$0$0                                                  =  00009F G
     G$SM10$0$0                                                  =  00009E G
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 21.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
     G$SM20$0$0                                                  =  00009D G
     G$SMB0ADR$0$0                                               =  0000C3 G
     G$SMB0CN$0$0                                                =  0000C0 G
@@ -880,7 +1221,7 @@ Symbol Table
     G$SSTA0$0$0                                                 =  000091 G
     G$STA$0$0                                                   =  0000C5 G
     G$STO$0$0                                                   =  0000C4 G
- 18 G$SYSCLK_INIT$0$0                                           =  000239 GR
+ 18 G$SYSCLK_INIT$0$0                                           =  00047F GR
     G$TB80$0$0                                                  =  00009B G
     G$TB81$0$0                                                  =  00009B G
     G$TCON$0$0                                                  =  000088 G
@@ -898,11 +1239,6 @@ Symbol Table
     G$TL0$0$0                                                   =  00008A G
     G$TL1$0$0                                                   =  00008B G
     G$TL2$0$0                                                   =  0000CC G
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 16.
-Hexadecimal [24-Bits]
-
-Symbol Table
-
     G$TMOD$0$0                                                  =  000089 G
     G$TMR0$0$0                                                  =  008C8A G
     G$TMR1$0$0                                                  =  008D8B G
@@ -922,13 +1258,18 @@ Symbol Table
     G$TMR4H$0$0                                                 =  0000CD G
     G$TMR4L$0$0                                                 =  0000CC G
     G$TR0$0$0                                                   =  00008C G
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 22.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
     G$TR1$0$0                                                   =  00008E G
     G$TR2$0$0                                                   =  0000CA G
     G$TR3$0$0                                                   =  0000CA G
     G$TR4$0$0                                                   =  0000CA G
     G$TXBMT$0$0                                                 =  0000F9 G
- 18 G$Timer_Init$0$0                                            =  000258 GR
- 18 G$UART_Init$0$0                                             =  00026E GR
+ 18 G$Timer_Init$0$0                                            =  00049E GR
+ 18 G$UART_Init$0$0                                             =  0004B4 GR
     G$WCOL$0$0                                                  =  0000FE G
     G$WDTCN$0$0                                                 =  0000FF G
     G$XBR0$0$0                                                  =  0000E1 G
@@ -936,13 +1277,16 @@ Symbol Table
     G$XBR2$0$0                                                  =  0000E3 G
     G$_XPAGE$0$0                                                =  0000A2 G
  18 G$getchar$0$0                                               =  00000A GR
+  5 G$hmax$0$0                                                  =  000010 GR
+  5 G$hmin$0$0                                                  =  00000A GR
  18 G$main$0$0                                                  =  000015 GR
-  5 G$max$0$0                                                   =  000008 GR
-  5 G$min$0$0                                                   =  000004 GR
+  5 G$max$0$0                                                   =  00000C GR
+  5 G$min$0$0                                                   =  000006 GR
  18 G$putchar$0$0                                               =  000000 GR
+  5 G$run$0$0                                                   =  000004 GR
   5 G$running$0$0                                               =  000000 GR
- 18 G$score$0$0                                                 =  00007C GR
-  5 G$trials$0$0                                                =  00000C GR
+ 18 G$score$0$0                                                 =  00007D GR
+  5 G$trials$0$0                                                =  000012 GR
     IE                                                          =  0000A8 L
     IE.0                                                        =  0000A8 L
     IE.1                                                        =  0000A9 L
@@ -958,19 +1302,15 @@ Symbol Table
     IP                                                          =  0000B8 L
     IP.0                                                        =  0000B8 L
     IP.1                                                        =  0000B9 L
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 17.
-Hexadecimal [24-Bits]
-
-Symbol Table
-
     IP.2                                                        =  0000BA L
     IP.3                                                        =  0000BB L
     IP.4                                                        =  0000BC L
     IP.5                                                        =  0000BD L
     IT0                                                         =  000088 L
     IT1                                                         =  00008A L
-  5 Lvoltmeter.score$sloc0$1$0                                  =  000012 GR
-  5 Lvoltmeter.score$volts$1$33                                 =  00000E GR
+  5 Lvoltmeter.score$hvolts$1$55                                =  00001A GR
+  5 Lvoltmeter.score$sloc0$1$0                                  =  00001C GR
+  5 Lvoltmeter.score$volts$1$55                                 =  000016 GR
     OV                                                          =  0000D2 L
     P                                                           =  0000D0 L
     P0                                                          =  000080 L
@@ -978,6 +1318,11 @@ Symbol Table
     P0.1                                                        =  000081 L
     P0.2                                                        =  000082 L
     P0.3                                                        =  000083 L
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 23.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
     P0.4                                                        =  000084 L
     P0.5                                                        =  000085 L
     P0.6                                                        =  000086 L
@@ -1018,11 +1363,6 @@ Symbol Table
     PSW.3                                                       =  0000D3 L
     PSW.4                                                       =  0000D4 L
     PSW.5                                                       =  0000D5 L
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 18.
-Hexadecimal [24-Bits]
-
-Symbol Table
-
     PSW.6                                                       =  0000D6 L
     PSW.7                                                       =  0000D7 L
     PT0                                                         =  0000B9 L
@@ -1038,6 +1378,11 @@ Symbol Table
     RI                                                          =  000098 L
     RS0                                                         =  0000D3 L
     RS1                                                         =  0000D4 L
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 24.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
     RXD                                                         =  0000B0 L
     SBUF                                                        =  000099 L
     SCON                                                        =  000098 L
@@ -1078,11 +1423,6 @@ Symbol Table
     TF2                                                         =  0000CF L
     TH0                                                         =  00008C L
     TH1                                                         =  00008D L
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 19.
-Hexadecimal [24-Bits]
-
-Symbol Table
-
     TH2                                                         =  0000CD L
     TI                                                          =  000099 L
     TL0                                                         =  00008A L
@@ -1093,16 +1433,21 @@ Symbol Table
     TR1                                                         =  00008E L
     TR2                                                         =  0000CA L
     TXD                                                         =  0000B1 L
- 18 XG$ADC_INIT$0$0                                             =  0002A9 GR
- 18 XG$ADC_read$0$0                                             =  00007B GR
- 18 XG$Port_IO_Init$0$0                                         =  000299 GR
- 18 XG$SYSCLK_INIT$0$0                                          =  000257 GR
- 18 XG$Timer_Init$0$0                                           =  00026D GR
- 18 XG$UART_Init$0$0                                            =  00027B GR
+ 18 XG$ADC_INIT$0$0                                             =  0004EF GR
+ 18 XG$ADC_read$0$0                                             =  00007C GR
+ 18 XG$Port_IO_Init$0$0                                         =  0004DF GR
+ 18 XG$SYSCLK_INIT$0$0                                          =  00049D GR
+ 18 XG$Timer_Init$0$0                                           =  0004B3 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 25.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+ 18 XG$UART_Init$0$0                                            =  0004C1 GR
  18 XG$getchar$0$0                                              =  000014 GR
- 18 XG$main$0$0                                                 =  000062 GR
+ 18 XG$main$0$0                                                 =  000063 GR
  18 XG$putchar$0$0                                              =  000009 GR
- 18 XG$score$0$0                                                =  000238 GR
+ 18 XG$score$0$0                                                =  00047E GR
     _AA                                                         =  0000C2 G
     _AC                                                         =  0000D6 G
     _ACC                                                        =  0000E0 G
@@ -1138,13 +1483,8 @@ Symbol Table
     _ADC2CN                                                     =  0000E8 G
     _ADC2GT                                                     =  0000C4 G
     _ADC2LT                                                     =  0000C6 G
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 20.
-Hexadecimal [24-Bits]
-
-Symbol Table
-
- 18 _ADC_INIT                                                      00029A GR
- 18 _ADC_read                                                      000063 GR
+ 18 _ADC_INIT                                                      0004E0 GR
+ 18 _ADC_read                                                      000064 GR
     _AMX0CF                                                     =  0000BA G
     _AMX0SL                                                     =  0000BB G
     _AMX2CF                                                     =  0000BA G
@@ -1158,6 +1498,11 @@ Symbol Table
     _CCF4                                                       =  0000DC G
     _CCF5                                                       =  0000DD G
     _CCH0CN                                                     =  0000A1 G
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 26.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
     _CCH0LC                                                     =  0000A3 G
     _CCH0MA                                                     =  00009A G
     _CCH0TN                                                     =  0000A2 G
@@ -1198,11 +1543,6 @@ Symbol Table
     _DAC0L                                                      =  0000D2 G
     _DAC1                                                       =  00D3D2 G
     _DAC1CN                                                     =  0000D4 G
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 21.
-Hexadecimal [24-Bits]
-
-Symbol Table
-
     _DAC1H                                                      =  0000D3 G
     _DAC1L                                                      =  0000D2 G
     _DPH                                                        =  000083 G
@@ -1218,6 +1558,11 @@ Symbol Table
     _ENSMB                                                      =  0000C6 G
     _ES                                                         =  0000AC G
     _ES0                                                        =  0000AC G
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 27.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
     _ET0                                                        =  0000A9 G
     _ET1                                                        =  0000AB G
     _ET2                                                        =  0000AD G
@@ -1258,11 +1603,6 @@ Symbol Table
     _MAC0RND                                                    =  00CFCE G
     _MAC0RNDH                                                   =  0000CF G
     _MAC0RNDL                                                   =  0000CE G
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 22.
-Hexadecimal [24-Bits]
-
-Symbol Table
-
     _MAC0SO                                                     =  0000C1 G
     _MAC0STA                                                    =  0000C0 G
     _MAC0Z                                                      =  0000C2 G
@@ -1278,6 +1618,11 @@ Symbol Table
     _P0                                                         =  000080 G
     _P0MDOUT                                                    =  0000A4 G
     _P0_0                                                       =  000080 G
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 28.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
     _P0_1                                                       =  000081 G
     _P0_2                                                       =  000082 G
     _P0_3                                                       =  000083 G
@@ -1318,11 +1663,6 @@ Symbol Table
     _P3_7                                                       =  0000B7 G
     _P4                                                         =  0000C8 G
     _P4MDOUT                                                    =  00009C G
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 23.
-Hexadecimal [24-Bits]
-
-Symbol Table
-
     _P4_0                                                       =  0000C8 G
     _P4_1                                                       =  0000C9 G
     _P4_2                                                       =  0000CA G
@@ -1338,6 +1678,11 @@ Symbol Table
     _P5_2                                                       =  0000DA G
     _P5_3                                                       =  0000DB G
     _P5_4                                                       =  0000DC G
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 29.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
     _P5_5                                                       =  0000DD G
     _P5_6                                                       =  0000DE G
     _P5_7                                                       =  0000DF G
@@ -1361,7 +1706,6 @@ Symbol Table
     _P7_5                                                       =  0000FD G
     _P7_6                                                       =  0000FE G
     _P7_7                                                       =  0000FF G
-    _PB                                                         =  000090 G
     _PCA0                                                       =  00FAF9 G
     _PCA0CN                                                     =  0000D8 G
     _PCA0CP0                                                    =  00FCFB G
@@ -1378,11 +1722,6 @@ Symbol Table
     _PCA0CPH5                                                   =  0000E2 G
     _PCA0CPL0                                                   =  0000FB G
     _PCA0CPL1                                                   =  0000FD G
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 24.
-Hexadecimal [24-Bits]
-
-Symbol Table
-
     _PCA0CPL2                                                   =  0000E9 G
     _PCA0CPL3                                                   =  0000EB G
     _PCA0CPL4                                                   =  0000ED G
@@ -1399,6 +1738,11 @@ Symbol Table
     _PCON                                                       =  000087 G
     _PLL0CN                                                     =  000089 G
     _PLL0DIV                                                    =  00008D G
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 30.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
     _PLL0FLT                                                    =  00008F G
     _PLL0MUL                                                    =  00008E G
     _PS                                                         =  0000BC G
@@ -1411,7 +1755,7 @@ Symbol Table
     _PT2                                                        =  0000BD G
     _PX0                                                        =  0000B8 G
     _PX1                                                        =  0000BA G
- 18 _Port_IO_Init                                                  00027C GR
+ 18 _Port_IO_Init                                                  0004C2 GR
     _RB80                                                       =  00009A G
     _RB81                                                       =  00009A G
     _RCAP2                                                      =  00CBCA G
@@ -1438,11 +1782,6 @@ Symbol Table
     _SADDR0                                                     =  0000A9 G
     _SADEN0                                                     =  0000B9 G
     _SBUF                                                       =  000099 G
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 25.
-Hexadecimal [24-Bits]
-
-Symbol Table
-
     _SBUF0                                                      =  000099 G
     _SBUF1                                                      =  000099 G
     _SCON                                                       =  000098 G
@@ -1459,6 +1798,11 @@ Symbol Table
     _SMB0ADR                                                    =  0000C3 G
     _SMB0CN                                                     =  0000C0 G
     _SMB0CR                                                     =  0000CF G
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 31.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
     _SMB0DAT                                                    =  0000C2 G
     _SMB0STA                                                    =  0000C1 G
     _SMBFTE                                                     =  0000C1 G
@@ -1473,7 +1817,7 @@ Symbol Table
     _SSTA0                                                      =  000091 G
     _STA                                                        =  0000C5 G
     _STO                                                        =  0000C4 G
- 18 _SYSCLK_INIT                                                   000239 GR
+ 18 _SYSCLK_INIT                                                   00047F GR
     _TB80                                                       =  00009B G
     _TB81                                                       =  00009B G
     _TCON                                                       =  000088 G
@@ -1498,11 +1842,6 @@ Symbol Table
     _TMR2CF                                                     =  0000C9 G
     _TMR2CN                                                     =  0000C8 G
     _TMR2H                                                      =  0000CD G
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 26.
-Hexadecimal [24-Bits]
-
-Symbol Table
-
     _TMR2L                                                      =  0000CC G
     _TMR3                                                       =  00CDCC G
     _TMR3CF                                                     =  0000C9 G
@@ -1519,15 +1858,21 @@ Symbol Table
     _TR2                                                        =  0000CA G
     _TR3                                                        =  0000CA G
     _TR4                                                        =  0000CA G
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 32.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
     _TXBMT                                                      =  0000F9 G
- 18 _Timer_Init                                                    000258 GR
- 18 _UART_Init                                                     00026E GR
+ 18 _Timer_Init                                                    00049E GR
+ 18 _UART_Init                                                     0004B4 GR
     _WCOL                                                       =  0000FE G
     _WDTCN                                                      =  0000FF G
     _XBR0                                                       =  0000E1 G
     _XBR1                                                       =  0000E2 G
     _XBR2                                                       =  0000E3 G
     __XPAGE                                                     =  0000A2 G
+    ___fs2sint                                                     ****** GX
     ___fsadd                                                       ****** GX
     ___fsdiv                                                       ****** GX
     ___fsgt                                                        ****** GX
@@ -1536,10 +1881,15 @@ Symbol Table
     ___sint2fs                                                     ****** GX
  19 ___str_0                                                       000000 R
  19 ___str_1                                                       000005 R
- 19 ___str_2                                                       000015 R
- 19 ___str_3                                                       000037 R
- 19 ___str_4                                                       00005D R
- 19 ___str_5                                                       000083 R
+ 19 ___str_10                                                      00005B R
+ 19 ___str_2                                                       000029 R
+ 19 ___str_3                                                       000031 R
+ 19 ___str_4                                                       00003B R
+ 19 ___str_5                                                       00003D R
+ 19 ___str_6                                                       000040 R
+ 19 ___str_7                                                       000047 R
+ 19 ___str_8                                                       00004D R
+ 19 ___str_9                                                       000054 R
     ___uint2fs                                                     ****** GX
   F __interrupt_vect                                               000000 R
     __mcs51_genRAMCLEAR                                            ****** GX
@@ -1549,26 +1899,30 @@ Symbol Table
   F __sdcc_program_startup                                         000003 GR
   7 __start__stack                                                 000000 GR
  18 _getchar                                                       00000A GR
+  5 _hmax                                                          000010 GR
+  5 _hmin                                                          00000A GR
  18 _main                                                          000015 GR
-  5 _max                                                           000008 GR
-  5 _min                                                           000004 GR
+  5 _max                                                           00000C GR
+  5 _min                                                           000006 GR
     _printf                                                        ****** GX
     _printf_fast_f                                                 ****** GX
  18 _putchar                                                       000000 GR
+  5 _run                                                           000004 GR
   5 _running                                                       000000 GR
- 18 _score                                                         00007C GR
-  5 _score_sloc0_1_0                                               000012 R
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 27.
-Hexadecimal [24-Bits]
-
-Symbol Table
-
-  5 _score_volts_1_33                                              00000E R
-  5 _trials                                                        00000C GR
+ 18 _score                                                         00007D GR
+  5 _score_hvolts_1_55                                             00001A R
+  5 _score_sloc0_1_0                                               00001C R
+  5 _score_volts_1_55                                              000016 R
+  5 _trials                                                        000012 GR
     a                                                           =  0000E0 L
     a.0                                                         =  0000E0 L
     a.1                                                         =  0000E1 L
     a.2                                                         =  0000E2 L
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 33.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
     a.3                                                         =  0000E3 L
     a.4                                                         =  0000E4 L
     a.5                                                         =  0000E5 L
@@ -1618,17 +1972,17 @@ Symbol Table
     f0                                                          =  0000D5 L
     ie                                                          =  0000A8 L
     ie.0                                                        =  0000A8 L
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 28.
-Hexadecimal [24-Bits]
-
-Symbol Table
-
     ie.1                                                        =  0000A9 L
     ie.2                                                        =  0000AA L
     ie.3                                                        =  0000AB L
     ie.4                                                        =  0000AC L
     ie.5                                                        =  0000AD L
     ie.7                                                        =  0000AF L
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 34.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
     ie0                                                         =  000089 L
     ie1                                                         =  00008B L
     int0                                                        =  0000B2 L
@@ -1678,17 +2032,17 @@ Symbol Table
     p3.3                                                        =  0000B3 L
     p3.4                                                        =  0000B4 L
     p3.5                                                        =  0000B5 L
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 29.
-Hexadecimal [24-Bits]
-
-Symbol Table
-
     p3.6                                                        =  0000B6 L
     p3.7                                                        =  0000B7 L
     pcon                                                        =  000087 L
     ps                                                          =  0000BC L
     psw                                                         =  0000D0 L
     psw.0                                                       =  0000D0 L
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 35.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
     psw.1                                                       =  0000D1 L
     psw.2                                                       =  0000D2 L
     psw.3                                                       =  0000D3 L
@@ -1738,17 +2092,17 @@ Symbol Table
     tcon                                                        =  000088 L
     tcon.0                                                      =  000088 L
     tcon.1                                                      =  000089 L
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 30.
-Hexadecimal [24-Bits]
-
-Symbol Table
-
     tcon.2                                                      =  00008A L
     tcon.3                                                      =  00008B L
     tcon.4                                                      =  00008C L
     tcon.5                                                      =  00008D L
     tcon.6                                                      =  00008E L
     tcon.7                                                      =  00008F L
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 36.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
     tf0                                                         =  00008D L
     tf1                                                         =  00008F L
     tf2                                                         =  0000CF L
@@ -1766,7 +2120,7 @@ Symbol Table
     txd                                                         =  0000B1 L
 
 
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 31.
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 37.
 Hexadecimal [24-Bits]
 
 Area Table
@@ -1776,7 +2130,7 @@ Area Table
    2 RSEG0                                      size      0   flags    8
    3 RSEG1                                      size      0   flags    8
    4 REG_BANK_0                                 size      8   flags    4
-   5 DSEG                                       size     16   flags    0
+   5 DSEG                                       size     20   flags    0
    6 OSEG                                       size      0   flags    4
    7 SSEG                                       size      1   flags    0
    8 ISEG                                       size      0   flags    0
@@ -1793,10 +2147,10 @@ Area Table
   13 GSINIT3                                    size      0   flags   20
   14 GSINIT4                                    size      0   flags   20
   15 GSINIT5                                    size      0   flags   20
-  16 GSINIT                                     size     20   flags   20
+  16 GSINIT                                     size     30   flags   20
   17 GSFINAL                                    size      3   flags   20
-  18 CSEG                                       size    2AA   flags   20
-  19 CONST                                      size     A9   flags   20
+  18 CSEG                                       size    4F0   flags   20
+  19 CONST                                      size     64   flags   20
   1A XINIT                                      size      0   flags   20
   1B CABS                                       size      0   flags   28
 

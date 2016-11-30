@@ -1,0 +1,168 @@
+//Microprocesor Systems Lab 4.4
+//Christina Paolicelli
+//FIR FILTER
+
+//-------------------------------------------------------------------------------------------
+// Includes
+//-------------------------------------------------------------------------------------------
+#include <c8051f120.h>          // SFR declarations.
+#include <stdio.h>              // Necessary for printf.
+#include <putget.h>
+
+//-------------------------------------------------------------------------------------------
+// Global CONSTANTS
+//-------------------------------------------------------------------------------------------
+#define EXTCLK      22118400    // External oscillator frequency in Hz
+#define BAUDRATE0	9600
+///--------------------------------
+// Global Variabbles
+///--------------------------------
+int prev = 0;
+int prev2 = 0;
+int prev_out = 0;
+//-------------------------------------------------------------------------------------------
+// Function PROTOTYPES
+//-------------------------------------------------------------------------------------------
+void main (void);
+void Port_IO_Init(void);
+void Timer_Init(void);
+void UART_Init(void);
+void SYSCLK_INIT(void);
+void DAC_INIT(void);
+unsigned int ADC_read(void);
+signed int MAC_Convert(int x);
+
+///Main Function
+void main (void)
+{
+	signed int wave;
+	int x;
+	float y;
+	SFRPAGE = CONFIG_PAGE;
+	SYSCLK_INIT();
+	Port_IO_Init();
+	Timer_Init();
+	UART_Init();
+	DAC_INIT();
+	SFRPAGE = LEGACY_PAGE;//same as UART0_PAGE
+	printf("\033[2J");
+	while(1)
+	{
+		x = ADC_read();
+		//printf("ADC Value %d:  ",x);
+		wave = MAC_Convert(x<4);
+		printf("WHAT %d", x<4);
+		SFRPAGE = DAC0_PAGE;
+		DAC0L = wave;
+		DAC0H = wave>>8;
+		//printf("  DAC Value %d:  \n\r",wave);
+	///	y = (5*x)/16 + 0.3125*prev2+.24038462*prev + .296875*prev_out;
+	///	printf("Hard Coded %d\n\r",y);
+		//C implementation of filter caculation for debugging
+		
+		//update previous conditions
+		prev2 = prev; 
+		prev = x;
+		prev_out = wave;
+	}
+}
+///Functional Functions
+signed int MAC_Convert(int x)
+{
+	char i;
+	signed int out;
+	SFRPAGE = MAC0_PAGE;
+	MAC0CF |= 0x08;//clear the accumulator MAC0CF.3
+	MAC0A = 0x2800;//hex equivelent to two's complement .3125
+	MAC0BH = x >> 8;
+	MAC0BL = x;
+	for(i=0;i<2;i++);
+	//rest of the filter equation - get a little bit working at a time :)
+	MAC0BH = prev2 >>8;
+	MAC0BL = prev2;
+	for(i=0;i<2;i++);	
+	MAC0A = 0x1EC4; //non exact two's complement conversion of .24038462
+	MAC0BH = prev >>8;
+	MAC0BL = prev;
+	for(i=0;i<2;i++);
+	MAC0A = 0x2A00; //two's complement conversion of .296875
+	MAC0BH = prev_out >>8;
+	MAC0BL = prev_out;
+	for(i=0;i<2;i++);
+	//how do i figure out normilization?
+	for(i=0;i<0;i++){MAC0CF|=0x20;while (MAC0CF&0x20);}//shift right for normalization//if shift hasn't finished, wait
+	SFRPAGE = MAC0_PAGE;
+	out = MAC0ACC3<<8 | MAC0ACC2;
+	//SFRPAGE = DAC0_PAGE;
+	//printf("MAC Final Output %d	",out );
+	return out;
+}
+unsigned int ADC_read()
+{
+	AMX0SL = 0;//select pin
+	ADC0CN &= ~(0x20);// reset for reading
+	ADC0CN |= 0x10;
+	while((ADC0CN & 0x20)==0); // wait for conversion to finish
+	//printf("%u \n\r",ADC0);
+	return ADC0;
+}
+
+//Intilizations
+void SYSCLK_INIT()
+{
+	int j;
+	SFRPAGE = CONFIG_PAGE;
+    OSCXCN  = 0x67;             // Start external oscillator
+    for(j=0; j < 256; j++);     // Wait for the oscillator to start up.
+    while(!(OSCXCN & 0x80));    // Check to see if the Crystal Oscillator Valid Flag is set.
+    CLKSEL  = 0x01;             // SYSCLK derived from the External Oscillator circuit.
+    OSCICN  = 0x00;             // Disable the internal oscillator.
+}
+
+void Timer_Init()
+{
+    SFRPAGE   = TMR2_PAGE;
+    TMR2CN    = 0x04;
+    TMR2CF    = 0x08;
+	TMR2H	  = 0xFF;
+	TMR2L 	  = 0x70;
+    RCAP2L    = 0x70;
+    RCAP2H    = 0xFF;
+}
+void UART_Init()
+{
+    SFRPAGE   = UART0_PAGE;//Same as Timer 2 and Timer 1 SFR PAGES
+	TR2		  = 1;//Start Timer 2
+    SCON0     = 0x50;
+	SSTA0   = 0x15;
+	TI0		  = 1; // Indicate TX0 is ready
+}
+
+void Port_IO_Init()
+{
+	SFRPAGE   = CONFIG_PAGE;
+	WDTCN   = 0xDE;             // Disable watchdog timer.
+    WDTCN   = 0xAD;
+	XBR0 = 0x04; // enable UART0
+	XBR2 = 0x40;//enable crossbar
+	
+	P0MDOUT = 0x01;
+	//TX0 P0.0 (output)
+	P0 = 0x02;
+	//RX0 P0.1 (input)
+	
+	EA = 1;
+}
+
+void DAC_INIT()
+{
+	SFRPAGE = DAC0_PAGE;
+	REF0CN = 0x03;
+	DAC0CN = 0x80;
+	AMX0CF = 0x00;
+	ADC0CF = 0x20;
+	ADC0CN = 0x80; // enable ADC conversion
+	SFRPAGE = MAC0_PAGE;
+	MAC0CF = 0x12;
+	SFRPAGE   = CONFIG_PAGE;
+}

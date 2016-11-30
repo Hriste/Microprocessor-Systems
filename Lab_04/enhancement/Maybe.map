@@ -1,0 +1,2203 @@
+ASxxxx Linker V03.00 + NoICE + sdld,  page 1.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+CABS                                00000000    00000000 =           0. bytes (ABS,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+C:   00000000  l_BIT_BANK                      
+C:   00000000  l_CABS                          
+C:   00000000  l_GSINIT1                       
+C:   00000000  l_GSINIT5                       
+C:   00000000  l_IABS                          
+C:   00000000  l_PSEG                          
+C:   00000000  l_REG_BANK_1                    
+C:   00000000  l_REG_BANK_2                    
+C:   00000000  l_REG_BANK_3                    
+C:   00000000  l_RSEG                          
+C:   00000000  l_RSEG0                         
+C:   00000000  l_RSEG1                         
+C:   00000000  l_XABS                          
+C:   00000000  l_XINIT                         
+C:   00000000  l_XISEG                         
+C:   00000000  l_XSEG                          
+C:   00000000  l__CODE                         
+C:   00000000  s_BSEG                          
+C:   00000000  s_CABS                          
+C:   00000000  s_DSEG                          
+C:   00000000  s_HOME                          
+C:   00000000  s_IABS                          
+C:   00000000  s_REG_BANK_0                    
+C:   00000000  s_RSEG                          
+C:   00000000  s_RSEG0                         
+C:   00000000  s_RSEG1                         
+C:   00000000  s_XABS                          
+C:   00000001  s_PSEG                          
+C:   00000001  s_XISEG                         
+C:   00000001  s_XSEG                          
+C:   00000003  l_BSEG_BYTES                    
+C:   00000003  l_GSFINAL                       
+C:   00000003  l_GSINIT0                       
+C:   00000006  l_HOME                          
+C:   00000006  l_ISEG                          
+C:   00000006  l_OSEG                          
+C:   00000006  s_GSINIT0                       
+C:   00000008  l_REG_BANK_0                    
+C:   00000008  s_REG_BANK_1                    
+C:   00000009  s_GSINIT1                       
+C:   00000009  s_GSINIT2                       
+C:   0000000A  l_GSINIT2                       
+C:   00000010  s_OSEG                          
+C:   00000010  s_REG_BANK_2                    
+C:   00000011  l_BSEG                          
+C:   00000013  s_GSINIT3                       
+C:   00000016  s_ISEG                          
+C:   00000018  s_BIT_BANK                      
+C:   00000018  s_REG_BANK_3                    
+C:   00000020  s_BSEG_BYTES                    
+ASxxxx Linker V03.00 + NoICE + sdld,  page 2.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+CABS                                00000000    00000000 =           0. bytes (ABS,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+C:   00000020  s__CODE                         
+C:   00000022  l_GSINIT3                       
+C:   0000002A  l_GSINIT4                       
+C:   00000030  l_GSINIT                        
+C:   00000035  s_GSINIT4                       
+C:   0000005D  s_SSEG                          
+C:   0000005F  s_GSINIT                        
+C:   0000005F  s_GSINIT5                       
+C:   0000007C  l_DSEG                          
+C:   0000008F  s_GSFINAL                       
+C:   00000092  s_CSEG                          
+C:   000000A3  l_SSEG                          
+C:   00000100  l_IRAM                          
+C:   00000249  l_CONST                         
+C:   00001437  l_CSEG                          
+C:   000014C9  s_CONST                         
+C:   00001712  s_XINIT                         
+
+ASxxxx Linker V03.00 + NoICE + sdld,  page 3.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+.  .ABS.                            00000000    00000000 =           0. bytes (ABS,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     00000000  .__.ABS.                           _fsget1arg
+     00000080  G$P0$0$0                           shiny
+     00000080  G$P0_0$0$0                         shiny
+     00000080  _P0                                shiny
+     00000080  _P0_0                              shiny
+     00000081  G$P0_1$0$0                         shiny
+     00000081  G$SP$0$0                           shiny
+     00000081  _P0_1                              shiny
+     00000081  _SP                                shiny
+     00000082  G$DPL$0$0                          shiny
+     00000082  G$P0_2$0$0                         shiny
+     00000082  _DPL                               shiny
+     00000082  _P0_2                              shiny
+     00000083  G$DPH$0$0                          shiny
+     00000083  G$P0_3$0$0                         shiny
+     00000083  _DPH                               shiny
+     00000083  _P0_3                              shiny
+     00000084  G$P0_4$0$0                         shiny
+     00000084  G$SFRPAGE$0$0                      shiny
+     00000084  _P0_4                              shiny
+     00000084  _SFRPAGE                           shiny
+     00000085  G$P0_5$0$0                         shiny
+     00000085  G$SFRNEXT$0$0                      shiny
+     00000085  _P0_5                              shiny
+     00000085  _SFRNEXT                           shiny
+     00000086  G$P0_6$0$0                         shiny
+     00000086  G$SFRLAST$0$0                      shiny
+     00000086  _P0_6                              shiny
+     00000086  _SFRLAST                           shiny
+     00000087  G$P0_7$0$0                         shiny
+     00000087  G$PCON$0$0                         shiny
+     00000087  _P0_7                              shiny
+     00000087  _PCON                              shiny
+     00000088  G$CP0HYN0$0$0                      shiny
+     00000088  G$CP1HYN0$0$0                      shiny
+     00000088  G$CPT0CN$0$0                       shiny
+     00000088  G$CPT1CN$0$0                       shiny
+     00000088  G$FLHBUSY$0$0                      shiny
+     00000088  G$FLSTAT$0$0                       shiny
+     00000088  G$IT0$0$0                          shiny
+     00000088  G$TCON$0$0                         shiny
+     00000088  _CP0HYN0                           shiny
+     00000088  _CP1HYN0                           shiny
+     00000088  _CPT0CN                            shiny
+     00000088  _CPT1CN                            shiny
+     00000088  _FLHBUSY                           shiny
+     00000088  _FLSTAT                            shiny
+     00000088  _IT0                               shiny
+     00000088  _TCON                              shiny
+     00000089  G$CP0HYN1$0$0                      shiny
+ASxxxx Linker V03.00 + NoICE + sdld,  page 4.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+.  .ABS.                            00000000    00000000 =           0. bytes (ABS,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     00000089  G$CP1HYN1$0$0                      shiny
+     00000089  G$CPT0MD$0$0                       shiny
+     00000089  G$CPT1MD$0$0                       shiny
+     00000089  G$IE0$0$0                          shiny
+     00000089  G$PLL0CN$0$0                       shiny
+     00000089  G$TMOD$0$0                         shiny
+     00000089  _CP0HYN1                           shiny
+     00000089  _CP1HYN1                           shiny
+     00000089  _CPT0MD                            shiny
+     00000089  _CPT1MD                            shiny
+     00000089  _IE0                               shiny
+     00000089  _PLL0CN                            shiny
+     00000089  _TMOD                              shiny
+     0000008A  G$CP0HYP0$0$0                      shiny
+     0000008A  G$CP1HYP0$0$0                      shiny
+     0000008A  G$IT1$0$0                          shiny
+     0000008A  G$OSCICN$0$0                       shiny
+     0000008A  G$TL0$0$0                          shiny
+     0000008A  _CP0HYP0                           shiny
+     0000008A  _CP1HYP0                           shiny
+     0000008A  _IT1                               shiny
+     0000008A  _OSCICN                            shiny
+     0000008A  _TL0                               shiny
+     0000008B  G$CP0HYP1$0$0                      shiny
+     0000008B  G$CP1HYP1$0$0                      shiny
+     0000008B  G$IE1$0$0                          shiny
+     0000008B  G$OSCICL$0$0                       shiny
+     0000008B  G$TL1$0$0                          shiny
+     0000008B  _CP0HYP1                           shiny
+     0000008B  _CP1HYP1                           shiny
+     0000008B  _IE1                               shiny
+     0000008B  _OSCICL                            shiny
+     0000008B  _TL1                               shiny
+     0000008C  G$CP0FIF$0$0                       shiny
+     0000008C  G$CP1FIF$0$0                       shiny
+     0000008C  G$OSCXCN$0$0                       shiny
+     0000008C  G$TH0$0$0                          shiny
+     0000008C  G$TR0$0$0                          shiny
+     0000008C  _CP0FIF                            shiny
+     0000008C  _CP1FIF                            shiny
+     0000008C  _OSCXCN                            shiny
+     0000008C  _TH0                               shiny
+     0000008C  _TR0                               shiny
+     0000008D  G$CP0RIF$0$0                       shiny
+     0000008D  G$CP1RIF$0$0                       shiny
+     0000008D  G$PLL0DIV$0$0                      shiny
+     0000008D  G$TF0$0$0                          shiny
+     0000008D  G$TH1$0$0                          shiny
+     0000008D  _CP0RIF                            shiny
+     0000008D  _CP1RIF                            shiny
+     0000008D  _PLL0DIV                           shiny
+ASxxxx Linker V03.00 + NoICE + sdld,  page 5.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+.  .ABS.                            00000000    00000000 =           0. bytes (ABS,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     0000008D  _TF0                               shiny
+     0000008D  _TH1                               shiny
+     0000008E  G$CKCON$0$0                        shiny
+     0000008E  G$CP0OUT$0$0                       shiny
+     0000008E  G$CP1OUT$0$0                       shiny
+     0000008E  G$PLL0MUL$0$0                      shiny
+     0000008E  G$TR1$0$0                          shiny
+     0000008E  _CKCON                             shiny
+     0000008E  _CP0OUT                            shiny
+     0000008E  _CP1OUT                            shiny
+     0000008E  _PLL0MUL                           shiny
+     0000008E  _TR1                               shiny
+     0000008F  G$CP0EN$0$0                        shiny
+     0000008F  G$CP1EN$0$0                        shiny
+     0000008F  G$PLL0FLT$0$0                      shiny
+     0000008F  G$PSCTL$0$0                        shiny
+     0000008F  G$TF1$0$0                          shiny
+     0000008F  _CP0EN                             shiny
+     0000008F  _CP1EN                             shiny
+     0000008F  _PLL0FLT                           shiny
+     0000008F  _PSCTL                             shiny
+     0000008F  _TF1                               shiny
+     00000090  G$P1$0$0                           shiny
+     00000090  G$P1_0$0$0                         shiny
+     00000090  _P1                                shiny
+     00000090  _P1_0                              shiny
+     00000091  G$MAC0BL$0$0                       shiny
+     00000091  G$P1_1$0$0                         shiny
+     00000091  G$SSTA0$0$0                        shiny
+     00000091  _MAC0BL                            shiny
+     00000091  _P1_1                              shiny
+     00000091  _SSTA0                             shiny
+     00000092  G$MAC0BH$0$0                       shiny
+     00000092  G$P1_2$0$0                         shiny
+     00000092  _MAC0BH                            shiny
+     00000092  _P1_2                              shiny
+     00000093  G$MAC0ACC0$0$0                     shiny
+     00000093  G$P1_3$0$0                         shiny
+     00000093  _MAC0ACC0                          shiny
+     00000093  _P1_3                              shiny
+     00000094  G$MAC0ACC1$0$0                     shiny
+     00000094  G$P1_4$0$0                         shiny
+     00000094  _MAC0ACC1                          shiny
+     00000094  _P1_4                              shiny
+     00000095  G$MAC0ACC2$0$0                     shiny
+     00000095  G$P1_5$0$0                         shiny
+     00000095  _MAC0ACC2                          shiny
+     00000095  _P1_5                              shiny
+     00000096  G$MAC0ACC3$0$0                     shiny
+     00000096  G$P1_6$0$0                         shiny
+     00000096  G$SFRPGCN$0$0                      shiny
+ASxxxx Linker V03.00 + NoICE + sdld,  page 6.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+.  .ABS.                            00000000    00000000 =           0. bytes (ABS,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     00000096  _MAC0ACC3                          shiny
+     00000096  _P1_6                              shiny
+     00000096  _SFRPGCN                           shiny
+     00000097  G$CLKSEL$0$0                       shiny
+     00000097  G$MAC0OVR$0$0                      shiny
+     00000097  G$P1_7$0$0                         shiny
+     00000097  _CLKSEL                            shiny
+     00000097  _MAC0OVR                           shiny
+     00000097  _P1_7                              shiny
+     00000098  G$RI$0$0                           shiny
+     00000098  G$RI0$0$0                          shiny
+     00000098  G$RI1$0$0                          shiny
+     00000098  G$SCON$0$0                         shiny
+     00000098  G$SCON0$0$0                        shiny
+     00000098  G$SCON1$0$0                        shiny
+     00000098  _RI                                shiny
+     00000098  _RI0                               shiny
+     00000098  _RI1                               shiny
+     00000098  _SCON                              shiny
+     00000098  _SCON0                             shiny
+     00000098  _SCON1                             shiny
+     00000099  G$SBUF$0$0                         shiny
+     00000099  G$SBUF0$0$0                        shiny
+     00000099  G$SBUF1$0$0                        shiny
+     00000099  G$TI$0$0                           shiny
+     00000099  G$TI0$0$0                          shiny
+     00000099  G$TI1$0$0                          shiny
+     00000099  _SBUF                              shiny
+     00000099  _SBUF0                             shiny
+     00000099  _SBUF1                             shiny
+     00000099  _TI                                shiny
+     00000099  _TI0                               shiny
+     00000099  _TI1                               shiny
+     0000009A  G$CCH0MA$0$0                       shiny
+     0000009A  G$RB80$0$0                         shiny
+     0000009A  G$RB81$0$0                         shiny
+     0000009A  G$SPI0CFG$0$0                      shiny
+     0000009A  _CCH0MA                            shiny
+     0000009A  _RB80                              shiny
+     0000009A  _RB81                              shiny
+     0000009A  _SPI0CFG                           shiny
+     0000009B  G$SPI0DAT$0$0                      shiny
+     0000009B  G$TB80$0$0                         shiny
+     0000009B  G$TB81$0$0                         shiny
+     0000009B  _SPI0DAT                           shiny
+     0000009B  _TB80                              shiny
+     0000009B  _TB81                              shiny
+     0000009C  G$P4MDOUT$0$0                      shiny
+     0000009C  G$REN$0$0                          shiny
+     0000009C  G$REN0$0$0                         shiny
+     0000009C  G$REN1$0$0                         shiny
+ASxxxx Linker V03.00 + NoICE + sdld,  page 7.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+.  .ABS.                            00000000    00000000 =           0. bytes (ABS,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     0000009C  _P4MDOUT                           shiny
+     0000009C  _REN                               shiny
+     0000009C  _REN0                              shiny
+     0000009C  _REN1                              shiny
+     0000009D  G$MCE1$0$0                         shiny
+     0000009D  G$P5MDOUT$0$0                      shiny
+     0000009D  G$SM20$0$0                         shiny
+     0000009D  G$SPI0CKR$0$0                      shiny
+     0000009D  _MCE1                              shiny
+     0000009D  _P5MDOUT                           shiny
+     0000009D  _SM20                              shiny
+     0000009D  _SPI0CKR                           shiny
+     0000009E  G$P6MDOUT$0$0                      shiny
+     0000009E  G$SM10$0$0                         shiny
+     0000009E  _P6MDOUT                           shiny
+     0000009E  _SM10                              shiny
+     0000009F  G$P7MDOUT$0$0                      shiny
+     0000009F  G$S1MODE$0$0                       shiny
+     0000009F  G$SM00$0$0                         shiny
+     0000009F  _P7MDOUT                           shiny
+     0000009F  _S1MODE                            shiny
+     0000009F  _SM00                              shiny
+     000000A0  G$P2$0$0                           shiny
+     000000A0  G$P2_0$0$0                         shiny
+     000000A0  _P2                                shiny
+     000000A0  _P2_0                              shiny
+     000000A1  G$CCH0CN$0$0                       shiny
+     000000A1  G$EMI0TC$0$0                       shiny
+     000000A1  G$P2_1$0$0                         shiny
+     000000A1  _CCH0CN                            shiny
+     000000A1  _EMI0TC                            shiny
+     000000A1  _P2_1                              shiny
+     000000A2  G$CCH0TN$0$0                       shiny
+     000000A2  G$EMI0CN$0$0                       shiny
+     000000A2  G$P2_2$0$0                         shiny
+     000000A2  G$_XPAGE$0$0                       shiny
+     000000A2  _CCH0TN                            shiny
+     000000A2  _EMI0CN                            shiny
+     000000A2  _P2_2                              shiny
+     000000A2  __XPAGE                            shiny
+     000000A3  G$CCH0LC$0$0                       shiny
+     000000A3  G$EMI0CF$0$0                       shiny
+     000000A3  G$P2_3$0$0                         shiny
+     000000A3  _CCH0LC                            shiny
+     000000A3  _EMI0CF                            shiny
+     000000A3  _P2_3                              shiny
+     000000A4  G$P0MDOUT$0$0                      shiny
+     000000A4  G$P2_4$0$0                         shiny
+     000000A4  _P0MDOUT                           shiny
+     000000A4  _P2_4                              shiny
+     000000A5  G$P1MDOUT$0$0                      shiny
+ASxxxx Linker V03.00 + NoICE + sdld,  page 8.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+.  .ABS.                            00000000    00000000 =           0. bytes (ABS,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     000000A5  G$P2_5$0$0                         shiny
+     000000A5  _P1MDOUT                           shiny
+     000000A5  _P2_5                              shiny
+     000000A6  G$P2MDOUT$0$0                      shiny
+     000000A6  G$P2_6$0$0                         shiny
+     000000A6  _P2MDOUT                           shiny
+     000000A6  _P2_6                              shiny
+     000000A7  G$P2_7$0$0                         shiny
+     000000A7  G$P3MDOUT$0$0                      shiny
+     000000A7  _P2_7                              shiny
+     000000A7  _P3MDOUT                           shiny
+     000000A8  G$EX0$0$0                          shiny
+     000000A8  G$IE$0$0                           shiny
+     000000A8  _EX0                               shiny
+     000000A8  _IE                                shiny
+     000000A9  G$ET0$0$0                          shiny
+     000000A9  G$SADDR0$0$0                       shiny
+     000000A9  _ET0                               shiny
+     000000A9  _SADDR0                            shiny
+     000000AA  G$EX1$0$0                          shiny
+     000000AA  _EX1                               shiny
+     000000AB  G$ET1$0$0                          shiny
+     000000AB  _ET1                               shiny
+     000000AC  G$ES$0$0                           shiny
+     000000AC  G$ES0$0$0                          shiny
+     000000AC  _ES                                shiny
+     000000AC  _ES0                               shiny
+     000000AD  G$ET2$0$0                          shiny
+     000000AD  G$P1MDIN$0$0                       shiny
+     000000AD  _ET2                               shiny
+     000000AD  _P1MDIN                            shiny
+     000000AF  G$EA$0$0                           shiny
+     000000AF  _EA                                shiny
+     000000B0  G$P3$0$0                           shiny
+     000000B0  G$P3_0$0$0                         shiny
+     000000B0  _P3                                shiny
+     000000B0  _P3_0                              shiny
+     000000B1  G$P3_1$0$0                         shiny
+     000000B1  G$PSBANK$0$0                       shiny
+     000000B1  _P3_1                              shiny
+     000000B1  _PSBANK                            shiny
+     000000B2  G$P3_2$0$0                         shiny
+     000000B2  _P3_2                              shiny
+     000000B3  G$P3_3$0$0                         shiny
+     000000B3  _P3_3                              shiny
+     000000B4  G$P3_4$0$0                         shiny
+     000000B4  _P3_4                              shiny
+     000000B5  G$P3_5$0$0                         shiny
+     000000B5  _P3_5                              shiny
+     000000B6  G$P3_6$0$0                         shiny
+     000000B6  _P3_6                              shiny
+ASxxxx Linker V03.00 + NoICE + sdld,  page 9.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+.  .ABS.                            00000000    00000000 =           0. bytes (ABS,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     000000B7  G$FLACL$0$0                        shiny
+     000000B7  G$FLSCL$0$0                        shiny
+     000000B7  G$P3_7$0$0                         shiny
+     000000B7  _FLACL                             shiny
+     000000B7  _FLSCL                             shiny
+     000000B7  _P3_7                              shiny
+     000000B8  G$IP$0$0                           shiny
+     000000B8  G$PX0$0$0                          shiny
+     000000B8  _IP                                shiny
+     000000B8  _PX0                               shiny
+     000000B9  G$PT0$0$0                          shiny
+     000000B9  G$SADEN0$0$0                       shiny
+     000000B9  _PT0                               shiny
+     000000B9  _SADEN0                            shiny
+     000000BA  G$AMX0CF$0$0                       shiny
+     000000BA  G$AMX2CF$0$0                       shiny
+     000000BA  G$PX1$0$0                          shiny
+     000000BA  _AMX0CF                            shiny
+     000000BA  _AMX2CF                            shiny
+     000000BA  _PX1                               shiny
+     000000BB  G$AMX0SL$0$0                       shiny
+     000000BB  G$AMX2SL$0$0                       shiny
+     000000BB  G$PT1$0$0                          shiny
+     000000BB  _AMX0SL                            shiny
+     000000BB  _AMX2SL                            shiny
+     000000BB  _PT1                               shiny
+     000000BC  G$ADC0CF$0$0                       shiny
+     000000BC  G$ADC2CF$0$0                       shiny
+     000000BC  G$PS$0$0                           shiny
+     000000BC  G$PS0$0$0                          shiny
+     000000BC  _ADC0CF                            shiny
+     000000BC  _ADC2CF                            shiny
+     000000BC  _PS                                shiny
+     000000BC  _PS0                               shiny
+     000000BD  G$PT2$0$0                          shiny
+     000000BD  _PT2                               shiny
+     000000BE  G$ADC0L$0$0                        shiny
+     000000BE  G$ADC2$0$0                         shiny
+     000000BE  _ADC0L                             shiny
+     000000BE  _ADC2                              shiny
+     000000BF  G$ADC0H$0$0                        shiny
+     000000BF  _ADC0H                             shiny
+     000000C0  G$MAC0N$0$0                        shiny
+     000000C0  G$MAC0STA$0$0                      shiny
+     000000C0  G$SMB0CN$0$0                       shiny
+     000000C0  G$SMBTOE$0$0                       shiny
+     000000C0  _MAC0N                             shiny
+     000000C0  _MAC0STA                           shiny
+     000000C0  _SMB0CN                            shiny
+     000000C0  _SMBTOE                            shiny
+     000000C1  G$MAC0AL$0$0                       shiny
+ASxxxx Linker V03.00 + NoICE + sdld,  page 10.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+.  .ABS.                            00000000    00000000 =           0. bytes (ABS,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     000000C1  G$MAC0SO$0$0                       shiny
+     000000C1  G$SMB0STA$0$0                      shiny
+     000000C1  G$SMBFTE$0$0                       shiny
+     000000C1  _MAC0AL                            shiny
+     000000C1  _MAC0SO                            shiny
+     000000C1  _SMB0STA                           shiny
+     000000C1  _SMBFTE                            shiny
+     000000C2  G$AA$0$0                           shiny
+     000000C2  G$MAC0AH$0$0                       shiny
+     000000C2  G$MAC0Z$0$0                        shiny
+     000000C2  G$SMB0DAT$0$0                      shiny
+     000000C2  _AA                                shiny
+     000000C2  _MAC0AH                            shiny
+     000000C2  _MAC0Z                             shiny
+     000000C2  _SMB0DAT                           shiny
+     000000C3  G$MAC0CF$0$0                       shiny
+     000000C3  G$MAC0HO$0$0                       shiny
+     000000C3  G$SI$0$0                           shiny
+     000000C3  G$SMB0ADR$0$0                      shiny
+     000000C3  _MAC0CF                            shiny
+     000000C3  _MAC0HO                            shiny
+     000000C3  _SI                                shiny
+     000000C3  _SMB0ADR                           shiny
+     000000C4  G$ADC0GTL$0$0                      shiny
+     000000C4  G$ADC2GT$0$0                       shiny
+     000000C4  G$STO$0$0                          shiny
+     000000C4  _ADC0GTL                           shiny
+     000000C4  _ADC2GT                            shiny
+     000000C4  _STO                               shiny
+     000000C5  G$ADC0GTH$0$0                      shiny
+     000000C5  G$STA$0$0                          shiny
+     000000C5  _ADC0GTH                           shiny
+     000000C5  _STA                               shiny
+     000000C6  G$ADC0LTL$0$0                      shiny
+     000000C6  G$ADC2LT$0$0                       shiny
+     000000C6  G$ENSMB$0$0                        shiny
+     000000C6  _ADC0LTL                           shiny
+     000000C6  _ADC2LT                            shiny
+     000000C6  _ENSMB                             shiny
+     000000C7  G$ADC0LTH$0$0                      shiny
+     000000C7  G$BUSY$0$0                         shiny
+     000000C7  _ADC0LTH                           shiny
+     000000C7  _BUSY                              shiny
+     000000C8  G$CPRL2$0$0                        shiny
+     000000C8  G$CPRL3$0$0                        shiny
+     000000C8  G$CPRL4$0$0                        shiny
+     000000C8  G$P4$0$0                           shiny
+     000000C8  G$P4_0$0$0                         shiny
+     000000C8  G$TMR2CN$0$0                       shiny
+     000000C8  G$TMR3CN$0$0                       shiny
+     000000C8  G$TMR4CN$0$0                       shiny
+ASxxxx Linker V03.00 + NoICE + sdld,  page 11.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+.  .ABS.                            00000000    00000000 =           0. bytes (ABS,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     000000C8  _CPRL2                             shiny
+     000000C8  _CPRL3                             shiny
+     000000C8  _CPRL4                             shiny
+     000000C8  _P4                                shiny
+     000000C8  _P4_0                              shiny
+     000000C8  _TMR2CN                            shiny
+     000000C8  _TMR3CN                            shiny
+     000000C8  _TMR4CN                            shiny
+     000000C9  G$CT2$0$0                          shiny
+     000000C9  G$CT3$0$0                          shiny
+     000000C9  G$CT4$0$0                          shiny
+     000000C9  G$P4_1$0$0                         shiny
+     000000C9  G$TMR2CF$0$0                       shiny
+     000000C9  G$TMR3CF$0$0                       shiny
+     000000C9  G$TMR4CF$0$0                       shiny
+     000000C9  _CT2                               shiny
+     000000C9  _CT3                               shiny
+     000000C9  _CT4                               shiny
+     000000C9  _P4_1                              shiny
+     000000C9  _TMR2CF                            shiny
+     000000C9  _TMR3CF                            shiny
+     000000C9  _TMR4CF                            shiny
+     000000CA  G$P4_2$0$0                         shiny
+     000000CA  G$RCAP2L$0$0                       shiny
+     000000CA  G$RCAP3L$0$0                       shiny
+     000000CA  G$RCAP4L$0$0                       shiny
+     000000CA  G$TR2$0$0                          shiny
+     000000CA  G$TR3$0$0                          shiny
+     000000CA  G$TR4$0$0                          shiny
+     000000CA  _P4_2                              shiny
+     000000CA  _RCAP2L                            shiny
+     000000CA  _RCAP3L                            shiny
+     000000CA  _RCAP4L                            shiny
+     000000CA  _TR2                               shiny
+     000000CA  _TR3                               shiny
+     000000CA  _TR4                               shiny
+     000000CB  G$EXEN2$0$0                        shiny
+     000000CB  G$EXEN3$0$0                        shiny
+     000000CB  G$EXEN4$0$0                        shiny
+     000000CB  G$P4_3$0$0                         shiny
+     000000CB  G$RCAP2H$0$0                       shiny
+     000000CB  G$RCAP3H$0$0                       shiny
+     000000CB  G$RCAP4H$0$0                       shiny
+     000000CB  _EXEN2                             shiny
+     000000CB  _EXEN3                             shiny
+     000000CB  _EXEN4                             shiny
+     000000CB  _P4_3                              shiny
+     000000CB  _RCAP2H                            shiny
+     000000CB  _RCAP3H                            shiny
+     000000CB  _RCAP4H                            shiny
+     000000CC  G$P4_4$0$0                         shiny
+ASxxxx Linker V03.00 + NoICE + sdld,  page 12.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+.  .ABS.                            00000000    00000000 =           0. bytes (ABS,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     000000CC  G$TL2$0$0                          shiny
+     000000CC  G$TMR2L$0$0                        shiny
+     000000CC  G$TMR3L$0$0                        shiny
+     000000CC  G$TMR4L$0$0                        shiny
+     000000CC  _P4_4                              shiny
+     000000CC  _TL2                               shiny
+     000000CC  _TMR2L                             shiny
+     000000CC  _TMR3L                             shiny
+     000000CC  _TMR4L                             shiny
+     000000CD  G$P4_5$0$0                         shiny
+     000000CD  G$TH2$0$0                          shiny
+     000000CD  G$TMR2H$0$0                        shiny
+     000000CD  G$TMR3H$0$0                        shiny
+     000000CD  G$TMR4H$0$0                        shiny
+     000000CD  _P4_5                              shiny
+     000000CD  _TH2                               shiny
+     000000CD  _TMR2H                             shiny
+     000000CD  _TMR3H                             shiny
+     000000CD  _TMR4H                             shiny
+     000000CE  G$EXF2$0$0                         shiny
+     000000CE  G$EXF3$0$0                         shiny
+     000000CE  G$EXF4$0$0                         shiny
+     000000CE  G$MAC0RNDL$0$0                     shiny
+     000000CE  G$P4_6$0$0                         shiny
+     000000CE  _EXF2                              shiny
+     000000CE  _EXF3                              shiny
+     000000CE  _EXF4                              shiny
+     000000CE  _MAC0RNDL                          shiny
+     000000CE  _P4_6                              shiny
+     000000CF  G$MAC0RNDH$0$0                     shiny
+     000000CF  G$P4_7$0$0                         shiny
+     000000CF  G$SMB0CR$0$0                       shiny
+     000000CF  G$TF2$0$0                          shiny
+     000000CF  G$TF3$0$0                          shiny
+     000000CF  G$TF4$0$0                          shiny
+     000000CF  _MAC0RNDH                          shiny
+     000000CF  _P4_7                              shiny
+     000000CF  _SMB0CR                            shiny
+     000000CF  _TF2                               shiny
+     000000CF  _TF3                               shiny
+     000000CF  _TF4                               shiny
+     000000D0  G$P$0$0                            shiny
+     000000D0  G$PSW$0$0                          shiny
+     000000D0  _P                                 shiny
+     000000D0  _PSW                               shiny
+     000000D1  G$F1$0$0                           shiny
+     000000D1  G$REF0CN$0$0                       shiny
+     000000D1  _F1                                shiny
+     000000D1  _REF0CN                            shiny
+     000000D2  G$DAC0L$0$0                        shiny
+     000000D2  G$DAC1L$0$0                        shiny
+ASxxxx Linker V03.00 + NoICE + sdld,  page 13.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+.  .ABS.                            00000000    00000000 =           0. bytes (ABS,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     000000D2  G$OV$0$0                           shiny
+     000000D2  _DAC0L                             shiny
+     000000D2  _DAC1L                             shiny
+     000000D2  _OV                                shiny
+     000000D3  G$DAC0H$0$0                        shiny
+     000000D3  G$DAC1H$0$0                        shiny
+     000000D3  G$RS0$0$0                          shiny
+     000000D3  _DAC0H                             shiny
+     000000D3  _DAC1H                             shiny
+     000000D3  _RS0                               shiny
+     000000D4  G$DAC0CN$0$0                       shiny
+     000000D4  G$DAC1CN$0$0                       shiny
+     000000D4  G$RS1$0$0                          shiny
+     000000D4  _DAC0CN                            shiny
+     000000D4  _DAC1CN                            shiny
+     000000D4  _RS1                               shiny
+     000000D5  G$F0$0$0                           shiny
+     000000D5  _F0                                shiny
+     000000D6  G$AC$0$0                           shiny
+     000000D6  _AC                                shiny
+     000000D7  G$CY$0$0                           shiny
+     000000D7  _CY                                shiny
+     000000D8  G$CCF0$0$0                         shiny
+     000000D8  G$P5$0$0                           shiny
+     000000D8  G$P5_0$0$0                         shiny
+     000000D8  G$PCA0CN$0$0                       shiny
+     000000D8  _CCF0                              shiny
+     000000D8  _P5                                shiny
+     000000D8  _P5_0                              shiny
+     000000D8  _PCA0CN                            shiny
+     000000D9  G$CCF1$0$0                         shiny
+     000000D9  G$P5_1$0$0                         shiny
+     000000D9  G$PCA0MD$0$0                       shiny
+     000000D9  _CCF1                              shiny
+     000000D9  _P5_1                              shiny
+     000000D9  _PCA0MD                            shiny
+     000000DA  G$CCF2$0$0                         shiny
+     000000DA  G$P5_2$0$0                         shiny
+     000000DA  G$PCA0CPM0$0$0                     shiny
+     000000DA  _CCF2                              shiny
+     000000DA  _P5_2                              shiny
+     000000DA  _PCA0CPM0                          shiny
+     000000DB  G$CCF3$0$0                         shiny
+     000000DB  G$P5_3$0$0                         shiny
+     000000DB  G$PCA0CPM1$0$0                     shiny
+     000000DB  _CCF3                              shiny
+     000000DB  _P5_3                              shiny
+     000000DB  _PCA0CPM1                          shiny
+     000000DC  G$CCF4$0$0                         shiny
+     000000DC  G$P5_4$0$0                         shiny
+     000000DC  G$PCA0CPM2$0$0                     shiny
+ASxxxx Linker V03.00 + NoICE + sdld,  page 14.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+.  .ABS.                            00000000    00000000 =           0. bytes (ABS,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     000000DC  _CCF4                              shiny
+     000000DC  _P5_4                              shiny
+     000000DC  _PCA0CPM2                          shiny
+     000000DD  G$CCF5$0$0                         shiny
+     000000DD  G$P5_5$0$0                         shiny
+     000000DD  G$PCA0CPM3$0$0                     shiny
+     000000DD  _CCF5                              shiny
+     000000DD  _P5_5                              shiny
+     000000DD  _PCA0CPM3                          shiny
+     000000DE  G$CR$0$0                           shiny
+     000000DE  G$P5_6$0$0                         shiny
+     000000DE  G$PCA0CPM4$0$0                     shiny
+     000000DE  _CR                                shiny
+     000000DE  _P5_6                              shiny
+     000000DE  _PCA0CPM4                          shiny
+     000000DF  G$CF$0$0                           shiny
+     000000DF  G$P5_7$0$0                         shiny
+     000000DF  G$PCA0CPM5$0$0                     shiny
+     000000DF  _CF                                shiny
+     000000DF  _P5_7                              shiny
+     000000DF  _PCA0CPM5                          shiny
+     000000E0  G$ACC$0$0                          shiny
+     000000E0  _ACC                               shiny
+     000000E1  G$PCA0CPL5$0$0                     shiny
+     000000E1  G$XBR0$0$0                         shiny
+     000000E1  _PCA0CPL5                          shiny
+     000000E1  _XBR0                              shiny
+     000000E2  G$PCA0CPH5$0$0                     shiny
+     000000E2  G$XBR1$0$0                         shiny
+     000000E2  _PCA0CPH5                          shiny
+     000000E2  _XBR1                              shiny
+     000000E3  G$XBR2$0$0                         shiny
+     000000E3  _XBR2                              shiny
+     000000E6  G$EIE1$0$0                         shiny
+     000000E6  _EIE1                              shiny
+     000000E7  G$EIE2$0$0                         shiny
+     000000E7  _EIE2                              shiny
+     000000E8  G$AD0LJST$0$0                      shiny
+     000000E8  G$AD2WINT$0$0                      shiny
+     000000E8  G$ADC0CN$0$0                       shiny
+     000000E8  G$ADC2CN$0$0                       shiny
+     000000E8  G$P6$0$0                           shiny
+     000000E8  G$P6_0$0$0                         shiny
+     000000E8  _AD0LJST                           shiny
+     000000E8  _AD2WINT                           shiny
+     000000E8  _ADC0CN                            shiny
+     000000E8  _ADC2CN                            shiny
+     000000E8  _P6                                shiny
+     000000E8  _P6_0                              shiny
+     000000E9  G$AD0WINT$0$0                      shiny
+     000000E9  G$AD2CM0$0$0                       shiny
+ASxxxx Linker V03.00 + NoICE + sdld,  page 15.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+.  .ABS.                            00000000    00000000 =           0. bytes (ABS,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     000000E9  G$P6_1$0$0                         shiny
+     000000E9  G$PCA0CPL2$0$0                     shiny
+     000000E9  _AD0WINT                           shiny
+     000000E9  _AD2CM0                            shiny
+     000000E9  _P6_1                              shiny
+     000000E9  _PCA0CPL2                          shiny
+     000000EA  G$AD0CM0$0$0                       shiny
+     000000EA  G$AD2CM1$0$0                       shiny
+     000000EA  G$P6_2$0$0                         shiny
+     000000EA  G$PCA0CPH2$0$0                     shiny
+     000000EA  _AD0CM0                            shiny
+     000000EA  _AD2CM1                            shiny
+     000000EA  _P6_2                              shiny
+     000000EA  _PCA0CPH2                          shiny
+     000000EB  G$AD0CM1$0$0                       shiny
+     000000EB  G$AD2CM2$0$0                       shiny
+     000000EB  G$P6_3$0$0                         shiny
+     000000EB  G$PCA0CPL3$0$0                     shiny
+     000000EB  _AD0CM1                            shiny
+     000000EB  _AD2CM2                            shiny
+     000000EB  _P6_3                              shiny
+     000000EB  _PCA0CPL3                          shiny
+     000000EC  G$AD0BUSY$0$0                      shiny
+     000000EC  G$AD2BUSY$0$0                      shiny
+     000000EC  G$P6_4$0$0                         shiny
+     000000EC  G$PCA0CPH3$0$0                     shiny
+     000000EC  _AD0BUSY                           shiny
+     000000EC  _AD2BUSY                           shiny
+     000000EC  _P6_4                              shiny
+     000000EC  _PCA0CPH3                          shiny
+     000000ED  G$AD0INT$0$0                       shiny
+     000000ED  G$AD2INT$0$0                       shiny
+     000000ED  G$P6_5$0$0                         shiny
+     000000ED  G$PCA0CPL4$0$0                     shiny
+     000000ED  _AD0INT                            shiny
+     000000ED  _AD2INT                            shiny
+     000000ED  _P6_5                              shiny
+     000000ED  _PCA0CPL4                          shiny
+     000000EE  G$AD0TM$0$0                        shiny
+     000000EE  G$AD2TM$0$0                        shiny
+     000000EE  G$P6_6$0$0                         shiny
+     000000EE  G$PCA0CPH4$0$0                     shiny
+     000000EE  _AD0TM                             shiny
+     000000EE  _AD2TM                             shiny
+     000000EE  _P6_6                              shiny
+     000000EE  _PCA0CPH4                          shiny
+     000000EF  G$AD0EN$0$0                        shiny
+     000000EF  G$AD2EN$0$0                        shiny
+     000000EF  G$P6_7$0$0                         shiny
+     000000EF  G$RSTSRC$0$0                       shiny
+     000000EF  _AD0EN                             shiny
+ASxxxx Linker V03.00 + NoICE + sdld,  page 16.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+.  .ABS.                            00000000    00000000 =           0. bytes (ABS,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     000000EF  _AD2EN                             shiny
+     000000EF  _P6_7                              shiny
+     000000EF  _RSTSRC                            shiny
+     000000F0  G$B$0$0                            shiny
+     000000F0  _B                                 shiny
+     000000F5  _B_5                               _gptrget
+     000000F6  G$EIP1$0$0                         shiny
+     000000F6  _B_6                               _gptrget
+     000000F6  _EIP1                              shiny
+     000000F7  G$EIP2$0$0                         shiny
+     000000F7  _B_7                               _gptrget
+     000000F7  _EIP2                              shiny
+     000000F8  G$P7$0$0                           shiny
+     000000F8  G$P7_0$0$0                         shiny
+     000000F8  G$SPI0CN$0$0                       shiny
+     000000F8  G$SPIEN$0$0                        shiny
+     000000F8  _P7                                shiny
+     000000F8  _P7_0                              shiny
+     000000F8  _SPI0CN                            shiny
+     000000F8  _SPIEN                             shiny
+     000000F9  G$P7_1$0$0                         shiny
+     000000F9  G$PCA0L$0$0                        shiny
+     000000F9  G$TXBMT$0$0                        shiny
+     000000F9  _P7_1                              shiny
+     000000F9  _PCA0L                             shiny
+     000000F9  _TXBMT                             shiny
+     000000FA  G$NSSMD0$0$0                       shiny
+     000000FA  G$P7_2$0$0                         shiny
+     000000FA  G$PCA0H$0$0                        shiny
+     000000FA  _NSSMD0                            shiny
+     000000FA  _P7_2                              shiny
+     000000FA  _PCA0H                             shiny
+     000000FB  G$NSSMD1$0$0                       shiny
+     000000FB  G$P7_3$0$0                         shiny
+     000000FB  G$PCA0CPL0$0$0                     shiny
+     000000FB  _NSSMD1                            shiny
+     000000FB  _P7_3                              shiny
+     000000FB  _PCA0CPL0                          shiny
+     000000FC  G$P7_4$0$0                         shiny
+     000000FC  G$PCA0CPH0$0$0                     shiny
+     000000FC  G$RXOVRN$0$0                       shiny
+     000000FC  _P7_4                              shiny
+     000000FC  _PCA0CPH0                          shiny
+     000000FC  _RXOVRN                            shiny
+     000000FD  G$MODF$0$0                         shiny
+     000000FD  G$P7_5$0$0                         shiny
+     000000FD  G$PCA0CPL1$0$0                     shiny
+     000000FD  _MODF                              shiny
+     000000FD  _P7_5                              shiny
+     000000FD  _PCA0CPL1                          shiny
+     000000FE  G$P7_6$0$0                         shiny
+ASxxxx Linker V03.00 + NoICE + sdld,  page 17.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+.  .ABS.                            00000000    00000000 =           0. bytes (ABS,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     000000FE  G$PCA0CPH1$0$0                     shiny
+     000000FE  G$WCOL$0$0                         shiny
+     000000FE  _P7_6                              shiny
+     000000FE  _PCA0CPH1                          shiny
+     000000FE  _WCOL                              shiny
+     000000FF  G$P7_7$0$0                         shiny
+     000000FF  G$SPIF$0$0                         shiny
+     000000FF  G$WDTCN$0$0                        shiny
+     000000FF  _P7_7                              shiny
+     000000FF  _SPIF                              shiny
+     000000FF  _WDTCN                             shiny
+     00008C8A  G$TMR0$0$0                         shiny
+     00008C8A  _TMR0                              shiny
+     00008D8B  G$TMR1$0$0                         shiny
+     00008D8B  _TMR1                              shiny
+     0000BFBE  G$ADC0$0$0                         shiny
+     0000BFBE  _ADC0                              shiny
+     0000C2C1  G$MAC0A$0$0                        shiny
+     0000C2C1  _MAC0A                             shiny
+     0000C5C4  G$ADC0GT$0$0                       shiny
+     0000C5C4  _ADC0GT                            shiny
+     0000C7C6  G$ADC0LT$0$0                       shiny
+     0000C7C6  _ADC0LT                            shiny
+     0000CBCA  G$RCAP2$0$0                        shiny
+     0000CBCA  G$RCAP3$0$0                        shiny
+     0000CBCA  G$RCAP4$0$0                        shiny
+     0000CBCA  _RCAP2                             shiny
+     0000CBCA  _RCAP3                             shiny
+     0000CBCA  _RCAP4                             shiny
+     0000CDCC  G$TMR2$0$0                         shiny
+     0000CDCC  G$TMR3$0$0                         shiny
+     0000CDCC  G$TMR4$0$0                         shiny
+     0000CDCC  _TMR2                              shiny
+     0000CDCC  _TMR3                              shiny
+     0000CDCC  _TMR4                              shiny
+     0000CFCE  G$MAC0RND$0$0                      shiny
+     0000CFCE  _MAC0RND                           shiny
+     0000D3D2  G$DAC0$0$0                         shiny
+     0000D3D2  G$DAC1$0$0                         shiny
+     0000D3D2  _DAC0                              shiny
+     0000D3D2  _DAC1                              shiny
+     0000E2E1  G$PCA0CP5$0$0                      shiny
+     0000E2E1  _PCA0CP5                           shiny
+     0000EAE9  G$PCA0CP2$0$0                      shiny
+     0000EAE9  _PCA0CP2                           shiny
+     0000ECEB  G$PCA0CP3$0$0                      shiny
+     0000ECEB  _PCA0CP3                           shiny
+     0000EEED  G$PCA0CP4$0$0                      shiny
+     0000EEED  _PCA0CP4                           shiny
+     0000FAF9  G$PCA0$0$0                         shiny
+     0000FAF9  _PCA0                              shiny
+ASxxxx Linker V03.00 + NoICE + sdld,  page 18.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+.  .ABS.                            00000000    00000000 =           0. bytes (ABS,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     0000FCFB  G$PCA0CP0$0$0                      shiny
+     0000FCFB  _PCA0CP0                           shiny
+     0000FEFD  G$PCA0CP1$0$0                      shiny
+     0000FEFD  _PCA0CP1                           shiny
+     00959493  G$MAC0ACC$0$0                      shiny
+     00959493  _MAC0ACC                           shiny
+
+ASxxxx Linker V03.00 + NoICE + sdld,  page 19.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+BSEG_BYTES                          00000020    00000003 =           3. bytes (REL,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+ASxxxx Linker V03.00 + NoICE + sdld,  page 20.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+REG_BANK_0                          00000000    00000008 =           8. bytes (REL,OVR)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+ASxxxx Linker V03.00 + NoICE + sdld,  page 21.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+DSEG                                00000000    0000007C =         124. bytes (REL,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     0000000E  _bp                                _bp
+     0000000F  _vprintf_PARM_2                    vprintf
+     00000023  G$running$0$0                      shiny
+     00000023  _running                           shiny
+     00000027  G$run$0$0                          shiny
+     00000027  _run                               shiny
+     00000029  G$min$0$0                          shiny
+     00000029  _min                               shiny
+     0000002D  G$hmin$0$0                         shiny
+     0000002D  _hmin                              shiny
+     0000002F  G$max$0$0                          shiny
+     0000002F  _max                               shiny
+     00000033  G$hmax$0$0                         shiny
+     00000033  _hmax                              shiny
+     00000035  G$trials$0$0                       shiny
+     00000035  _trials                            shiny
+     00000039  Lshiny.score$volts$1$55            shiny
+     0000003D  Lshiny.score$hvolts$1$55           shiny
+     0000003F  Lshiny.score$sloc0$1$0             shiny
+     0000004F  __print_format_PARM_2              printf_large
+     00000052  __print_format_PARM_3              printf_large
+     00000055  __print_format_PARM_4              printf_large
+
+ASxxxx Linker V03.00 + NoICE + sdld,  page 22.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+OSEG                                00000010    00000006 =           6. bytes (REL,OVR)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+ASxxxx Linker V03.00 + NoICE + sdld,  page 23.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+ISEG                                00000016    00000006 =           6. bytes (REL,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+ASxxxx Linker V03.00 + NoICE + sdld,  page 24.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+SSEG                                0000005D    000000A3 =         163. bytes (REL,OVR)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     0000005D  __start__stack                     shiny
+
+ASxxxx Linker V03.00 + NoICE + sdld,  page 25.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+HOME                                00000000    00000006 =           6. bytes (REL,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+C:   00000000  A$shiny$1286                       shiny
+C:   00000003  A$shiny$1346                       shiny
+C:   00000003  __sdcc_program_startup             shiny
+ASxxxx Linker V03.00 + NoICE + sdld,  page 26.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+GSINIT0                             00000006    00000003 =           3. bytes (REL,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+C:   00000006  __sdcc_gsinit_startup              
+
+ASxxxx Linker V03.00 + NoICE + sdld,  page 27.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+GSINIT2                             00000009    0000000A =          10. bytes (REL,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+ASxxxx Linker V03.00 + NoICE + sdld,  page 28.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+GSINIT3                             00000013    00000022 =          34. bytes (REL,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+C:   00000013  __mcs51_genXINIT                   
+
+ASxxxx Linker V03.00 + NoICE + sdld,  page 29.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+GSINIT4                             00000035    0000002A =          42. bytes (REL,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+C:   00000035  __mcs51_genRAMCLEAR                
+C:   0000003B  __mcs51_genXRAMCLEAR               
+
+ASxxxx Linker V03.00 + NoICE + sdld,  page 30.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+GSINIT                              0000005F    00000030 =          48. bytes (REL,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+C:   0000005F  A$shiny$1302                       shiny
+C:   0000005F  C$shiny.c$19$1$66                  shiny
+C:   00000060  A$shiny$1303                       shiny
+C:   00000062  A$shiny$1304                       shiny
+C:   00000064  A$shiny$1305                       shiny
+C:   00000066  A$shiny$1306                       shiny
+C:   00000068  A$shiny$1309                       shiny
+C:   00000068  C$shiny.c$20$1$66                  shiny
+C:   0000006A  A$shiny$1310                       shiny
+C:   0000006C  A$shiny$1313                       shiny
+C:   0000006C  C$shiny.c$21$1$66                  shiny
+C:   0000006E  A$shiny$1314                       shiny
+C:   00000070  A$shiny$1315                       shiny
+C:   00000073  A$shiny$1316                       shiny
+C:   00000076  A$shiny$1319                       shiny
+C:   00000076  C$shiny.c$22$1$66                  shiny
+C:   00000079  A$shiny$1321                       shiny
+C:   0000007B  A$shiny$1324                       shiny
+C:   0000007B  C$shiny.c$23$1$66                  shiny
+C:   0000007D  A$shiny$1325                       shiny
+C:   0000007F  A$shiny$1326                       shiny
+C:   00000081  A$shiny$1327                       shiny
+C:   00000083  A$shiny$1330                       shiny
+C:   00000083  C$shiny.c$24$1$66                  shiny
+C:   00000085  A$shiny$1331                       shiny
+C:   00000087  A$shiny$1334                       shiny
+C:   00000087  C$shiny.c$25$1$66                  shiny
+C:   00000089  A$shiny$1335                       shiny
+C:   0000008B  A$shiny$1336                       shiny
+C:   0000008D  A$shiny$1337                       shiny
+ASxxxx Linker V03.00 + NoICE + sdld,  page 31.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+GSFINAL                             0000008F    00000003 =           3. bytes (REL,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+C:   0000008F  A$shiny$1339                       shiny
+
+ASxxxx Linker V03.00 + NoICE + sdld,  page 32.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+CSEG                                00000092    00001437 =        5175. bytes (REL,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+C:   00000092  A$shiny$1372                       shiny
+C:   00000092  C$putget.h$18$0$0                  shiny
+C:   00000092  G$putchar$0$0                      shiny
+C:   00000092  _putchar                           shiny
+C:   00000094  A$shiny$1378                       shiny
+C:   00000094  C$putget.h$20$1$16                 shiny
+C:   00000094  C$putget.h$21$1$16                 shiny
+C:   00000097  A$shiny$1379                       shiny
+C:   00000099  A$shiny$1383                       shiny
+C:   00000099  C$putget.h$22$1$16                 shiny
+C:   0000009B  A$shiny$1386                       shiny
+C:   0000009B  C$putget.h$23$1$16                 shiny
+C:   0000009B  XG$putchar$0$0                     shiny
+C:   0000009C  A$shiny$1404                       shiny
+C:   0000009C  C$putget.h$28$1$16                 shiny
+C:   0000009C  C$putget.h$31$1$18                 shiny
+C:   0000009C  C$putget.h$32$1$18                 shiny
+C:   0000009C  G$getchar$0$0                      shiny
+C:   0000009C  _getchar                           shiny
+C:   0000009F  A$shiny$1405                       shiny
+C:   000000A1  A$shiny$1409                       shiny
+C:   000000A1  C$putget.h$33$1$18                 shiny
+C:   000000A3  A$shiny$1412                       shiny
+C:   000000A3  C$putget.h$36$1$18                 shiny
+C:   000000A6  A$shiny$1415                       shiny
+C:   000000A6  C$putget.h$37$1$18                 shiny
+C:   000000A6  XG$getchar$0$0                     shiny
+C:   000000A7  A$shiny$1430                       shiny
+C:   000000A7  C$shiny.c$38$1$18                  shiny
+C:   000000A7  C$shiny.c$40$1$18                  shiny
+C:   000000A7  G$main$0$0                         shiny
+C:   000000A7  _main                              shiny
+C:   000000A9  A$shiny$1431                       shiny
+C:   000000AB  A$shiny$1434                       shiny
+C:   000000AB  C$shiny.c$41$1$50                  shiny
+C:   000000AE  A$shiny$1437                       shiny
+C:   000000AE  C$shiny.c$42$1$50                  shiny
+C:   000000B0  A$shiny$1438                       shiny
+C:   000000B2  A$shiny$1439                       shiny
+C:   000000B5  A$shiny$1442                       shiny
+C:   000000B5  C$shiny.c$43$1$50                  shiny
+C:   000000B8  A$shiny$1445                       shiny
+C:   000000B8  C$shiny.c$44$1$50                  shiny
+C:   000000BB  A$shiny$1448                       shiny
+C:   000000BB  C$shiny.c$45$1$50                  shiny
+C:   000000BE  A$shiny$1451                       shiny
+C:   000000BE  C$shiny.c$46$1$50                  shiny
+C:   000000C1  A$shiny$1454                       shiny
+C:   000000C1  C$shiny.c$47$1$50                  shiny
+C:   000000C4  A$shiny$1457                       shiny
+ASxxxx Linker V03.00 + NoICE + sdld,  page 33.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+CSEG                                00000092    00001437 =        5175. bytes (REL,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+C:   000000C4  C$shiny.c$48$1$50                  shiny
+C:   000000C6  A$shiny$1458                       shiny
+C:   000000C8  A$shiny$1459                       shiny
+C:   000000CA  A$shiny$1460                       shiny
+C:   000000CC  A$shiny$1461                       shiny
+C:   000000CE  A$shiny$1462                       shiny
+C:   000000D0  A$shiny$1463                       shiny
+C:   000000D3  A$shiny$1464                       shiny
+C:   000000D5  A$shiny$1465                       shiny
+C:   000000D7  A$shiny$1466                       shiny
+C:   000000D9  A$shiny$1469                       shiny
+C:   000000D9  C$shiny.c$50$1$50                  shiny
+C:   000000DB  A$shiny$1470                       shiny
+C:   000000DD  A$shiny$1471                       shiny
+C:   000000DF  A$shiny$1472                       shiny
+C:   000000E1  A$shiny$1473                       shiny
+C:   000000E3  A$shiny$1474                       shiny
+C:   000000E5  A$shiny$1475                       shiny
+C:   000000E8  A$shiny$1476                       shiny
+C:   000000EA  A$shiny$1477                       shiny
+C:   000000EC  A$shiny$1478                       shiny
+C:   000000EE  A$shiny$1479                       shiny
+C:   000000F0  A$shiny$1480                       shiny
+C:   000000F2  A$shiny$1486                       shiny
+C:   000000F2  C$shiny.c$51$1$50                  shiny
+C:   000000F2  C$shiny.c$53$2$51                  shiny
+C:   000000F5  A$shiny$1489                       shiny
+C:   000000F5  C$shiny.c$55$2$51                  shiny
+C:   000000F7  A$shiny$1490                       shiny
+C:   000000F9  A$shiny$1493                       shiny
+C:   000000F9  C$shiny.c$57$3$52                  shiny
+C:   000000FC  A$shiny$1496                       shiny
+C:   000000FC  C$shiny.c$58$3$52                  shiny
+C:   000000FE  A$shiny$1497                       shiny
+C:   00000100  A$shiny$1498                       shiny
+C:   00000102  A$shiny$1499                       shiny
+C:   00000104  A$shiny$1500                       shiny
+C:   00000107  A$shiny$1501                       shiny
+C:   00000109  A$shiny$1502                       shiny
+C:   0000010B  A$shiny$1506                       shiny
+C:   0000010B  C$shiny.c$60$2$51                  shiny
+C:   0000010D  A$shiny$1509                       shiny
+C:   0000010D  C$shiny.c$61$2$51                  shiny
+C:   0000010F  A$shiny$1510                       shiny
+C:   00000111  A$shiny$1513                       shiny
+C:   00000111  C$shiny.c$65$1$50                  shiny
+C:   00000111  XG$main$0$0                        shiny
+C:   00000112  A$shiny$1526                       shiny
+C:   00000112  C$shiny.c$67$1$50                  shiny
+C:   00000112  C$shiny.c$69$1$53                  shiny
+C:   00000112  G$ADC_read$0$0                     shiny
+ASxxxx Linker V03.00 + NoICE + sdld,  page 34.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+CSEG                                00000092    00001437 =        5175. bytes (REL,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+C:   00000112  _ADC_read                          shiny
+C:   00000115  A$shiny$1529                       shiny
+C:   00000115  C$shiny.c$70$1$53                  shiny
+C:   00000117  A$shiny$1530                       shiny
+C:   00000119  A$shiny$1531                       shiny
+C:   0000011A  A$shiny$1532                       shiny
+C:   0000011C  A$shiny$1535                       shiny
+C:   0000011C  C$shiny.c$71$1$53                  shiny
+C:   0000011F  A$shiny$1539                       shiny
+C:   0000011F  C$shiny.c$72$1$53                  shiny
+C:   00000121  A$shiny$1540                       shiny
+C:   00000124  A$shiny$1543                       shiny
+C:   00000124  C$shiny.c$73$1$53                  shiny
+C:   00000127  A$shiny$1544                       shiny
+C:   0000012A  A$shiny$1547                       shiny
+C:   0000012A  C$shiny.c$74$1$53                  shiny
+C:   0000012A  XG$ADC_read$0$0                    shiny
+C:   0000012B  A$shiny$1565                       shiny
+C:   0000012B  C$shiny.c$75$1$53                  shiny
+C:   0000012B  C$shiny.c$80$1$55                  shiny
+C:   0000012B  G$score$0$0                        shiny
+C:   0000012B  _score                             shiny
+C:   0000012E  A$shiny$1566                       shiny
+C:   00000130  A$shiny$1567                       shiny
+C:   00000132  A$shiny$1568                       shiny
+C:   00000134  A$shiny$1569                       shiny
+C:   00000135  A$shiny$1570                       shiny
+C:   00000137  A$shiny$1571                       shiny
+C:   00000139  A$shiny$1572                       shiny
+C:   0000013B  A$shiny$1573                       shiny
+C:   0000013D  A$shiny$1574                       shiny
+C:   0000013E  A$shiny$1575                       shiny
+C:   00000140  A$shiny$1576                       shiny
+C:   00000142  A$shiny$1577                       shiny
+C:   00000144  A$shiny$1578                       shiny
+C:   00000146  A$shiny$1579                       shiny
+C:   00000148  A$shiny$1580                       shiny
+C:   0000014A  A$shiny$1581                       shiny
+C:   0000014C  A$shiny$1582                       shiny
+C:   0000014E  A$shiny$1583                       shiny
+C:   00000150  A$shiny$1584                       shiny
+C:   00000151  A$shiny$1585                       shiny
+C:   00000154  A$shiny$1586                       shiny
+C:   00000157  A$shiny$1587                       shiny
+C:   0000015A  A$shiny$1588                       shiny
+C:   0000015D  A$shiny$1589                       shiny
+C:   0000015F  A$shiny$1590                       shiny
+C:   00000161  A$shiny$1591                       shiny
+C:   00000163  A$shiny$1592                       shiny
+C:   00000165  A$shiny$1595                       shiny
+C:   00000165  C$shiny.c$81$1$55                  shiny
+ASxxxx Linker V03.00 + NoICE + sdld,  page 35.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+CSEG                                00000092    00001437 =        5175. bytes (REL,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+C:   00000167  A$shiny$1596                       shiny
+C:   00000169  A$shiny$1597                       shiny
+C:   0000016B  A$shiny$1598                       shiny
+C:   0000016D  A$shiny$1599                       shiny
+C:   00000170  A$shiny$1600                       shiny
+C:   00000173  A$shiny$1601                       shiny
+C:   00000175  A$shiny$1602                       shiny
+C:   00000178  A$shiny$1603                       shiny
+C:   0000017B  A$shiny$1604                       shiny
+C:   0000017E  A$shiny$1605                       shiny
+C:   00000181  A$shiny$1606                       shiny
+C:   00000183  A$shiny$1607                       shiny
+C:   00000185  A$shiny$1608                       shiny
+C:   00000187  A$shiny$1609                       shiny
+C:   00000189  A$shiny$1612                       shiny
+C:   00000189  C$shiny.c$82$1$55                  shiny
+C:   0000018B  A$shiny$1613                       shiny
+C:   0000018D  A$shiny$1614                       shiny
+C:   0000018F  A$shiny$1615                       shiny
+C:   00000191  A$shiny$1616                       shiny
+C:   00000193  A$shiny$1617                       shiny
+C:   00000195  A$shiny$1618                       shiny
+C:   00000198  A$shiny$1619                       shiny
+C:   0000019A  A$shiny$1620                       shiny
+C:   0000019C  A$shiny$1621                       shiny
+C:   0000019E  A$shiny$1624                       shiny
+C:   0000019E  C$shiny.c$83$1$55                  shiny
+C:   000001A0  A$shiny$1625                       shiny
+C:   000001A2  A$shiny$1626                       shiny
+C:   000001A4  A$shiny$1627                       shiny
+C:   000001A6  A$shiny$1628                       shiny
+C:   000001A8  A$shiny$1629                       shiny
+C:   000001AA  A$shiny$1630                       shiny
+C:   000001AC  A$shiny$1631                       shiny
+C:   000001AE  A$shiny$1632                       shiny
+C:   000001B1  A$shiny$1633                       shiny
+C:   000001B3  A$shiny$1634                       shiny
+C:   000001B5  A$shiny$1635                       shiny
+C:   000001B7  A$shiny$1636                       shiny
+C:   000001B9  A$shiny$1637                       shiny
+C:   000001BB  A$shiny$1638                       shiny
+C:   000001BD  A$shiny$1639                       shiny
+C:   000001BF  A$shiny$1642                       shiny
+C:   000001BF  C$shiny.c$84$1$55                  shiny
+C:   000001C1  A$shiny$1643                       shiny
+C:   000001C3  A$shiny$1644                       shiny
+C:   000001C5  A$shiny$1645                       shiny
+C:   000001C7  A$shiny$1646                       shiny
+C:   000001C9  A$shiny$1647                       shiny
+C:   000001CB  A$shiny$1648                       shiny
+C:   000001CD  A$shiny$1649                       shiny
+ASxxxx Linker V03.00 + NoICE + sdld,  page 36.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+CSEG                                00000092    00001437 =        5175. bytes (REL,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+C:   000001CF  A$shiny$1650                       shiny
+C:   000001D1  A$shiny$1651                       shiny
+C:   000001D3  A$shiny$1652                       shiny
+C:   000001D5  A$shiny$1653                       shiny
+C:   000001D6  A$shiny$1654                       shiny
+C:   000001D9  A$shiny$1655                       shiny
+C:   000001DB  A$shiny$1656                       shiny
+C:   000001DD  A$shiny$1657                       shiny
+C:   000001DF  A$shiny$1658                       shiny
+C:   000001E0  A$shiny$1659                       shiny
+C:   000001E2  A$shiny$1660                       shiny
+C:   000001E4  A$shiny$1661                       shiny
+C:   000001E6  A$shiny$1662                       shiny
+C:   000001E8  A$shiny$1663                       shiny
+C:   000001EA  A$shiny$1664                       shiny
+C:   000001EC  A$shiny$1665                       shiny
+C:   000001ED  A$shiny$1666                       shiny
+C:   000001F0  A$shiny$1667                       shiny
+C:   000001F3  A$shiny$1668                       shiny
+C:   000001F6  A$shiny$1671                       shiny
+C:   000001F6  C$shiny.c$85$1$55                  shiny
+C:   000001F7  A$shiny$1672                       shiny
+C:   000001F9  A$shiny$1673                       shiny
+C:   000001FB  A$shiny$1674                       shiny
+C:   000001FD  A$shiny$1675                       shiny
+C:   000001FF  A$shiny$1676                       shiny
+C:   00000201  A$shiny$1677                       shiny
+C:   00000203  A$shiny$1678                       shiny
+C:   00000205  A$shiny$1679                       shiny
+C:   00000207  A$shiny$1680                       shiny
+C:   00000209  A$shiny$1681                       shiny
+C:   0000020B  A$shiny$1682                       shiny
+C:   0000020D  A$shiny$1683                       shiny
+C:   0000020F  A$shiny$1684                       shiny
+C:   00000212  A$shiny$1685                       shiny
+C:   00000214  A$shiny$1686                       shiny
+C:   00000216  A$shiny$1687                       shiny
+C:   00000218  A$shiny$1691                       shiny
+C:   00000218  C$shiny.c$86$1$55                  shiny
+C:   0000021A  A$shiny$1692                       shiny
+C:   0000021C  A$shiny$1693                       shiny
+C:   0000021E  A$shiny$1694                       shiny
+C:   00000220  A$shiny$1695                       shiny
+C:   00000222  A$shiny$1696                       shiny
+C:   00000224  A$shiny$1697                       shiny
+C:   00000226  A$shiny$1698                       shiny
+C:   00000228  A$shiny$1699                       shiny
+C:   0000022B  A$shiny$1700                       shiny
+C:   0000022D  A$shiny$1701                       shiny
+C:   0000022F  A$shiny$1702                       shiny
+C:   00000231  A$shiny$1705                       shiny
+ASxxxx Linker V03.00 + NoICE + sdld,  page 37.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+CSEG                                00000092    00001437 =        5175. bytes (REL,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+C:   00000231  C$shiny.c$87$1$55                  shiny
+C:   00000233  A$shiny$1706                       shiny
+C:   00000235  A$shiny$1707                       shiny
+C:   00000237  A$shiny$1708                       shiny
+C:   00000239  A$shiny$1709                       shiny
+C:   0000023B  A$shiny$1710                       shiny
+C:   0000023D  A$shiny$1711                       shiny
+C:   00000240  A$shiny$1712                       shiny
+C:   00000242  A$shiny$1713                       shiny
+C:   00000244  A$shiny$1714                       shiny
+C:   00000246  A$shiny$1717                       shiny
+C:   00000246  C$shiny.c$88$1$55                  shiny
+C:   00000248  A$shiny$1718                       shiny
+C:   0000024A  A$shiny$1719                       shiny
+C:   0000024C  A$shiny$1720                       shiny
+C:   0000024E  A$shiny$1721                       shiny
+C:   00000251  A$shiny$1722                       shiny
+C:   00000254  A$shiny$1723                       shiny
+C:   00000257  A$shiny$1724                       shiny
+C:   00000259  A$shiny$1725                       shiny
+C:   0000025C  A$shiny$1726                       shiny
+C:   0000025E  A$shiny$1727                       shiny
+C:   00000260  A$shiny$1728                       shiny
+C:   00000262  A$shiny$1729                       shiny
+C:   00000263  A$shiny$1730                       shiny
+C:   00000265  A$shiny$1731                       shiny
+C:   00000267  A$shiny$1732                       shiny
+C:   00000269  A$shiny$1733                       shiny
+C:   0000026B  A$shiny$1734                       shiny
+C:   0000026D  A$shiny$1735                       shiny
+C:   0000026F  A$shiny$1736                       shiny
+C:   00000271  A$shiny$1737                       shiny
+C:   00000273  A$shiny$1738                       shiny
+C:   00000275  A$shiny$1739                       shiny
+C:   00000277  A$shiny$1740                       shiny
+C:   00000278  A$shiny$1741                       shiny
+C:   0000027B  A$shiny$1742                       shiny
+C:   0000027D  A$shiny$1743                       shiny
+C:   0000027F  A$shiny$1744                       shiny
+C:   00000281  A$shiny$1745                       shiny
+C:   00000282  A$shiny$1746                       shiny
+C:   00000284  A$shiny$1747                       shiny
+C:   00000286  A$shiny$1748                       shiny
+C:   00000288  A$shiny$1749                       shiny
+C:   0000028A  A$shiny$1750                       shiny
+C:   0000028C  A$shiny$1751                       shiny
+C:   0000028E  A$shiny$1752                       shiny
+C:   00000290  A$shiny$1753                       shiny
+C:   00000291  A$shiny$1754                       shiny
+C:   00000293  A$shiny$1755                       shiny
+C:   00000295  A$shiny$1756                       shiny
+ASxxxx Linker V03.00 + NoICE + sdld,  page 38.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+CSEG                                00000092    00001437 =        5175. bytes (REL,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+C:   00000297  A$shiny$1757                       shiny
+C:   00000299  A$shiny$1758                       shiny
+C:   0000029B  A$shiny$1759                       shiny
+C:   0000029D  A$shiny$1760                       shiny
+C:   000002A0  A$shiny$1761                       shiny
+C:   000002A3  A$shiny$1762                       shiny
+C:   000002A6  A$shiny$1763                       shiny
+C:   000002A8  A$shiny$1764                       shiny
+C:   000002AB  A$shiny$1765                       shiny
+C:   000002AD  A$shiny$1766                       shiny
+C:   000002AF  A$shiny$1767                       shiny
+C:   000002B1  A$shiny$1768                       shiny
+C:   000002B2  A$shiny$1769                       shiny
+C:   000002B4  A$shiny$1770                       shiny
+C:   000002B6  A$shiny$1771                       shiny
+C:   000002B8  A$shiny$1772                       shiny
+C:   000002BA  A$shiny$1773                       shiny
+C:   000002BC  A$shiny$1774                       shiny
+C:   000002BE  A$shiny$1775                       shiny
+C:   000002C0  A$shiny$1776                       shiny
+C:   000002C2  A$shiny$1777                       shiny
+C:   000002C4  A$shiny$1778                       shiny
+C:   000002C6  A$shiny$1779                       shiny
+C:   000002C8  A$shiny$1780                       shiny
+C:   000002CA  A$shiny$1781                       shiny
+C:   000002CC  A$shiny$1782                       shiny
+C:   000002CE  A$shiny$1783                       shiny
+C:   000002D0  A$shiny$1784                       shiny
+C:   000002D2  A$shiny$1785                       shiny
+C:   000002D4  A$shiny$1786                       shiny
+C:   000002D6  A$shiny$1787                       shiny
+C:   000002D7  A$shiny$1788                       shiny
+C:   000002DA  A$shiny$1789                       shiny
+C:   000002DD  A$shiny$1790                       shiny
+C:   000002E0  A$shiny$1791                       shiny
+C:   000002E3  A$shiny$1792                       shiny
+C:   000002E5  A$shiny$1793                       shiny
+C:   000002E7  A$shiny$1794                       shiny
+C:   000002E9  A$shiny$1795                       shiny
+C:   000002EB  A$shiny$1798                       shiny
+C:   000002EB  C$shiny.c$89$1$55                  shiny
+C:   000002EE  A$shiny$1799                       shiny
+C:   000002F1  A$shiny$1800                       shiny
+C:   000002F4  A$shiny$1801                       shiny
+C:   000002F6  A$shiny$1802                       shiny
+C:   000002F8  A$shiny$1803                       shiny
+C:   000002FA  A$shiny$1804                       shiny
+C:   000002FB  A$shiny$1805                       shiny
+C:   000002FD  A$shiny$1806                       shiny
+C:   000002FF  A$shiny$1807                       shiny
+C:   00000301  A$shiny$1808                       shiny
+ASxxxx Linker V03.00 + NoICE + sdld,  page 39.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+CSEG                                00000092    00001437 =        5175. bytes (REL,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+C:   00000303  A$shiny$1809                       shiny
+C:   00000305  A$shiny$1810                       shiny
+C:   00000307  A$shiny$1811                       shiny
+C:   00000309  A$shiny$1812                       shiny
+C:   0000030A  A$shiny$1813                       shiny
+C:   0000030D  A$shiny$1814                       shiny
+C:   00000310  A$shiny$1815                       shiny
+C:   00000313  A$shiny$1816                       shiny
+C:   00000316  A$shiny$1817                       shiny
+C:   00000318  A$shiny$1818                       shiny
+C:   0000031A  A$shiny$1819                       shiny
+C:   0000031C  A$shiny$1820                       shiny
+C:   0000031E  A$shiny$1821                       shiny
+C:   00000321  A$shiny$1822                       shiny
+C:   00000324  A$shiny$1823                       shiny
+C:   00000327  A$shiny$1824                       shiny
+C:   00000329  A$shiny$1825                       shiny
+C:   0000032B  A$shiny$1826                       shiny
+C:   0000032D  A$shiny$1827                       shiny
+C:   0000032E  A$shiny$1828                       shiny
+C:   00000330  A$shiny$1829                       shiny
+C:   00000332  A$shiny$1830                       shiny
+C:   00000334  A$shiny$1831                       shiny
+C:   00000336  A$shiny$1832                       shiny
+C:   00000339  A$shiny$1833                       shiny
+C:   0000033C  A$shiny$1834                       shiny
+C:   0000033F  A$shiny$1835                       shiny
+C:   00000341  A$shiny$1836                       shiny
+C:   00000344  A$shiny$1837                       shiny
+C:   00000346  A$shiny$1838                       shiny
+C:   00000348  A$shiny$1839                       shiny
+C:   0000034A  A$shiny$1840                       shiny
+C:   0000034B  A$shiny$1841                       shiny
+C:   0000034D  A$shiny$1842                       shiny
+C:   0000034F  A$shiny$1843                       shiny
+C:   00000351  A$shiny$1844                       shiny
+C:   00000353  A$shiny$1845                       shiny
+C:   00000355  A$shiny$1846                       shiny
+C:   00000357  A$shiny$1847                       shiny
+C:   00000359  A$shiny$1848                       shiny
+C:   0000035B  A$shiny$1849                       shiny
+C:   0000035D  A$shiny$1850                       shiny
+C:   0000035F  A$shiny$1851                       shiny
+C:   00000361  A$shiny$1852                       shiny
+C:   00000363  A$shiny$1853                       shiny
+C:   00000365  A$shiny$1854                       shiny
+C:   00000367  A$shiny$1855                       shiny
+C:   00000369  A$shiny$1856                       shiny
+C:   0000036B  A$shiny$1857                       shiny
+C:   0000036D  A$shiny$1858                       shiny
+C:   0000036F  A$shiny$1859                       shiny
+ASxxxx Linker V03.00 + NoICE + sdld,  page 40.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+CSEG                                00000092    00001437 =        5175. bytes (REL,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+C:   00000370  A$shiny$1860                       shiny
+C:   00000373  A$shiny$1861                       shiny
+C:   00000375  A$shiny$1862                       shiny
+C:   00000377  A$shiny$1863                       shiny
+C:   00000379  A$shiny$1864                       shiny
+C:   0000037A  A$shiny$1865                       shiny
+C:   0000037C  A$shiny$1866                       shiny
+C:   0000037E  A$shiny$1867                       shiny
+C:   00000380  A$shiny$1868                       shiny
+C:   00000382  A$shiny$1869                       shiny
+C:   00000384  A$shiny$1870                       shiny
+C:   00000386  A$shiny$1871                       shiny
+C:   00000387  A$shiny$1872                       shiny
+C:   0000038A  A$shiny$1873                       shiny
+C:   0000038D  A$shiny$1874                       shiny
+C:   00000390  A$shiny$1875                       shiny
+C:   00000392  A$shiny$1876                       shiny
+C:   00000394  A$shiny$1877                       shiny
+C:   00000396  A$shiny$1878                       shiny
+C:   00000398  A$shiny$1881                       shiny
+C:   00000398  C$shiny.c$90$1$55                  shiny
+C:   0000039A  A$shiny$1882                       shiny
+C:   0000039C  A$shiny$1883                       shiny
+C:   0000039E  A$shiny$1884                       shiny
+C:   000003A0  A$shiny$1887                       shiny
+C:   000003A0  C$shiny.c$91$1$55                  shiny
+C:   000003A2  A$shiny$1888                       shiny
+C:   000003A4  A$shiny$1889                       shiny
+C:   000003A6  A$shiny$1890                       shiny
+C:   000003A8  A$shiny$1891                       shiny
+C:   000003AB  A$shiny$1892                       shiny
+C:   000003AE  A$shiny$1893                       shiny
+C:   000003B1  A$shiny$1894                       shiny
+C:   000003B3  A$shiny$1895                       shiny
+C:   000003B6  A$shiny$1896                       shiny
+C:   000003B8  A$shiny$1897                       shiny
+C:   000003BA  A$shiny$1898                       shiny
+C:   000003BC  A$shiny$1899                       shiny
+C:   000003BE  A$shiny$1900                       shiny
+C:   000003BF  A$shiny$1901                       shiny
+C:   000003C1  A$shiny$1902                       shiny
+C:   000003C4  A$shiny$1903                       shiny
+C:   000003C7  A$shiny$1904                       shiny
+C:   000003CA  A$shiny$1905                       shiny
+C:   000003CD  A$shiny$1906                       shiny
+C:   000003D0  A$shiny$1907                       shiny
+C:   000003D3  A$shiny$1911                       shiny
+C:   000003D3  C$shiny.c$92$1$55                  shiny
+C:   000003D5  A$shiny$1912                       shiny
+C:   000003D7  A$shiny$1913                       shiny
+C:   000003D9  A$shiny$1914                       shiny
+ASxxxx Linker V03.00 + NoICE + sdld,  page 41.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+CSEG                                00000092    00001437 =        5175. bytes (REL,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+C:   000003DB  A$shiny$1915                       shiny
+C:   000003DE  A$shiny$1916                       shiny
+C:   000003E1  A$shiny$1917                       shiny
+C:   000003E4  A$shiny$1918                       shiny
+C:   000003E6  A$shiny$1919                       shiny
+C:   000003E9  A$shiny$1920                       shiny
+C:   000003EB  A$shiny$1921                       shiny
+C:   000003ED  A$shiny$1922                       shiny
+C:   000003EF  A$shiny$1923                       shiny
+C:   000003F1  A$shiny$1924                       shiny
+C:   000003F2  A$shiny$1925                       shiny
+C:   000003F4  A$shiny$1926                       shiny
+C:   000003F7  A$shiny$1927                       shiny
+C:   000003FA  A$shiny$1928                       shiny
+C:   000003FD  A$shiny$1929                       shiny
+C:   00000400  A$shiny$1930                       shiny
+C:   00000403  A$shiny$1931                       shiny
+C:   00000406  A$shiny$1935                       shiny
+C:   00000406  C$shiny.c$93$1$55                  shiny
+C:   00000408  A$shiny$1936                       shiny
+C:   0000040A  A$shiny$1937                       shiny
+C:   0000040C  A$shiny$1938                       shiny
+C:   0000040E  A$shiny$1939                       shiny
+C:   00000410  A$shiny$1940                       shiny
+C:   00000412  A$shiny$1941                       shiny
+C:   00000414  A$shiny$1942                       shiny
+C:   00000416  A$shiny$1943                       shiny
+C:   00000419  A$shiny$1944                       shiny
+C:   0000041B  A$shiny$1945                       shiny
+C:   0000041D  A$shiny$1946                       shiny
+C:   0000041F  A$shiny$1949                       shiny
+C:   0000041F  C$shiny.c$94$1$55                  shiny
+C:   00000420  A$shiny$1950                       shiny
+C:   00000422  A$shiny$1951                       shiny
+C:   00000424  A$shiny$1952                       shiny
+C:   00000426  A$shiny$1953                       shiny
+C:   00000428  A$shiny$1954                       shiny
+C:   0000042A  A$shiny$1955                       shiny
+C:   0000042C  A$shiny$1956                       shiny
+C:   0000042E  A$shiny$1957                       shiny
+C:   00000430  A$shiny$1958                       shiny
+C:   00000432  A$shiny$1959                       shiny
+C:   00000434  A$shiny$1960                       shiny
+C:   00000436  A$shiny$1961                       shiny
+C:   00000438  A$shiny$1962                       shiny
+C:   0000043B  A$shiny$1963                       shiny
+C:   0000043D  A$shiny$1964                       shiny
+C:   0000043F  A$shiny$1965                       shiny
+C:   00000441  A$shiny$1969                       shiny
+C:   00000441  C$shiny.c$95$1$55                  shiny
+C:   00000443  A$shiny$1970                       shiny
+ASxxxx Linker V03.00 + NoICE + sdld,  page 42.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+CSEG                                00000092    00001437 =        5175. bytes (REL,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+C:   00000445  A$shiny$1971                       shiny
+C:   00000447  A$shiny$1972                       shiny
+C:   00000449  A$shiny$1973                       shiny
+C:   0000044B  A$shiny$1974                       shiny
+C:   0000044D  A$shiny$1975                       shiny
+C:   0000044F  A$shiny$1976                       shiny
+C:   00000451  A$shiny$1977                       shiny
+C:   00000454  A$shiny$1978                       shiny
+C:   00000456  A$shiny$1979                       shiny
+C:   00000458  A$shiny$1980                       shiny
+C:   0000045A  A$shiny$1983                       shiny
+C:   0000045A  C$shiny.c$96$1$55                  shiny
+C:   0000045C  A$shiny$1984                       shiny
+C:   0000045E  A$shiny$1985                       shiny
+C:   00000460  A$shiny$1986                       shiny
+C:   00000462  A$shiny$1987                       shiny
+C:   00000464  A$shiny$1988                       shiny
+C:   00000466  A$shiny$1989                       shiny
+C:   00000469  A$shiny$1990                       shiny
+C:   0000046B  A$shiny$1991                       shiny
+C:   0000046D  A$shiny$1992                       shiny
+C:   0000046F  A$shiny$1995                       shiny
+C:   0000046F  C$shiny.c$97$1$55                  shiny
+C:   00000471  A$shiny$1996                       shiny
+C:   00000473  A$shiny$1997                       shiny
+C:   00000475  A$shiny$1998                       shiny
+C:   00000477  A$shiny$1999                       shiny
+C:   00000479  A$shiny$2000                       shiny
+C:   0000047B  A$shiny$2001                       shiny
+C:   0000047D  A$shiny$2002                       shiny
+C:   0000047F  A$shiny$2003                       shiny
+C:   00000482  A$shiny$2004                       shiny
+C:   00000484  A$shiny$2005                       shiny
+C:   00000486  A$shiny$2006                       shiny
+C:   00000488  A$shiny$2009                       shiny
+C:   00000488  C$shiny.c$98$1$55                  shiny
+C:   00000489  A$shiny$2010                       shiny
+C:   0000048B  A$shiny$2011                       shiny
+C:   0000048D  A$shiny$2012                       shiny
+C:   0000048F  A$shiny$2013                       shiny
+C:   00000491  A$shiny$2014                       shiny
+C:   00000493  A$shiny$2015                       shiny
+C:   00000495  A$shiny$2016                       shiny
+C:   00000497  A$shiny$2017                       shiny
+C:   00000499  A$shiny$2018                       shiny
+C:   0000049B  A$shiny$2019                       shiny
+C:   0000049D  A$shiny$2020                       shiny
+C:   0000049F  A$shiny$2021                       shiny
+C:   000004A1  A$shiny$2022                       shiny
+C:   000004A4  A$shiny$2023                       shiny
+C:   000004A6  A$shiny$2024                       shiny
+ASxxxx Linker V03.00 + NoICE + sdld,  page 43.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+CSEG                                00000092    00001437 =        5175. bytes (REL,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+C:   000004A8  A$shiny$2025                       shiny
+C:   000004AA  A$shiny$2029                       shiny
+C:   000004AA  C$shiny.c$99$1$55                  shiny
+C:   000004AC  A$shiny$2030                       shiny
+C:   000004AE  A$shiny$2031                       shiny
+C:   000004B0  A$shiny$2032                       shiny
+C:   000004B2  A$shiny$2033                       shiny
+C:   000004B4  A$shiny$2034                       shiny
+C:   000004B6  A$shiny$2035                       shiny
+C:   000004B8  A$shiny$2036                       shiny
+C:   000004BA  A$shiny$2037                       shiny
+C:   000004BD  A$shiny$2038                       shiny
+C:   000004BF  A$shiny$2039                       shiny
+C:   000004C1  A$shiny$2040                       shiny
+C:   000004C3  A$shiny$2043                       shiny
+C:   000004C3  C$shiny.c$100$1$55                 shiny
+C:   000004C5  A$shiny$2044                       shiny
+C:   000004C7  A$shiny$2045                       shiny
+C:   000004C9  A$shiny$2046                       shiny
+C:   000004CB  A$shiny$2047                       shiny
+C:   000004CD  A$shiny$2048                       shiny
+C:   000004CF  A$shiny$2049                       shiny
+C:   000004D2  A$shiny$2050                       shiny
+C:   000004D4  A$shiny$2051                       shiny
+C:   000004D6  A$shiny$2052                       shiny
+C:   000004D8  A$shiny$2055                       shiny
+C:   000004D8  C$shiny.c$101$1$55                 shiny
+C:   000004DA  A$shiny$2056                       shiny
+C:   000004DC  A$shiny$2057                       shiny
+C:   000004DE  A$shiny$2058                       shiny
+C:   000004E0  A$shiny$2059                       shiny
+C:   000004E2  A$shiny$2060                       shiny
+C:   000004E4  A$shiny$2061                       shiny
+C:   000004E6  A$shiny$2062                       shiny
+C:   000004E8  A$shiny$2063                       shiny
+C:   000004EB  A$shiny$2064                       shiny
+C:   000004ED  A$shiny$2065                       shiny
+C:   000004EF  A$shiny$2066                       shiny
+C:   000004F1  A$shiny$2069                       shiny
+C:   000004F1  C$shiny.c$102$1$55                 shiny
+C:   000004F2  A$shiny$2070                       shiny
+C:   000004F4  A$shiny$2071                       shiny
+C:   000004F6  A$shiny$2072                       shiny
+C:   000004F8  A$shiny$2073                       shiny
+C:   000004FA  A$shiny$2074                       shiny
+C:   000004FC  A$shiny$2075                       shiny
+C:   000004FE  A$shiny$2076                       shiny
+C:   00000500  A$shiny$2077                       shiny
+C:   00000502  A$shiny$2078                       shiny
+C:   00000504  A$shiny$2079                       shiny
+C:   00000506  A$shiny$2080                       shiny
+ASxxxx Linker V03.00 + NoICE + sdld,  page 44.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+CSEG                                00000092    00001437 =        5175. bytes (REL,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+C:   00000508  A$shiny$2081                       shiny
+C:   0000050A  A$shiny$2082                       shiny
+C:   0000050D  A$shiny$2083                       shiny
+C:   0000050F  A$shiny$2084                       shiny
+C:   00000511  A$shiny$2085                       shiny
+C:   00000513  A$shiny$2089                       shiny
+C:   00000513  C$shiny.c$103$1$55                 shiny
+C:   00000515  A$shiny$2090                       shiny
+C:   00000517  A$shiny$2091                       shiny
+C:   00000519  A$shiny$2092                       shiny
+C:   0000051B  A$shiny$2093                       shiny
+C:   0000051D  A$shiny$2094                       shiny
+C:   0000051F  A$shiny$2095                       shiny
+C:   00000521  A$shiny$2096                       shiny
+C:   00000523  A$shiny$2097                       shiny
+C:   00000526  A$shiny$2098                       shiny
+C:   00000528  A$shiny$2099                       shiny
+C:   0000052A  A$shiny$2100                       shiny
+C:   0000052C  A$shiny$2103                       shiny
+C:   0000052C  C$shiny.c$105$1$55                 shiny
+C:   0000052C  XG$score$0$0                       shiny
+C:   0000052D  A$shiny$2118                       shiny
+C:   0000052D  C$shiny.c$107$1$55                 shiny
+C:   0000052D  C$shiny.c$110$1$62                 shiny
+C:   0000052D  G$SYSCLK_INIT$0$0                  shiny
+C:   0000052D  _SYSCLK_INIT                       shiny
+C:   00000530  A$shiny$2121                       shiny
+C:   00000530  C$shiny.c$111$1$62                 shiny
+C:   00000533  A$shiny$2124                       shiny
+C:   00000533  C$shiny.c$112$1$62                 shiny
+C:   00000535  A$shiny$2125                       shiny
+C:   00000537  A$shiny$2127                       shiny
+C:   00000538  A$shiny$2128                       shiny
+C:   0000053B  A$shiny$2129                       shiny
+C:   0000053C  A$shiny$2131                       shiny
+C:   0000053D  A$shiny$2132                       shiny
+C:   0000053E  A$shiny$2133                       shiny
+C:   00000540  A$shiny$2137                       shiny
+C:   00000540  C$shiny.c$113$1$62                 shiny
+C:   00000542  A$shiny$2138                       shiny
+C:   00000545  A$shiny$2141                       shiny
+C:   00000545  C$shiny.c$114$1$62                 shiny
+C:   00000548  A$shiny$2144                       shiny
+C:   00000548  C$shiny.c$115$1$62                 shiny
+C:   0000054B  A$shiny$2147                       shiny
+C:   0000054B  C$shiny.c$116$1$62                 shiny
+C:   0000054B  XG$SYSCLK_INIT$0$0                 shiny
+C:   0000054C  A$shiny$2160                       shiny
+C:   0000054C  C$shiny.c$118$1$62                 shiny
+C:   0000054C  C$shiny.c$120$1$63                 shiny
+C:   0000054C  G$Timer_Init$0$0                   shiny
+ASxxxx Linker V03.00 + NoICE + sdld,  page 45.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+CSEG                                00000092    00001437 =        5175. bytes (REL,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+C:   0000054C  _Timer_Init                        shiny
+C:   0000054F  A$shiny$2163                       shiny
+C:   0000054F  C$shiny.c$121$1$63                 shiny
+C:   00000552  A$shiny$2166                       shiny
+C:   00000552  C$shiny.c$122$1$63                 shiny
+C:   00000555  A$shiny$2169                       shiny
+C:   00000555  C$shiny.c$123$1$63                 shiny
+C:   00000558  A$shiny$2172                       shiny
+C:   00000558  C$shiny.c$124$1$63                 shiny
+C:   0000055B  A$shiny$2175                       shiny
+C:   0000055B  C$shiny.c$125$1$63                 shiny
+C:   0000055E  A$shiny$2178                       shiny
+C:   0000055E  C$shiny.c$126$1$63                 shiny
+C:   00000561  A$shiny$2181                       shiny
+C:   00000561  C$shiny.c$127$1$63                 shiny
+C:   00000561  XG$Timer_Init$0$0                  shiny
+C:   00000562  A$shiny$2194                       shiny
+C:   00000562  C$shiny.c$129$1$63                 shiny
+C:   00000562  C$shiny.c$131$1$64                 shiny
+C:   00000562  G$UART_Init$0$0                    shiny
+C:   00000562  _UART_Init                         shiny
+C:   00000565  A$shiny$2197                       shiny
+C:   00000565  C$shiny.c$132$1$64                 shiny
+C:   00000567  A$shiny$2200                       shiny
+C:   00000567  C$shiny.c$133$1$64                 shiny
+C:   0000056A  A$shiny$2203                       shiny
+C:   0000056A  C$shiny.c$134$1$64                 shiny
+C:   0000056D  A$shiny$2206                       shiny
+C:   0000056D  C$shiny.c$135$1$64                 shiny
+C:   0000056F  A$shiny$2209                       shiny
+C:   0000056F  C$shiny.c$136$1$64                 shiny
+C:   0000056F  XG$UART_Init$0$0                   shiny
+C:   00000570  A$shiny$2222                       shiny
+C:   00000570  C$shiny.c$138$1$64                 shiny
+C:   00000570  C$shiny.c$140$1$65                 shiny
+C:   00000570  G$Port_IO_Init$0$0                 shiny
+C:   00000570  _Port_IO_Init                      shiny
+C:   00000573  A$shiny$2225                       shiny
+C:   00000573  C$shiny.c$141$1$65                 shiny
+C:   00000576  A$shiny$2228                       shiny
+C:   00000576  C$shiny.c$142$1$65                 shiny
+C:   00000579  A$shiny$2231                       shiny
+C:   00000579  C$shiny.c$143$1$65                 shiny
+C:   0000057C  A$shiny$2234                       shiny
+C:   0000057C  C$shiny.c$144$1$65                 shiny
+C:   0000057F  A$shiny$2237                       shiny
+C:   0000057F  C$shiny.c$146$1$65                 shiny
+C:   00000582  A$shiny$2240                       shiny
+C:   00000582  C$shiny.c$148$1$65                 shiny
+C:   00000585  A$shiny$2243                       shiny
+C:   00000585  C$shiny.c$151$1$65                 shiny
+ASxxxx Linker V03.00 + NoICE + sdld,  page 46.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+CSEG                                00000092    00001437 =        5175. bytes (REL,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+C:   00000588  A$shiny$2246                       shiny
+C:   00000588  C$shiny.c$152$1$65                 shiny
+C:   0000058B  A$shiny$2249                       shiny
+C:   0000058B  C$shiny.c$155$1$65                 shiny
+C:   0000058D  A$shiny$2252                       shiny
+C:   0000058D  C$shiny.c$156$1$65                 shiny
+C:   0000058D  XG$Port_IO_Init$0$0                shiny
+C:   0000058E  A$shiny$2265                       shiny
+C:   0000058E  C$shiny.c$157$1$65                 shiny
+C:   0000058E  C$shiny.c$159$1$66                 shiny
+C:   0000058E  G$ADC_INIT$0$0                     shiny
+C:   0000058E  _ADC_INIT                          shiny
+C:   00000591  A$shiny$2268                       shiny
+C:   00000591  C$shiny.c$160$1$66                 shiny
+C:   00000594  A$shiny$2271                       shiny
+C:   00000594  C$shiny.c$161$1$66                 shiny
+C:   00000597  A$shiny$2274                       shiny
+C:   00000597  C$shiny.c$162$1$66                 shiny
+C:   0000059A  A$shiny$2277                       shiny
+C:   0000059A  C$shiny.c$163$1$66                 shiny
+C:   0000059D  A$shiny$2280                       shiny
+C:   0000059D  C$shiny.c$164$1$66                 shiny
+C:   000005A0  A$shiny$2283                       shiny
+C:   000005A0  C$shiny.c$165$1$66                 shiny
+C:   000005A0  XG$ADC_INIT$0$0                    shiny
+C:   000005A1  _printf_fast_f                     printf_fast_f
+C:   00000A22  ___fsmul                           _fsmul
+C:   00000AC5  fsgetargs                          _fsget2args
+C:   00000AF3  fs_rshift_a                        _fsrshift
+C:   00000B36  fs_normalize_a                     _fsnormalize
+C:   00000B69  ___fsgt                            _fsgt
+C:   00000B99  ___fslt                            _fslt
+C:   00000BC9  ___fsadd                           _fsadd
+C:   00000BCC  fsadd_direct_entry                 _fsadd
+C:   00000C22  fs_compare_uint32                  _fscmp
+C:   00000C40  fs_check_negative_zeros            _fscmp
+C:   00000C6B  ___fs2sint                         _fs2sint
+C:   00000C9F  ___sint2fs                         _sint2fs
+C:   00000CAC  ___uint2fs                         _uint2fs
+C:   00000CB8  fs_round_and_return                _fsreturnval
+C:   00000CD0  fs_zerocheck_return                _fsreturnval
+C:   00000CD9  fs_return_zero                     _fsreturnval
+C:   00000CE1  fs_direct_return                   _fsreturnval
+C:   00000CEF  fs_return_inf                      _fsreturnval
+C:   00000CFC  fs_return_nan                      _fsreturnval
+C:   00000D12  _vprintf                           vprintf
+C:   00000D2B  _printf                            vprintf
+C:   00000DFD  __print_format                     printf_large
+C:   00001307  fs_swap_a_b                        _fsswapargs
+C:   00001321  _strlen                            _strlen
+C:   00001339  ___fsdiv                           _fsdiv
+ASxxxx Linker V03.00 + NoICE + sdld,  page 47.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+CSEG                                00000092    00001437 =        5175. bytes (REL,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+C:   000013FC  __gptrget                          _gptrget
+C:   00001418  ___slong2fs                        _slong2fs
+C:   00001421  slong2fs_doit                      _slong2fs
+C:   00001445  ___ulong2fs                        _ulong2fs
+C:   0000144E  ulong2fs_doit                      _ulong2fs
+C:   00001458  ___fs2slong                        _fs2slong
+C:   000014B3  __sdcc_external_startup            _startup
+C:   000014B7  fsgetarg                           _fsget1arg
+
+ASxxxx Linker V03.00 + NoICE + sdld,  page 48.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+CONST                               000014C9    00000249 =         585. bytes (REL,CON,CODE)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+C:   000014C9  Fshiny$__str_0$0$0                 shiny
+C:   000014CE  Fshiny$__str_1$0$0                 shiny
+C:   000014F2  Fshiny$__str_2$0$0                 shiny
+C:   000014FA  Fshiny$__str_3$0$0                 shiny
+C:   00001504  Fshiny$__str_4$0$0                 shiny
+C:   00001506  Fshiny$__str_5$0$0                 shiny
+C:   00001509  Fshiny$__str_6$0$0                 shiny
+C:   00001510  Fshiny$__str_7$0$0                 shiny
+C:   00001516  Fshiny$__str_8$0$0                 shiny
+C:   0000151D  Fshiny$__str_9$0$0                 shiny
+C:   00001524  Fshiny$__str_10$0$0                shiny
+
+ASxxxx Linker V03.00 + NoICE + sdld,  page 49.
+
+Files Linked                              [ module(s) ]
+
+C:\Users\Christina\Documents\MPS\Versions\Lab_04\enhancement\shiny.rel
+                                          [  ]
+
+
+Libraries Linked                          [ object file ]
+
+C:\Program Files (x86)\SDCC\bin\..\lib\small/libsdcc.lib
+                                          [ printf_fast_f.rel ]
+C:\Program Files (x86)\SDCC\bin\..\lib\small/libfloat.lib
+                                          [ _fsmul.rel ]
+C:\Program Files (x86)\SDCC\bin\..\lib\small/libfloat.lib
+                                          [ _fsget2args.rel ]
+C:\Program Files (x86)\SDCC\bin\..\lib\small/mcs51.lib
+                                          [ crtclear.rel ]
+C:\Program Files (x86)\SDCC\bin\..\lib\small/libfloat.lib
+                                          [ _fsrshift.rel ]
+C:\Program Files (x86)\SDCC\bin\..\lib\small/libfloat.lib
+                                          [ _fsnormalize.rel ]
+C:\Program Files (x86)\SDCC\bin\..\lib\small/mcs51.lib
+                                          [ crtxinit.rel ]
+C:\Program Files (x86)\SDCC\bin\..\lib\small/libfloat.lib
+                                          [ _fsgt.rel ]
+C:\Program Files (x86)\SDCC\bin\..\lib\small/libfloat.lib
+                                          [ _fslt.rel ]
+C:\Program Files (x86)\SDCC\bin\..\lib\small/mcs51.lib
+                                          [ crtxclear.rel ]
+C:\Program Files (x86)\SDCC\bin\..\lib\small/libfloat.lib
+                                          [ _fsadd.rel ]
+C:\Program Files (x86)\SDCC\bin\..\lib\small/libfloat.lib
+                                          [ _fscmp.rel ]
+C:\Program Files (x86)\SDCC\bin\..\lib\small/libfloat.lib
+                                          [ _fs2sint.rel ]
+C:\Program Files (x86)\SDCC\bin\..\lib\small/libfloat.lib
+                                          [ _sint2fs.rel ]
+C:\Program Files (x86)\SDCC\bin\..\lib\small/libfloat.lib
+                                          [ _uint2fs.rel ]
+C:\Program Files (x86)\SDCC\bin\..\lib\small/libfloat.lib
+                                          [ _fsreturnval.rel ]
+C:\Program Files (x86)\SDCC\bin\..\lib\small/libsdcc.lib
+                                          [ _bp.rel ]
+C:\Program Files (x86)\SDCC\bin\..\lib\small/libsdcc.lib
+                                          [ vprintf.rel ]
+C:\Program Files (x86)\SDCC\bin\..\lib\small/libsdcc.lib
+                                          [ printf_large.rel ]
+C:\Program Files (x86)\SDCC\bin\..\lib\small/libfloat.lib
+                                          [ _fsswapargs.rel ]
+C:\Program Files (x86)\SDCC\bin\..\lib\small/libsdcc.lib
+                                          [ _strlen.rel ]
+C:\Program Files (x86)\SDCC\bin\..\lib\small/libfloat.lib
+                                          [ _fsdiv.rel ]
+C:\Program Files (x86)\SDCC\bin\..\lib\small/mcs51.lib
+                                          [ crtstart.rel ]
+C:\Program Files (x86)\SDCC\bin\..\lib\small/libsdcc.lib
+                                          [ _gptrget.rel ]
+C:\Program Files (x86)\SDCC\bin\..\lib\small/libfloat.lib
+                                          [ _slong2fs.rel ]
+C:\Program Files (x86)\SDCC\bin\..\lib\small/libfloat.lib
+                                          [ _ulong2fs.rel ]
+C:\Program Files (x86)\SDCC\bin\..\lib\small/libfloat.lib
+                                          [ _fs2slong.rel ]
+C:\Program Files (x86)\SDCC\bin\..\lib\small/libsdcc.lib
+                                          [ _startup.rel ]
+C:\Program Files (x86)\SDCC\bin\..\lib\small/libfloat.lib
+                                          [ _fsget1arg.rel ]
+
+ASxxxx Linker V03.00 + NoICE + sdld,  page 50.
+
+User Base Address Definitions
+
+HOME = 0x0000
+XSEG = 0x0001
+PSEG = 0x0001
+ISEG = 0x0000
+BSEG = 0x0000
+
+

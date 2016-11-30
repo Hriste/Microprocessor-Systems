@@ -1,7 +1,7 @@
 ;--------------------------------------------------------
 ; File Created by SDCC : free open source ANSI-C Compiler
 ; Version 3.4.0 #8981 (Apr  5 2014) (MINGW32)
-; This file was generated Mon Oct 17 16:57:41 2016
+; This file was generated Thu Oct 20 17:45:59 2016
 ;--------------------------------------------------------
 	.module voltmeter
 	.optsdcc -mmcs51 --model-small
@@ -11,7 +11,6 @@
 ;--------------------------------------------------------
 	.globl _printf_fast_f
 	.globl _printf
-	.globl _PB
 	.globl _P7_7
 	.globl _P7_6
 	.globl _P7_5
@@ -396,8 +395,11 @@
 	.globl _SP
 	.globl _P0
 	.globl _trials
+	.globl _hmax
 	.globl _max
+	.globl _hmin
 	.globl _min
+	.globl _run
 	.globl _running
 	.globl _putchar
 	.globl _getchar
@@ -1185,8 +1187,6 @@ G$P7_6$0$0 == 0x00fe
 _P7_6	=	0x00fe
 G$P7_7$0$0 == 0x00ff
 _P7_7	=	0x00ff
-G$PB$0$0 == 0x0090
-_PB	=	0x0090
 ;--------------------------------------------------------
 ; overlayable register banks
 ;--------------------------------------------------------
@@ -1199,18 +1199,30 @@ _PB	=	0x0090
 G$running$0$0==.
 _running::
 	.ds 4
+G$run$0$0==.
+_run::
+	.ds 2
 G$min$0$0==.
 _min::
 	.ds 4
+G$hmin$0$0==.
+_hmin::
+	.ds 2
 G$max$0$0==.
 _max::
 	.ds 4
+G$hmax$0$0==.
+_hmax::
+	.ds 2
 G$trials$0$0==.
 _trials::
-	.ds 2
-Lvoltmeter.score$volts$1$33==.
-_score_volts_1_33:
 	.ds 4
+Lvoltmeter.score$volts$1$55==.
+_score_volts_1_55:
+	.ds 4
+Lvoltmeter.score$hvolts$1$55==.
+_score_hvolts_1_55:
+	.ds 2
 Lvoltmeter.score$sloc0$1$0==.
 _score_sloc0_1_0:
 	.ds 4
@@ -1285,30 +1297,44 @@ __interrupt_vect:
 	.globl __mcs51_genXINIT
 	.globl __mcs51_genXRAMCLEAR
 	.globl __mcs51_genRAMCLEAR
-	C$voltmeter.c$19$1$40 ==.
+	C$voltmeter.c$19$1$66 ==.
 ;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:19: float running = 0;
 	clr	a
 	mov	_running,a
 	mov	(_running + 1),a
 	mov	(_running + 2),a
 	mov	(_running + 3),a
-	C$voltmeter.c$20$1$40 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:20: float min = 100;
+	C$voltmeter.c$20$1$66 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:20: int run = 0x00;
+	mov	_run,a
+	mov	(_run + 1),a
+	C$voltmeter.c$21$1$66 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:21: float min = 100;
 	mov	_min,a
 	mov	(_min + 1),a
 	mov	(_min + 2),#0xC8
 	mov	(_min + 3),#0x42
-	C$voltmeter.c$21$1$40 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:21: float max = 0;
+	C$voltmeter.c$22$1$66 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:22: int hmin = 0xFF;
+	mov	_hmin,#0xFF
+;	1-genFromRTrack replaced	mov	(_hmin + 1),#0x00
+	mov	(_hmin + 1),a
+	C$voltmeter.c$23$1$66 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:23: float max = 0;
 	mov	_max,a
 	mov	(_max + 1),a
 	mov	(_max + 2),a
 	mov	(_max + 3),a
-	C$voltmeter.c$22$1$40 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:22: int trials = 1;
-	mov	_trials,#0x01
-;	1-genFromRTrack replaced	mov	(_trials + 1),#0x00
+	C$voltmeter.c$24$1$66 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:24: int hmax = 0x00;
+	mov	_hmax,a
+	mov	(_hmax + 1),a
+	C$voltmeter.c$25$1$66 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:25: float trials = 0.0;
+	mov	_trials,a
 	mov	(_trials + 1),a
+	mov	(_trials + 2),a
+	mov	(_trials + 3),a
 	.area GSFINAL (CODE)
 	ljmp	__sdcc_program_startup
 ;--------------------------------------------------------
@@ -1391,35 +1417,35 @@ _getchar:
 ;Allocation info for local variables in function 'main'
 ;------------------------------------------------------------
 	G$main$0$0 ==.
-	C$voltmeter.c$35$1$18 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:35: void main (void)
+	C$voltmeter.c$38$1$18 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:38: void main (void)
 ;	-----------------------------------------
 ;	 function main
 ;	-----------------------------------------
 _main:
-	C$voltmeter.c$38$1$28 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:38: SFRPAGE = CONFIG_PAGE;
+	C$voltmeter.c$41$1$50 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:41: SFRPAGE = CONFIG_PAGE;
 	mov	_SFRPAGE,#0x0F
-	C$voltmeter.c$39$1$28 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:39: SYSCLK_INIT();
+	C$voltmeter.c$42$1$50 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:42: SYSCLK_INIT();
 	lcall	_SYSCLK_INIT
-	C$voltmeter.c$40$1$28 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:40: Port_IO_Init();
+	C$voltmeter.c$43$1$50 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:43: Port_IO_Init();
 	lcall	_Port_IO_Init
-	C$voltmeter.c$41$1$28 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:41: Timer_Init();
+	C$voltmeter.c$44$1$50 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:44: Timer_Init();
 	lcall	_Timer_Init
-	C$voltmeter.c$42$1$28 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:42: UART_Init();
+	C$voltmeter.c$45$1$50 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:45: UART_Init();
 	lcall	_UART_Init
-	C$voltmeter.c$43$1$28 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:43: ADC_INIT();
+	C$voltmeter.c$46$1$50 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:46: ADC_INIT();
 	lcall	_ADC_INIT
-	C$voltmeter.c$44$1$28 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:44: SFRPAGE = LEGACY_PAGE;//same as UART0_PAGE
+	C$voltmeter.c$47$1$50 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:47: SFRPAGE = LEGACY_PAGE;//same as UART0_PAGE
 	mov	_SFRPAGE,#0x00
-	C$voltmeter.c$45$1$28 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:45: printf("\033[2J");
+	C$voltmeter.c$48$1$50 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:48: printf("\033[2J");
 	mov	a,#___str_0
 	push	acc
 	mov	a,#(___str_0 >> 8)
@@ -1430,8 +1456,8 @@ _main:
 	dec	sp
 	dec	sp
 	dec	sp
-	C$voltmeter.c$46$1$28 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:46: printf("UART is working");
+	C$voltmeter.c$50$1$50 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:50: printf("Current: \n\rAverage: \n\rMin: \n\rMax:\n\r");
 	mov	a,#___str_1
 	push	acc
 	mov	a,#(___str_1 >> 8)
@@ -1442,73 +1468,75 @@ _main:
 	dec	sp
 	dec	sp
 	dec	sp
-	C$voltmeter.c$47$1$28 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:47: while(1)
+	C$voltmeter.c$51$1$50 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:51: while(1)
 00104$:
-	C$voltmeter.c$49$2$29 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:49: SFRPAGE = LEGACY_PAGE;
+	C$voltmeter.c$53$2$51 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:53: SFRPAGE = LEGACY_PAGE;
 	mov	_SFRPAGE,#0x00
-	C$voltmeter.c$50$2$29 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:50: if(!PB)
-	jb	_PB,00104$
-	C$voltmeter.c$52$3$30 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:52: score(ADC_read());
+	C$voltmeter.c$55$2$51 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:55: if(P1 == 0x00)
+	mov	a,_P1
+	jnz	00104$
+	C$voltmeter.c$57$3$52 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:57: score(ADC_read());
 	lcall	_ADC_read
 	lcall	_score
 	sjmp	00104$
-	C$voltmeter.c$57$1$28 ==.
+	C$voltmeter.c$62$1$50 ==.
 	XG$main$0$0 ==.
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'ADC_read'
 ;------------------------------------------------------------
 	G$ADC_read$0$0 ==.
-	C$voltmeter.c$59$1$28 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:59: unsigned int ADC_read()
+	C$voltmeter.c$64$1$50 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:64: unsigned int ADC_read()
 ;	-----------------------------------------
 ;	 function ADC_read
 ;	-----------------------------------------
 _ADC_read:
-	C$voltmeter.c$61$1$31 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:61: AMX0SL = 0;//select pin
+	C$voltmeter.c$66$1$53 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:66: AMX0SL = 0;//select pin
 	mov	_AMX0SL,#0x00
-	C$voltmeter.c$62$1$31 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:62: ADC0CN &= ~(0x20);// reset for reading
+	C$voltmeter.c$67$1$53 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:67: ADC0CN &= ~(0x20);// reset for reading
 	mov	r7,_ADC0CN
 	mov	a,#0xDF
 	anl	a,r7
 	mov	_ADC0CN,a
-	C$voltmeter.c$63$1$31 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:63: ADC0CN |= 0x10;
+	C$voltmeter.c$68$1$53 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:68: ADC0CN |= 0x10;
 	orl	_ADC0CN,#0x10
-	C$voltmeter.c$64$1$31 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:64: while((ADC0CN & 0x20)==0); // wait for conversion to finish
+	C$voltmeter.c$69$1$53 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:69: while((ADC0CN & 0x20)==0); // wait for conversion to finish
 00101$:
 	mov	a,_ADC0CN
 	jnb	acc.5,00101$
-	C$voltmeter.c$65$1$31 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:65: return ADC0;
+	C$voltmeter.c$70$1$53 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:70: return ADC0;
 	mov	dpl,((_ADC0 >> 0) & 0xFF)
 	mov	dph,((_ADC0 >> 8) & 0xFF)
-	C$voltmeter.c$66$1$31 ==.
+	C$voltmeter.c$71$1$53 ==.
 	XG$ADC_read$0$0 ==.
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'score'
 ;------------------------------------------------------------
 ;value                     Allocated to registers 
-;volts                     Allocated with name '_score_volts_1_33'
+;volts                     Allocated with name '_score_volts_1_55'
+;hvolts                    Allocated with name '_score_hvolts_1_55'
 ;sloc0                     Allocated with name '_score_sloc0_1_0'
 ;------------------------------------------------------------
 	G$score$0$0 ==.
-	C$voltmeter.c$67$1$31 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:67: void score(unsigned int value)
+	C$voltmeter.c$72$1$53 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:72: void score(unsigned int value)
 ;	-----------------------------------------
 ;	 function score
 ;	-----------------------------------------
 _score:
-	C$voltmeter.c$70$1$33 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:70: volts = value*.0000366;
+	C$voltmeter.c$77$1$55 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:77: volts = (value/1000.0);
 	lcall	___uint2fs
 	mov	r4,dpl
 	mov	r5,dph
@@ -1518,57 +1546,197 @@ _score:
 	push	ar6
 	push	ar5
 	push	ar4
-	push	ar4
-	push	ar5
-	push	ar6
-	push	ar7
-	mov	dptr,#0x82F3
-	mov	b,#0x19
-	mov	a,#0x38
-	lcall	___fsmul
-	mov	_score_volts_1_33,dpl
-	mov	(_score_volts_1_33 + 1),dph
-	mov	(_score_volts_1_33 + 2),b
-	mov	(_score_volts_1_33 + 3),a
+	clr	a
+	push	acc
+	push	acc
+	mov	a,#0x7A
+	push	acc
+	mov	a,#0x44
+	push	acc
+	mov	dpl,r4
+	mov	dph,r5
+	mov	b,r6
+	mov	a,r7
+	lcall	___fsdiv
+	mov	_score_volts_1_55,dpl
+	mov	(_score_volts_1_55 + 1),dph
+	mov	(_score_volts_1_55 + 2),b
+	mov	(_score_volts_1_55 + 3),a
 	mov	a,sp
 	add	a,#0xfc
 	mov	sp,a
-	C$voltmeter.c$71$1$33 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:71: printf_fast_f("Current Voltage is: %d7.6 , %X \n\r",volts,volts);
-	push	_score_volts_1_33
-	push	(_score_volts_1_33 + 1)
-	push	(_score_volts_1_33 + 2)
-	push	(_score_volts_1_33 + 3)
-	push	_score_volts_1_33
-	push	(_score_volts_1_33 + 1)
-	push	(_score_volts_1_33 + 2)
-	push	(_score_volts_1_33 + 3)
+	C$voltmeter.c$78$1$55 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:78: volts = .5860806*volts;
+	push	_score_volts_1_55
+	push	(_score_volts_1_55 + 1)
+	push	(_score_volts_1_55 + 2)
+	push	(_score_volts_1_55 + 3)
+	mov	dptr,#0x0961
+	mov	b,#0x16
+	mov	a,#0x3F
+	lcall	___fsmul
+	mov	_score_volts_1_55,dpl
+	mov	(_score_volts_1_55 + 1),dph
+	mov	(_score_volts_1_55 + 2),b
+	mov	(_score_volts_1_55 + 3),a
+	mov	a,sp
+	add	a,#0xfc
+	mov	sp,a
+	C$voltmeter.c$79$1$55 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:79: printf("\033[1;10H");
 	mov	a,#___str_2
 	push	acc
 	mov	a,#(___str_2 >> 8)
 	push	acc
+	mov	a,#0x80
+	push	acc
+	lcall	_printf
+	dec	sp
+	dec	sp
+	dec	sp
+	C$voltmeter.c$80$1$55 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:80: printf_fast_f("%7.6f, 0x",volts);
+	push	_score_volts_1_55
+	push	(_score_volts_1_55 + 1)
+	push	(_score_volts_1_55 + 2)
+	push	(_score_volts_1_55 + 3)
+	mov	a,#___str_3
+	push	acc
+	mov	a,#(___str_3 >> 8)
+	push	acc
 	lcall	_printf_fast_f
 	mov	a,sp
-	add	a,#0xf6
+	add	a,#0xfa
 	mov	sp,a
-	C$voltmeter.c$72$1$33 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:72: running = (running*trials + value)/(trials+1);
-	mov	dpl,_trials
-	mov	dph,(_trials + 1)
-	lcall	___sint2fs
-	mov	r0,dpl
-	mov	r1,dph
-	mov	r2,b
-	mov	r3,a
-	push	ar0
-	push	ar1
-	push	ar2
-	push	ar3
+	pop	ar4
+	pop	ar5
+	pop	ar6
+	pop	ar7
+	C$voltmeter.c$81$1$55 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:81: hvolts = value/15.9961;//9375;
+	mov	a,#0x07
+	push	acc
+	mov	a,#0xF0
+	push	acc
+	mov	a,#0x7F
+	push	acc
+	mov	a,#0x41
+	push	acc
+	mov	dpl,r4
+	mov	dph,r5
+	mov	b,r6
+	mov	a,r7
+	lcall	___fsdiv
+	mov	r4,dpl
+	mov	r5,dph
+	mov	r6,b
+	mov	r7,a
+	mov	a,sp
+	add	a,#0xfc
+	mov	sp,a
+	mov	dpl,r4
+	mov	dph,r5
+	mov	b,r6
+	mov	a,r7
+	lcall	___fs2sint
+	mov	_score_hvolts_1_55,dpl
+	mov	(_score_hvolts_1_55 + 1),dph
+	C$voltmeter.c$82$1$55 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:82: if (hvolts<0x10){printf("0");}
+	clr	c
+	mov	a,_score_hvolts_1_55
+	subb	a,#0x10
+	mov	a,(_score_hvolts_1_55 + 1)
+	xrl	a,#0x80
+	subb	a,#0x80
+	jnc	00102$
+	mov	a,#___str_4
+	push	acc
+	mov	a,#(___str_4 >> 8)
+	push	acc
+	mov	a,#0x80
+	push	acc
+	lcall	_printf
+	dec	sp
+	dec	sp
+	dec	sp
+00102$:
+	C$voltmeter.c$83$1$55 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:83: printf("%X", hvolts);
+	push	_score_hvolts_1_55
+	push	(_score_hvolts_1_55 + 1)
+	mov	a,#___str_5
+	push	acc
+	mov	a,#(___str_5 >> 8)
+	push	acc
+	mov	a,#0x80
+	push	acc
+	lcall	_printf
+	mov	a,sp
+	add	a,#0xfb
+	mov	sp,a
+	C$voltmeter.c$84$1$55 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:84: printf("\033[2;9H");
+	mov	a,#___str_6
+	push	acc
+	mov	a,#(___str_6 >> 8)
+	push	acc
+	mov	a,#0x80
+	push	acc
+	lcall	_printf
+	dec	sp
+	dec	sp
+	dec	sp
+	C$voltmeter.c$85$1$55 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:85: running = (running*trials + volts)/(trials+1);
+	push	_trials
+	push	(_trials + 1)
+	push	(_trials + 2)
+	push	(_trials + 3)
 	mov	dpl,_running
 	mov	dph,(_running + 1)
 	mov	b,(_running + 2)
 	mov	a,(_running + 3)
 	lcall	___fsmul
+	mov	r4,dpl
+	mov	r5,dph
+	mov	r6,b
+	mov	r7,a
+	mov	a,sp
+	add	a,#0xfc
+	mov	sp,a
+	push	_score_volts_1_55
+	push	(_score_volts_1_55 + 1)
+	push	(_score_volts_1_55 + 2)
+	push	(_score_volts_1_55 + 3)
+	mov	dpl,r4
+	mov	dph,r5
+	mov	b,r6
+	mov	a,r7
+	lcall	___fsadd
+	mov	r4,dpl
+	mov	r5,dph
+	mov	r6,b
+	mov	r7,a
+	mov	a,sp
+	add	a,#0xfc
+	mov	sp,a
+	push	ar7
+	push	ar6
+	push	ar5
+	push	ar4
+	clr	a
+	push	acc
+	push	acc
+	mov	a,#0x80
+	push	acc
+	mov	a,#0x3F
+	push	acc
+	mov	dpl,_trials
+	mov	dph,(_trials + 1)
+	mov	b,(_trials + 2)
+	mov	a,(_trials + 3)
+	lcall	___fsadd
 	mov	r0,dpl
 	mov	r1,dph
 	mov	r2,b
@@ -1580,45 +1748,18 @@ _score:
 	pop	ar5
 	pop	ar6
 	pop	ar7
-	push	ar4
-	push	ar5
-	push	ar6
-	push	ar7
-	mov	dpl,r0
-	mov	dph,r1
-	mov	b,r2
-	mov	a,r3
-	lcall	___fsadd
-	mov	_score_sloc0_1_0,dpl
-	mov	(_score_sloc0_1_0 + 1),dph
-	mov	(_score_sloc0_1_0 + 2),b
-	mov	(_score_sloc0_1_0 + 3),a
-	mov	a,sp
-	add	a,#0xfc
-	mov	sp,a
-	mov	a,#0x01
-	add	a,_trials
-	mov	r2,a
-	clr	a
-	addc	a,(_trials + 1)
-	mov	r3,a
-	mov	dpl,r2
-	mov	dph,r3
 	push	ar3
 	push	ar2
-	lcall	___sint2fs
-	mov	r0,dpl
-	mov	r1,dph
-	mov	r6,b
-	mov	r7,a
+	push	ar1
+	push	ar0
 	push	ar0
 	push	ar1
-	push	ar6
-	push	ar7
-	mov	dpl,_score_sloc0_1_0
-	mov	dph,(_score_sloc0_1_0 + 1)
-	mov	b,(_score_sloc0_1_0 + 2)
-	mov	a,(_score_sloc0_1_0 + 3)
+	push	ar2
+	push	ar3
+	mov	dpl,r4
+	mov	dph,r5
+	mov	b,r6
+	mov	a,r7
 	lcall	___fsdiv
 	mov	_running,dpl
 	mov	(_running + 1),dph
@@ -1627,62 +1768,145 @@ _score:
 	mov	a,sp
 	add	a,#0xfc
 	mov	sp,a
+	C$voltmeter.c$86$1$55 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:86: run  = (run*trials + hvolts)/(trials+1);
+	mov	dpl,_run
+	mov	dph,(_run + 1)
+	lcall	___sint2fs
+	mov	r4,dpl
+	mov	r5,dph
+	mov	r6,b
+	mov	r7,a
+	push	_trials
+	push	(_trials + 1)
+	push	(_trials + 2)
+	push	(_trials + 3)
+	mov	dpl,r4
+	mov	dph,r5
+	mov	b,r6
+	mov	a,r7
+	lcall	___fsmul
+	mov	_score_sloc0_1_0,dpl
+	mov	(_score_sloc0_1_0 + 1),dph
+	mov	(_score_sloc0_1_0 + 2),b
+	mov	(_score_sloc0_1_0 + 3),a
+	mov	a,sp
+	add	a,#0xfc
+	mov	sp,a
+	mov	dpl,_score_hvolts_1_55
+	mov	dph,(_score_hvolts_1_55 + 1)
+	lcall	___sint2fs
+	mov	r4,dpl
+	mov	r5,dph
+	mov	r6,b
+	mov	r7,a
+	push	ar4
+	push	ar5
+	push	ar6
+	push	ar7
+	mov	dpl,_score_sloc0_1_0
+	mov	dph,(_score_sloc0_1_0 + 1)
+	mov	b,(_score_sloc0_1_0 + 2)
+	mov	a,(_score_sloc0_1_0 + 3)
+	lcall	___fsadd
+	mov	r4,dpl
+	mov	r5,dph
+	mov	r6,b
+	mov	r7,a
+	mov	a,sp
+	add	a,#0xfc
+	mov	sp,a
+	pop	ar0
+	pop	ar1
 	pop	ar2
 	pop	ar3
-	C$voltmeter.c$73$1$33 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:73: trials ++;
-	mov	_trials,r2
-	mov	(_trials + 1),r3
-	C$voltmeter.c$74$1$33 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:74: if(volts<min){min = volts;}
+	push	ar3
+	push	ar2
+	push	ar1
+	push	ar0
+	push	ar0
+	push	ar1
+	push	ar2
+	push	ar3
+	mov	dpl,r4
+	mov	dph,r5
+	mov	b,r6
+	mov	a,r7
+	lcall	___fsdiv
+	mov	r4,dpl
+	mov	r5,dph
+	mov	r6,b
+	mov	r7,a
+	mov	a,sp
+	add	a,#0xfc
+	mov	sp,a
+	mov	dpl,r4
+	mov	dph,r5
+	mov	b,r6
+	mov	a,r7
+	lcall	___fs2sint
+	mov	_run,dpl
+	mov	(_run + 1),dph
+	pop	ar0
+	pop	ar1
+	pop	ar2
+	pop	ar3
+	C$voltmeter.c$87$1$55 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:87: trials ++;
+	mov	_trials,r0
+	mov	(_trials + 1),r1
+	mov	(_trials + 2),r2
+	mov	(_trials + 3),r3
+	C$voltmeter.c$88$1$55 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:88: if(volts<min){min = volts;hmin=hvolts;}
 	push	_min
 	push	(_min + 1)
 	push	(_min + 2)
 	push	(_min + 3)
-	mov	dpl,_score_volts_1_33
-	mov	dph,(_score_volts_1_33 + 1)
-	mov	b,(_score_volts_1_33 + 2)
-	mov	a,(_score_volts_1_33 + 3)
+	mov	dpl,_score_volts_1_55
+	mov	dph,(_score_volts_1_55 + 1)
+	mov	b,(_score_volts_1_55 + 2)
+	mov	a,(_score_volts_1_55 + 3)
 	lcall	___fslt
 	mov	r7,dpl
 	mov	a,sp
 	add	a,#0xfc
 	mov	sp,a
 	mov	a,r7
-	jz	00102$
-	mov	_min,_score_volts_1_33
-	mov	(_min + 1),(_score_volts_1_33 + 1)
-	mov	(_min + 2),(_score_volts_1_33 + 2)
-	mov	(_min + 3),(_score_volts_1_33 + 3)
-00102$:
-	C$voltmeter.c$75$1$33 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:75: if(volts>max){max = volts;}
+	jz	00104$
+	mov	_min,_score_volts_1_55
+	mov	(_min + 1),(_score_volts_1_55 + 1)
+	mov	(_min + 2),(_score_volts_1_55 + 2)
+	mov	(_min + 3),(_score_volts_1_55 + 3)
+	mov	_hmin,_score_hvolts_1_55
+	mov	(_hmin + 1),(_score_hvolts_1_55 + 1)
+00104$:
+	C$voltmeter.c$89$1$55 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:89: if(volts>max){max = volts;hmax=hvolts;}
 	push	_max
 	push	(_max + 1)
 	push	(_max + 2)
 	push	(_max + 3)
-	mov	dpl,_score_volts_1_33
-	mov	dph,(_score_volts_1_33 + 1)
-	mov	b,(_score_volts_1_33 + 2)
-	mov	a,(_score_volts_1_33 + 3)
+	mov	dpl,_score_volts_1_55
+	mov	dph,(_score_volts_1_55 + 1)
+	mov	b,(_score_volts_1_55 + 2)
+	mov	a,(_score_volts_1_55 + 3)
 	lcall	___fsgt
 	mov	r7,dpl
 	mov	a,sp
 	add	a,#0xfc
 	mov	sp,a
 	mov	a,r7
-	jz	00104$
-	mov	_max,_score_volts_1_33
-	mov	(_max + 1),(_score_volts_1_33 + 1)
-	mov	(_max + 2),(_score_volts_1_33 + 2)
-	mov	(_max + 3),(_score_volts_1_33 + 3)
-00104$:
-	C$voltmeter.c$76$1$33 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:76: printf_fast_f("The Running Average is: %d7.6 , %X \n\r",running, running);
-	push	_running
-	push	(_running + 1)
-	push	(_running + 2)
-	push	(_running + 3)
+	jz	00106$
+	mov	_max,_score_volts_1_55
+	mov	(_max + 1),(_score_volts_1_55 + 1)
+	mov	(_max + 2),(_score_volts_1_55 + 2)
+	mov	(_max + 3),(_score_volts_1_55 + 3)
+	mov	_hmax,_score_hvolts_1_55
+	mov	(_hmax + 1),(_score_hvolts_1_55 + 1)
+00106$:
+	C$voltmeter.c$90$1$55 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:90: printf_fast_f("%7.6f, 0x",running);
 	push	_running
 	push	(_running + 1)
 	push	(_running + 2)
@@ -1693,45 +1917,163 @@ _score:
 	push	acc
 	lcall	_printf_fast_f
 	mov	a,sp
-	add	a,#0xf6
+	add	a,#0xfa
 	mov	sp,a
-	C$voltmeter.c$77$1$33 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:77: printf_fast_f("The Overall Minimum is: %d7.6 , %X \n\r",min,min);
-	push	_min
-	push	(_min + 1)
-	push	(_min + 2)
-	push	(_min + 3)
-	push	_min
-	push	(_min + 1)
-	push	(_min + 2)
-	push	(_min + 3)
+	C$voltmeter.c$91$1$55 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:91: if (run<0x10){printf("0");}
+	clr	c
+	mov	a,_run
+	subb	a,#0x10
+	mov	a,(_run + 1)
+	xrl	a,#0x80
+	subb	a,#0x80
+	jnc	00108$
 	mov	a,#___str_4
 	push	acc
 	mov	a,#(___str_4 >> 8)
 	push	acc
+	mov	a,#0x80
+	push	acc
+	lcall	_printf
+	dec	sp
+	dec	sp
+	dec	sp
+00108$:
+	C$voltmeter.c$92$1$55 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:92: printf("%X \n\r",run);
+	push	_run
+	push	(_run + 1)
+	mov	a,#___str_7
+	push	acc
+	mov	a,#(___str_7 >> 8)
+	push	acc
+	mov	a,#0x80
+	push	acc
+	lcall	_printf
+	mov	a,sp
+	add	a,#0xfb
+	mov	sp,a
+	C$voltmeter.c$93$1$55 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:93: printf("\033[3;5H");
+	mov	a,#___str_8
+	push	acc
+	mov	a,#(___str_8 >> 8)
+	push	acc
+	mov	a,#0x80
+	push	acc
+	lcall	_printf
+	dec	sp
+	dec	sp
+	dec	sp
+	C$voltmeter.c$94$1$55 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:94: printf_fast_f("%7.6f, 0x",min);
+	push	_min
+	push	(_min + 1)
+	push	(_min + 2)
+	push	(_min + 3)
+	mov	a,#___str_3
+	push	acc
+	mov	a,#(___str_3 >> 8)
+	push	acc
 	lcall	_printf_fast_f
 	mov	a,sp
-	add	a,#0xf6
+	add	a,#0xfa
 	mov	sp,a
-	C$voltmeter.c$78$1$33 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:78: printf_fast_f("The Overall Maximum is: %d7.6 , %X \n\r",max,max);
-	push	_max
-	push	(_max + 1)
-	push	(_max + 2)
-	push	(_max + 3)
-	push	_max
-	push	(_max + 1)
-	push	(_max + 2)
-	push	(_max + 3)
+	C$voltmeter.c$95$1$55 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:95: if (hmin<0x10){printf("0");}
+	clr	c
+	mov	a,_hmin
+	subb	a,#0x10
+	mov	a,(_hmin + 1)
+	xrl	a,#0x80
+	subb	a,#0x80
+	jnc	00110$
+	mov	a,#___str_4
+	push	acc
+	mov	a,#(___str_4 >> 8)
+	push	acc
+	mov	a,#0x80
+	push	acc
+	lcall	_printf
+	dec	sp
+	dec	sp
+	dec	sp
+00110$:
+	C$voltmeter.c$96$1$55 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:96: printf("%X",hmin);
+	push	_hmin
+	push	(_hmin + 1)
 	mov	a,#___str_5
 	push	acc
 	mov	a,#(___str_5 >> 8)
 	push	acc
+	mov	a,#0x80
+	push	acc
+	lcall	_printf
+	mov	a,sp
+	add	a,#0xfb
+	mov	sp,a
+	C$voltmeter.c$97$1$55 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:97: printf("\033[4;5H");
+	mov	a,#___str_9
+	push	acc
+	mov	a,#(___str_9 >> 8)
+	push	acc
+	mov	a,#0x80
+	push	acc
+	lcall	_printf
+	dec	sp
+	dec	sp
+	dec	sp
+	C$voltmeter.c$98$1$55 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:98: printf_fast_f("%7.6f,0x",max);
+	push	_max
+	push	(_max + 1)
+	push	(_max + 2)
+	push	(_max + 3)
+	mov	a,#___str_10
+	push	acc
+	mov	a,#(___str_10 >> 8)
+	push	acc
 	lcall	_printf_fast_f
 	mov	a,sp
-	add	a,#0xf6
+	add	a,#0xfa
 	mov	sp,a
-	C$voltmeter.c$80$1$33 ==.
+	C$voltmeter.c$99$1$55 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:99: if (hmax<0x10){printf("0");}
+	clr	c
+	mov	a,_hmax
+	subb	a,#0x10
+	mov	a,(_hmax + 1)
+	xrl	a,#0x80
+	subb	a,#0x80
+	jnc	00112$
+	mov	a,#___str_4
+	push	acc
+	mov	a,#(___str_4 >> 8)
+	push	acc
+	mov	a,#0x80
+	push	acc
+	lcall	_printf
+	dec	sp
+	dec	sp
+	dec	sp
+00112$:
+	C$voltmeter.c$100$1$55 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:100: printf("%X",hmax);
+	push	_hmax
+	push	(_hmax + 1)
+	mov	a,#___str_5
+	push	acc
+	mov	a,#(___str_5 >> 8)
+	push	acc
+	mov	a,#0x80
+	push	acc
+	lcall	_printf
+	mov	a,sp
+	add	a,#0xfb
+	mov	sp,a
+	C$voltmeter.c$102$1$55 ==.
 	XG$score$0$0 ==.
 	ret
 ;------------------------------------------------------------
@@ -1740,20 +2082,20 @@ _score:
 ;j                         Allocated to registers 
 ;------------------------------------------------------------
 	G$SYSCLK_INIT$0$0 ==.
-	C$voltmeter.c$82$1$33 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:82: void SYSCLK_INIT()
+	C$voltmeter.c$104$1$55 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:104: void SYSCLK_INIT()
 ;	-----------------------------------------
 ;	 function SYSCLK_INIT
 ;	-----------------------------------------
 _SYSCLK_INIT:
-	C$voltmeter.c$85$1$36 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:85: SFRPAGE = CONFIG_PAGE;
+	C$voltmeter.c$107$1$62 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:107: SFRPAGE = CONFIG_PAGE;
 	mov	_SFRPAGE,#0x0F
-	C$voltmeter.c$86$1$36 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:86: OSCXCN  = 0x67;             // Start external oscillator
+	C$voltmeter.c$108$1$62 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:108: OSCXCN  = 0x67;             // Start external oscillator
 	mov	_OSCXCN,#0x67
-	C$voltmeter.c$87$1$36 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:87: for(j=0; j < 256; j++);     // Wait for the oscillator to start up.
+	C$voltmeter.c$109$1$62 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:109: for(j=0; j < 256; j++);     // Wait for the oscillator to start up.
 	mov	r6,#0x00
 	mov	r7,#0x01
 00107$:
@@ -1764,151 +2106,151 @@ _SYSCLK_INIT:
 	mov	a,r6
 	orl	a,r7
 	jnz	00107$
-	C$voltmeter.c$88$1$36 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:88: while(!(OSCXCN & 0x80));    // Check to see if the Crystal Oscillator Valid Flag is set.
+	C$voltmeter.c$110$1$62 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:110: while(!(OSCXCN & 0x80));    // Check to see if the Crystal Oscillator Valid Flag is set.
 00102$:
 	mov	a,_OSCXCN
 	jnb	acc.7,00102$
-	C$voltmeter.c$89$1$36 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:89: CLKSEL  = 0x01;             // SYSCLK derived from the External Oscillator circuit.
+	C$voltmeter.c$111$1$62 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:111: CLKSEL  = 0x01;             // SYSCLK derived from the External Oscillator circuit.
 	mov	_CLKSEL,#0x01
-	C$voltmeter.c$90$1$36 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:90: OSCICN  = 0x00;             // Disable the internal oscillator.
+	C$voltmeter.c$112$1$62 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:112: OSCICN  = 0x00;             // Disable the internal oscillator.
 	mov	_OSCICN,#0x00
-	C$voltmeter.c$91$1$36 ==.
+	C$voltmeter.c$113$1$62 ==.
 	XG$SYSCLK_INIT$0$0 ==.
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'Timer_Init'
 ;------------------------------------------------------------
 	G$Timer_Init$0$0 ==.
-	C$voltmeter.c$93$1$36 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:93: void Timer_Init()
+	C$voltmeter.c$115$1$62 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:115: void Timer_Init()
 ;	-----------------------------------------
 ;	 function Timer_Init
 ;	-----------------------------------------
 _Timer_Init:
-	C$voltmeter.c$95$1$37 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:95: SFRPAGE   = TMR2_PAGE;
+	C$voltmeter.c$117$1$63 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:117: SFRPAGE   = TMR2_PAGE;
 	mov	_SFRPAGE,#0x00
-	C$voltmeter.c$96$1$37 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:96: TMR2CN    = 0x04;
+	C$voltmeter.c$118$1$63 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:118: TMR2CN    = 0x04;
 	mov	_TMR2CN,#0x04
-	C$voltmeter.c$97$1$37 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:97: TMR2CF    = 0x08;
+	C$voltmeter.c$119$1$63 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:119: TMR2CF    = 0x08;
 	mov	_TMR2CF,#0x08
-	C$voltmeter.c$98$1$37 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:98: TMR2H	  = 0xFF;
+	C$voltmeter.c$120$1$63 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:120: TMR2H	  = 0xFF;
 	mov	_TMR2H,#0xFF
-	C$voltmeter.c$99$1$37 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:99: TMR2L 	  = 0x70;
+	C$voltmeter.c$121$1$63 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:121: TMR2L 	  = 0x70;
 	mov	_TMR2L,#0x70
-	C$voltmeter.c$100$1$37 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:100: RCAP2L    = 0x70;
+	C$voltmeter.c$122$1$63 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:122: RCAP2L    = 0x70;
 	mov	_RCAP2L,#0x70
-	C$voltmeter.c$101$1$37 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:101: RCAP2H    = 0xFF;
+	C$voltmeter.c$123$1$63 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:123: RCAP2H    = 0xFF;
 	mov	_RCAP2H,#0xFF
-	C$voltmeter.c$102$1$37 ==.
+	C$voltmeter.c$124$1$63 ==.
 	XG$Timer_Init$0$0 ==.
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'UART_Init'
 ;------------------------------------------------------------
 	G$UART_Init$0$0 ==.
-	C$voltmeter.c$104$1$37 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:104: void UART_Init()
+	C$voltmeter.c$126$1$63 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:126: void UART_Init()
 ;	-----------------------------------------
 ;	 function UART_Init
 ;	-----------------------------------------
 _UART_Init:
-	C$voltmeter.c$106$1$38 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:106: SFRPAGE   = UART0_PAGE;//Same as Timer 2 and Timer 1 SFR PAGES
+	C$voltmeter.c$128$1$64 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:128: SFRPAGE   = UART0_PAGE;//Same as Timer 2 and Timer 1 SFR PAGES
 	mov	_SFRPAGE,#0x00
-	C$voltmeter.c$107$1$38 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:107: TR2		  = 1;//Start Timer 2
+	C$voltmeter.c$129$1$64 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:129: TR2		  = 1;//Start Timer 2
 	setb	_TR2
-	C$voltmeter.c$108$1$38 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:108: SCON0     = 0x50;
+	C$voltmeter.c$130$1$64 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:130: SCON0     = 0x50;
 	mov	_SCON0,#0x50
-	C$voltmeter.c$109$1$38 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:109: SSTA0   = 0x15;
+	C$voltmeter.c$131$1$64 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:131: SSTA0   = 0x15;
 	mov	_SSTA0,#0x15
-	C$voltmeter.c$110$1$38 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:110: TI0		  = 1; // Indicate TX0 is ready
+	C$voltmeter.c$132$1$64 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:132: TI0		  = 1; // Indicate TX0 is ready
 	setb	_TI0
-	C$voltmeter.c$111$1$38 ==.
+	C$voltmeter.c$133$1$64 ==.
 	XG$UART_Init$0$0 ==.
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'Port_IO_Init'
 ;------------------------------------------------------------
 	G$Port_IO_Init$0$0 ==.
-	C$voltmeter.c$113$1$38 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:113: void Port_IO_Init()
+	C$voltmeter.c$135$1$64 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:135: void Port_IO_Init()
 ;	-----------------------------------------
 ;	 function Port_IO_Init
 ;	-----------------------------------------
 _Port_IO_Init:
-	C$voltmeter.c$115$1$39 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:115: SFRPAGE   = CONFIG_PAGE;
+	C$voltmeter.c$137$1$65 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:137: SFRPAGE   = CONFIG_PAGE;
 	mov	_SFRPAGE,#0x0F
-	C$voltmeter.c$116$1$39 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:116: WDTCN   = 0xDE;             // Disable watchdog timer.
+	C$voltmeter.c$138$1$65 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:138: WDTCN   = 0xDE;             // Disable watchdog timer.
 	mov	_WDTCN,#0xDE
-	C$voltmeter.c$117$1$39 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:117: WDTCN   = 0xAD;
+	C$voltmeter.c$139$1$65 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:139: WDTCN   = 0xAD;
 	mov	_WDTCN,#0xAD
-	C$voltmeter.c$118$1$39 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:118: XBR0 = 0x04; // enable UART0
+	C$voltmeter.c$140$1$65 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:140: XBR0 = 0x04; // enable UART0
 	mov	_XBR0,#0x04
-	C$voltmeter.c$119$1$39 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:119: XBR2 = 0x40;//enable crossbar
+	C$voltmeter.c$141$1$65 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:141: XBR2 = 0x40;//enable crossbar
 	mov	_XBR2,#0x40
-	C$voltmeter.c$121$1$39 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:121: P0MDOUT = 0x01;
+	C$voltmeter.c$143$1$65 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:143: P0MDOUT = 0x01;
 	mov	_P0MDOUT,#0x01
-	C$voltmeter.c$123$1$39 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:123: P0 = 0x02;
+	C$voltmeter.c$145$1$65 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:145: P0 = 0x02;
 	mov	_P0,#0x02
-	C$voltmeter.c$126$1$39 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:126: P1MDOUT = 0x00;
+	C$voltmeter.c$148$1$65 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:148: P1MDOUT = 0x00;
 	mov	_P1MDOUT,#0x00
-	C$voltmeter.c$127$1$39 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:127: P1 = 0x01; 
+	C$voltmeter.c$149$1$65 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:149: P1 = 0x01; 
 	mov	_P1,#0x01
-	C$voltmeter.c$130$1$39 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:130: EA = 1; //enable global interrupts
+	C$voltmeter.c$152$1$65 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:152: EA = 1; //enable global interrupts
 	setb	_EA
-	C$voltmeter.c$131$1$39 ==.
+	C$voltmeter.c$153$1$65 ==.
 	XG$Port_IO_Init$0$0 ==.
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'ADC_INIT'
 ;------------------------------------------------------------
 	G$ADC_INIT$0$0 ==.
-	C$voltmeter.c$132$1$39 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:132: void ADC_INIT()
+	C$voltmeter.c$154$1$65 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:154: void ADC_INIT()
 ;	-----------------------------------------
 ;	 function ADC_INIT
 ;	-----------------------------------------
 _ADC_INIT:
-	C$voltmeter.c$134$1$40 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:134: SFRPAGE = ADC0_PAGE;
+	C$voltmeter.c$156$1$66 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:156: SFRPAGE = ADC0_PAGE;
 	mov	_SFRPAGE,#0x00
-	C$voltmeter.c$135$1$40 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:135: REF0CN = 0x03;
+	C$voltmeter.c$157$1$66 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:157: REF0CN = 0x03;
 	mov	_REF0CN,#0x03
-	C$voltmeter.c$136$1$40 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:136: AMX0CF = 0x00;
+	C$voltmeter.c$158$1$66 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:158: AMX0CF = 0x00;
 	mov	_AMX0CF,#0x00
-	C$voltmeter.c$137$1$40 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:137: ADC0CF = 0x40;
+	C$voltmeter.c$159$1$66 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:159: ADC0CF = 0x40;
 	mov	_ADC0CF,#0x40
-	C$voltmeter.c$138$1$40 ==.
-;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:138: ADC0CN = 0x80; // enable ADC conversion
+	C$voltmeter.c$160$1$66 ==.
+;	C:\Users\Christina\Documents\MPS\Versions\Lab_04\Part I - Voltmeter\voltmeter.c:160: ADC0CN = 0x80; // enable ADC conversion
 	mov	_ADC0CN,#0x80
-	C$voltmeter.c$139$1$40 ==.
+	C$voltmeter.c$161$1$66 ==.
 	XG$ADC_INIT$0$0 ==.
 	ret
 	.area CSEG    (CODE)
@@ -1920,31 +2262,60 @@ ___str_0:
 	.db 0x00
 Fvoltmeter$__str_1$0$0 == .
 ___str_1:
-	.ascii "UART is working"
+	.ascii "Current: "
+	.db 0x0A
+	.db 0x0D
+	.ascii "Average: "
+	.db 0x0A
+	.db 0x0D
+	.ascii "Min: "
+	.db 0x0A
+	.db 0x0D
+	.ascii "Max:"
+	.db 0x0A
+	.db 0x0D
 	.db 0x00
 Fvoltmeter$__str_2$0$0 == .
 ___str_2:
-	.ascii "Current Voltage is: %d7.6 , %X "
-	.db 0x0A
-	.db 0x0D
+	.db 0x1B
+	.ascii "[1;10H"
 	.db 0x00
 Fvoltmeter$__str_3$0$0 == .
 ___str_3:
-	.ascii "The Running Average is: %d7.6 , %X "
-	.db 0x0A
-	.db 0x0D
+	.ascii "%7.6f, 0x"
 	.db 0x00
 Fvoltmeter$__str_4$0$0 == .
 ___str_4:
-	.ascii "The Overall Minimum is: %d7.6 , %X "
-	.db 0x0A
-	.db 0x0D
+	.ascii "0"
 	.db 0x00
 Fvoltmeter$__str_5$0$0 == .
 ___str_5:
-	.ascii "The Overall Maximum is: %d7.6 , %X "
+	.ascii "%X"
+	.db 0x00
+Fvoltmeter$__str_6$0$0 == .
+___str_6:
+	.db 0x1B
+	.ascii "[2;9H"
+	.db 0x00
+Fvoltmeter$__str_7$0$0 == .
+___str_7:
+	.ascii "%X "
 	.db 0x0A
 	.db 0x0D
+	.db 0x00
+Fvoltmeter$__str_8$0$0 == .
+___str_8:
+	.db 0x1B
+	.ascii "[3;5H"
+	.db 0x00
+Fvoltmeter$__str_9$0$0 == .
+___str_9:
+	.db 0x1B
+	.ascii "[4;5H"
+	.db 0x00
+Fvoltmeter$__str_10$0$0 == .
+___str_10:
+	.ascii "%7.6f,0x"
 	.db 0x00
 	.area XINIT   (CODE)
 	.area CABS    (ABS,CODE)

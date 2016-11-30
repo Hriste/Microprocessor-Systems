@@ -8,6 +8,7 @@
 #include <c8051f120.h>          // SFR declarations.
 #include <stdio.h>              // Necessary for printf.
 #include <putget.h>
+#include <math.h>
 //-------------------------------------------------------------------------------------------
 // Global CONSTANTS
 //-------------------------------------------------------------------------------------------
@@ -15,11 +16,13 @@
 #define BAUDRATE0	9600
 
 //Global Variables
-__sbit __at 0x90 PB;
 float running = 0;
+int run = 0x00;
 float min = 100;
+int hmin = 0xFF;
 float max = 0;
-int trials = 1;
+int hmax = 0x00;
+float trials = 0.0;
 //-------------------------------------------------------------------------------------------
 // Function PROTOTYPES
 //-------------------------------------------------------------------------------------------
@@ -43,11 +46,13 @@ void main (void)
 	ADC_INIT();
 	SFRPAGE = LEGACY_PAGE;//same as UART0_PAGE
 	printf("\033[2J");
-	printf("UART is working");
+	//printf("UART is working \n\r");
+	printf("Current: \n\rAverage: \n\rMin: \n\rMax:\n\r");
 	while(1)
 	{
 		SFRPAGE = LEGACY_PAGE;
-		if(!PB)
+		
+		if(P1 == 0x00)
 		{
 			score(ADC_read());
 		}
@@ -67,15 +72,32 @@ unsigned int ADC_read()
 void score(unsigned int value)
 {
 	float volts;
-	volts = value*.0000366;
-	printf_fast_f("Current Voltage is: %d7.6 , %X \n\r",volts,volts);
-	running = (running*trials + value)/(trials+1);
+	int hvolts;
+	//printf("\033[2J");
+	volts = (value/1000.0);
+	volts = .5860806*volts;
+	printf("\033[1;10H");
+	printf_fast_f("%7.6f, 0x",volts);
+	hvolts = value/15.9961;//9375;
+	if (hvolts<0x10){printf("0");}
+	printf("%X", hvolts);
+	printf("\033[2;9H");
+	running = (running*trials + volts)/(trials+1);
+	run  = (run*trials + hvolts)/(trials+1);
 	trials ++;
-	if(volts<min){min = volts;}
-	if(volts>max){max = volts;}
-	printf_fast_f("The Running Average is: %d7.6 , %X \n\r",running, running);
-	printf_fast_f("The Overall Minimum is: %d7.6 , %X \n\r",min,min);
-	printf_fast_f("The Overall Maximum is: %d7.6 , %X \n\r",max,max);
+	if(volts<min){min = volts;hmin=hvolts;}
+	if(volts>max){max = volts;hmax=hvolts;}
+	printf_fast_f("%7.6f, 0x",running);
+	if (run<0x10){printf("0");}
+	printf("%X \n\r",run);
+	printf("\033[3;5H");
+	printf_fast_f("%7.6f, 0x",min);
+	if (hmin<0x10){printf("0");}
+	printf("%X",hmin);
+	printf("\033[4;5H");
+	printf_fast_f("%7.6f,0x",max);
+	if (hmax<0x10){printf("0");}
+	printf("%X",hmax);
 	
 }
 //Intilizations
